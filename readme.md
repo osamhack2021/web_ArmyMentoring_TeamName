@@ -55,14 +55,14 @@ $ yarn start or npm run start
  
 ## 팀 정보 (Team Information)
 
-|  이름  |        역할        |                       GitHub IDs                      |         E-Mails         |
-|:------:|:------------------:|:-----------------------------------------------------:|:-----------------------:|
-| 이지호 |  조장 / 프론트엔드  |           [mingmang2](github.com/mingmang2)           |   leejiho35@gmail.com   |
-| 박지인 |       백엔드       |            [nagi0101](github.com/nagi0101)            |   demon0315@naver.com   |
-| 양현동 |       백엔드       |       [Yanghyeondong](github.com/Yanghyeondong)       |   hdyang0686@naver.com  |
-| 이재용 |     프론트엔드     | [VirtualExplorer7613](github.com/VirtualExplorer7613) |  roqkfwk7613@gmail.com  |
-| 이채준 |       백엔드       |          [chaejunlee](github.com/chaejunlee)          |   chainjaxx@naver.com   |
-| 이현희 |     프론트엔드     |          [nonaninona](github.com/nonaninona)          | starcraft0529@gmail.com |
+|  이름  |        역할       |                           GitHub IDs                          |         E-Mails         |
+|:------:|:-----------------:|:-------------------------------------------------------------:|:-----------------------:|
+| 이지호 | 조장 / 프론트엔드 |           [mingmang2](https://github.com/mingmang2)           |   leejiho35@gmail.com   |
+| 박지인 |       백엔드      |            [nagi0101](https://github.com/nagi0101)            |   demon0315@naver.com   |
+| 양현동 |       백엔드      |       [Yanghyeondong](https://github.com/Yanghyeondong)       |   hdyang0686@naver.com  |
+| 이재용 |     프론트엔드    | [VirtualExplorer7613](https://github.com/VirtualExplorer7613) |  roqkfwk7613@gmail.com  |
+| 이채준 |       백엔드      |          [chaejunlee](https://github.com/chaejunlee)          |   chainjaxx@naver.com   |
+| 이현희 |     프론트엔드    |          [nonaninona](https://github.com/nonaninona)          | starcraft0529@gmail.com |
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
 
