@@ -1,4 +1,4 @@
-import logo from './logo.png';
+
 import React, {Component} from "react"
 import './App.css';
 
@@ -14,8 +14,7 @@ class App extends Component {
     
     <div className="App">
       <Header/>
-        
-        <Footer/>
+      <Footer/>
     </div>
     
   );

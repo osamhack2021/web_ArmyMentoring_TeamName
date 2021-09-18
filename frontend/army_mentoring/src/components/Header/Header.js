@@ -4,10 +4,13 @@ import logo from '../logo.png';
 class Header extends Component{
     render(){
         return(
-            <>
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Hello This is header</h2>
-            </>
+           
+            
+    <Header>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>헤더입니다</h1>
+    </Header>
+           
         )
     }
 }
