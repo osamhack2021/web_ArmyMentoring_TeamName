@@ -8,8 +8,8 @@ import Header from './Header/Header';
 //footer
 import Footer from './Footer/Footer';
 
-class App extends Component {
-  render(){
+function App() {
+  
     return (
     
     <div className="App">
@@ -18,7 +18,7 @@ class App extends Component {
     </div>
     
   );
-  }
+  
 }
 
 export default App;
