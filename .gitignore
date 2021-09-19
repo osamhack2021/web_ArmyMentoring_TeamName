@@ -387,3 +387,7 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,python,node,react,django,venv
+
+
+# Custom gitignore
+package-lock.json
