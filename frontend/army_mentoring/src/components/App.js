@@ -1,20 +1,15 @@
 
-import React, {Component} from "react"
+import React from "react"
 import './App.css';
+import Router from "./Router";
 
-//header
-import Header from './Header/Header';
-
-//footer
-import Footer from './Footer/Footer';
 
 function App() {
   
     return (
     
     <div className="App">
-      <Header/>
-      <Footer/>
+      <Router/>
     </div>
     
   );
