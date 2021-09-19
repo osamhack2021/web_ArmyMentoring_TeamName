@@ -1,5 +1,4 @@
 import React from "react";
-import { HashRouter} from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 
@@ -8,28 +7,17 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 export default () => (
     
-    <HashRouter>
+    <BrowserRouter>
         <Header />
-        <BrowserRouter>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/link1">link1</Link>
-          </li>
-          <li>
-            <Link to="/link2">link2</Link>
-          </li>
-        </ul>
         <Switch>
           <Route path="/" exact component={Home}></Route>
-          <Route path="/link1" component={link1}></Route>
-          <Route path="/link2" component={link2}></Route>
+          <Route path="/about" component={about}></Route>
+          <Route path="/community" component={community}></Route>
+          <Route path="/qna" component={qna}></Route>
+          <Route path="/mypage" component={mypage}></Route>
         </Switch>
-      </BrowserRouter>
         <Footer />
-    </HashRouter> 
+    </BrowserRouter> 
 
   );
 
@@ -37,10 +25,16 @@ export default () => (
     return <div>Home component</div>;
   }
   
-  function link1() {
-    return <div>1 component</div>;
+  function about() {
+    return <div>about</div>;
   }
   
-  function link2() {
-    return <div>2 component</div>;
+  function community() {
+    return <div>community</div>;
+  }
+  function qna() {
+    return <div>qna</div>;
+  }
+  function mypage() {
+    return <div>mypage</div>;
   }
