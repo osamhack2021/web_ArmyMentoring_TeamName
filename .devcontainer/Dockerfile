@@ -22,4 +22,4 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 # Set git environment
 RUN git config --global commit.template git-commit-template.txt
-RUN apt-get install git-flow
+RUN sudo apt-get update && apt-get install git-flow
