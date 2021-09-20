@@ -29,7 +29,8 @@
 		"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
 		"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
 		"python.linting.pylintArgs":[
-			"--load-plugins=pylint_django"
+			"--load-plugins=pylint_django",
+			"--django-settings-module=config.settings",
 		],
 	},
 
