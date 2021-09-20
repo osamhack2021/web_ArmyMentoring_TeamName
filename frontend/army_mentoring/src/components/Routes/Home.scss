@@ -1,0 +1,24 @@
+
+$background-color:#F0F0F0;
+
+
+.service{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+height: 656px;
+left: 0px;
+top: 216px;
+/* gray4 */
+background: $background-color;
+}
+
+.A{
+    display:none;
+
+&.hide{
+    display: block;
+}
+}
