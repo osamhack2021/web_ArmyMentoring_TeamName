@@ -5,7 +5,7 @@ import './Home.scss';
 
 function Home(){
 
-    const [qna , setQna] =useState('A');
+    
     const toggling=(e)=>{
     const clicked= e.target.parentElement;
     const toggled= clicked.nextSibling;
@@ -18,19 +18,24 @@ function Home(){
         return(
             <div>
                 <h2>This is Home</h2>
-                <div className='service'>
+
+                <div className='service home'>
                     <h2>군대에서의 멘토링 서비스</h2>
                 </div>
-                <div>
+
+                <div className='mentoring home'>
                     <h2>멘토링 가능한 목록들</h2>
                 </div>  
-                <div> 
+
+                <div className='howtodo home'> 
                     <h2>진행과정</h2>
                 </div> 
-                <div> 
+
+                <div className='review home'> 
                     <h2>멘토링 후기</h2>
                 </div> 
-                <div> 
+
+                <div className='faqs home'> 
                     <h2>FAQs</h2>
                     <div className='QnA'>
                         
