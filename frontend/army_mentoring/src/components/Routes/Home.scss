@@ -2,7 +2,7 @@
 $background-color:#F0F0F0;
 
 
-.service{
+.home{
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -14,7 +14,14 @@ top: 216px;
 /* gray4 */
 background: $background-color;
 }
+.home:nth-child(2n-1){
+    background-color: white;
+}
 
+.Q{
+    display: flex;
+    flex-direction: row;
+}
 .A{
     display:none;
 
