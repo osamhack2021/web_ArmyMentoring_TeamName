@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-
+import Home from "./Routes/Home";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 
@@ -21,9 +21,7 @@ export default () => (
 
   );
 
-  function Home() {
-    return <div>Home component</div>;
-  }
+
   
   function about() {
     return <div>about</div>;
