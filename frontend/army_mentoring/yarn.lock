@@ -8122,7 +8122,7 @@ node-releases@^1.1.61, node-releases@^1.1.75:
 
 node-sass@^6.0.1:
   version "6.0.1"
-  resolved "https://registry.npmjs.org/node-sass/-/node-sass-6.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-6.0.1.tgz#cad1ccd0ce63e35c7181f545d8b986f3a9a887fe"
   integrity sha512-f+Rbqt92Ful9gX0cGtdYwjTrWAaGURgaK5rZCWOgCNyGWusFYHhbqCCBoFBeat+HKETOU02AyTxNhJV0YZf2jQ==
   dependencies:
     async-foreach "^0.1.3"
