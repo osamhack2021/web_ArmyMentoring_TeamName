@@ -16,4 +16,3 @@ class UserReview(AbstractTimeStampModel):
     mentor=models.ForeignKey(User, related_name="received_reviews", on_delete=models.CASCADE)
     mentee=models.ForeignKey(User, related_name="created_reviews", on_delete=models.CASCADE)
     content=models.TextField(null=False)
-    
