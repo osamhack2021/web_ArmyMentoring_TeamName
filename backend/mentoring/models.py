@@ -5,9 +5,9 @@ from users.models import User
 from portfolio.models import Portfolio
 
 class Mentoring(AbstractTimeStampModel):
-    mentor=models.ForeignKey(User, on_delete=models.SET_NULL)
-    mentees=models.ManyToManyField(User)
-    Portfolio=models.ForeignKey(Portfolio, on_delete=models.SET_NULL)
+    mentor=models.ForeignKey(User, related_name="opened_mentoring", on_delete=models.CASCADE)
+    mentees=models.ManyToManyField(User, related_name="participated_mentoring")
+    Portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     title=models.CharField(max_length=120)
     deadline=models.DateTimeField(null=False)
     memo=models.TextField(null=False)

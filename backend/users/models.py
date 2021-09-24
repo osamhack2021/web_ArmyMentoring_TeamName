@@ -13,7 +13,7 @@ class User(AbstractBaseUser, AbstractTimeStampModel):
     description=models.CharField(max_length=120, null=False)
 
 class UserReview(AbstractTimeStampModel):
-    mentor=models.ForeignKey(User, on_delete=models.CASCADE)
-    mentee=models.ForeignKey(User, on_delete=models.CASCADE)
+    mentor=models.ForeignKey(User, related_name="received_reviews", on_delete=models.CASCADE)
+    mentee=models.ForeignKey(User, related_name="created_reviews", on_delete=models.CASCADE)
     content=models.TextField(null=False)
     
