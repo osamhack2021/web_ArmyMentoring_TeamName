@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     # third-party-apps
     'rest_framework',
     # custom-apps
+    'core',
     'users',
     'portfolio',
     'mentoring',
     'questions',
+    'tags',
 ]
 
 MIDDLEWARE = [
