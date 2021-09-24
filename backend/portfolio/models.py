@@ -8,12 +8,12 @@ class Portfolio(AbstractTimeStampModel):
     title=models.CharField(max_length=120, null=False)
 
 class PortfolioItem(AbstractTimeStampModel):
-    Portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     title=models.CharField(max_length=120, null=False)
     content=models.TextField(null=False)
     order=models.PositiveSmallIntegerField(null=False)
 
 class SpecificationCard(AbstractTimeStampModel):
-    Portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     title=models.CharField(max_length=120, null=False)
     description=models.TextField(null=False)
