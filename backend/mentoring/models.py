@@ -11,7 +11,8 @@ class Mentoring(AbstractTimeStampModel):
     portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     tags=models.ManyToManyField(Tag)
     title=models.CharField(max_length=120)
-    deadline=models.DateTimeField(null=False)
+    start_date=models.DateTimeField(null=False)
+    end_date=models.DateTimeField(null=False)
     memo=models.TextField(null=False)
     thumbnail=models.ImageField(null=False)
 
