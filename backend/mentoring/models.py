@@ -6,8 +6,8 @@ from portfolio.models import Portfolio
 from tags.models import Tag
 
 class Mentoring(AbstractTimeStampModel):
-    mentor=models.ForeignKey(User, related_name="opened_mentoring", on_delete=models.CASCADE)
-    mentees=models.ManyToManyField(User, related_name="participated_mentoring")
+    mentor=models.ForeignKey(User, related_name='opened_mentoring', on_delete=models.CASCADE)
+    mentees=models.ManyToManyField(User, related_name='participated_mentoring')
     portfolio=models.ForeignKey(Portfolio, on_delete=models.CASCADE)
     tags=models.ManyToManyField(Tag)
     title=models.CharField(max_length=120)
@@ -17,7 +17,7 @@ class Mentoring(AbstractTimeStampModel):
     thumbnail=models.ImageField(null=False)
 
 class Assignment(AbstractTimeStampModel):
-    mentoring=models.ForeignKey(Mentoring, on_delete=models.CASCADE)
+    mentoring=models.ForeignKey(Mentoring, related_name='assignments', on_delete=models.CASCADE)
     passed_mentees=models.ManyToManyField(User)
     title=models.CharField(max_length=120)
     content=models.TextField(null=False)
