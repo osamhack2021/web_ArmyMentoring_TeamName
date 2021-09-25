@@ -4,7 +4,7 @@ from portfolio.models import Portfolio, PortfolioItem, SpecificationCard
 from portfolio.serializers import PortfolioSerializer, PortfolioItemSerializer, SpecificationCardSerializer
 
 
-class ProtfolioViewSet(viewsets.ModelViewSet):
+class PortfolioViewSet(viewsets.ModelViewSet):
     queryset=Portfolio.objects.all()
     serializer_class=PortfolioSerializer
 
