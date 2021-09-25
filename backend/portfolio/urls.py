@@ -6,7 +6,7 @@ from portfolio import views
 
 
 router=DefaultRouter()
-router.register('portfolio', views.ProtfolioViewSet)
+router.register('portfolio', views.PortfolioViewSet)
 router.register('portfolio_item', views.PortfolioItemViewSet)
 router.register('specification_card', views.SpecificationCardViewSet)
 

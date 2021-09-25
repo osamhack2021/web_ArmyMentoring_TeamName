@@ -24,4 +24,5 @@ urlpatterns = [
     path('question/', include('questions.urls')),
     path('user/', include('users.urls')),
     path('tag/', include('tags.urls')),
+    path('mentoring/', include('mentoring.urls')),
 ]
