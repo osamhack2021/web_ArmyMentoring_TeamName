@@ -1,0 +1,13 @@
+.section{
+    display:flex;
+    flex-direction: column;
+    height:600px;
+    width:100%;
+    background-color: gray;
+    align-items:center;
+    justify-content: center;
+}
+
+.section:nth-child(2n-1){
+    background-color: white;
+}
