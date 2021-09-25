@@ -392,3 +392,6 @@ pip-selfcheck.json
 
 # Custom gitignore
 package-lock.json
+
+# Vscode Rest client testfile
+REST_TEST.http
