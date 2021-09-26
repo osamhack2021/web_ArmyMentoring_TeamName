@@ -22,6 +22,7 @@ $gray3 :#D4D4D4;
         justify-content: flex-start;
         border-bottom: 1px solid $gray3;
         margin:0px;
+        background-color: white;
     }
     li{
         display:inline-block;
@@ -33,4 +34,14 @@ $gray3 :#D4D4D4;
         color: black;
         font-weight: bold;
     }
+}
+
+.fixedNav{
+    position: fixed;
+    top : 0px;
+    width: 100%;
+}
+
+.staticNav{
+    position: static;
 }
