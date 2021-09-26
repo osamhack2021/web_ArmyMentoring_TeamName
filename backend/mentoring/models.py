@@ -16,9 +16,15 @@ class Mentoring(AbstractTimeStampModel):
     memo=models.TextField(null=False)
     thumbnail=models.ImageField(null=False)
 
+    def __str__(self):
+        return self.title
+
 class Assignment(AbstractTimeStampModel):
     mentoring=models.ForeignKey(Mentoring, related_name='assignments', on_delete=models.CASCADE)
     passed_mentees=models.ManyToManyField(User)
     title=models.CharField(max_length=120)
     content=models.TextField(null=False)
     deadline=models.DateTimeField(null=False)
+
+    def __str__(self):
+        return self.title
