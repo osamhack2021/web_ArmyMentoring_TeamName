@@ -1,3 +1,5 @@
+$gray3 :#D4D4D4;
+
 .section{
     display:flex;
     flex-direction: column;
@@ -8,6 +10,42 @@
     justify-content: center;
 }
 
-.section:nth-child(2n-1){
+.section:nth-child(2n){
     background-color: white;
+}
+
+.subnavbar{
+    ul{
+        list-style-type: none;
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom: 1px solid $gray3;
+        margin:0px;
+        background-color: white;
+    }
+    li{
+        display:inline-block;
+        width:150px;
+        padding:15px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+}
+
+.fixedNav{
+    position: fixed;
+    top : 0px;
+    width: 100%;
+}
+
+.staticNav{
+    position: static;
+}
+
+.clicked{
+    border-bottom: 1px solid green;
 }
