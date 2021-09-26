@@ -16,13 +16,34 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from rest_framework.routers import DefaultRouter
+
+from users.views import UserViewSet ,UserReviewViewSet
+from mentoring.views import MentoringViewSet, AssignmentViewSet
+from portfolio.views import PortfolioViewSet, PortfolioItemViewSet, SpecificationCardViewSet
+from questions.views import QuestionViewSet, QuestionCommentViewSet
+from tags.views import TagViewSet
+
+
+router=DefaultRouter(trailing_slash=False)
+# user
+router.register('user', UserViewSet)
+router.register('user-review', UserReviewViewSet)
+# mentoring
+router.register('mentoring', MentoringViewSet)
+router.register('assignment', AssignmentViewSet)
+# portfolio
+router.register('portfolio', PortfolioViewSet)
+router.register('portfolio-item', PortfolioItemViewSet)
+router.register('specification-card', SpecificationCardViewSet)
+# questions
+router.register('question', QuestionViewSet)
+router.register('question-comment', QuestionCommentViewSet)
+# tags
+router.register('tag', TagViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('portfolio/', include('portfolio.urls')),
-    path('question/', include('questions.urls')),
-    path('user/', include('users.urls')),
-    path('tag/', include('tags.urls')),
-    path('mentoring/', include('mentoring.urls')),
+    path('', include(router.urls)),
 ]
