@@ -4,14 +4,16 @@ import './Mentoring.scss';
 import Subnavbar from './Subnavbar';
 
 function Mentoring(){
-    const t = 
-    {
-        id : ['sgstmentoring', 'sgstmentor', 'srchmentoring'],
-        menu : [ '추천 멘토링', '추천 멘토', '멘토링 검색' ]
-    }
+    const menu = 
+    [
+        {id:'sgstmentoring', desc:'추천 멘토링'},
+        {id:'sgstmentor', desc:'추천 멘토'},
+        {id:'srchmentoring', desc:'멘토링 검색'}
+    ]
+
     return (
         <div>           
-            <Subnavbar t={t}></Subnavbar>
+            <Subnavbar menu={menu}></Subnavbar>
 
             <div className="section" id="sgstmentoring">
                 <h2>추천 멘토링</h2>

@@ -5,8 +5,8 @@ import './Subnavbar.scss';
 function Subnavbar(props){
 
     /* sub nav bar 하이라이팅 */
-    const highlighting = (e)=>{
-        const clicked = e.target.parentNode;
+    const highlighting = (ele)=>{
+        const clicked = ele;
         clicked.className = "clicked";
         
         var sib = clicked.nextSibling;
@@ -27,15 +27,27 @@ function Subnavbar(props){
             u.className = 'fixedNav';
         else
             u.className = 'staticNav';
+
+        const len = props.menu.length;
+        for(let i = len-1;i>=0;i--){
+            if(window.pageYOffset >= 80 + 600*i){
+                let ele = document.getElementById('test').children;
+                console.log(ele);
+                highlighting(ele[i]);
+                break;
+            }
+        }
     }
 
     /* sub nav bar 화면 따라가기 */
     const setNavStyle = (e)=>{
+        console.log(window.pageYOffset);
         const u = document.getElementById('test');
         if(window.pageYOffset > 80)
             u.className = 'fixedNav';
         else
             u.className = 'staticNav';
+        //if(window.pageYOffset > )
     }
 
     useEffect(()=>{
@@ -49,9 +61,9 @@ function Subnavbar(props){
     return ( 
         <div className="subnavbar">
             <ul id="test">
-                <li onClick={highlighting}><a href={"#"+props.t.id[0]}>{props.t.menu[0]}</a></li>
-                <li onClick={highlighting}><a href={"#"+props.t.id[1]}>{props.t.menu[1]}</a></li>
-                <li onClick={highlighting}><a href={"#"+props.t.id[2]}>{props.t.menu[2]}</a></li>
+                {props.menu.map((m)=>{
+                    return <li><a href={"#"+m.id}>{m.desc}</a></li>
+                })}
             </ul>
         </div>
     )

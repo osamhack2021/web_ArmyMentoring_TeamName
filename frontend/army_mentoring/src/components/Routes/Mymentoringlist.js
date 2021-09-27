@@ -3,22 +3,20 @@ import { Link } from 'react-router-dom';
 import './Mymentoringlist.scss';
 import Subnavbar from './Subnavbar';
 
-function Mymentoringlist(){
-    const t =
-    {
-        id:['asmentee', 'asmentor', 'waiting'],
-        menu:[
-            '멘티로서 진행중인 멘토링 목록',
-            '멘토로서 진행중인 멘토링 목록',
-            '신청 승낙 대기중인 멘토링 목록'  
-        ]
-    }
+function Mymentoringlist(){  
+    const menu = 
+    [
+        {id:'recent', desc:'최근 수강 강좌'},
+        {id:'asmentee', desc:'멘티로서 진행중인 멘토링 목록'},
+        {id:'asmentor', desc:'멘토로서 진행중인 멘토링 목록'},
+        {id:'waiting', desc:'신청 승낙 대기중인 멘토링 목록'}
+    ]
 
     return (
         <div>      
-            <Subnavbar t={t}></Subnavbar>
+            <Subnavbar menu={menu}></Subnavbar>
 
-            <div className="section">
+            <div className="section" id="recent">
                 <h2>최근 수강 강좌</h2>
             </div>
 
