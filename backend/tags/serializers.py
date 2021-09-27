@@ -6,3 +6,4 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tag
         fields = ['name']
+        read_only_fields = []
