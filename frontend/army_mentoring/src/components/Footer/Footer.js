@@ -1,11 +1,12 @@
 import React from "react";
+import './Footer.scss';
 
 function Footer(){
    
         return(
-            
-            <h2>This is Footer</h2>
-           
+            <div id="footer">
+                <h2>This is Footer</h2>
+            </div>
         )
     
 }

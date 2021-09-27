@@ -3,6 +3,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./Routes/Home";
 import Mentoring from "./Routes/Mentoring";
+import Mymentoringlist from "./Routes/Mymentoringlist";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 
@@ -13,6 +14,7 @@ export default () => (
     <Switch>
       <Route path="/" exact component={Home}></Route>
       <Route path="/mentoring" component={Mentoring}></Route>
+      <Route path="/mymentoringlist" component={Mymentoringlist}></Route>
       <Route path="/community" component={community}></Route>
       <Route path="/qna" component={qna}></Route>
       <Route path="/mypage" component={mypage}></Route>
