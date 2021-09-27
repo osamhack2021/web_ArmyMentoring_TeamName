@@ -6,24 +6,12 @@ from mentoring.models import Mentoring, Assignment
 class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=Assignment
-        fields=[
-            'mentoring',
-            'passed_mentees',
-            'title',
-            'content',
-            'deadline',
-        ]
+        fields='__all__'
+        read_only_fields=['created_at', 'updated_at']
 
 class MentoringSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=Mentoring
-        fields=[
-            'mentor', 'mentees',
-            'portfolio',
-            'tags',
-            'title',
-            'start_date', 'end_date',
-            'memo',
-            'thumbnail',
-            'assignments',
-            ]
+        fields='__all__'
+        read_only_fields=['created_at', 'updated_at']
+        depth=1
