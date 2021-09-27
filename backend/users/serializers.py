@@ -9,7 +9,8 @@ class UserReviewSerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 
-    user_reviews = UserReviewSerializer()
+    received_reviews = UserReviewSerializer()
+    created_reviews = UserReviewSerializer()
 
     class Meta:
         model = User
