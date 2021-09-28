@@ -21,5 +21,5 @@ class QuestionComment(AbstractTimeStampModel):
     content=models.TextField(null=False)
 
     def __str__(self):
-        return self.title
+        return f"{self.question} : {self.user}"
     
