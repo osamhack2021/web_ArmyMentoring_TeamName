@@ -4,11 +4,15 @@ import Footer from "./Footer/Footer";
 import Home from "./Routes/Home";
 import Mentoring from "./Routes/Mentoring";
 import Mymentoringlist from "./Routes/Mymentoringlist";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import Mentoringintroduction from "./Routes/Mentoring/Mentoringintroduction";
+import Makementoring from "./Routes/Mentoring/Makementoring";
+import Mentoringspecificmento from "./Routes/Mentoring/Mentoringspecificmento";
+import Mentoringspecificmentee from "./Routes/Mentoring/Mentoringspecificmentee";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 export default () => (
-    
+  
   <BrowserRouter>
     <Header />
     <Switch>
@@ -18,6 +22,10 @@ export default () => (
       <Route path="/community" component={community}></Route>
       <Route path="/qna" component={qna}></Route>
       <Route path="/mypage" component={mypage}></Route>
+      <Route path="/mentorintro" component={Mentoringintroduction}></Route>
+      <Route path="/makementoring"tor component={Makementoring}></Route>
+      <Route path="/mentoringspecificmento"tor component={Mentoringspecificmento}></Route>
+      <Route path="/mentoringspecificmentee"tor component={Mentoringspecificmentee}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 

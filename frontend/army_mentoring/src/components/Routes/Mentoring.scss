@@ -5,11 +5,11 @@ $gray3 :#D4D4D4;
     flex-direction: column;
     height:600px;
     width:100%;
-    background-color: gray;
+    background-color: white;
     align-items:center;
     justify-content: center;
 }
 
-.section:nth-child(2n){
-    background-color: white;
+.section:nth-child(2n-1){
+    background-color: $gray3;
 }
