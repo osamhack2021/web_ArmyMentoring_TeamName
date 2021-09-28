@@ -1,19 +1,20 @@
 from rest_framework import serializers
+
 from questions.models import Question, QuestionComment
+from users.serializers import UserSerializer
 
 class QuestionCommentSerializer(serializers.HyperlinkedModelSerializer):
-
+    
     class Meta:
         model = QuestionComment
-        fields = ['user', 'question', 'liked_user', 'content']
-        read_only_fields = ['liked_user']
+        fields='__all__'
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
-
-    question_comments = QuestionCommentSerializer(many=True)
-
+    question_comments = QuestionCommentSerializer(many=True, read_only=True)
+    
     class Meta:
         model = Question
-        fields = ['user', 'liked_user', 'title', 'content', 'question_comments']
-        read_only_fields = ['liked_user', 'question_comments']
-        extra_kwargs = {'question_comments': {'required': False}}
+        fields = '__all__'
+        extra_kwargs={
+            'user':{'required': True}
+        }
