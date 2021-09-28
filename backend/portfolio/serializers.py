@@ -25,7 +25,6 @@ class PortfolioSerializer(serializers.HyperlinkedModelSerializer):
         model=Portfolio
         fields='__all__'
         read_only_fields=['created_at', 'updated_at']
-        depth=1
 
     def create(self, validated_data):
         portfolio_items_data=validated_data.pop('portfolio_items')
