@@ -29,3 +29,22 @@ background: $background-color;
     display: block;
 }
 }
+
+.review{
+    .carousel-inner{
+        height: 500px;
+        width: 300px;
+    }
+    .carousel-item{
+        
+        height: 300px;
+        width: 300px;
+    }
+    .carousel-caption {
+        color: black;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    
+}

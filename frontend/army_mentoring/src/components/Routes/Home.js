@@ -1,8 +1,8 @@
 import React,{useState} from "react";
 import './Home.scss';
-
-
-
+import Mentoring_review from './Mentoring_review';
+import 'bootstrap/dist/css/bootstrap.css'
+import soldier from './soldier.png';
 function Home(){
 
     
@@ -21,6 +21,7 @@ function Home(){
 
                 <div className='service home'>
                     <h2>군대에서의 멘토링 서비스</h2>
+                    <img src={soldier}/>
                 </div>
 
                 <div className='mentoring home'>
@@ -30,9 +31,9 @@ function Home(){
                 <div className='howtodo home'> 
                     <h2>진행과정</h2>
                 </div> 
-
+                <h2>멘토링 후기</h2>
                 <div className='review home'> 
-                    <h2>멘토링 후기</h2>
+                    <Mentoring_review/>
                 </div> 
 
                 <div className='faqs home'> 
@@ -71,7 +72,6 @@ function Home(){
                 </div> 
             </div>
         )
-        
     
 }
 
