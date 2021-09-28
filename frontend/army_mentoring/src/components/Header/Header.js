@@ -6,7 +6,6 @@ function Header(){
         return(
             <div className="headerDiv">
                 <img className="logoImage" alt="logo" src={logo}/>
-                
                 <ul>
                     <li> <Link to="/">home</Link></li>
                     <li ><Link to="/mentoring">mentoring</Link></li>
@@ -14,9 +13,7 @@ function Header(){
                     <li> <Link to="/community">commuity</Link></li>
                     <li> <Link to="/qna">qna</Link></li>
                     <li> <Link to="/mypage">mypage</Link></li>
-                    
                 </ul>
-                
             </div>
         );
     
