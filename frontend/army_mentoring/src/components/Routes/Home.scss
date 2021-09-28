@@ -1,5 +1,5 @@
 
-$background-color:#F0F0F0;
+$background-color:white;
 
 
 .home{
@@ -14,9 +14,6 @@ top: 216px;
 /* gray4 */
 background: $background-color;
 }
-.home:nth-child(2n-1){
-    background-color: white;
-}
 
 .Q{
     display: flex;
@@ -29,7 +26,36 @@ background: $background-color;
     display: block;
 }
 }
+.service{
 
+    .section_service{
+        display: flex;
+        align-items: center;
+        .service_text{
+            flex-direction: column;
+            justify-content: center;          
+        }
+    }
+}
+
+.mentoring{
+    .section_mentoring{
+        display: flex;
+        flex-direction: row;
+        
+        div{
+            height: 100px;
+            width: 100px;
+            flex-direction: row;
+        }
+    }
+}
+
+.howtodo{
+    .section_howtodo{
+        display: flex;
+    }
+}
 .review{
     .carousel-inner{
         height: 500px;
