@@ -5,7 +5,7 @@ function MentorInfo() {
     return (
       <div className="MentorInfo">
         <h2 className="OneLineIntro">"한줄소개 입니다"</h2>
-        <img className="mentor-pic" src={propic} alt="멘토사진" />
+        <img className="mentor-pic" src="../logo.png" alt="멘토사진" />
         <div className="Summary">
           <h3 className="CareerTitle">간단한 이력</h3>
           <ul ClassName="CareerList" type="none">
