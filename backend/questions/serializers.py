@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from questions.models import Question, QuestionComment
-from users.serializers import UserSerializer
+
 
 class QuestionCommentSerializer(serializers.HyperlinkedModelSerializer):
     
@@ -10,8 +10,12 @@ class QuestionCommentSerializer(serializers.HyperlinkedModelSerializer):
         fields='__all__'
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
-    question_comments = QuestionCommentSerializer(many=True, read_only=True)
-    
+    question_comments = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='questioncomment-detail'
+        )
+
     class Meta:
         model = Question
         fields = '__all__'
