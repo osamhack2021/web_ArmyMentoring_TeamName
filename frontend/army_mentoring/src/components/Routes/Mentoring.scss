@@ -17,13 +17,18 @@ $gray3 :#D4D4D4;
             justify-content: center;
             align-content: center;
             a{
+                & p{
+                    font-size:15px;
+                }
                 display:block;
                 width:300px;
-                height:100px;
+                height:120px;
                 margin:15px;
-                border:1px solid black;
+                border:3px solid green;
+                box-shadow: 10px 5px 5px $gray3;
                 text-decoration: none;
                 color:black;
+                border-radius: 20px 20px 20px 0px;
             }
         }
     }
