@@ -9,15 +9,22 @@ class UserReviewSerializer(serializers.HyperlinkedModelSerializer):
         model = UserReview
         fields='__all__'
         read_only_fields = ['created_at', 'updated_at']
-        depth=1
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    received_reviews = UserReviewSerializer(many=True, read_only=True)
-    created_reviews = UserReviewSerializer(many=True, read_only=True)
+    received_reviews=serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='userreview-detail'
+    )
+    created_reviews=serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='userreview-detail'
+    )
 
     class Meta:
         model = User
-        exclude=['password']
+        exclude=['password', 'user_permissions']
         read_only_fields = [
             'created_at', 'updated_at', 
             'last_login',
@@ -28,4 +35,3 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
             'profile_image': {'required': False},
             'description': {}
             }
-        depth=1
