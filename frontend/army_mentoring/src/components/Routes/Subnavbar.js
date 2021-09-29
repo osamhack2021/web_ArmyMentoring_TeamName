@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import './Subnavbar.scss';
 
 function Subnavbar(props){
 
-    /* sub nav bar 하이라이팅 */
-    const highlighting = (ele)=>{
-        const clicked = ele;
-        clicked.className = "clicked";
+    /* sub nav bar의 선택된 list만 하이라이팅 */
+    const highlighting = (el)=>{
+        const target = el;
+        target.className = "highlighted";
         
-        var sib = clicked.nextSibling;
+        var sib = target.nextSibling;
         while(sib){
             sib.className = "";
             sib = sib.nextSibling;
         }
-        var sib = clicked.previousSibling;
+        sib = target.previousSibling;
         while(sib){
             sib.className = "";
             sib = sib.previousSibling;
         }
     }
 
-    const setNavHighlighting = ()=>{
-        const u = document.getElementById('test');
+    /* sub nav bar 화면 따라가기 및 하이라이팅 */
+    const setNavStyle = ()=>{
+        const u = document.getElementById('container');
         if(window.pageYOffset > 80)
             u.className = 'fixedNav';
         else
@@ -31,44 +31,29 @@ function Subnavbar(props){
         const len = props.menu.length;
         for(let i = len-1;i>=0;i--){
             if(window.pageYOffset >= 80 + 600*i){
-                let ele = document.getElementById('test').children;
-                console.log(ele);
+                let ele = document.getElementById('container').children;
                 highlighting(ele[i]);
                 break;
             }
         }
     }
 
-    /* sub nav bar 화면 따라가기 */
-    const setNavStyle = (e)=>{
-        console.log(window.pageYOffset);
-        const u = document.getElementById('test');
-        if(window.pageYOffset > 80)
-            u.className = 'fixedNav';
-        else
-            u.className = 'staticNav';
-        //if(window.pageYOffset > )
-    }
-
     useEffect(()=>{
         window.addEventListener('scroll', setNavStyle);
-        window.addEventListener('scroll', setNavHighlighting);
         return ()=>{
-            window.removeEventListener('scroll', setNavHighlighting);
+            window.removeEventListener('scroll', setNavStyle);
         }
     });
 
     return ( 
         <div className="subnavbar">
-            <ul id="test">
+            <ul id="container">
                 {props.menu.map((m)=>{
                     return <li><a href={"#"+m.id}>{m.desc}</a></li>
                 })}
             </ul>
         </div>
     )
-    //map함수로 메뉴 개수까지 맞춰줘야 함.
-
 
 }
 
