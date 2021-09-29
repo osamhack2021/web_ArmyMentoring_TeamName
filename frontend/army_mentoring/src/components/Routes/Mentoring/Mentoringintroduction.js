@@ -2,7 +2,7 @@ import React from 'react';
 import './Mentoringintroduction.scss';
 import Subnavbar from '../Subnavbar';
 
-function Mentoringintroduction(){
+function Mentoringintroduction(props){
     const menu = 
     [
         {id:'home', desc:'홈'},
@@ -17,7 +17,7 @@ function Mentoringintroduction(){
             <Subnavbar menu={menu}></Subnavbar>
 
             <div className="section" id="home">
-                <h2>홈</h2>
+                <h2>홈 {props.location.state.id}</h2>
             </div>
 
             <div className="section" id="mentorintro">
