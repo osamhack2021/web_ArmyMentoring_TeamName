@@ -1,20 +1,37 @@
 from rest_framework import serializers
+
 from users.models import User, UserReview
+
 
 class UserReviewSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = UserReview
-        fields = ['mentor', 'mentee', 'content']
-        read_only_fields = []
+        fields='__all__'
+        read_only_fields = ['created_at', 'updated_at']
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-
-    received_reviews = UserReviewSerializer()
-    created_reviews = UserReviewSerializer()
+    received_reviews=serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='userreview-detail'
+    )
+    created_reviews=serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='userreview-detail'
+    )
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'nickname', 'profile_image', 'experience_point', 'description', 'received_reviews', 'created_reviews']
-        read_only_fields = ['experience_point', 'received_reviews', 'created_reviews' ]
-        extra_kwargs = {'profile_image': {'required': False}}
+        exclude=['password', 'user_permissions']
+        read_only_fields = [
+            'created_at', 'updated_at', 
+            'last_login',
+            'experience_point',
+            'is_active', 'is_admin', 'is_superuser', 'is_staff'
+         ]
+        extra_kwargs = {
+            'profile_image': {'required': False},
+            'description': {}
+            }

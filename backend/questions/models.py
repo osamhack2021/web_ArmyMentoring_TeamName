@@ -16,10 +16,10 @@ class Question(AbstractTimeStampModel):
 
 class QuestionComment(AbstractTimeStampModel):
     user=models.ForeignKey(User, on_delete=CASCADE)
-    question=models.ForeignKey(Question, on_delete=models.CASCADE)
+    question=models.ForeignKey(Question, related_name='question_comments', on_delete=models.CASCADE)
     liked_user=models.ManyToManyField(User, related_name="liked_question_comments")
     content=models.TextField(null=False)
 
     def __str__(self):
-        return self.title
+        return f"{self.question} : {self.user}"
     
