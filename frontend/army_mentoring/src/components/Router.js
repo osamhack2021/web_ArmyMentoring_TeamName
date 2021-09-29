@@ -22,7 +22,7 @@ export default () => (
       <Route path="/community" component={community}></Route>
       <Route path="/qna" component={qna}></Route>
       <Route path="/mypage" component={mypage}></Route>
-      <Route path="/mentorintro" component={Mentoringintroduction}></Route>
+      <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
       <Route path="/makementoring"tor component={Makementoring}></Route>
       <Route path="/mentoringspecificmento"tor component={Mentoringspecificmento}></Route>
       <Route path="/mentoringspecificmentee"tor component={Mentoringspecificmentee}></Route>
