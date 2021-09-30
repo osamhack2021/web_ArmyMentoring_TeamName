@@ -48,12 +48,10 @@ function Subnavbar(props){
 
     useEffect(()=>{
         window.addEventListener('scroll', setNavStyle);
-        console.log('addEvent');
         return ()=>{
             window.removeEventListener('scroll', setNavStyle);
-            console.log('removeEvent');
         }
-    });
+    }, []);
 
     return (
         <div className="subnavbar">
