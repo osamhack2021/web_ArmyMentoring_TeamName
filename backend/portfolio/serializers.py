@@ -8,14 +8,14 @@ class PortfolioItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=PortfolioItem
         fields='__all__'
-        read_only_fields=['portfolio', 'created_at', 'updated_at']
+        read_only_fields=['created_at', 'updated_at']
 
 class SpecificationCardSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model=SpecificationCard
         fields='__all__'
-        read_only_fields=['portfolio', 'created_at', 'updated_at']
+        read_only_fields=['created_at', 'updated_at']
 
 class PortfolioSerializer(serializers.HyperlinkedModelSerializer):
     portfolio_items=PortfolioItemSerializer(many=True)
