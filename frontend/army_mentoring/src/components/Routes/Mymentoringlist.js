@@ -11,7 +11,7 @@ function Mymentoringlist(){
         {id:'asmentor', desc:'멘토로서 진행중인 멘토링 목록'},
         {id:'waiting', desc:'신청 승낙 대기중인 멘토링 목록'}
     ]
-
+    
     return (
         <div>      
             <Subnavbar menu={menu}></Subnavbar>
@@ -22,12 +22,12 @@ function Mymentoringlist(){
 
             <div className="section" id="asmentee">
                 <h2>멘티로서 진행중인 멘토링 목록</h2>
-                <Link to='mentoringspecificmentee'>mentoringspecificmentee</Link>
+                <Link to='/mentoringspecificmentee'>mentoringspecificmentee</Link>
             </div>
 
             <div className="section" id="asmentor">
                 <h2>멘토로서 진행중인 멘토링 목록</h2>
-                <Link to='mentoringspecificmento'>mentoringspecificmento</Link>
+                <Link to='/mentoringspecificmento'>mentoringspecificmento</Link>
             </div>
 
             <div className="section" id="waiting">
