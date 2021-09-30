@@ -1,9 +1,20 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect, useState }  from 'react';
 import { Link } from 'react-router-dom';
 import './Mentoring.scss';
 import Subnavbar from './Subnavbar';
 
+
 function Mentoring(){
+
+    useEffect(()=>{
+        console.log('mounting..');
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:'instant'
+        });
+        return console.log('unmounting..');
+    }, []);
     const menu = 
     [
         {id:'sgstmentoring', desc:'추천 멘토링'},
@@ -25,13 +36,17 @@ function Mentoring(){
         {id:9, title:'title9', desc:'desc9'}
     ]
 
-    useEffect(()=>{
-        window.scroll({
-            top:0,
-            left:0,
-            behavior:'instant'
-        })}
-    );
+    let [searchResult, setSearchResult] = useState([]);
+
+    const handleChange = (e)=>{
+
+        e.preventDefault();
+
+        let v = e.target.value;
+        let abc = searchResult.slice();
+        abc.push(v);
+        setSearchResult(abc);
+    }
 
     return (
         <div>           
@@ -70,7 +85,22 @@ function Mentoring(){
             </div>
 
             <div className="section" id="srchmentoring">
-                <h2>멘토링 검색</h2>
+                <div>
+                    <h2>멘토링 검색</h2>
+                    <ul>
+                        <li>IT</li>
+                        <li>운동</li>
+                    </ul>
+                    <div>
+                        <form>
+                            <input type="text" placeholder="멘토링 검색" onChange={handleChange}></input>
+                            <input type="text" style={{display:'none'}}></input> {/*input이 1개일 경우 자동으로 submit이 되는 것을 방지*/}
+                        </form>
+                    </div>
+                    <p>
+                        {"검색결과"}<br />{searchResult.join(' ')}
+                    </p>
+                </div>
             </div>
 
             <Link to="/makementoring" id="button">make mentoring</Link>
