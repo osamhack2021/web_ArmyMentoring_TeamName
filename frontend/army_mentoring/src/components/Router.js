@@ -23,9 +23,9 @@ export default () => (
       <Route path="/qna" component={qna}></Route>
       <Route path="/mypage" component={mypage}></Route>
       <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
-      <Route path="/makementoring"tor component={Makementoring}></Route>
-      <Route path="/mentoringspecificmento"tor component={Mentoringspecificmento}></Route>
-      <Route path="/mentoringspecificmentee"tor component={Mentoringspecificmentee}></Route>
+      <Route path="/makementoring" component={Makementoring}></Route>
+      <Route path="/mentoringspecificmento" component={Mentoringspecificmento}></Route>
+      <Route path="/mentoringspecificmentee" component={Mentoringspecificmentee}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 
