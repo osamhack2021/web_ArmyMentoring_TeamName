@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useEffect }  from 'react';
 import { Link } from 'react-router-dom';
 import './Mentoring.scss';
 import Subnavbar from './Subnavbar';
@@ -24,6 +24,14 @@ function Mentoring(){
         {id:8, title:'title8', desc:'desc8'},
         {id:9, title:'title9', desc:'desc9'}
     ]
+
+    useEffect(()=>{
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:'instant'
+        })}
+    );
 
     return (
         <div>           

@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './Home.scss';
 import Mentoring_review from './Mentoring_review';
 import 'bootstrap/dist/css/bootstrap.css'
 import soldier from './soldier.png';
 function Home(){
 
+
+    useEffect(()=>{
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:'instant'
+        })}
+    );
     
     const toggling=(e)=>{
     const clicked= e.target.parentElement;

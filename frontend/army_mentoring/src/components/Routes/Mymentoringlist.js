@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Mymentoringlist.scss';
 import Subnavbar from './Subnavbar';
@@ -11,7 +11,15 @@ function Mymentoringlist(){
         {id:'asmentor', desc:'멘토로서 진행중인 멘토링 목록'},
         {id:'waiting', desc:'신청 승낙 대기중인 멘토링 목록'}
     ]
-    
+
+    useEffect(()=>{
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:'instant'
+        })}
+    );
+
     return (
         <div>      
             <Subnavbar menu={menu}></Subnavbar>
