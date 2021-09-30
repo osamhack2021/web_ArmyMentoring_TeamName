@@ -31,28 +31,41 @@ function Mentoring(){
 
             <div className="section" id="sgstmentoring">
                 <div>
-                <h2>추천 멘토링</h2>
-                <Link to="/makementoring">make mentoring</Link>
-                <p>
-                    {sgstmentoringData.map((m)=>{
-                            return <Link to={{
-                                pathname : '/mentoringintro',
-                                state : {
-                                    id: m.id
-                                }}
-                            }><h4>{m.title}</h4><p>{m.desc}</p></Link>
-                    })}
-                </p>
+                    <h2>추천 멘토링</h2>
+                    <p>
+                        {sgstmentoringData.map((m)=>{
+                                return <Link to={{
+                                    pathname : '/mentoringintro',
+                                    state : {
+                                        id: m.id
+                                    }}
+                                }><h4>{m.title}</h4><p>{m.desc}</p></Link>
+                        })}
+                    </p>
                 </div>
             </div>
 
             <div className="section" id="sgstmentor">
-                <h2>추천 멘토</h2>
+                <div>
+                    <h2>추천 멘토</h2>
+                    <p>
+                        {sgstmentoringData.map((m)=>{
+                                return <Link to={{
+                                    pathname : '/mentoringintro',
+                                    state : {
+                                        id: m.id
+                                    }}
+                                }><h4>{m.title}</h4><p>{m.desc}</p></Link>
+                        })}
+                    </p>
+                </div>
             </div>
 
             <div className="section" id="srchmentoring">
                 <h2>멘토링 검색</h2>
             </div>
+
+            <Link to="/makementoring" id="button">make mentoring</Link>
         </div>
     )
 
