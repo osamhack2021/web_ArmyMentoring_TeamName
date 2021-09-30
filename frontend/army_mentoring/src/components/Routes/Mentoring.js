@@ -48,6 +48,10 @@ function Mentoring(){
         setSearchResult(abc);
     }
 
+    const filtering = (e)=>{
+        console.log('filtering');
+    }
+
     return (
         <div>           
             <Subnavbar menu={menu}></Subnavbar>
@@ -88,8 +92,8 @@ function Mentoring(){
                 <div>
                     <h2>멘토링 검색</h2>
                     <ul>
-                        <li>IT</li>
-                        <li>운동</li>
+                        <li onClick={filtering}>IT</li>
+                        <li onClick={filtering}>운동</li>
                     </ul>
                     <div>
                         <form>
