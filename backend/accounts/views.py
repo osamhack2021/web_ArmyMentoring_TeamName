@@ -1,10 +1,15 @@
 from rest_framework import viewsets, permissions, generics, status
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import AllowAny, IsAuthenticated
+
+from django.contrib.auth import authenticate
+
 from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer
 from users.models import User
 
 class RegistrationAPI(generics.GenericAPIView):
+    permission_classes = [AllowAny]
     serializer_class = CreateUserSerializer
 
     def post(self, request, *args, **kwargs):
@@ -26,21 +31,25 @@ class RegistrationAPI(generics.GenericAPIView):
 
 
 class LoginAPI(generics.GenericAPIView):
+    permission_classes = [AllowAny]
     serializer_class = LoginUserSerializer
 
     def post(self, request, *args, **kwargs):
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data
-        return Response(
-            {
-                "user": UserSerializer(
-                    user, context=self.get_serializer_context()
-                ).data,
-                "token": Token.objects.create(user=user).key
-            }
-        )
+        
+        if user is not None:
+            token, created = Token.objects.get_or_create(user=user)
 
+            return Response({"email": user.email, "Token": token.key})
+
+        else:
+            return Response([], status=status.HTTP_401_UNAUTHORIZED)
+
+class LogoutAPI(generics.GenericAPIView):
+    pass
 
 class UserAPI(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
