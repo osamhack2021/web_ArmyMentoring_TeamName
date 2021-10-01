@@ -1,7 +1,9 @@
-import react, { Component } from "react";
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
-import "./MentorIntroduction.scss";
+import "./Mentorintroduction.scss";
 import soldier from "./soldier.png";
+import reactimg from "./react.png";
+import tomcatimg from "./tomcat.png";
 import Subnavbar from './Subnavbar';
 
 function MentorInfo() {
@@ -38,13 +40,13 @@ function Project() {
       id: 1,
       title: "React OpenSource Project",
       text: "저는 React 프로젝트에 참여해서 이런 걸 만들었습니다.",
-      img: "./react.png"
+      img: reactimg
     },
     {
       id: 2,
       title: "Tomcat OpenSource Project",
       text: "저는 Tomcat 프로젝트에 참여해서 이런 걸 만들었습니다.",
-      img: "./tomcat.png"
+      img: tomcatimg
     }
   ];
 
@@ -154,7 +156,15 @@ function MentorIntroduction() {
         {id:'Certificates', desc:'자격증'},
         {id:'MentoringInfos', desc:'멘토링소개'},
         {id:'MentoringReviews', desc: '멘토링 후기'}
-    ]
+    ];
+
+    useEffect(()=>{
+      window.scroll({
+          top:0,
+          left:0,
+          behavior:'instant'
+      })}, []
+    );
   return (
     <div>
         <Subnavbar menu={menu}></Subnavbar>
