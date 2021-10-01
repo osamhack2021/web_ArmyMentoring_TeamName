@@ -261,5 +261,47 @@ $gray3 : #D4D4D4;
       padding: 5px 20px 10px 50px;
     };
   };
- 
-}
+};
+
+
+.ReviewInfo{
+  display:flex;
+  flex-direction: row;
+  // position: absolute;
+  left: 50%;
+  right: 50%;
+  height:956px;
+  width: 1500px;
+  margin: 0 auto;
+  background-color: white;
+  align-items:center;
+  justify-content: center;
+
+  .Review{
+    width: 800px;
+    height: 300px;
+    background-color: $secondary;
+    padding: 10px;
+    // border: solid 1px;
+    margin: 35px;
+    border-radius: 15px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+
+    .ReviewTitle{
+      font-size: 28px;
+      text-align: left;
+      padding-left: 50px;
+    };
+    .ReviewText{
+      font-size: 36px;
+      text-align: left;
+      padding: 5px 20px 10px 50px;
+    };
+    .Id{
+      font-size: 25px;
+    }
+  };
+};

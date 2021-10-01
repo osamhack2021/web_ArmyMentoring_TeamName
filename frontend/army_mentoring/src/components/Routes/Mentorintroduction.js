@@ -111,22 +111,60 @@ function MentoringInfo() {
   return <div className="MentoringInfo">{mentoringLists}</div>;
 }
 
+function MentoringReview() {
+  const reviews = [
+    {
+      id: "육군 일병 김00",
+      title: "#1. 프로그래밍 멘토링 후기",
+      text: "초보자도 쉽게 할 수 있습니다!"
+    },
+    {
+      id: "해군 상병 이00",
+      title: "#2. 운동 멘토링 후기",
+      text: "지금까지 이런 멘토링은 없었다! 이것은 멘토링인가 PT인가."
+    }
+    // {
+    //   id: "공군 병장 박00",
+    //   title: "#3. 진로 멘토링 후기",
+    //   text: "지금까지 이런 멘토링은 없었다! 이것은 멘토링인가 PT인가."
+    // }
+  ];
+
+  const reviewList = reviews.map((review) => (
+    <div className="Review" key={review.id}>
+      <h4 className="ReviewTitle" key={review.id}>
+        {review.title}
+      </h4>
+      <p className="ReviewText" key={review.id}>
+        {review.text}
+      </p>
+      <div className="Id">-{review.id}-</div>
+    </div>
+  ));
+
+  return <div className="ReviewInfo">{reviewList}</div>;
+}
+
+
 function MentorIntroduction() {
   const menu = 
     [
-        {id:'sgstmentoring', desc:'추천 멘토링'},
-        {id:'sgstmentor', desc:'추천 멘토'},
-        {id:'srchmentoring', desc:'멘토링 검색'}
+        {id:'MentorInfos', desc:'멘토소개'},
+        {id:'Projects', desc:'보유 능력 카드'},
+        {id:'Certificates', desc:'자격증'},
+        {id:'MentoringInfos', desc:'멘토링소개'},
+        {id:'MentoringReviews', desc: '멘토링 후기'}
     ]
   return (
     <div>
         <Subnavbar menu={menu}></Subnavbar>
         <div className="MentorIntro">
-          <MentorInfo />
-         <div className="Empty"></div>
-          <Project />
-          <Certificate />
-          <MentoringInfo />
+          <MentorInfo id="MentorInfos"/>
+          <div className="Empty"></div>
+          <Project id="Projects"/>
+          <Certificate id="Certificates"/>
+          <MentoringInfo id='MentoringInfos'/>
+          <MentoringReview id=' MentoringReviews'/>
         </div>
     </div>
   );
