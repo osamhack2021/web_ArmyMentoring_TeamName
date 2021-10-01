@@ -1,5 +1,5 @@
 $background-color:white;
-
+$main-green:#6BA259;
 
 .home{
 display: flex;
@@ -14,56 +14,91 @@ top: 216px;
 background: $background-color;
 }
 
-.Q{
-    display: flex;
-    flex-direction: row;
-}
-.A{
-    display:none;
 
-&.hide{
-    display: block;
-}
-}
 .service{
-
+    background-color: #F0F0F0;
+    margin-bottom: 100px;
     .section_service{
         display: flex;
         align-items: center;
+        margin: 30px;
         .service_text{
             flex-direction: column;
-            justify-content: center;          
+            justify-content: center;       
+            margin: 30px;  
+            h2{
+                margin: 30px;
+            } 
+        }
+        img{
+            width: 300px;
+            height: auto;
         }
     }
 }
 
 .mentoring{
+    margin-bottom: 100px;
     .section_mentoring{
         display: flex;
         flex-direction: row;
         
-        div{
-            height: 100px;
-            width: 100px;
+        .mentoring_box1{
+            height: 300px;
+            width: 300px;
+            margin: 10px;
+            color: white;
             flex-direction: row;
+            background-color: $main-green;
+        }
+        .mentoring_img1{
+            border-radius:50px 50px 0px 50px;
+            background-image:url('./img/coding.jpg') ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        }
+        .mentoring_img2{
+            border-radius:50px 50px 50px 0px;
+            
+        }
+        .mentoring_img3{
+            border-radius:50px 0px 50px 50px;
+            
+        }
+        .mentoring_img4{
+            border-radius:0px 50px 50px 50px;
+            
         }
     }
 }
 
 .howtodo{
+    background-color: #F0F0F0;
+    margin-bottom: 100px;
     .section_howtodo{
         display: flex;
+        .howtodo_box1{
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+            background-color: $main-green;
+            border-radius:30px 30px 30px 0px;
+        }
+        
     }
 }
 .review{
+    margin-bottom: 100px;
     .carousel-inner{
-        height: 500px;
-        width: 300px;
+        height: 800px;
+        width: 600px;
     }
-    .carousel-item{
-        
-        height: 300px;
-        width: 300px;
+    .carousel-item > img{
+        height: 500px;
+        width: 450px;
+        //img 크기 500/450으로 고정
     }
     .carousel-caption {
         color: black;
@@ -72,4 +107,61 @@ background: $background-color;
         top: 0;
     }
     
+}
+.faqs{
+    background-color: #F0F0F0;
+    
+    button{
+        background:$main-green;
+        color:#fff;
+        border:none;
+        position:relative;
+        height:30px;
+        width:auto;
+        font-size:1em;
+        padding:0 2em;
+        cursor:pointer;
+        transition:800ms ease all;
+        outline:none;
+        margin-left: 5px;
+        border-radius: 5px;
+      }
+      button:hover{
+        background:#fff;
+        color:$main-green;
+      }
+      button:before,button:after{
+        content:'';
+        position:absolute;
+        top:0;
+        right:0;
+        height:2px;
+        width:0;
+        background: $main-green;
+        transition:400ms ease all;
+      }
+      button:after{
+        right:inherit;
+        top:inherit;
+        left:0;
+        bottom:0;
+      }
+      button:hover:before,button:hover:after{
+        width:100%;
+        transition:800ms ease all;
+      }
+
+}
+.Q{
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: center;
+}
+.A{
+    display:none;
+
+&.hide{
+    display: block;
+}
 }

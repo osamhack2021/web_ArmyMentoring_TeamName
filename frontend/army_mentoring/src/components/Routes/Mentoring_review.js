@@ -1,7 +1,7 @@
 import React from 'react';
 import {UncontrolledCarousel} from 'reactstrap';
-import review1 from './review1.jpg';
-import review2 from './review2.jpg';
+import review1 from './img/review1.jpg';
+import review2 from './img/review2.jpg';
 
 const items=[
     {

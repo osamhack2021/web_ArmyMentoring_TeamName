@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./Routes/Home";
+import Mypage from "./Routes/Mypage";
+import Community from "./Routes/Community";
 import Mentoring from "./Routes/Mentoring";
 import Mymentoringlist from "./Routes/Mymentoringlist";
 import Mentoringintroduction from "./Routes/Mentoring/Mentoringintroduction";
@@ -20,9 +22,9 @@ export default () => (
       <Route path="/" exact component={Home}></Route>
       <Route path="/mentoring" component={Mentoring}></Route>
       <Route path="/mymentoringlist" component={Mymentoringlist}></Route>
-      <Route path="/community" component={community}></Route>
-      <Route path="/qna" component={qna}></Route>
-      <Route path="/mypage" component={mypage}></Route>
+      <Route path="/Community" component={Community}></Route>
+      
+      <Route path="/Mypage" component={Mypage}></Route>
       <Route path="/mentorintro" component={MentorIntroduction}></Route>
       <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
       <Route path="/makementoring" component={Makementoring}></Route>
@@ -35,12 +37,3 @@ export default () => (
 );
 
 
-function community() {
-  return <div>community</div>;
-}
-function qna() {
-  return <div>qna</div>;
-}
-function mypage() {
-  return <div>mypage</div>;
-}

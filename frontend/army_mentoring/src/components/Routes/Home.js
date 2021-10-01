@@ -2,7 +2,9 @@ import React, {useEffect} from "react";
 import './Home.scss';
 import Mentoring_review from './Mentoring_review';
 import 'bootstrap/dist/css/bootstrap.css'
-import soldier from './soldier.png';
+import soldier from './img/soldier.png';
+import { Link} from "react-router-dom";
+
 function Home(){
 
 
@@ -34,18 +36,18 @@ function Home(){
                     <img src={soldier}/>
                     </div>
 
-                    <button>더 알아보기</button>
+                    <button><Link to="/mentoring">더 알아보기</Link></button>
                 </div>
 
                 <div className='mentoring home'>
                     <h2>멘토링 가능한 목록들</h2>
                     <div className='section_mentoring'>
-                        <div>1</div>
-                        <div>2</div>
+                        <div className='mentoring_box1 mentoring_img1'>코딩</div>
+                        <div className='mentoring_box1 mentoring_img2'>2</div>
                     </div>
                     <div className='section_mentoring'>
-                        <div>3</div>
-                        <div>4</div>
+                        <div className='mentoring_box1 mentoring_img3'>3</div>
+                        <div className='mentoring_box1 mentoring_img4'>4</div>
                     </div>
                     <button>더 알아보기</button>
                  
@@ -54,10 +56,10 @@ function Home(){
                 <div className='howtodo home'> 
                     <h2>진행과정</h2>
                     <div className='section_howtodo'>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
+                    <div className='howtodo_box1'>1</div>
+                    <div className='howtodo_box1'>2</div>
+                    <div className='howtodo_box1'>3</div>
+                    <div className='howtodo_box1'>4</div>
                     </div>
                 </div> 
                 
@@ -71,7 +73,7 @@ function Home(){
                     <div className='QnA'>
                         <div className='Q'>
                             <p>멘토/멘티 두가지 활동을 동시에 진행가능한가요?</p>
-                            <button onClick={toggling}/>
+                            <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
                             <p>
@@ -82,7 +84,7 @@ function Home(){
                     <div className='QnA'>
                         <div className='Q'>
                             <p>여러가지 포트폴리오를 올리기가 가능한가요?</p>
-                            <button onClick={toggling}/>
+                            <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
                             <p>
@@ -93,7 +95,7 @@ function Home(){
                     <div className='QnA'>
                         <div className='Q'>
                             <p>멘토링을 도중에 중단하기 가능한가요?</p>
-                            <button onClick={toggling}/>
+                            <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
                             <p>
@@ -104,7 +106,7 @@ function Home(){
                     <div className='QnA'>
                         <div className='Q'>
                             <p>훈련/ 일과 때문에 힘들것같은데 멘토링 시간 조정이 가능한가요?</p>
-                            <button onClick={toggling}/>
+                            <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
                             <p>
@@ -115,7 +117,7 @@ function Home(){
                     <div className='QnA'>
                         <div className='Q'>
                             <p>질문5</p>
-                            <button onClick={toggling}/>
+                            <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
                             <p>

@@ -1,7 +1,7 @@
 import react, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./MentorIntroduction.scss";
-import soldier from "./soldier.png";
+import "./Mentorintroduction.scss";
+import soldier from './img/soldier.png';
 import Subnavbar from './Subnavbar';
 
 function MentorInfo() {

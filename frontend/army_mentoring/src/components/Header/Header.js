@@ -11,7 +11,7 @@ function Header(){
                     <li ><Link to="/mentoring">mentoring</Link></li>
                     <li ><Link to="/mymentoringlist">mymentoringlist</Link></li>
                     <li> <Link to="/community">commuity</Link></li>
-                    <li> <Link to="/qna">qna</Link></li>
+                    
                     <li> <Link to="/mypage">mypage</Link></li>
                 </ul>
             </div>
