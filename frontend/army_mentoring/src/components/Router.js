@@ -9,6 +9,7 @@ import Makementoring from "./Routes/Mentoring/Makementoring";
 import Mentoringspecificmento from "./Routes/Mentoring/Mentoringspecificmento";
 import Mentoringspecificmentee from "./Routes/Mentoring/Mentoringspecificmentee";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import MentorIntroduction from "./Routes/Mentorintroduction";
 
 
 export default () => (
@@ -22,6 +23,7 @@ export default () => (
       <Route path="/community" component={community}></Route>
       <Route path="/qna" component={qna}></Route>
       <Route path="/mypage" component={mypage}></Route>
+      <Route path="/mentorintro" component={MentorIntroduction}></Route>
       <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
       <Route path="/makementoring" component={Makementoring}></Route>
       <Route path="/mentoringspecificmento" component={Mentoringspecificmento}></Route>
