@@ -2,6 +2,7 @@ from rest_framework import viewsets, permissions, generics, status
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer
+from users.models import User
 
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
@@ -15,9 +16,13 @@ class RegistrationAPI(generics.GenericAPIView):
                 "user": UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token": Token.objects.create(user),
+                "token": Token.objects.create(user=user).key,
             }
         )
+    
+    # def get(self, request):
+    #     serializer = UserSerializer(User.objects.all(), many=True)
+    #     return Response(serializer.data)
 
 
 class LoginAPI(generics.GenericAPIView):
@@ -32,7 +37,7 @@ class LoginAPI(generics.GenericAPIView):
                 "user": UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token": Token.objects.create(user)[1],
+                "token": Token.objects.create(user=user).key
             }
         )
 

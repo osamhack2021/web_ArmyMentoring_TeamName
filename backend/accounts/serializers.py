@@ -7,7 +7,7 @@ from users.models import User
 class CreateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        field = (
+        fields = (
             "username", 
             "email", 
             "password", 
@@ -19,11 +19,11 @@ class CreateUserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(
             validated_data["email"],
-            validated_data["username"],
-            validated_data["password"],
-            validated_data["nickname"],
-            validated_data["profile_image"],
-            validated_data["description"]
+            username=validated_data["username"],
+            password=validated_data["password"],
+            nickname=validated_data["nickname"],
+            profile_image=validated_data["profile_image"],
+            description=validated_data["description"],
         )
         return user
 
@@ -32,7 +32,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        field = ("username", "email")
+        fields = ("username", "email")
 
 
 # 로그인
