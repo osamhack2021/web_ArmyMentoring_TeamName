@@ -8,9 +8,11 @@ class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
         model=Assignment
         fields='__all__'
         read_only_fields=['created_at', 'updated_at']
-
 class MentoringSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=Mentoring
         fields='__all__'
         read_only_fields=['created_at', 'updated_at']
+        extra_kwargs={
+            'tags':{'required': False}
+        }

@@ -33,5 +33,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
          ]
         extra_kwargs = {
             'profile_image': {'required': False},
-            'description': {}
             }
