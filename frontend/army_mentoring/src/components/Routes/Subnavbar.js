@@ -45,7 +45,7 @@ function Subnavbar(props){
             }
         }
     }
-
+    
     useEffect(()=>{
         window.addEventListener('scroll', setNavStyle);
         return ()=>{

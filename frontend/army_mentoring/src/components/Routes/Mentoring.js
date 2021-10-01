@@ -7,14 +7,12 @@ import Subnavbar from './Subnavbar';
 function Mentoring(){
 
     useEffect(()=>{
-        console.log('mounting..');
         window.scroll({
             top:0,
             left:0,
             behavior:'instant'
-        });
-        return console.log('unmounting..');
-    }, []);
+        })}, []
+    );
     const menu = 
     [
         {id:'sgstmentoring', desc:'추천 멘토링'},
@@ -78,7 +76,7 @@ function Mentoring(){
                     <p>
                         {sgstmentoringData.map((m)=>{
                                 return <Link to={{
-                                    pathname : '/mentoringintro',
+                                    pathname : '/mentorintro',
                                     state : {
                                         id: m.id
                                     }}
