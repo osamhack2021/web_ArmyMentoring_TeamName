@@ -37,13 +37,13 @@ function Project() {
     {
       id: 1,
       title: "React OpenSource Project",
-      text: "저는 이런 프로젝트에 참여해서 이런 걸 만들었습니다.",
+      text: "저는 React 프로젝트에 참여해서 이런 걸 만들었습니다.",
       img: "./react.png"
     },
     {
       id: 2,
       title: "Tomcat OpenSource Project",
-      text: "저는 이런 프로젝트에 참여해서 이런 걸 만들었습니다.",
+      text: "저는 Tomcat 프로젝트에 참여해서 이런 걸 만들었습니다.",
       img: "./tomcat.png"
     }
   ];
