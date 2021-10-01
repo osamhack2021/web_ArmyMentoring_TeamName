@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Mentoringintroduction.scss';
 import Subnavbar from '../Subnavbar';
 
@@ -11,6 +11,15 @@ function Mentoringintroduction(props){
         {id:'plan', desc:'세부 일정'},
         {id:'review', desc:'후기'}
     ]
+
+
+    useEffect(()=>{
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:'instant'
+        })}, []
+    );
 
     return (
         <div>           

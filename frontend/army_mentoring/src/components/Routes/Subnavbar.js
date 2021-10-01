@@ -6,6 +6,10 @@ function Subnavbar(props){
     /* sub nav bar의 선택된 list만 하이라이팅 */
     const highlighting = (el)=>{
         const target = el;
+        if(target == null || target == undefined){
+            console.log('target is null');
+            return;
+        }
         target.className = "highlighted";
         
         var sib = target.nextSibling;
@@ -23,6 +27,10 @@ function Subnavbar(props){
     /* sub nav bar 화면 따라가기 및 하이라이팅 */
     const setNavStyle = ()=>{
         const u = document.getElementById('container');
+        if(u == null || u == undefined){
+            console.log('u is null');
+            return;
+        }
         if(window.pageYOffset > 80)
             u.className = 'fixedNav';
         else
@@ -43,9 +51,9 @@ function Subnavbar(props){
         return ()=>{
             window.removeEventListener('scroll', setNavStyle);
         }
-    });
+    }, []);
 
-    return ( 
+    return (
         <div className="subnavbar">
             <ul id="container">
                 {props.menu.map((m)=>{
