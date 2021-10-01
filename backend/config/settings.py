@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third-party-apps
     'rest_framework',
+    'rest_framework.authtoken',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
     # custom-apps
     'core',
     'users',
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
     'mentoring',
     'questions',
     'tags',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -136,7 +141,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
+        # 'rest_framework.authentication.TokenAuthentication',
     ]
 }
 
 AUTH_USER_MODEL = 'users.User'
+
+SITE_ID = 1
