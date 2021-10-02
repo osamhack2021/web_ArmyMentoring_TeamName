@@ -9,13 +9,19 @@ class PortfolioItemSerializer(serializers.HyperlinkedModelSerializer):
         model=PortfolioItem
         fields='__all__'
         read_only_fields=['created_at', 'updated_at']
-
+        extra_kwargs = {
+            'portfolio': {'required': False},
+        }
+        
 class SpecificationCardSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model=SpecificationCard
         fields='__all__'
         read_only_fields=['created_at', 'updated_at']
+        extra_kwargs = {
+            'portfolio': {'required': False},
+        }
 
 class PortfolioSerializer(serializers.HyperlinkedModelSerializer):
     portfolio_items=PortfolioItemSerializer(many=True)
