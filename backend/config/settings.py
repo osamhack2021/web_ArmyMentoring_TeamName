@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     # third-party-apps
     'rest_framework',
     'rest_framework.authtoken',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
     # custom-apps
     'core',
     'users',
