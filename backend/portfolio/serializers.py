@@ -12,7 +12,7 @@ class PortfolioItemSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {
             'portfolio': {'required': False},
         }
-        
+
 class SpecificationCardSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
@@ -25,7 +25,7 @@ class SpecificationCardSerializer(serializers.HyperlinkedModelSerializer):
 
 class PortfolioSerializer(serializers.HyperlinkedModelSerializer):
     portfolio_items=PortfolioItemSerializer(many=True)
-    specification_cards=SpecificationCardSerializer(many=True, required=False)
+    specification_cards=SpecificationCardSerializer(many=True)
 
     class Meta:
         model=Portfolio
