@@ -4,15 +4,15 @@ import React from 'react';
 import logo from './3.png';
 function Header(){
         return(
-            <div className="headerDiv">
-                <img className="logoImage" alt="logo" src={logo}/>
-                <ul>
-                    <li> <Link to="/">home</Link></li>
-                    <li ><Link to="/mentoring">mentoring</Link></li>
-                    <li ><Link to="/mymentoringlist">mymentoringlist</Link></li>
-                    <li> <Link to="/community">commuity</Link></li>
-                    <li> <Link to="/qna">qna</Link></li>
-                    <li> <Link to="/mypage">mypage</Link></li>
+            <div className="header_div">
+                <img className="logo_image" alt="logo" src={logo}/>
+                <ul className="menu_list">
+                    <li><Link to="/">home</Link></li>
+                    <li><Link to="/mentoring">mentoring</Link></li>
+                    <li><Link to="/mymentoringlist">mymentoringlist</Link></li>
+                    <li><Link to="/community">commuity</Link></li>
+                    <li><Link to="/qna">qna</Link></li>
+                    <li><Link to="/mypage">mypage</Link></li>
                 </ul>
             </div>
         );
