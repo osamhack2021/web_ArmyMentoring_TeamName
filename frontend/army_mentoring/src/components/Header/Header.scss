@@ -1,4 +1,5 @@
-$base-color:aqua;
+$main-green:#A3DD83;
+$second-green:#6BA259;
 .headerDiv
 {
   
@@ -17,20 +18,28 @@ $base-color:aqua;
     height: 50px;
   }
 
-  ul {
+  .header_menu {
     
     display: flex;
-    margin-bottom: 2rem;   
-    
+       
+    align-items: center;
     }
   li{
     list-style-type: none;
     margin-right: 1rem;
     font-size: 1rem;
     font-weight: bold;
-    color: black;
-    :visited{
-      color:black;
-    }
+     a{
+        text-decoration-line:none;
+        color: $main-green;
+        transition: all ease 0.5s 0s;
+        :visited{
+          color:$main-green;
+        }
+      }
+     a:hover{
+      color:$second-green;
+      font-size: 1.1rem;
+     } 
   }
 }

@@ -6,12 +6,11 @@ function Header(){
         return(
             <div className="headerDiv">
                 <img className="logoImage" alt="logo" src={logo}/>
-                <ul>
+                <ul className="header_menu">
                     <li> <Link to="/">home</Link></li>
                     <li ><Link to="/mentoring">mentoring</Link></li>
                     <li ><Link to="/mymentoringlist">mymentoringlist</Link></li>
-                    <li> <Link to="/community">commuity</Link></li>
-                    
+                    <li> <Link to="/community">commuity</Link></li>                  
                     <li> <Link to="/mypage">mypage</Link></li>
                 </ul>
             </div>
