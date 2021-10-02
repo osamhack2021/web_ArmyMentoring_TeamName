@@ -1,12 +1,14 @@
-import react, { Component } from "react";
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import "./Mentorintroduction.scss";
-import soldier from './img/soldier.png';
-import Subnavbar from './Subnavbar';
+import soldier from "../img/soldier.png";
+import reactimg from "./react.png";
+import tomcatimg from "./tomcat.png";
+import Subnavbar from '../Subnavbar';
 
 function MentorInfo() {
   return (
-    <div className="MentorInfo">
+    <div className="MentorInfo" id="MentorInfos">
       <h2 className="OneLineIntro">"한줄소개 입니다"</h2>
       <div className="MentorProfile">
         <b className="blank"></b>
@@ -38,13 +40,13 @@ function Project() {
       id: 1,
       title: "React OpenSource Project",
       text: "저는 React 프로젝트에 참여해서 이런 걸 만들었습니다.",
-      img: "./react.png"
+      img: reactimg
     },
     {
       id: 2,
       title: "Tomcat OpenSource Project",
       text: "저는 Tomcat 프로젝트에 참여해서 이런 걸 만들었습니다.",
-      img: "./tomcat.png"
+      img: tomcatimg
     }
   ];
 
@@ -56,7 +58,7 @@ function Project() {
     </div>
   ));
   return (
-    <div className="Project">
+    <div className="Project" id="Projects">
       <div className="CardList">{projects}</div>
     </div>
   );
@@ -72,7 +74,7 @@ function Certificate() {
   const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
 
   return (
-    <div className="Certificate">
+    <div className="Certificate" id="Certificates">
       <ul className="CertList">
         <b>자격증 목록</b>
         {nameList}
@@ -98,7 +100,7 @@ function MentoringInfo() {
   ];
 
   const mentoringLists = mentorings.map((mentoring) => (
-    <div className="Mentoring" key={mentoring.id}>
+    <div className="Mentoring" key={mentoring.id} id="Mentorings">
       <h4 className="MentoringTitle" key={mentoring.id}>
         {mentoring.title}
       </h4>
@@ -108,7 +110,7 @@ function MentoringInfo() {
     </div>
   ));
 
-  return <div className="MentoringInfo">{mentoringLists}</div>;
+  return <div className="MentoringInfo" id="MentoringInfos">{mentoringLists}</div>;
 }
 
 function MentoringReview() {
@@ -142,11 +144,12 @@ function MentoringReview() {
     </div>
   ));
 
-  return <div className="ReviewInfo">{reviewList}</div>;
+  return <div className="ReviewInfo" id="MentoringReviews">{reviewList}</div>;
 }
 
 
 function MentorIntroduction() {
+
   const menu = 
     [
         {id:'MentorInfos', desc:'멘토소개'},
@@ -154,7 +157,15 @@ function MentorIntroduction() {
         {id:'Certificates', desc:'자격증'},
         {id:'MentoringInfos', desc:'멘토링소개'},
         {id:'MentoringReviews', desc: '멘토링 후기'}
-    ]
+    ];
+
+    useEffect(()=>{
+      window.scroll({
+          top:0,
+          left:0,
+          behavior:'instant'
+      })}, []
+    );
   return (
     <div>
         <Subnavbar menu={menu}></Subnavbar>

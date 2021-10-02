@@ -21,7 +21,11 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True,
         view_name='userreview-detail'
     )
-
+    portfolio = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='portfolio-detail'
+    )
     class Meta:
         model = User
         exclude=['password', 'user_permissions']
@@ -33,5 +37,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
          ]
         extra_kwargs = {
             'profile_image': {'required': False},
-            'description': {}
             }

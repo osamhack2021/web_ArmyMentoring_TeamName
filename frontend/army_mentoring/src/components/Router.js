@@ -11,7 +11,7 @@ import Makementoring from "./Routes/Mentoring/Makementoring";
 import Mentoringspecificmento from "./Routes/Mentoring/Mentoringspecificmento";
 import Mentoringspecificmentee from "./Routes/Mentoring/Mentoringspecificmentee";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import MentorIntroduction from "./Routes/Mentorintroduction";
+import MentorIntroduction from "./Routes/Mentoring/Mentorintroduction";
 
 
 export default () => (

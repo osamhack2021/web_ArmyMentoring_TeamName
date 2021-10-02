@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import './Mentoringintroduction.scss';
 import Subnavbar from '../Subnavbar';
 
-function Mentoringintroduction(props){
+function Mentoringintroduction(){
     const menu = 
     [
         {id:'home', desc:'홈'},
         {id:'mentorintro', desc:'멘토 소개'},
-        {id:'assignmentinro', desc:'과제 소개'},
+        {id:'assignmentintro', desc:'과제 소개'},
         {id:'plan', desc:'세부 일정'},
         {id:'review', desc:'후기'}
     ]
@@ -26,7 +26,7 @@ function Mentoringintroduction(props){
             <Subnavbar menu={menu}></Subnavbar>
 
             <div className="section" id="home">
-                <h2>홈 {props.location.state.id}</h2>
+                <h2>홈</h2>
             </div>
 
             <div className="section" id="mentorintro">
