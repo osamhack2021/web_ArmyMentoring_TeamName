@@ -49,7 +49,12 @@ class LoginAPI(generics.GenericAPIView):
             return Response([], status=status.HTTP_401_UNAUTHORIZED)
 
 class LogoutAPI(generics.GenericAPIView):
-    pass
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        request.user.auth_token.delete()
+        data = {'Successfully logged out'}
+        return Response(data=data, status=status.HTTP_200_OK)
 
 class UserAPI(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
