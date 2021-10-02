@@ -5,7 +5,7 @@ from users.models import User
 
 
 class Portfolio(AbstractTimeStampModel):
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    user=models.ForeignKey(User, related_name='portfolio', on_delete=models.CASCADE)
     title=models.CharField(max_length=120, null=False)
 
     def __str__(self):
