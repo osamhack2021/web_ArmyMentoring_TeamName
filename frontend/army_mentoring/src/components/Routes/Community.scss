@@ -1,0 +1,14 @@
+
+.community_board{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .community_post{
+        margin: 30px;
+        display: flex;
+        flex-direction: column;
+        border:solid ;
+        width: 800px;
+        border-color: black;
+    }
+}

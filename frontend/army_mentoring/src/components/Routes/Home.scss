@@ -44,6 +44,9 @@ background: $background-color;
         flex-direction: row;
         
         .mentoring_box1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
             height: 300px;
             width: 300px;
             margin: 10px;
@@ -61,14 +64,25 @@ background: $background-color;
         }
         .mentoring_img2{
             border-radius:50px 50px 50px 0px;
-            
+            background-image:url('./img/workout.jpg') ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
         .mentoring_img3{
             border-radius:50px 0px 50px 50px;
+            background-image:url('./img/language.jpg') ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             
         }
         .mentoring_img4{
             border-radius:0px 50px 50px 50px;
+            background-image:url('./img/army.jpg') ;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             
         }
     }
@@ -157,6 +171,9 @@ background: $background-color;
     flex-direction: row;
     
     justify-content: center;
+    button{
+        margin-left: 20px;
+    }
 }
 .A{
     display:none;

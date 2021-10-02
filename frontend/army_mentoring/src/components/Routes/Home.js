@@ -36,27 +36,30 @@ function Home(){
                     <img src={soldier}/>
                     </div>
 
-                    <button><Link to="/mentoring">더 알아보기</Link></button>
+                    <Link to="/mentoring"><button>더 알아보기</button></Link>
                 </div>
 
                 <div className='mentoring home'>
                     <h2>멘토링 가능한 목록들</h2>
                     <div className='section_mentoring'>
                         <div className='mentoring_box1 mentoring_img1'>코딩</div>
-                        <div className='mentoring_box1 mentoring_img2'>2</div>
+                        <div className='mentoring_box1 mentoring_img2'>운동</div>
                     </div>
                     <div className='section_mentoring'>
-                        <div className='mentoring_box1 mentoring_img3'>3</div>
-                        <div className='mentoring_box1 mentoring_img4'>4</div>
+                        <div className='mentoring_box1 mentoring_img3'>외국어</div>
+                        <div className='mentoring_box1 mentoring_img4'>군 생활</div>
                     </div>
-                    <button>더 알아보기</button>
+                    <Link to="/mentoring"><button>더 알아보기</button></Link>
                  
                 </div>
 
                 <div className='howtodo home'> 
                     <h2>진행과정</h2>
                     <div className='section_howtodo'>
-                    <div className='howtodo_box1'>1</div>
+                        <div className='howtodo_box1'>
+                          <div>1. 회원가입</div>
+                          <div>군토&군티에 회원가입으로 서비스를 시작하세요!</div>
+                        </div>
                     <div className='howtodo_box1'>2</div>
                     <div className='howtodo_box1'>3</div>
                     <div className='howtodo_box1'>4</div>
