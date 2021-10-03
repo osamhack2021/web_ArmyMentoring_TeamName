@@ -74,3 +74,17 @@ function Profile() {
 }
 
 export default Profile;
+
+/*
+    const showInfo = ()=>{
+        const token = sessionStorage.getItem('userinfo');
+        axios({                                 //유저정보 요청
+            method : 'GET',
+            url : 'https://???/auth/user/',
+            headers : { "token" : token.token }
+        }).then(function(res)=>{                
+            const response = res.data;
+            setUserInfo(JSON.parse(response));  //받은 유저정보를 state에 저장
+        })
+    }
+*/

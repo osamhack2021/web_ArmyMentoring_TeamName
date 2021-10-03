@@ -1,0 +1,24 @@
+.test{
+    width:1800px;
+    height:700px;
+    margin:10px;
+    border:1px solid black;
+}
+.testTitle{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    width:500px;
+    margin:0px auto;
+}
+
+.row{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

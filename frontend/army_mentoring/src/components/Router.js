@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MentorIntroduction from "./Routes/Mentoring/Mentorintroduction";
 import Login from './Routes/Login/Login';
 import Profile from './Routes/Login/Profile';
+import Signup from './Routes/Login/Signup';
 
 export default () => (
   
@@ -30,6 +31,7 @@ export default () => (
       <Route path="/mentoringspecificmentee" component={Mentoringspecificmentee}></Route>
       <Route path="/login" component={Login}></Route>
       <Route path="/profile" component={Profile}></Route>
+      <Route path="/signup" component={Signup}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 
