@@ -23,12 +23,13 @@ export default () => (
       <Route path="/mentoring" component={Mentoring}></Route>
       <Route path="/mymentoringlist" component={Mymentoringlist}></Route>
       <Route path="/Community" component={Community}></Route>
-      <Route path="/Mypage" component={Profile}></Route>
       <Route path="/mentorintro" component={MentorIntroduction}></Route>
       <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
       <Route path="/makementoring" component={Makementoring}></Route>
       <Route path="/mentoringspecificmento" component={Mentoringspecificmento}></Route>
       <Route path="/mentoringspecificmentee" component={Mentoringspecificmentee}></Route>
+      <Route path="/login" component={Login}></Route>
+      <Route path="/profile" component={Profile}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 
