@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import './Home.scss';
 import Mentoring_review from './Mentoring_review';
 import 'bootstrap/dist/css/bootstrap.css'
 import soldier from './img/soldier.png';
-import { Link} from "react-router-dom";
+
 
 function Home(){
 

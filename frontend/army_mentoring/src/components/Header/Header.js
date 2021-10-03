@@ -1,12 +1,11 @@
 import './Header.scss';
-import { Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import React from 'react';
 import logo from './3.png';
 function Header(){
     const mypage = (sessionStorage.getItem('userinfo') == null) ? "login" : "logout/mypage";
 
         return(
-<<<<<<< HEAD
             <div className="headerDiv">
                 <img className="logoImage" alt="logo" src={logo}/>
                 <ul>
@@ -16,17 +15,6 @@ function Header(){
                     <li> <Link to="/community">commuity</Link></li>
                     
                     <li> <Link to="/mypage">mypage</Link></li>
-=======
-            <div className="header_div">
-                <img className="logo_image" alt="logo" src={logo}/>
-                <ul className="menu_list">
-                    <li><Link to="/">home</Link></li>
-                    <li><Link to="/mentoring">mentoring</Link></li>
-                    <li><Link to="/mymentoringlist">mymentoringlist</Link></li>
-                    <li><Link to="/community">commuity</Link></li>
-                    <li><Link to="/qna">qna</Link></li>
-                    <li><Link to="/mypage">{mypage}</Link></li>
->>>>>>> d2ffc8685f064da799b9faefffe32355f275ad02
                 </ul>
             </div>
         );
