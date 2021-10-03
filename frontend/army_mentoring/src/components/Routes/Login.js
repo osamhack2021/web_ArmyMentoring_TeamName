@@ -26,7 +26,7 @@ function Login(){
         };
         console.log("login : " + JSON.stringify(response));
         sessionStorage.setItem('userinfo', JSON.stringify(response));   //session에 서버에서 받은 데이터를 객체로 반환해 저장
-        //document.location.href = "/";   //홈페이지로 이동
+        document.location.href = "/";   //홈페이지로 이동
     }
 /*
     const onLoggin = ()=>{
@@ -91,7 +91,7 @@ function Login(){
     }
 */
 
-    let [userinfo, setUserInfo] = useState("userinfo");
+    let [userinfo, setUserInfo] = useState("");
     //임시 showInfo
     const showInfo = ()=>{         
         let us = sessionStorage.getItem('userinfo');
@@ -101,23 +101,7 @@ function Login(){
         console.log(pa);
         console.log(pa.user.email);
         const response = {
-            "created_at": "2021-10-01T06:50:57.966372Z",
-            "description": "mentee2",
-            "email": pa.user.email,
-            "experience_point": 0,
-            "groups": [],
-            "id": 6,
-            "is_active": true,
-            "is_admin": false,
-            "is_staff": false,
-            "is_superuser": false,
-            "last_login": null,
-            "nickname": "mentee2",
-            "password": "pbkdf2_sha256$260000$sjJAcRuvQbAq89GcZSy1eD$fbGsaNZiqYSSxxpV2ZYR4sWeBWYZqdtwOgIWqI3f63U=",
-            "profile_image": null,
-            "updated_at": "2021-10-01T06:50:57.966406Z",
-            "user_permissions": [],
-            "username": "mentee2"
+            "email": pa.user.email
         };
         setUserInfo(response);  //받은 유저정보를 state에 저장
     }
