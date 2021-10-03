@@ -1,8 +1,8 @@
-$gray3 :#D4D4D4;
+@import './preset.scss';
 
 #sgstmentoring{
     & div{
-        width:90%;
+        width:1800px;
         height:90%;
         margin:0px auto;
         & h2{
@@ -38,7 +38,7 @@ $gray3 :#D4D4D4;
 
 #sgstmentor{
     & div{
-        width:90%;
+        width:1800px;
         height:90%;
         margin:0px auto;
         & h2{

@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import { Link } from "react-router-dom";
 import './Home.scss';
 import Mentoring_review from './Mentoring_review';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -27,20 +28,20 @@ function Home(){
     }
         return(
             <div>
-                <div className='service home'>
+                <div className='service home_section'>
                     <div className='section_service'>
-                    <section className='service_text'>
-                        <h2>군대에서의 멘토링 서비스</h2>
-                        <h3>누구에게나 의미있고 값진 군생활이 될 수 있도록</h3>
-                    </section>
-                    <img src={soldier}/>
+                        <section className='service_text'>
+                            <h2 className="section_title">군대에서의 멘토링 서비스</h2>
+                            <h3>누구에게나 의미있고 값진 군생활이 될 수 있도록</h3>
+                        </section>
+                        <img src={soldier}/>
                     </div>
 
                     <Link to="/mentoring"><button>더 알아보기</button></Link>
                 </div>
 
-                <div className='mentoring home'>
-                    <h2>멘토링 가능한 목록들</h2>
+                <div className='mentoring home_section'>
+                    <h2 className="section_title">멘토링 가능한 목록들</h2>
                     <div className='section_mentoring'>
                         <div className='mentoring_box1 mentoring_img1'>코딩</div>
                         <div className='mentoring_box1 mentoring_img2'>운동</div>
@@ -53,8 +54,8 @@ function Home(){
                  
                 </div>
 
-                <div className='howtodo home'> 
-                    <h2>진행과정</h2>
+                <div className='howtodo home_section'> 
+                    <h2 className="section_title">진행과정</h2>
                     <div className='section_howtodo'>
                         <div className='howtodo_box1'>
                           <div>1. 회원가입</div>
@@ -66,19 +67,20 @@ function Home(){
                     </div>
                 </div> 
                 
-                <div className='review home'> 
-                <h2>멘토링 후기</h2>
+                <div className='review home_section'> 
+                    <h2 className="section_title">멘토링 후기</h2>
                     <Mentoring_review/>
                 </div> 
 
-                <div className='faqs home'> 
-                    <h2>FAQs</h2>
+                <div className='faqs home_section'> 
+                    <h2 className="section_title">FAQs</h2>
                     <div className='QnA'>
                         <div className='Q'>
                             <p>멘토/멘티 두가지 활동을 동시에 진행가능한가요?</p>
                             <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
+                            <span>ㄴ</span>
                             <p>
                             군토&군티는 사람마다의 재능의 다양성을 믿으며 멘토/ 멘티 활동에 제한을 두지 않습니다. 배우고, 가르치며 성장해 나가세요!
                             </p>
@@ -90,6 +92,7 @@ function Home(){
                             <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
+                            <span>ㄴ</span>
                             <p>
                             자신있는 분야마다 포트폴리오를 여러가지 생성하여 등록이 가능합니다!
                             </p>
@@ -101,6 +104,7 @@ function Home(){
                             <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
+                            <span>ㄴ</span>
                             <p>
                             멘토링을 진행중인 멘토/멘티와의 협의 후에 중단해주시면 됩니다!
                             </p>
@@ -112,6 +116,7 @@ function Home(){
                             <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
+                            <span>ㄴ</span>
                             <p>
                             진행중인 멘토/멘티와의 협의를 통하여 조정하시면 됩니다! 군토군티의 모든 멘토/멘티들은 모두 국군장병님들이니 부담갖지 않으시고 협의하시면 됩니다
                             </p>
@@ -123,6 +128,7 @@ function Home(){
                             <button onClick={toggling}>Answer!</button>
                         </div>
                         <div className='A'>
+                            <span>ㄴ</span>
                             <p>
                                     대답5
                             </p>

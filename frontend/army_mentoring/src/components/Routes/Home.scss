@@ -1,17 +1,14 @@
 $background-color:white;
 $main-green:#6BA259;
 
-.home{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0px;
-height: 656px;
-left: 0px;
-top: 216px;
-/* gray4 */
-background: $background-color;
+.home_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    height: 700px;
+    background: $white;
 }
 
 
@@ -34,6 +31,9 @@ background: $background-color;
             width: 300px;
             height: auto;
         }
+    }
+    img{
+        width:400px;
     }
 }
 
@@ -103,6 +103,7 @@ background: $background-color;
         
     }
 }
+
 .review{
     margin-bottom: 100px;
     .carousel-inner{
