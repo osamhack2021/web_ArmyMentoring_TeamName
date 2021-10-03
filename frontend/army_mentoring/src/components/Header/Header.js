@@ -3,6 +3,8 @@ import { Link} from "react-router-dom";
 import React from 'react';
 import logo from './3.png';
 function Header(){
+    const mypage = (sessionStorage.getItem('userinfo') == null) ? "login" : "logout/mypage";
+
         return(
             <div className="header_div">
                 <img className="logo_image" alt="logo" src={logo}/>
@@ -12,7 +14,7 @@ function Header(){
                     <li><Link to="/mymentoringlist">mymentoringlist</Link></li>
                     <li><Link to="/community">commuity</Link></li>
                     <li><Link to="/qna">qna</Link></li>
-                    <li><Link to="/mypage">mypage</Link></li>
+                    <li><Link to="/mypage">{mypage}</Link></li>
                 </ul>
             </div>
         );

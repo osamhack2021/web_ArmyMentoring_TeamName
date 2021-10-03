@@ -95,6 +95,10 @@ function Login(){
     //임시 showInfo
     const showInfo = ()=>{         
         let us = sessionStorage.getItem('userinfo');
+        if(us == null){
+            setUserInfo("");
+            return;
+        }
         console.log("show Info : " + us);
         console.log("us type : " + typeof us);
         let pa = JSON.parse(us);
@@ -119,8 +123,20 @@ function Login(){
     }
 */
 
+    const onLoggout = () => {
+        sessionStorage.clear();
+        document.location.href = "/";   //홈페이지로 이동
+    }
+
     return(
         <div id="t">
+            <div className="test" id="mypage.js">
+                <div className="testTitle">mypage</div>
+                <form>
+                    <input type="button" value="정보보이기" onClick={showInfo}></input>
+                </form>
+                {Object.entries(userinfo)}
+            </div>
             <div className="test" id="login.js">
                 <div className="testTitle">login</div>
                 <form>
@@ -141,12 +157,11 @@ function Login(){
                     <input type="button" value="가입" onClick={register}></input>
                 </form>
             </div>
-            <div className="test" id="mypage.js">
-                <div className="testTitle">mypage</div>
+            <div className="test" id="logout.js">
+                <div className="testTitle">logout</div>
                 <form>
-                    <input type="button" value="정보보이기" onClick={showInfo}></input>
+                    <input type="button" value="로그아웃" onClick={onLoggout}></input>
                 </form>
-                {Object.entries(userinfo)}
             </div>
         </div>
     )  
