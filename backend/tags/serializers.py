@@ -8,3 +8,6 @@ class TagSerializer(serializers.HyperlinkedModelSerializer):
         model = Tag
         fields = '__all__'
         read_only_fields = []
+        extra_kwargs = {
+            'name': {'validators': []},
+        }
