@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Home from "./Routes/Home";
-import Mypage from "./Routes/Mypage";
 import Community from "./Routes/Community";
 import Mentoring from "./Routes/Mentoring";
 import Mymentoringlist from "./Routes/Mymentoringlist";
@@ -23,8 +22,7 @@ export default () => (
       <Route path="/mentoring" component={Mentoring}></Route>
       <Route path="/mymentoringlist" component={Mymentoringlist}></Route>
       <Route path="/Community" component={Community}></Route>
-      
-      <Route path="/Mypage" component={Mypage}></Route>
+      <Route path="/Mypage" component={Login}></Route>
       <Route path="/mentorintro" component={MentorIntroduction}></Route>
       <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
       <Route path="/makementoring" component={Makementoring}></Route>
