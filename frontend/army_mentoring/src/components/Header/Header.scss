@@ -1,36 +1,37 @@
-$base-color:aqua;
-.headerDiv
+@import '../Routes/preset.scss';
+.header_div
 {
-  
-  top: 0;
-  background-color: white;
-  z-index: 10;
+  background-color:$white;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 70px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  margin-bottom: 10px;
-  .logoImage{
-   
+  border-bottom: 1px solid $gray3;
+  .logo_image{
     height: 50px;
+    margin: 0px 50px;
   }
+}
 
-  ul {
-    
-    display: flex;
-    margin-bottom: 2rem;   
-    
-    }
-  li{
-    list-style-type: none;
-    margin-right: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: black;
-    :visited{
-      color:black;
+.menu_list{
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+  margin: 0px;
+}
+
+li{
+  list-style-type: none;
+  margin-right: 5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  a{
+    text-decoration: none;
+    color:$black;
+    &:hover{
+        color:$gray3;
     }
   }
 }

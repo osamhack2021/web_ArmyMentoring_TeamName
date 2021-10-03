@@ -1,0 +1,41 @@
+$gray3 :#D4D4D4;
+
+.subnavbar{
+    ul{
+        list-style-type: none;
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom: 1px solid $gray3;
+        margin:0px;
+        background-color: white;
+    }
+    li{
+        display:inline-block;
+        width:330px;
+        padding:0px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        display:inline-block;
+        width:300px;
+        padding:15px;
+    }
+}
+
+.fixedNav{
+    position: fixed;
+    top : 0px;
+    width: 100%;
+    z-index: 999;
+}
+
+.staticNav{
+    position: static;
+}
+
+.highlighted{
+    border-bottom: 3px solid green;
+}
