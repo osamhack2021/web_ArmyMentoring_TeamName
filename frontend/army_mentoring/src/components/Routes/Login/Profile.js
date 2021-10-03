@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "reactstrap";
-import soldier from "./img/soldier.png";
+import soldier from "../img/soldier.png";
 import "./Profile.scss";
 
 function Profile() {
