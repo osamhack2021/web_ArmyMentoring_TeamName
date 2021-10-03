@@ -12,6 +12,7 @@ import Mentoringspecificmentee from "./Routes/Mentoring/Mentoringspecificmentee"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MentorIntroduction from "./Routes/Mentoring/Mentorintroduction";
 import Login from './Routes/Login';
+import Profile from './Routes/Profile';
 
 export default () => (
   
@@ -22,7 +23,7 @@ export default () => (
       <Route path="/mentoring" component={Mentoring}></Route>
       <Route path="/mymentoringlist" component={Mymentoringlist}></Route>
       <Route path="/Community" component={Community}></Route>
-      <Route path="/Mypage" component={Login}></Route>
+      <Route path="/Mypage" component={Profile}></Route>
       <Route path="/mentorintro" component={MentorIntroduction}></Route>
       <Route path="/mentoringintro" component={Mentoringintroduction}></Route>
       <Route path="/makementoring" component={Makementoring}></Route>
