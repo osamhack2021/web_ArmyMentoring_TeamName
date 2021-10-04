@@ -34,18 +34,20 @@ function Profile() {
     nickname: "열혈 멘토",
     email: "guntor@email.com",
     profileimage:  soldier,
-    experience_point: 25
+    experience_point: 25,
+    description : "한줄 소개"
   }
 
 
   return (
     <div className="profile">
-      <div className="Intro">
-        <img className="MyImg" src={user.profileimage} alt="내 사진"></img>
-        <h1>한줄소개</h1>
+    <div><Progress value={user.experience_point}/></div>
+      <div className="intro">
+        <img className="my-img" src={user.profileimage} alt="내 사진"></img>
+        <h1>{user.description}</h1>
         <h3>{user.username} / {user.nickname} / {user.email}</h3>
-        <div><Progress value={user.experience_point} /></div>
-        <Link to='/portfolio'className="GoProtfolio">포트폴리오 보기</Link>
+        <Progress value={100} />
+        <Link to='/portfolio' className="go-portfolio">포트폴리오 보기</Link>
       </div>
       <Link to='/chat' className="DM">send a message</Link>
       <Link to="/editprofile">개인정보 수정</Link>

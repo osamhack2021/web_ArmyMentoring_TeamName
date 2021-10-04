@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link, useHistory } from "react-router-dom";
+import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
 import './Login.scss';
 import {axios} from 'axios';
 
@@ -16,7 +17,8 @@ function Login(){
     );
 
     //임시 onLoggin
-    const onLoggin = ()=>{
+    const onLoggin = (e)=>{
+        e.preventDefault();
         const email = document.getElementById('email');
         console.log(email.value);
         const response = {  //서버에서 받은 json 데이터
@@ -32,21 +34,21 @@ function Login(){
     }
 
     return(
-        <div id="t">
-            <div className="test" id="login.js">
-                <div className="testTitle">login</div>
-                <form>
-                    <div className="row">
-                    email : <input className="text" type="text" id="email"></input>
-                    </div>
-                    <div className="row">
-                    password : <input className="text" type="text" id="password"></input>
-                    </div>
-                    <div className="row">
-                    <input type="button" className="button" value="login" onClick={onLoggin}></input>
-                    <Link className="ar" to="/signup">sign up</Link>
-                    </div>
-                </form>
+        <div>
+            <div className="login_body" id="login.js">
+                <div className="title">로그인</div>
+                <Form className="form">
+                    <FormGroup class="form-group">
+                        <Label class="label">이메일</Label>
+                        <Input type="email" id="email" name="email"></Input>
+                    </FormGroup>
+                    <FormGroup class="form-group">
+                        <Label class="label">비밀번호</Label>
+                        <Input type="password" id="password" name="password"></Input>
+                    </FormGroup>
+                    <Button id="login_button" onClick={onLoggin}>로그인</Button>
+                    <Link to='/signup'>회원가입</Link>
+                </Form>
             </div>
         </div>
     )  

@@ -1,35 +1,38 @@
-.test{
-    width:1800px;
-    height:700px;
-    margin:10px;
-    border:1px solid black;
-}
-.testTitle{
-    font-weight: bold;
-    font-size: 50px;
-}
+@import '../preset.scss';
 
-form{
+.login_body{
     display:flex;
     flex-direction: column;
-    justify-items: flex-start;
-    width:500px;
-    margin:0px auto;
-}
-
-.row{
-    display:flex;
-    flex-direction: row;
     justify-content: space-between;
-}
+    width:500px;
+    height:350px;
+    margin:150px auto;
 
-.text{
-    width:80%;
-}
-.button{
-    width:50%;
-}
-.ar{
-    display:block;
-    width:50%;
+    .title{
+        font-weight: bold;
+        font-size: 50px;
+    }
+    
+    .form{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width:500px;
+        height:300px;
+    }
+    
+    .form-group{
+        text-align: left;
+        label {
+            font-weight:bold;
+            font-size:20px;
+        }
+    }
+    
+    #login_button{
+        border-radius: 0px 20px 20px 20px;
+        height:50px;
+        background-color: $secondary;
+        font-weight: bold;
+    }
 }

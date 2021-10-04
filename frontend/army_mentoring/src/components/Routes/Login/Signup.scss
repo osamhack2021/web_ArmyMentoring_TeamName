@@ -1,24 +1,39 @@
-.test{
-    width:1800px;
-    height:700px;
-    margin:10px;
-    border:1px solid black;
-}
-.testTitle{
-    font-weight: bold;
-    font-size: 50px;
-}
+@import '../preset.scss';
 
-form{
+.signup_body{
     display:flex;
     flex-direction: column;
-    justify-items: flex-start;
-    width:500px;
-    margin:0px auto;
-}
-
-.row{
-    display:flex;
-    flex-direction: row;
     justify-content: space-between;
+    width:500px;
+    height:600px;
+    margin:150px auto;
+
+    .title{
+        font-weight: bold;
+        font-size: 50px;
+    }
+    
+    .form{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width:500px;
+        height:500px;
+    }
+    
+    .form-group{
+        text-align: left;
+        label {
+            font-weight:bold;
+            font-size:20px;
+        }
+    }
+
+    
+    #login_button{
+        border-radius: 0px 20px 20px 20px;
+        height:50px;
+        background-color: $secondary;
+        font-weight: bold;
+    }
 }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link, useHistory } from "react-router-dom";
 import './Signup.scss';
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import {axios} from 'axios';
 
 function Login(){
@@ -40,21 +41,49 @@ function Login(){
         }
     }
 
+    const emailValid = (e)=>{
+        const el = e.target;
+        const rule = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+        console.log(el.value);
+        if(rule.test(el.value)){
+            el.className = "is-valid form-control";
+        }else{
+            el.className = "is-invalid form-control";
+        }
+    }
+
     return(
-        <div id="t">
-            <div className="test" id="signup.js">
-                <div className="testTitle">signup</div>
-                <form>
-                    <div className="row">이름 : <input className="button" type="text" id="name"></input></div>
-                    <div className="row">email : <input className="button" type="text" id="email"></input></div>
-                    <input className="cb" type="button" value="중복확인" /*onClick={checkEmail}*/></input>
-                    <div className="row">password : <input className="button" type="text" id="password"></input></div>
-                    <div className="row">nickname : <input className="button" type="text" id="nickname"></input></div>
-                    <img src={imgUrl}></img>
-                    <div className="row">profile image : <input type="file" accept="image/*" id="profileimage" onChange={thumbnail}></input></div>
-                    <div className="row">description : <input type="textarea" id="desc"></input><br /></div>
-                    <input type="button" value="가입" onClick={register}></input>
-                </form>
+        <div>
+            <div className="signup_body">
+                <div className="title">signup</div>
+                <Form className="form">
+                    <FormGroup class="form-group">
+                        <Label class="label">이메일</Label>
+                        <Input type="email" id="email" name="email" onChange={emailValid}></Input>
+                    </FormGroup>
+                    <FormGroup class="form-group">
+                        <Label class="label">비밀번호</Label>
+                        <Input type="password" id="password" name="password"></Input>
+                    </FormGroup>
+                    <FormGroup class="form-group">
+                        <Label class="label">이름</Label>
+                        <Input type="text" id="username" name="username"></Input>
+                    </FormGroup>
+                    <FormGroup class="form-group">
+                        <Label class="label">별명</Label>
+                        <Input type="text" id="nickname" name="nickname"></Input>
+                    </FormGroup>
+                    <FormGroup class="form-group">
+                        <Label class="label">자기소개</Label>
+                        <Input type="text" id="description" name="description"></Input>
+                    </FormGroup>
+                    <FormGroup class="form-group">
+                        <Label class="label">프로필 사진</Label>
+                        <img src={imgUrl}></img>
+                        <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
+                    </FormGroup>
+                    <Button id="login_button" onClick={register}>회원가입</Button>
+                </Form>
             </div>
         </div>
     )  
