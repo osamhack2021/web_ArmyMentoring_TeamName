@@ -26,6 +26,16 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True,
         view_name='portfolio-detail'
     )
+    opened_mentoring = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='mentoring-detail'
+    )
+    participated_mentoring = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='mentoring-detail'
+    )    
     class Meta:
         model = User
         exclude=['password', 'user_permissions']
