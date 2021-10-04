@@ -14,6 +14,9 @@ import MentorIntroduction from "./Routes/Mentoring/Mentorintroduction";
 import Login from './Routes/Login/Login';
 import Profile from './Routes/Login/Profile';
 import Signup from './Routes/Login/Signup';
+import Editprofile from "./Routes/Login/Editprofile";
+import Portfolio from "./Routes/Login/Portfolio";
+import Chat from "./Routes/Chat";
 
 export default () => (
   
@@ -32,6 +35,9 @@ export default () => (
       <Route path="/login" component={Login}></Route>
       <Route path="/profile" component={Profile}></Route>
       <Route path="/signup" component={Signup}></Route>
+      <Route path="/editprofile" component={Editprofile}></Route>
+      <Route path="/portfolio" component={Portfolio}></Route>
+      <Route path="/chat" component={Chat}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 

@@ -14,6 +14,7 @@ function Login(){
             behavior:'instant'
         })}, []
     );
+
     //임시 onLoggin
     const onLoggin = ()=>{
         const email = document.getElementById('email');
@@ -49,6 +50,10 @@ function Login(){
             </div>
         </div>
     )  
+}
+
+export default Login;
+
 
 /*  API 코드
     const onLoggin = ()=>{
@@ -63,12 +68,8 @@ function Login(){
             }
         }).then(function(res)=>{
             const response = res.data;                //서버에서 받은 json 데이터
-            sessionStorage.setItem('userinfo', JSON.parse(response));   //session에 서버에서 받은 데이터를 객체로 반환해 저장
+            sessionStorage.setItem('token', response.token);   //session에 서버에서 받은 데이터 중 token을 객체로 반환해 저장
             document.location.href = "/";   //홈페이지로 이동
         })
-        
     }
 */
-}
-
-export default Login;
