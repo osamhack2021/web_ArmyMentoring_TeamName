@@ -23,7 +23,10 @@ class MentoringSerializer(serializers.HyperlinkedModelSerializer):
         model = Mentoring
         fields = '__all__'
         read_only_fields=['created_at', 'updated_at']
- 
+        extra_kwargs = {
+            'thumbnail': {'required': False},
+            'tag': {'required': False},
+        }
 
     def create(self, validated_data):
         tags_data=validated_data.pop('tags')

@@ -21,7 +21,9 @@ class SpecificationCardSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields=['created_at', 'updated_at']
         extra_kwargs = {
             'portfolio': {'required': False},
+            'image': {'required': False},
         }
+        
 
 class PortfolioSerializer(serializers.HyperlinkedModelSerializer):
     portfolio_items=PortfolioItemSerializer(many=True)
