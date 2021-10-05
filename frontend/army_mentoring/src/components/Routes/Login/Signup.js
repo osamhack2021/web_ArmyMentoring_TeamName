@@ -55,7 +55,7 @@ function Login(){
     return(
         <div>
             <div className="signup_body">
-                <div className="title">signup</div>
+                <div className="title">회원가입</div>
                 <Form className="form">
                     <FormGroup class="form-group">
                         <Label class="label">이메일</Label>
