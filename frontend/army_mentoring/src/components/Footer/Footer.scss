@@ -1,6 +1,6 @@
-$gray3 :#D4D4D4;
+@import '../Routes/preset.scss';
 
 #footer{
     height:200px;
-    background-color:$gray3;
+    background-color:$primary;
 }

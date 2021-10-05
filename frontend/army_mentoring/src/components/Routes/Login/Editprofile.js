@@ -17,11 +17,9 @@ function Editprofile() {
       })}, []
   );
 
-  //임시 register
-  const change = ()=>{
-      const token = sessionStorage.getItem('token');
-      //user id 가져오고
-      //user update 요청
+  //임시 change
+  const change = (e)=>{
+      alert('변경되었습니다.');
   }
 
   const thumbnail= (e)=>{
@@ -85,3 +83,36 @@ function Editprofile() {
 }
 
 export default Editprofile;
+
+/*
+const change = ()=>{
+    const token = sessionStorage.getItem('token');
+    let id = -1;
+    //user id 가져오고
+    axios({
+        method : 'GET',
+        url : 'https://???/auth/user',
+        headers : {'Authorization' : token}
+    }).then((res)=>{
+        id = res.data.id;
+    })
+    //user update 요청
+    const password = document.getElementById('password');
+    const nickname = document.getElementById('nickname');
+    const description = document.getElementById('description');
+    const profileimage = document.getElementById('profileimage');
+    const formData = new FormData();
+    formData.append('profileimage', profileimage.files[0]);
+    axios({
+      method : 'PUT',
+      url : 'https://???/user/'+id,
+      headers : {'Authorization' : token},
+      data : {
+          password : password.value ? password : null,
+          nickname : nickname.value ? nickname : null,
+          description : description.value ? description : null,
+          profileimage : FormData.name('profileiamge') ? FormData : null,
+      }
+  })
+}
+*/
