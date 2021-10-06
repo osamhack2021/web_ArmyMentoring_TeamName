@@ -11,7 +11,6 @@ class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields=['created_at', 'updated_at']
 
 class MentoringSerializer(serializers.HyperlinkedModelSerializer):
-    
     assignments = serializers.HyperlinkedRelatedField(
         many=True,
         read_only=True,
@@ -38,3 +37,13 @@ class MentoringSerializer(serializers.HyperlinkedModelSerializer):
             mentoring.tags.add(tag)
 
         return mentoring
+
+    def update(self, instance, validated_data):
+        if 'tags' in validated_data:
+            tags_data=validated_data.pop('tags')
+            instance.tags.set([])
+            for tag_data in tags_data:
+                new_tag, created=Tag.objects.get_or_create(**tag_data)
+                instance.tags.add(new_tag)
+
+        return super(MentoringSerializer, self).update(instance, validated_data)
