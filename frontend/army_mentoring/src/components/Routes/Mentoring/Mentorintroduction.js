@@ -27,20 +27,36 @@ function MentorInfo() {
 //         setUserInfo(JSON.parse(response));  //받은 유저정보를 state에 저장
 //     });
 // }
+
     // const onLoggin = ()=>{
     //     const token = sessionStorage.getItem('token');
     //     axios({
     //         method : 'GET',
-    //         url : 'https://???/auth/logout',
+    //         url : 'https://127.0.0.1:8000/auth/logout',
     //         headers : { 'token' : token }
     //     }).then(function(res)=>{
     //         const response = res.data;       //서버에서 받은 json 데이터
     //         //에러 발생시?
     //         document.location.href = "/";   //홈페이지로 이동
     //     })
-    // }
+    // };
 
-
+    // const [users, setUsers] = useState([]);
+ 
+    // const fetchUsers = async () => {
+    //   const token = sessionStorage.getItem('token');
+    //   const response = await axios({
+    //   method : 'GET',
+    //   url : 'https://127.0.0.1:8000/auth/logout',
+    //   headers : { 'token' : token }
+    //  }).then(function(res)=>{
+    //           const response = res.data;       //서버에서 받은 json 데이터
+    //           //에러 발생시?
+    //           document.location.href = "/";   //홈페이지로 이동
+    //       })
+    //  setUsers(response.data);
+    // };
+// /////////////////////////////////////////////////////////////////////
 //********************************************************* */
 //   const [post, setPost] = useState(null);
 
@@ -54,16 +70,17 @@ function MentorInfo() {
 
 // //
 
-  // axios.get('http://127.0.0.1:8000/user/')
-  // .then(function (response) {
-  //   console.log(response.data);
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // })
-  // .then(function () {
-  //   // always executed
-  // });  
+  axios.get('http://127.0.0.1:8000/user/')
+  .then(function (response) {
+  console.log(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+    console.log('this is error!');
+  })
+  .then(function () {
+    // always executed
+  });  
   
   // axios.get('http://127.0.0.1:8000/auth/user/1')
   // .then(function (response) {
@@ -85,6 +102,8 @@ function MentorInfo() {
 
   // axios.getUri('http://127.0.0.1:8000/user HTTP/1.1')
 
+
+
   let [mentorInfo, setMentorInfo] = useState([
   ]);
 
@@ -97,6 +116,37 @@ function MentorInfo() {
     experience_point: 25,
     description : "한줄 소개"
   };
+
+//   const getUserInfo = ()=>{
+//     const token = sessionStorage.getItem('token');
+//     axios({                                 //유저정보 요청
+//         method : 'GET',
+//         url : 'https://http://127.0.0.1:8000/user',
+//         headers : { "token" : token.token }
+//     }).then(function(res)=>{    
+//         const id = res.id;
+//         axios({method : 'GET', url : 'https://http://127.0.0.1:8000/user', headers : { "token" : token.token }})
+//         .then(function(res)=>{            
+//             const response = res.data,
+//             const userinfo = {
+//             response.username,
+//             response.nickname,
+//             response.email,
+//             response.profile_image,
+//             response.level,
+//             response.experience_point,
+//             response.description,
+//             }
+//             setUserInfo(userInfo);  //받은 유저정보를 state에 저장
+//             const mentoring = {
+//               response.opened_mentoring,
+//               response.participated_mentoring,
+//             }
+//             setMentoringInfo(mentoring);  //참여중인 멘토링
+//           });
+//  }
+
+
   return (
     <div className="MentorInfo" id="MentorInfos">
       <h2 className="OneLineIntro">{mentor.description}</h2>
