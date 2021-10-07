@@ -16,7 +16,9 @@ import Profile from './Routes/Login/Profile';
 import Signup from './Routes/Login/Signup';
 import Editprofile from "./Routes/Login/Editprofile";
 import Portfolio from "./Routes/Login/Portfolio";
+import PortfolioSpecific from "./Routes/Login/PortfolioSpecific";
 import Chat from "./Routes/Chat";
+import EditPortfolio from "./Routes/Login/EditPortfolio";
 
 export default () => (
   
@@ -38,6 +40,8 @@ export default () => (
       <Route path="/editprofile" component={Editprofile}></Route>
       <Route path="/portfolio" component={Portfolio}></Route>
       <Route path="/chat" component={Chat}></Route>
+      <Route path="/portfoliospecific" component={PortfolioSpecific}></Route>
+      <Route path="/editportfolio" component={EditPortfolio}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 

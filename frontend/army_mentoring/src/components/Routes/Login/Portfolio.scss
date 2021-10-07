@@ -1,0 +1,57 @@
+@import '../preset.scss';
+
+.portfolio-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    width:800px;
+    background-color: $secondary;
+    margin:0px auto;
+    .portfolio{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width:600px;
+        height:300px;
+        background-color: $primary;
+        margin:20px;
+        .thumbnail {
+            display:flex;
+            width:150px;
+            height:150px;
+            border:1px solid $black;
+        }
+        .text-column{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            width:400px;
+            height:200px;
+            .title{
+                font-weight: bold;
+                font-size:50px;
+            }
+            .description{
+            }
+            .link{
+                display: block;
+                color:$gray2;
+                text-decoration: none;
+            }
+        }
+    }
+    .button{
+        display:block;
+        width:500px;
+        height:100px;
+        margin:10px;
+        line-height: 100px;
+        background-color: $primary;
+        border: 1px solid $black;
+        border-radius: 15px 15px 15px 0px;
+        text-decoration: none;
+        color:$black;
+    }
+}
