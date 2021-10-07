@@ -4,6 +4,10 @@ import './Home.scss';
 import Mentoring_review from './Mentoring_review';
 import 'bootstrap/dist/css/bootstrap.css'
 import soldier from './img/soldier.png';
+import join from './img/join.png';
+import loupe from './img/loupe.png';
+import support from './img/support.png';
+import resume from './img/resume.png';
 
 
 function Home(){
@@ -60,10 +64,23 @@ function Home(){
                         <div className='howtodo_box1'>
                           <div>1. 회원가입</div>
                           <div>군토&군티에 회원가입으로 서비스를 시작하세요!</div>
+                          <img src={join}/>
                         </div>
-                    <div className='howtodo_box1'>2</div>
-                    <div className='howtodo_box1'>3</div>
-                    <div className='howtodo_box1'>4</div>
+                    <div className='howtodo_box1'>
+                          <div>2. 멘토링 검색</div>
+                          <div>원하는 분야의 멘토링을 검색하세요!</div>
+                          <img src={loupe}/>
+                    </div>
+                    <div className='howtodo_box1'>
+                          <div>3. 멘토링 신청</div>
+                          <div>마음에 드는 멘토링의 소개를 읽어보고 신청하세요!</div>
+                          <img src={resume}/>
+                    </div>
+                    <div className='howtodo_box1'>
+                          <div>4. 멘토링 참여</div>
+                          <div>멘토링 신청이 승낙 되면, 멘토링을 신청하여 시작하세요!</div>
+                          <img src={support}/>
+                    </div>
                     </div>
                 </div> 
                 
