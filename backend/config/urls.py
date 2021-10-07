@@ -23,7 +23,8 @@ from mentoring.views import MentoringViewSet, AssignmentViewSet
 from portfolio.views import PortfolioViewSet, PortfolioItemViewSet, SpecificationCardViewSet
 from questions.views import QuestionViewSet, QuestionCommentViewSet
 from tags.views import TagViewSet
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 router=DefaultRouter(trailing_slash=False)
 # user
@@ -47,4 +48,4 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', include(router.urls)),
     path('auth/', include('accounts.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

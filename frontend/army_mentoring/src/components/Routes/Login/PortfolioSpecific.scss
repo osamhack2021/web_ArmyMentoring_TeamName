@@ -1,0 +1,69 @@
+@import '../preset.scss';
+
+.portfolio-specific-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    width:800px;
+    margin:10px auto;
+    background-color: $secondary;
+    border: 1px solid $black;
+    border-radius: 15px 0px 15px 0px;
+    .main-section{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding:10px;
+        background-color: $primary;
+        margin:10px;
+        border:1px solid $black;
+        border-radius: 15px 0px 15px 0px;
+        
+        .title{
+            margin:10px;
+            font-weight: bold;
+            font-size:50px;
+        }
+        .description{
+            margin:10px;
+        }
+
+    }
+    .sectiont{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding:10px;
+        background-color: $primary;
+        margin:10px;
+        border:1px solid $black;
+        border-radius: 15px 0px 15px 0px;
+        
+        .title{
+            margin:10px;
+            font-weight: bold;
+            font-size:30px;
+        }
+        .description{
+            margin:10px;
+        }
+    }
+    .buttons{
+        .button{
+            display:block;
+            width:500px;
+            height:100px;
+            line-height: 100px;
+            text-decoration: none;
+            color:$white;
+            font-weight: bold;
+            background-color: $primary;
+            margin:10px;
+            border:1px solid $black;
+            border-radius: 15px 15px 15px 0px;
+        }
+    }
+}

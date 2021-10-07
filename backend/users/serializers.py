@@ -35,7 +35,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         many=True,
         read_only=True,
         view_name='mentoring-detail'
-    )    
+    )
+
+    level = serializers.SerializerMethodField(method_name='get_level')
+
+    def get_level(self, obj):
+        return obj.experience_point // 100
+
     class Meta:
         model = User
         exclude=['password', 'user_permissions']

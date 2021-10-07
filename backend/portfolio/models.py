@@ -24,6 +24,7 @@ class SpecificationCard(AbstractTimeStampModel):
     portfolio=models.ForeignKey(Portfolio, related_name='specification_cards', on_delete=models.CASCADE)
     title=models.CharField(max_length=120, null=False)
     description=models.TextField(null=False)
+    image=models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.title
