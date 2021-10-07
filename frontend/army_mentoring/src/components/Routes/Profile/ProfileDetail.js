@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "reactstrap";
 import soldier from "../img/soldier.png";
-import "./Profile.scss";
+import "./ProfileDetail.scss";
 
-function Profile() {
+function Profile({match}) {
 
   let [userInfo, setUserInfo] = useState();
   let [mentorInfo, setMentorInfo] = useState([
@@ -53,7 +53,7 @@ function Profile() {
           </div>
         </div>
         <div className="button-col">
-          <Link to='/portfolio' className="go-portfolio">포트폴리오 보기</Link>
+          <Link to={`${match.url}/portfolio`} className="go-portfolio">포트폴리오 보기</Link>
         </div>
       </div>
       <div className="buttons">

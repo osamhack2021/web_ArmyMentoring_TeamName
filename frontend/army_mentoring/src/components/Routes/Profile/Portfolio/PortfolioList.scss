@@ -1,4 +1,4 @@
-@import '../preset.scss';
+@import '../../preset.scss';
 
 .portfolio-body{
     display:flex;
@@ -42,16 +42,28 @@
             }
         }
     }
-    .button{
-        display:block;
-        width:500px;
-        height:100px;
-        margin:10px;
-        line-height: 100px;
-        background-color: $primary;
-        border: 1px solid $black;
-        border-radius: 15px 15px 15px 0px;
-        text-decoration: none;
-        color:$black;
+    .buttons{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .button{
+            display:block;
+            width:200px;
+            height:50px;
+            margin:10px;
+            line-height: 50px;
+            border: 1px solid $black;
+            border-radius: 15px 15px 15px 0px;
+            text-decoration: none;
+            color:$white;
+        }
+        .confirm{
+            background-color: $primary;
+        }
+        .cancel{
+            background-color: $gray2;
+        }
+
     }
 }

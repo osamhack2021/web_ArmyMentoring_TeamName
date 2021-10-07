@@ -4,7 +4,13 @@ import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import "./EditPortfolio.scss";
 import axios from 'axios';
 
-function AddPortfolio() {
+function EditPortfolio({match, history}) {
+  console.log(match.params);
+  //마찬가지로 id가 넘어오니까 이걸로 데이터 가져와서 하면 될듯
+
+  let isAddPage = false;
+  if(match.params.id == undefined)
+    isAddPage = true;
 
   let [forms, setForms] = useState([]);
   let [order, setOrder] = useState(0);
@@ -33,10 +39,14 @@ function AddPortfolio() {
   //임시
   const createPortfolio = ()=>{
     console.log("create portfolio!");
+    console.log(match.url);
   }
   
   return (
     <div className="edit-portfolio-body">
+      {
+         isAddPage && 'this is add page'
+      }
       <Form>
         <FormGroup className="main-section">
           <Input type="text" className="title" placeholder="메인 제목입력..."></Input>
@@ -54,15 +64,15 @@ function AddPortfolio() {
         })}
         <div onClick={add}>+</div>
         <FormGroup className='buttons'>
-          <Link className='cancel button' to='/portfoliospecific'>취소</Link>   
-          <Link className='confirm button' to='/portfoliospecific' onClick={createPortfolio}>완료</Link>
+          <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>   
+          <div className='confirm button' onClick={()=>{createPortfolio();history.goBack()}}>{ isAddPage ? '추가' : '수정'}</div>
         </FormGroup>
       </Form>
     </div>
   );
 }
 
-export default AddPortfolio;
+export default EditPortfolio;
 
 /*
 const createPortfolio = ()=>{
