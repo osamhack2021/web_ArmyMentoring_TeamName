@@ -8,7 +8,7 @@
     height:1000px;
     margin:10px auto;
     border-radius: 15px;
-    background-color: $senary;
+    background-color: $secondary;
     .chat-area{
         width:800px;
         height:900px;
@@ -24,9 +24,9 @@
                 margin:10px;
             }
             .description{
-                border:1px solid $black;
+                border:2px solid $black;
                 border-radius: 0px 15px 15px 15px;
-                margin:10px;
+                margin:15px;
                 padding:10px;
                 background-color: $white;
                 .text{
@@ -46,11 +46,11 @@
                 margin:10px;
             }
             .description{
-                border:1px solid $black;
+                border:2px solid $black;
                 border-radius: 15px 0px 15px 15px;
                 margin:10px;
                 padding:10px;
-                background-color: $white;
+                background-color: $quinary;
                 .text{
                     word-break: break-all;
                 }
@@ -66,8 +66,16 @@
             height:100px;
         }
         .send-button{
+            display:block;
+            background-color: $primary;
+            border: 1px solid $black;
+            border-radius: 15px 15px 15px 0px;
             width:100px;
             height:100px;
+            line-height: 100px;
+            margin-left:10px;
+            color:$white;
+            font-weight: bold;
         }
     }
 }

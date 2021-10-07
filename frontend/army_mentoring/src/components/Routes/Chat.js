@@ -26,7 +26,7 @@ function Chat() {
             <Form>
                 <FormGroup className="typing-area">
                     <Input className='typing-bar' type="text"></Input>
-                    <Button  className='send-button'>send</Button>
+                    <div className='send-button'>send</div>
                 </FormGroup>
             </Form>
         </div>
