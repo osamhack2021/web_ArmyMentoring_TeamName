@@ -57,8 +57,8 @@ function Profile({match}) {
         </div>
       </div>
       <div className="buttons">
-        <Link to='/chat' className="button">메시지 보내기</Link>
-        <Link to="/editprofile" className="button">개인정보 수정</Link>
+        <Link to={`${match.url}/chat`} className="button">메시지 보내기</Link>
+        <Link to={`${match.url}/edit`} className="button">개인정보 수정</Link>
       </div>
       <div className="mentorings">{mentorInfo.map((m) => (<li key={m.id}>{m.title}</li>))}</div>
       <div className="mentorings">{menteeInfo.map((m) => (<li key={m.id}>{m.title}</li>))}</div>

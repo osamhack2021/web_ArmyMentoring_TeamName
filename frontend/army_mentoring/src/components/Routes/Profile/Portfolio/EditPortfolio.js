@@ -62,7 +62,7 @@ function EditPortfolio({match, history}) {
             </FormGroup>
           )
         })}
-        <div onClick={add}>+</div>
+        <div className='button' onClick={add}>+</div>
         <FormGroup className='buttons'>
           <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>   
           <div className='confirm button' onClick={()=>{createPortfolio();history.goBack()}}>{ isAddPage ? '추가' : '수정'}</div>
