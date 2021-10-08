@@ -1,3 +1,5 @@
+@import '../preset';
+
 .community_board {
 	display: flex;
 	align-items: center;
@@ -31,6 +33,47 @@
 			}
 			.community_likes {
 				border: 1px solid black;
+			}
+		}
+		.comments{
+			.comment{
+				display:flex;
+				flex-direction: column;
+				justify-content: space-around;
+				margin:10px;
+				border: 1px solid $primary;
+				border-radius: 15px 15px 15px 0px;
+				.head{
+					display:flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					font-size: 15px;
+					font-weight:bold;
+					margin-left : 10px;
+				}
+				.description{
+					margin: 10px 0px;
+				}
+				.tail{
+					display:flex;
+					flex-direction: row;
+					justify-content: flex-end;
+					font-size:10px;
+					margin-right: 10px;
+					color:$gray2;
+				}
+			}
+		}
+		.input-comment{
+			display:flex;
+			flex-direction: row;
+			justify-content: center;
+			margin:10px;
+			.description{
+				width:500px;
+			}
+			.button{
+				width:200px;
 			}
 		}
 	}
