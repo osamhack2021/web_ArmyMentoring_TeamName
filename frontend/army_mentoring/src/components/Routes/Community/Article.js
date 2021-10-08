@@ -61,37 +61,33 @@ function Article({match}) {
     }
 
     return (
-        <div>
-            <div className='community_board'>
-                <div key={content.id} className='community_post'>
-                    <div>{"id : " + content.id}</div>
-                    <div className='community_title'>{content.title}</div>
-                    <div className='community_contents'>{content.contents}</div>
-                    <div className='community_statistics'>
-                        <div className='community_comments'>댓글 {comments.length}</div>
-                        <div className='community_likes' onClick={clickLikes}>좋아요 {content.likes}</div>
-                    </div>
-                    <div className='comments'>
-                        {comments.map((comment)=>{
-                            return (
-                                <div className='comment'>
-                                    <div className='head'>
-                                        <div className='writer'>작성자 : {comment.writer}</div>
-                                    </div>
-                                    <div className='description'>{comment.description}</div>
-                                    <div className='tail'>
-                                        <div className='date'>{comment.date}</div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <Form className="input-comment">
-                        <Input className='description' id='description' type="text"></Input>
-                        <Button className='button' onClick={addComment}>댓글 입력</Button>
-                    </Form>
-                </div>
+        <div key={content.id} className='community_post'>
+            <div>{"id : " + content.id}</div>
+            <div className='community_title'>{content.title}</div>
+            <div className='community_contents'>{content.contents}</div>
+            <div className='community_statistics'>
+                <div className='community_comments'>댓글 {comments.length}</div>
+                <div className='community_likes' onClick={clickLikes}>좋아요 {content.likes}</div>
             </div>
+            <div className='comments'>
+                {comments.map((comment)=>{
+                    return (
+                        <div className='comment'>
+                            <div className='head'>
+                                <div className='writer'>작성자 : {comment.writer}</div>
+                            </div>
+                            <div className='description'>{comment.description}</div>
+                            <div className='tail'>
+                                <div className='date'>{comment.date}</div>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+            <Form className="input-comment">
+                <Input className='description' id='description' type="text"></Input>
+                <Button className='button' onClick={addComment}>댓글 입력</Button>
+            </Form>
         </div>
     );
   }
