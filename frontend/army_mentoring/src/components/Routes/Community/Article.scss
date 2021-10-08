@@ -14,9 +14,10 @@
 		color: black;
 		border-radius: 20px 20px 20px 0px;
 		.community_title {
-			margin-left: 20px;
-			width: 50px;
-			align-items: flex-start;
+			margin: 0px 0px 20px 20px;
+			display:flex;
+			flex-direction: row;
+			justify-content: flex-start;
 			font-weight: bold;
 		}
 		.community_statistics {
