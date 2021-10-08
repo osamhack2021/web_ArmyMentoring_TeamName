@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./PortfolioSpecific.scss";
+import "./PortfolioDetail.scss";
 
-function Portfolio() {
+function Portfolio({match, history}) {
 
   let [portfolio, setPortfolio] = useState({
                                               id:1,
@@ -15,8 +15,7 @@ function Portfolio() {
                                               remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
                                               and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
                                           });
-
- 
+  //match.params.id 값을 가지고 axios로 portfolio 정보 요청
 
   return (
     <div className="portfolio-specific-body">
@@ -37,7 +36,8 @@ function Portfolio() {
         <div className="description">{portfolio.description}</div>
       </div>
       <div className="buttons">
-        <Link to='/editportfolio' className="button">수정</Link>
+        <div onClick={()=>{history.goBack()}} className="cancel button">뒤로</div>
+        <Link to={`${match.url}/edit`} className="confirm button">수정</Link>
       </div>
     </div>
   );
@@ -51,7 +51,7 @@ const load = ()=>{
   const id;
   axios({
     method:'GET',
-    url:'https://???/portfolio' + id,
+    url:'https://???/portfolio/' + id,
     headers : {
       Authorization : token
     }

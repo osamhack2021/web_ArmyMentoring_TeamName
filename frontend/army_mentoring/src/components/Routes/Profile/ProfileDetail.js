@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "reactstrap";
 import soldier from "../img/soldier.png";
-import "./Profile.scss";
+import "./ProfileDetail.scss";
 
-function Profile() {
+function Profile({match}) {
 
   let [userInfo, setUserInfo] = useState();
   let [mentorInfo, setMentorInfo] = useState([
@@ -53,12 +53,12 @@ function Profile() {
           </div>
         </div>
         <div className="button-col">
-          <Link to='/portfolio' className="go-portfolio">포트폴리오 보기</Link>
+          <Link to={`${match.url}/portfolio`} className="go-portfolio">포트폴리오 보기</Link>
         </div>
       </div>
       <div className="buttons">
-        <Link to='/chat' className="button">메시지 보내기</Link>
-        <Link to="/editprofile" className="button">개인정보 수정</Link>
+        <Link to={`${match.url}/chat`} className="button">메시지 보내기</Link>
+        <Link to={`${match.url}/edit`} className="button">개인정보 수정</Link>
       </div>
       <div className="mentorings">{mentorInfo.map((m) => (<li key={m.id}>{m.title}</li>))}</div>
       <div className="mentorings">{menteeInfo.map((m) => (<li key={m.id}>{m.title}</li>))}</div>

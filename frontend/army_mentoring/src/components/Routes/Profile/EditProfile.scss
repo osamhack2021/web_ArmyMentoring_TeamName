@@ -33,27 +33,22 @@
         display:flex;
         flex-direction: row;
         justify-content: space-around;
-        #change_button{
+        .button{
             display: block;
             border-radius: 0px 20px 20px 20px;
             width:200px;
             height:50px;
             line-height: 50px;
-            background-color: $secondary;
             font-weight: bold;
             text-decoration: none;
             color:$white;
+            border : 1px solid $black;
         }
-        #cancel_button{
-            display: block;
-            border-radius: 0px 20px 20px 20px;
-            width:200px;
-            height:50px;
-            line-height: 50px;
+        .confirm{
+            background-color: $primary;
+        }
+        .cancel{
             background-color: $gray2;
-            font-weight: bold;
-            text-decoration: none;
-            color:$white;
         }
     }
     
