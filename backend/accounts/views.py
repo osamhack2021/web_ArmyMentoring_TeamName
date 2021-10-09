@@ -5,8 +5,9 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from django.contrib.auth import authenticate
 
-from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer
+from .serializers import CreateUserSerializer, LoginUserSerializer
 from users.models import User
+from users.serializers import UserSerializer
 
 class RegistrationAPI(generics.GenericAPIView):
     permission_classes = [AllowAny]
