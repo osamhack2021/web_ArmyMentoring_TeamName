@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import './MakeMentoring.scss';
-
+import soldier from '../img/soldier.png';
 function MakeMentoring(){
+
+
+    const [newmentoring,setNewmentoring] = useState([]); 
 
     useEffect(()=>{
         window.scroll({
@@ -15,29 +18,33 @@ function MakeMentoring(){
     
     return (
         <div>
-            <div className="section" id="">
-                <h2>this is make mentoring</h2>
+            <div className='makementoring_profile' >
+                <img src={soldier}/>
+                <div className='makementoring_about'></div>
             </div>
 
-            <div className="section" id="">
-                <h2>test</h2>
-            </div>
+            <div className="section">
+                <h2>멘토링 소개 작성</h2>
+                <textarea></textarea>
+            
 
-            <div className="section" id="">
-                <h2>멘토 소개</h2>
-            </div>
+            
+                <h2>과제 작성</h2>
+                <textarea></textarea>
+            
 
-            <div className="section" id="">
-                <h2>과제 소개</h2>
-            </div>
+            
+                <h2>세부 일정 작성</h2>
+                <textarea></textarea>
+            
 
-            <div className="section" id="">
-                <h2>세부 일정</h2>
+            
+                <div>
+                    <button>확인</button>
+                    <button>취소</button>
+                </div>
             </div>
-
-            <div className="section" id="">
-                <h2>후기</h2>
-            </div>
+            
         </div>
     )
 
