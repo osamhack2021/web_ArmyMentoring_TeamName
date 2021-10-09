@@ -1,11 +1,52 @@
 import React, {useState, useEffect } from 'react';
 import './ArticleList.scss';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function ArticleList({match}) {
 
-  const [menu,setMenu] = useState([]); 
-  
+  const [menu,setMenu] = useState([]);
+  //실제로는 sessionStorage에서 가져올 듯?
+  const token = '905e125ab3ee40e3a74f6915c9dd3f540b987dc6';
+  axios({
+      method : 'GET',
+      url : 'https://guntor-guntee-data-server.herokuapp.com/auth/user/',
+      headers : { Authorization : '905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+  }).then((res)=>{
+      console.log(res);
+  }).catch((err)=>{
+      console.log(err);
+  });
+/*
+  axios({
+      method : 'POST',
+      url : 'https://guntor-guntee-data-server.herokuapp.com/question',
+      header : { Authorization : token },
+      data : {
+          title : '테스트 게시글 1',
+          content : `테스트 내용입니다리 군토군티 화이팅 조기튀김 화이팅
+          좀만 더 힘내요 근데 솔직히 백엔드 연동하는 거 재밌고 신기하다
+          훈련만 없으면 진짜 재밌게 불안하지 않게 할텐데 과연 시간이 충분할지
+          모르겠네용`,
+          user : 'https://guntor-guntee-data-server.herokuapp.com/user/1',
+          liked_user : [] 
+      }
+  }).then((res)=>{
+      console.log(res);
+  }).catch((err)=>{
+      console.log(err);
+  });
+  /* questions 목록 불러오기
+  axios({
+      method : 'GET',
+      url : 'https://guntor-guntee-data-server.herokuapp.com/question'
+  }).then((res)=>{
+      console.log(res);
+  }).catch((err)=>{
+      console.log(err);
+  });
+  */
+
   useEffect(() => {
       setMenu([
         {
