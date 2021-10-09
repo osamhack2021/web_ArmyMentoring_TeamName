@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import "./Mentorintroduction.scss";
+import "./MentorIntroduction.scss";
 import soldier from "../img/soldier.png";
 import reactimg from "./react.png";
 import tomcatimg from "./tomcat.png";

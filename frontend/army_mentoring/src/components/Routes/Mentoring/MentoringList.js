@@ -1,11 +1,11 @@
 import React, { useEffect, useState }  from 'react';
 import { Link } from 'react-router-dom';
-import './Mentoring.scss';
-import Subnavbar from './Subnavbar';
+import './MentoringList.scss';
+import Subnavbar from '../Subnavbar';
 import axios from 'axios';
 
 
-function Mentoring(){
+function MentoringList({match}){
 
     useEffect(()=>{
         window.scroll({
@@ -60,12 +60,7 @@ function Mentoring(){
                     <h2>추천 멘토링</h2>
                     <p>
                         {sgstmentoringData.map((m)=>{
-                                return <Link to={{
-                                    pathname : '/mentoringintro',
-                                    state : {
-                                        id: m.id
-                                    }}
-                                }><h4>{m.title}</h4><p>{m.desc}</p></Link>
+                                return <Link to={`${match.url}/mentoring/${m.id}`}><h4>{m.title}</h4><p>{m.desc}</p></Link>
                         })}
                     </p>
                 </div>
@@ -76,12 +71,7 @@ function Mentoring(){
                     <h2>추천 멘토</h2>
                     <p>
                         {sgstmentoringData.map((m)=>{
-                                return <Link to={{
-                                    pathname : '/mentorintro',
-                                    state : {
-                                        id: m.id
-                                    }}
-                                }><h4>{m.title}</h4><p>{m.desc}</p></Link>
+                                return <Link to={`${match.url}/mentor/${m.id}`}><h4>{m.title}</h4><p>{m.desc}</p></Link>
                         })}
                     </p>
                 </div>
@@ -106,10 +96,10 @@ function Mentoring(){
                 </div>
             </div>
 
-            <Link to="/makementoring" id="button">make mentoring</Link>
+            <Link to={`${match.url}/make`} id="button">make mentoring</Link>
         </div>
     )
 
 }
 
-export default Mentoring;
+export default MentoringList;

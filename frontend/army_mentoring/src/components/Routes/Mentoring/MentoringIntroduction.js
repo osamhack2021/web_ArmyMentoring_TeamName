@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Mentoringintroduction.scss';
+import './MentoringIntroduction.scss';
 import Subnavbar from '../Subnavbar';
 
-function Mentoringintroduction(){
+function MentoringIntroduction(){
     const menu = 
     [
         {id:'home', desc:'홈'},
@@ -77,4 +77,4 @@ function Mentoringintroduction(){
 
 }
 
-export default Mentoringintroduction;
+export default MentoringIntroduction;

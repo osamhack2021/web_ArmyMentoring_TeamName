@@ -11,7 +11,7 @@ function Header(){
                 <ul className="menu_list">
                     <li><Link to="/">home</Link></li>
                     <li><Link to="/mentoring">mentoring</Link></li>
-                    <li><Link to="/mymentoringlist">mymentoringlist</Link></li>
+                    <li><Link to="/mymentoring">mymentoring</Link></li>
                     <li><Link to="/community">commuity</Link></li>
                     <li><Link to="/mypage">{mypage}</Link></li>
                 </ul>

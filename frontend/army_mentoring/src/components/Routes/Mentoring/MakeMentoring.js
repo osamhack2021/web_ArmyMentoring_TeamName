@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import './Makementoring.scss';
+import './MakeMentoring.scss';
 
-function Makementoring(){
+function MakeMentoring(){
 
     useEffect(()=>{
         window.scroll({
@@ -43,4 +43,4 @@ function Makementoring(){
 
 }
 
-export default Makementoring;
+export default MakeMentoring;
