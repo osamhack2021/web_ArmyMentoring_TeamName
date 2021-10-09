@@ -9,7 +9,11 @@ const publicDirectoryPath = path.join(__dirname, '../public');
 
 app.use(express.static(publicDirectoryPath));
 const server = createServer(app);
-const io = new Server(server, {});
+const io = new Server(server, {
+    cors: {
+        origin: '*'
+    }
+});
 
 io.on('connection', (socket)=>{
     socket.on('joinRoom', (roomName, user)=>{

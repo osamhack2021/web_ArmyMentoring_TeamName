@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
-import './Mentoringspecificmentee.scss';
+import './MentoringSpecificMentee.scss';
 
-function Mentoringspecificmentee(){
+function MentoringSpecificMentee(){
 
 
     useEffect(()=>{
@@ -38,4 +38,4 @@ function Mentoringspecificmentee(){
 
 }
 
-export default Mentoringspecificmentee;
+export default MentoringSpecificMentee;

@@ -1,18 +1,148 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import "./Mentorintroduction.scss";
+import "./MentorIntroduction.scss";
 import soldier from "../img/soldier.png";
 import reactimg from "./react.png";
 import tomcatimg from "./tomcat.png";
 import Subnavbar from '../Subnavbar';
+import axios from 'axios';
 
 function MentorInfo() {
+
+  // const userInfo = {
+  //   url = "/users",
+  //   method: 'GET',
+  //   header:{
+  //     Authorization: "Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b";
+  //     'content-type': "application/json";
+  //   }
+  // }
+
+//   const showInfo = ()=>{
+//     axios({                                 //유저정보 요청
+//         method : 'GET',
+//         url : 'https://???/auth/user/'
+//     }).then(function(res)=>{                
+//         const response = res.data;
+//         setUserInfo(JSON.parse(response));  //받은 유저정보를 state에 저장
+//     });
+// }
+
+    // const [users, setUsers] = useState([]);
+ 
+    // const fetchUsers = async () => {
+    //   const token = sessionStorage.getItem('token');
+    //   const response = await axios({
+    //   method : 'GET',
+    //   url : 'https://127.0.0.1:8000/auth/logout',
+    //   headers : { 'token' : token }
+    //  }).then(function(res)=>{
+    //           const response = res.data;       //서버에서 받은 json 데이터
+    //           //에러 발생시?
+    //           document.location.href = "/";   //홈페이지로 이동
+    //       })
+    //  setUsers(response.data);
+    // };
+// /////////////////////////////////////////////////////////////////////
+//********************************************************* */
+//   const [post, setPost] = useState(null);
+
+//   useEffect(() => {
+//     axios.get('http://127.0.0.1:8000/user').then((response) => {
+//       setPost(response.data);
+//     });
+//   }, []);
+
+//   console.log(post);
+
+// //
+
+  // axios.get('http://127.0.0.1:8000/user/')
+  // .then(function (response) {
+  // console.log(response.data);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  //   console.log('this is error!');
+  // })
+  // .then(function () {
+  //   // always executed
+  // });  
+  
+  // axios.get('http://127.0.0.1:8000/auth/user/1')
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // })
+  // .then(function () {
+  //   // always executed
+  // });  
+
+  // const getUser = async ()=>{
+  //   const userInfo = await axios.get('http://127.0.0.1:8000/user/');
+  //   console.log(userInfo);
+  // };
+
+  // this.getUser();
+
+  // axios.getUri('http://127.0.0.1:8000/user HTTP/1.1')
+
+
+
+  let [mentorInfo, setMentorInfo] = useState([
+  ]);
+
+  const mentor =
+  {
+    username: "김00",
+    nickname: "열혈 멘토",
+    email: "guntor@email.com",
+    profileimage:  soldier,
+    experience_point: 25,
+    description : "한줄 소개"
+  };
+
+//   const getUserInfo = ()=>{
+//     const token = sessionStorage.getItem('token');
+//     axios({                                 //유저정보 요청
+//         method : 'GET',
+//         url : 'https://http://127.0.0.1:8000/user',
+//         headers : { "token" : token.token }
+//     }).then(function(res)=>{    
+//         const id = res.id;
+//         axios({method : 'GET', url : 'https://http://127.0.0.1:8000/user', headers : { "token" : token.token }})
+//         .then(function(res)=>{            
+//             const response = res.data,
+//             const userinfo = {
+//             response.username,
+//             response.nickname,
+//             response.email,
+//             response.profile_image,
+//             response.level,
+//             response.experience_point,
+//             response.description,
+//             }
+//             setUserInfo(userInfo);  //받은 유저정보를 state에 저장
+//             const mentoring = {
+//               response.opened_mentoring,
+//               response.participated_mentoring,
+//             }
+//             setMentoringInfo(mentoring);  //참여중인 멘토링
+//           });
+//  }
+
+
   return (
     <div className="MentorInfo" id="MentorInfos">
-      <h2 className="OneLineIntro">"한줄소개 입니다"</h2>
+      <h2 className="OneLineIntro">{mentor.description}</h2>
       <div className="MentorProfile">
         <b className="blank"></b>
-        <img className="mentor-pic" src={soldier} alt="멘토사진"></img>
+        <div className="mentor-img">
+          <img className="mentor-pic" src={mentor.profileimage} alt="멘토사진"></img>
+          <div className="username">{mentor.username}</div>
+        </div>
         <div className="updown"></div>
         <b className="blank"></b>
         <div className="Summary">
@@ -40,19 +170,19 @@ function Project() {
       id: 1,
       title: "React OpenSource Project",
       text: "저는 React 프로젝트에 참여해서 이런 걸 만들었습니다.",
-      img: reactimg
+      image: reactimg
     },
     {
       id: 2,
       title: "Tomcat OpenSource Project",
       text: "저는 Tomcat 프로젝트에 참여해서 이런 걸 만들었습니다.",
-      img: tomcatimg
+      image: tomcatimg
     }
   ];
 
   const projects = project.map((project) => (
     <div key={project.id} className="Card">
-      <img src={project.img} alt={project.title} />
+      <img src={project.image} alt={project.title} />
       <h2>{project.title}</h2>
       <div className="Cardtext">{project.text}</div>
     </div>
@@ -114,6 +244,9 @@ function MentoringInfo() {
 }
 
 function MentoringReview() {
+
+
+//sample
   const reviews = [
     {
       id: "육군 일병 김00",
@@ -166,6 +299,8 @@ function MentorIntroduction() {
           behavior:'instant'
       })}, []
     );
+
+
   return (
     <div>
         <Subnavbar menu={menu}></Subnavbar>

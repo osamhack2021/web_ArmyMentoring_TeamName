@@ -15,6 +15,9 @@ class CreateUserSerializer(serializers.ModelSerializer):
             "profile_image", 
             "description", 
             )
+        extra_kwargs={
+            'profile_image':{'required': False}
+        }
     
     def create(self, validated_data):
         user = User.objects.create_user(
@@ -22,7 +25,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
             username=validated_data["username"],
             password=validated_data["password"],
             nickname=validated_data["nickname"],
-            profile_image=validated_data["profile_image"],
+            profile_image=validated_data.pop("profile_image", None),
             description=validated_data["description"],
         )
         return user
