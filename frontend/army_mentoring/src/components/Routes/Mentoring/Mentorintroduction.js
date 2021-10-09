@@ -28,19 +28,6 @@ function MentorInfo() {
 //     });
 // }
 
-    // const onLoggin = ()=>{
-    //     const token = sessionStorage.getItem('token');
-    //     axios({
-    //         method : 'GET',
-    //         url : 'https://127.0.0.1:8000/auth/logout',
-    //         headers : { 'token' : token }
-    //     }).then(function(res)=>{
-    //         const response = res.data;       //서버에서 받은 json 데이터
-    //         //에러 발생시?
-    //         document.location.href = "/";   //홈페이지로 이동
-    //     })
-    // };
-
     // const [users, setUsers] = useState([]);
  
     // const fetchUsers = async () => {
@@ -70,17 +57,17 @@ function MentorInfo() {
 
 // //
 
-  axios.get('http://127.0.0.1:8000/user/')
-  .then(function (response) {
-  console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-    console.log('this is error!');
-  })
-  .then(function () {
-    // always executed
-  });  
+  // axios.get('http://127.0.0.1:8000/user/')
+  // .then(function (response) {
+  // console.log(response.data);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  //   console.log('this is error!');
+  // })
+  // .then(function () {
+  //   // always executed
+  // });  
   
   // axios.get('http://127.0.0.1:8000/auth/user/1')
   // .then(function (response) {
@@ -259,7 +246,7 @@ function MentoringInfo() {
 function MentoringReview() {
 
 
-
+//sample
   const reviews = [
     {
       id: "육군 일병 김00",

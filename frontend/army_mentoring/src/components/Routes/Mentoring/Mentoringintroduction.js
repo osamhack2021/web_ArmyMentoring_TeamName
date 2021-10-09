@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Mentoringintroduction.scss';
 import Subnavbar from '../Subnavbar';
 
@@ -20,6 +20,34 @@ function Mentoringintroduction(){
             behavior:'instant'
         })}, []
     );
+
+
+    let [mentoringInfo, setMentoringInfo] = useState([
+    ]);
+
+
+    
+    // const mentoringInfo = ()=>{
+    //     const token = sessionStorage.getItem('token');
+    //     axios({                                 //멘토링정보 요청
+    //         method : 'GET',
+    //         url : 'https://http://127.0.0.1:8000//mentoring/:pk',
+    //         headers : { "token" : token.token }
+    //     }).then(function(res)=>{    
+    //         const id = res.id;
+    //         axios({method : 'GET', url : 'https://http://127.0.0.1:8000//mentoring/:pk', headers : { "token" : token.token }})
+    //         .then(function(res)=>{            
+    //             const response = res.data,
+    //             const mentoringinfo = {
+    //             response.title,
+    //             response.mentor,
+    //             response.portfolio,
+    //             response.mentees,
+    //             response.tags
+    //             }
+    //             setMentoringInfo(mentoringInfo);  //받은 멘토링정보를 state에 저장
+    //           });
+    //  }
 
     return (
         <div>           
