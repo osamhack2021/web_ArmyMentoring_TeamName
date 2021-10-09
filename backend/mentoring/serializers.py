@@ -16,28 +16,33 @@ class MentoringSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True,
         view_name='assignment-detail'
         )
-    tags = TagSerializer(many=True)
+    tags = TagSerializer(
+        many=True,
+        required=False
+        )
 
     class Meta:
         model = Mentoring
         fields = '__all__'
         read_only_fields=['created_at', 'updated_at']
         extra_kwargs = {
-            'thumbnail': {'required': False},
-            'tags': {'required': False},
+            'thumbnail': {'required': False}
         }
 
     def create(self, validated_data):
-        tags_data=validated_data.pop('tags')
+
+        tags_data=validated_data.pop('tags', None)
+
         mentees_data=validated_data.pop('mentees')
         mentoring=Mentoring.objects.create(**validated_data)
 
         for mentee_data in mentees_data:
             mentoring.mentees.add(mentee_data)
 
-        for tag_data in tags_data:
-            tag, created= Tag.objects.get_or_create(**tag_data)
-            mentoring.tags.add(tag)
+        if tags_data:
+            for tag_data in tags_data:
+                tag, created= Tag.objects.get_or_create(**tag_data)
+                mentoring.tags.add(tag)
 
         return mentoring
 
