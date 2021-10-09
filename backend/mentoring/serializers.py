@@ -9,6 +9,9 @@ class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
         model=Assignment
         fields='__all__'
         read_only_fields=['created_at', 'updated_at']
+        extra_kwargs = {
+            'passed_mentees': {'required': False}
+        }
 
 class MentoringSerializer(serializers.HyperlinkedModelSerializer):
     assignments = serializers.HyperlinkedRelatedField(

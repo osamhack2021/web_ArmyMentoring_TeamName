@@ -8,6 +8,10 @@ class QuestionCommentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = QuestionComment
         fields='__all__'
+        extra_kwargs={
+            'user':{'required': True},
+            'liked_user':{'required': False}
+        }
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     question_comments = serializers.HyperlinkedRelatedField(
@@ -20,5 +24,6 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
         model = Question
         fields = '__all__'
         extra_kwargs={
-            'user':{'required': True}
+            'user':{'required': True},
+            'liked_user':{'required': False}
         }
