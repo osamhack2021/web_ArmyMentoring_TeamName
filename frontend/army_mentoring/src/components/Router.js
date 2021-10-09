@@ -12,13 +12,8 @@ import Mentoringspecificmentee from "./Routes/Mentoring/Mentoringspecificmentee"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MentorIntroduction from "./Routes/Mentoring/Mentorintroduction";
 import Login from './Routes/Login/Login';
-import Profile from './Routes/Login/Profile';
 import Signup from './Routes/Login/Signup';
-import Editprofile from "./Routes/Login/Editprofile";
-import Portfolio from "./Routes/Login/Portfolio";
-import PortfolioSpecific from "./Routes/Login/PortfolioSpecific";
-import Chat from "./Routes/Chat";
-import EditPortfolio from "./Routes/Login/EditPortfolio";
+import Profile from './Routes/Profile/Profile';
 
 export default () => (
   
@@ -35,13 +30,8 @@ export default () => (
       <Route path="/mentoringspecificmento" component={Mentoringspecificmento}></Route>
       <Route path="/mentoringspecificmentee" component={Mentoringspecificmentee}></Route>
       <Route path="/login" component={Login}></Route>
-      <Route path="/profile" component={Profile}></Route>
       <Route path="/signup" component={Signup}></Route>
-      <Route path="/editprofile" component={Editprofile}></Route>
-      <Route path="/portfolio" component={Portfolio}></Route>
-      <Route path="/chat" component={Chat}></Route>
-      <Route path="/portfoliospecific" component={PortfolioSpecific}></Route>
-      <Route path="/editportfolio" component={EditPortfolio}></Route>
+      <Route path="/profile/:id" component={Profile}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 

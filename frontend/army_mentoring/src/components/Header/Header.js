@@ -15,6 +15,8 @@ function Header(){
         sessionStorage.clear();
     }
 
+    let id = 1; //현재 로그인한 유저의 id
+
     return(
         <div className="header_div">
             <img className="logo_image" alt="logo" src={logo}/>
@@ -24,7 +26,7 @@ function Header(){
                 <li><Link to="/mymentoringlist">mymentoringlist</Link></li>
                 <li><Link to="/community">commuity</Link></li>
                 { mypage ? 
-                    <li><Link to="/profile">profile</Link>/<a href="" onClick={logout}>logout</a></li> :
+                    <li><Link to={`/profile/${id}`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
                     <li><Link to="/login">login</Link></li>
                 }  
             </ul>

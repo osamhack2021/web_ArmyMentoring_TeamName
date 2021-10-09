@@ -6,7 +6,7 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import "./EditProfile.scss";
 import axios from "axios";
 
-function Editprofile() {
+function Editprofile({match, history}) {
   const [imgUrl, setImgUrl] = useState("");
 
   useEffect(()=>{
@@ -73,8 +73,8 @@ function Editprofile() {
                     <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
                 </FormGroup>
                 <div className="buttons">
-                    <Link to='/profile' id="cancel_button">취소</Link>
-                    <Link to='/profile' id="change_button" onClick={change}>변경</Link>
+                    <div onClick={()=>{history.goBack()}} className="cancel button">취소</div>
+                    <div onClick={()=>{change();history.goBack()}} className="confirm button">변경</div>
                 </div>
             </Form>
         </div>
