@@ -1,4 +1,4 @@
-// const socket = io({query:'roomName=myRoom'});
+// const socket = io('https://guntor-guntee-chatting-server.herokuapp.com/');
 const socket = io();
 
 socket.on('connect', () => {
