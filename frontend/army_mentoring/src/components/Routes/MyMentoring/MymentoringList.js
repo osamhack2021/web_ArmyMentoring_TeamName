@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Mymentoringlist.scss';
-import Subnavbar from './Subnavbar';
+import './MymentoringList.scss';
+import Subnavbar from '../Subnavbar';
 
-function Mymentoringlist(){  
+function MymentoringList({match}){  
     const menu = 
     [
         {id:'recent', desc:'최근 수강 강좌'},
@@ -30,12 +30,12 @@ function Mymentoringlist(){
 
             <div className="section" id="asmentee">
                 <h2>멘티로서 진행중인 멘토링 목록</h2>
-                <Link to='/mentoringspecificmentee'>mentoringspecificmentee</Link>
+                <Link to={`${match.url}/mentee/${0}`}>mentoringspecificmentee</Link>
             </div>
 
             <div className="section" id="asmentor">
                 <h2>멘토로서 진행중인 멘토링 목록</h2>
-                <Link to='/mentoringspecificmento'>mentoringspecificmento</Link>
+                <Link to={`${match.url}/mentor/${0}`}>mentoringspecificmento</Link>
             </div>
 
             <div className="section" id="waiting">
@@ -47,4 +47,4 @@ function Mymentoringlist(){
 
 }
 
-export default Mymentoringlist;
+export default MymentoringList;
