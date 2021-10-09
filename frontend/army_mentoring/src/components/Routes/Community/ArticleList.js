@@ -22,39 +22,6 @@ function ArticleList({match}) {
   }
   useEffect(()=>{ load() }, [])
 
-  const addButton = ()=>{
-    let id = -1;
-    axios({
-        method : 'GET',
-        url : 'https://guntor-guntee-data-server.herokuapp.com/auth/user',
-        headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
-    }).then((res)=>{
-        console.log(res);
-        id = res.data.id;
-
-        axios({
-            method : 'POST',
-            url : 'https://guntor-guntee-data-server.herokuapp.com/question',
-            headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'},
-            data : {
-                title : '테스트 게시글 2',
-                content : `테스트 내용입니다리 군토군티 화이팅 조기튀김 화이팅
-                좀만 더 힘내요 근데 솔직히 백엔드 연동하는 거 재밌고 신기하다
-                훈련만 없으면 진짜 재밌게 불안하지 않게 할텐데 과연 시간이 충분할지
-                모르겠네용`,
-                user : 'https://guntor-guntee-data-server.herokuapp.com/user/' + id,
-                liked_user : [ 'https://guntor-guntee-data-server.herokuapp.com/user/' + id ] 
-            }
-        }).then((res)=>{
-            console.log(res);
-            load();
-        }).catch((err)=>{
-            console.log(err.response);
-        });
-    }).catch((err)=>{
-        console.log(err.response);
-    });
-  }
 
   const removeButton = ()=>{
     axios({
@@ -72,8 +39,7 @@ function ArticleList({match}) {
     return (
         <div>
             <div className='community_board'>
-            <div onClick={addButton}>add</div>
-            <div onClick={removeButton}>remove</div>
+            <Link to={`${match.url}/add`}>add</Link>
             {list.map((li) => (
                 <Link to={`${match.url}/${li.id}`}>
                     <div key={li.id} className='community_post'>
