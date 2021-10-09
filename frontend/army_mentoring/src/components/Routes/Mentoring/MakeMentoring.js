@@ -20,7 +20,7 @@ function MakeMentoring(){
             </div>
 
             <div className="section" id="">
-                <h2>홈</h2>
+                <h2>test</h2>
             </div>
 
             <div className="section" id="">
