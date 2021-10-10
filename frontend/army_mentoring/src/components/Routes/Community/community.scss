@@ -1,0 +1,75 @@
+
+@mixin button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100px;
+    height:50px;
+    line-height: 50px;
+    border:3px solid $black;
+    border-radius: 15px 15px 15px 0px;
+    margin:10px;
+    color:$white;
+    font-weight: bold;
+    cursor : pointer;
+}
+@mixin communityPost{
+    margin: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    width: 800px;
+    margin:30px auto;
+    background-color: $white;
+    border: 1px solid $gray3;
+    color: $black;
+    border-radius: 20px 20px 20px 0px;
+    text-decoration: none;
+    color: $gray1;
+}
+@mixin communityTitle{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-weight: bold;
+    padding:5px;
+    color: $black;
+}
+@mixin communityContent{
+    padding:30px 5px;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+@mixin communityStatistics{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    padding: 10px 5px;
+    .community_comments{
+        @include communityComments;
+    }
+    .community_likes{
+        @include communityLikes;
+    }
+}
+@mixin communityLikes{
+    border: 1px solid $gray3;
+    padding:5px 10px;
+    border-radius: 15px 15px 15px 0px;
+    img{
+        margin: 0px 5px;
+        cursor:pointer;
+    }
+}
+@mixin communityComments{
+    border: 1px solid $gray3;
+    margin-right: 5px;
+    padding:5px 10px;
+    border-radius: 15px 15px 15px 0px;
+    img{
+        margin: 0px 5px;
+    }
+}

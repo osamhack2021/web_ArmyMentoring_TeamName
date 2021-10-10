@@ -1,7 +1,20 @@
 @import '../preset.scss';
+@import './community.scss';
 
 .community_post {
-	@include communitiyPostTitleContentStatistics;
+    @include communityPost;
+    .community_title{
+        @include communityTitle;
+    }
+    .community_contents{
+        @include communityContent;
+    }
+    .community_statistics {
+        @include communityStatistics;
+    }
+	.pushed{
+		color:red;
+	}
 	.comments{
 		.comment{
 			display:flex;
@@ -43,10 +56,17 @@
 			.tail{
 				display:flex;
 				flex-direction: column;
-				justify-content: flex-end;
-				font-size:10px;
+				justify-content: space-between;
+				align-items: center;
 				margin-right: 10px;
-				color:$gray2;
+				.like{
+					@include communityLikes;
+					width:80px;
+				}
+				.date{
+					font-size:10px;
+					color:$gray2;
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import './EditArticle.scss';
 import { Input, Form, FormGroup } from 'reactstrap';
-import { addArticle } from '../../../backend/community';
+import { _addArticle } from '../../../backend/community';
 
 function EditArticle({match, history}) {
 
@@ -12,8 +12,8 @@ function EditArticle({match, history}) {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const add = ()=>{
-        addArticle(title, content, token, user_id)
+    const addArticle = ()=>{
+        _addArticle(title, content, token, user_id)
         .then((res)=>{
             history.goBack();
         }).catch((err)=>{
@@ -29,7 +29,7 @@ function EditArticle({match, history}) {
             </Form>
             <div className='buttons'>
                 <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>
-                <div className='confirm button' onClick={()=>{add()}}>등록</div>
+                <div className='confirm button' onClick={addArticle}>등록</div>
             </div>
         </div>
     );

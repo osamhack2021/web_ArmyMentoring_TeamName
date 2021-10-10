@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import './ArticleList.scss';
 import { Link } from 'react-router-dom';
-import { loadArticleList } from '../../../backend/community';
+import { _loadArticleList } from '../../../backend/community';
 import heartImg from '../img/heart.png'; 
 import dialogImg from '../img/dialog.png';
 
@@ -13,9 +13,8 @@ function ArticleList({match}) {
 
   const [list,setList] = useState([]);
 
-
   const load = ()=>{
-      loadArticleList()
+      _loadArticleList()
       .then(res=>{
           setList(res.data);
       }).catch(err=>{

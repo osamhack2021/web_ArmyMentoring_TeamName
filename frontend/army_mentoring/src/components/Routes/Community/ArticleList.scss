@@ -1,4 +1,6 @@
 @import '../preset.scss';
+@import './community.scss';
+
 .community_board {
 	display: flex;
 	align-items: center;
@@ -21,6 +23,15 @@
 		}
 	}
 	.community_post {
-		@include communitiyPostTitleContentStatistics;
+		@include communityPost;
+		.community_title{
+			@include communityTitle;
+		}
+		.community_contents{
+			@include communityContent;
+		}
+		.community_statistics {
+			@include communityStatistics;
+		}
 	}
 }

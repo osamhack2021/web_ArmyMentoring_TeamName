@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const loadArticleList = async ()=>{
+const _loadArticleList = async ()=>{
     try{
         const response = await axios({
             method : 'GET',
@@ -13,7 +13,7 @@ const loadArticleList = async ()=>{
     }
 }
 
-const loadArticle = async (token, article_id)=>{
+const _loadArticle = async (token, article_id)=>{
     try{
         const response = await axios({
             method : 'GET',
@@ -26,7 +26,7 @@ const loadArticle = async (token, article_id)=>{
     }
 }
 
-const loadComments = async (token, article_id, question_id)=>{
+const _loadComments = async (token, article_id, question_id)=>{
     try{
         const response = await axios({
             method : 'GET',
@@ -39,7 +39,7 @@ const loadComments = async (token, article_id, question_id)=>{
     }
 }
 
-const addComment = async (token, article_id, user_id, content)=>{
+const _addComment = async (token, article_id, user_id, content)=>{
     try{
         const response = await axios({
             method : 'POST',
@@ -49,7 +49,7 @@ const addComment = async (token, article_id, user_id, content)=>{
                 content : content,
                 question : '/question/' + article_id,
                 user : '/user/' + user_id,
-                liked_user : [ '/user/' + user_id ]
+                liked_user : []
             }})
         return response;
     }
@@ -58,7 +58,7 @@ const addComment = async (token, article_id, user_id, content)=>{
     }
 }
 
-const deleteArticle = async (token, article_id)=>{
+const _deleteArticle = async (token, article_id)=>{
     try{
         const response = await axios({
             method : 'DELETE',
@@ -71,7 +71,7 @@ const deleteArticle = async (token, article_id)=>{
     }
 }
 
-const addArticle = async (title, content, token, user_id)=>{
+const _addArticle = async (title, content, token, user_id)=>{
     try{
         const response = await axios({
             method : 'POST',
@@ -90,7 +90,7 @@ const addArticle = async (title, content, token, user_id)=>{
 }
 
 
-const updateArticle = async (content, token, article_id)=>{
+const _updateArticle = async (content, token, article_id)=>{
     try{
         const response = await axios({
             method : 'PUT',
@@ -109,4 +109,38 @@ const updateArticle = async (content, token, article_id)=>{
     }
 }
 
-export { loadArticleList, deleteArticle, loadArticle, loadComments, addComment, addArticle, updateArticle};
+const _updateComment = async (content, comment, comment_id, token)=>{
+    try{
+        const response = await axios({
+            method : 'PUT',
+            url : 'https://guntor-guntee-data-server.herokuapp.com/question-comment/' + comment_id ,
+            headers : { Authorization : token },
+            data : {
+                question : content.url,
+                content : comment.content,
+                user : comment.user,
+                liked_user : comment.liked_user
+            }
+        })
+        return response;
+    }catch(error){
+        throw error;
+    }
+}
+
+const _deleteComment = async (comment_id, token)=>{
+    try{
+        const response = await axios({
+            method : 'DELETE',
+            url : 'https://guntor-guntee-data-server.herokuapp.com/question-comment/' + comment_id ,
+            headers : { Authorization : token }
+        })
+        return response;
+    }catch(error){
+        throw error;
+    }
+}
+
+
+
+export { _loadArticleList, _deleteArticle, _loadArticle, _loadComments, _addComment, _addArticle, _updateArticle, _updateComment, _deleteComment};
