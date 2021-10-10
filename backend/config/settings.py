@@ -33,7 +33,8 @@ STATICFILES_DIRS = (
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-x2w_7rv@o7%yey44fni3_^-xz9yy3_#6a7t8%q06oj=8#5ylmi')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
+# DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
