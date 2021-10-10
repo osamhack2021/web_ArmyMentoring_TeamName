@@ -3,4 +3,8 @@ const BACKEND = {
     CHATTING_SERVER_BASE_URL: "https://guntor-guntee-chatting-server.herokuapp.com/"
 }
 
-export {BACKEND}
+const UTILS={
+    RANDOM_IMAGE: "https://picsum.photos/200/300",
+}
+
+export {BACKEND, UTILS}

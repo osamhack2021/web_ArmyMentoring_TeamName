@@ -17,16 +17,12 @@ const io = new Server(server, {
 
 io.on('connection', (socket)=>{
     socket.on('joinRoom', (roomName, user)=>{
-        console.log(`${socket.id} joinRoom`);
-        socket.join(roomName, () => {
-            console.log(`${user} joined to ${roomName}.`);
-        })
-        io.to(roomName).emit('joinRoom', roomName, socket.id);
+        socket.join(roomName, () => {})
+        io.to(roomName).emit('joinRoom', roomName, user);
     })
 
     socket.on('chatMessage', (message, roomName, user) => {
-        console.log(`${user} send "${message}"`);
-        socket.broadcast.to(roomName).emit('chatMessage', message, socket.id);
+        socket.broadcast.to(roomName).emit('chatMessage', message, user);
     });
 })
 

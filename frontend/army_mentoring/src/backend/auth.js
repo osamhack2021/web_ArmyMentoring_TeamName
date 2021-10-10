@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const requestLogin = async (email, password) => {
     try {
         const response = await axios.post(
@@ -22,5 +23,6 @@ const requestAuthenticatedUser = async () => {
         throw(error);
     }
 }
+
 
 export {requestLogin, requestAuthenticatedUser}
