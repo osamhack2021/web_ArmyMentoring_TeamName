@@ -10,8 +10,11 @@ import { BACKEND } from "../CONST";
 function App() {
     const [user, setUser] = useState({});
 
+    const token=sessionStorage.getItem('Token');
     axios.defaults.baseURL = BACKEND.DATA_SERVER_BASE_URL;
-    axios.defaults.headers.common['Authorization'] = `Token ${sessionStorage.getItem('Token')}`;
+    if (token){
+      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+    }
 
     return (
     <UserContext.Provider value={[user, setUser]}>
