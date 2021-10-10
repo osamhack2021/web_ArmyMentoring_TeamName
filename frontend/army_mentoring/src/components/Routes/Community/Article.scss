@@ -75,4 +75,18 @@
 			width:200px;
 		}
 	}
+	.buttons{
+		display:flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		.button{
+			@include button
+		}
+		.remove{
+			background-color: $gray2;
+		}
+		.back{
+			background-color: $gray2;
+		}
+	}
 }

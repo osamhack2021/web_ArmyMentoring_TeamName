@@ -1,9 +1,24 @@
+@import '../preset.scss';
 .community_board {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	width:1000px;
+	margin:0px auto;
 	a{
 		text-decoration: none;
+	}
+	.add-button{
+		display:flex;
+		width:100%;
+		flex-direction: row;
+		justify-content: flex-end;
+		.button{
+			@include button
+		}
+		.add{
+			background-color: $primary;
+		}
 	}
 	.community_post {
 		margin: 30px;
