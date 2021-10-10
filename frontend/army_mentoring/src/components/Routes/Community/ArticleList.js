@@ -2,6 +2,8 @@ import React, {useState, useEffect } from 'react';
 import './ArticleList.scss';
 import { Link } from 'react-router-dom';
 import { loadArticleList } from '../../../backend/community';
+import heartImg from '../img/heart.png'; 
+import dialogImg from '../img/dialog.png';
 
 function ArticleList({match}) {
 
@@ -38,8 +40,8 @@ function ArticleList({match}) {
                             <div className='community_title'>{li.title}</div>
                             <div className='community_contents'>{li.content}</div>
                             <div className='community_statistics'>
-                                <div className='community_comments'>댓글 {li.question_comments.length}</div>
-                                <div className='community_likes'>좋아요 {li.liked_user.length}</div>
+                                <div className='community_comments'><img src={dialogImg}></img>{li.question_comments.length}</div>
+                                <div className='community_likes'><img src={heartImg}></img>{li.liked_user.length}</div>
                             </div>
                         </div>
                     </Link>

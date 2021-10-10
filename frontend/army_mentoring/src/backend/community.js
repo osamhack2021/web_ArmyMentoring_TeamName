@@ -80,8 +80,7 @@ const addArticle = async (title, content, token, user_id)=>{
             data : {
                 title : title,
                 content : content,
-                user : 'https://guntor-guntee-data-server.herokuapp.com/user/' + user_id,
-                liked_user : [ 'https://guntor-guntee-data-server.herokuapp.com/user/' + user_id ] 
+                user : 'https://guntor-guntee-data-server.herokuapp.com/user/' + user_id
             }
         })
         return response;
@@ -90,4 +89,24 @@ const addArticle = async (title, content, token, user_id)=>{
     }
 }
 
-export { loadArticleList, deleteArticle, loadArticle, loadComments, addComment, addArticle};
+
+const updateArticle = async (content, token, article_id)=>{
+    try{
+        const response = await axios({
+            method : 'PUT',
+            url : 'https://guntor-guntee-data-server.herokuapp.com/question/' + article_id,
+            headers : { Authorization : token },
+            data : {
+                title : content.title,
+                content : content.content,
+                user : content.user,
+                liked_user : content.liked_user
+            }
+        })
+        return response;
+    }catch(error){
+        throw error;
+    }
+}
+
+export { loadArticleList, deleteArticle, loadArticle, loadComments, addComment, addArticle, updateArticle};

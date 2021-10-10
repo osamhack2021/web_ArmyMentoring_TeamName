@@ -21,19 +21,7 @@
 	.community_contents{
 		margin: 0px 20px;
 	}
-	.community_statistics {
-		display: flex;
-		flex-direction: row;
-		width: 300px;
-		margin: 20px;
-		.community_comments {
-			border: 1px solid black;
-			margin-right: 5px;
-		}
-		.community_likes {
-			border: 1px solid black;
-		}
-	}
+	@include statistics;
 	.comments{
 		.comment{
 			display:flex;
@@ -80,7 +68,7 @@
 		flex-direction: row;
 		justify-content: flex-end;
 		.button{
-			@include button
+			@include button;
 		}
 		.remove{
 			background-color: $gray2;

@@ -2,8 +2,10 @@ import React, {useState, useEffect } from 'react';
 import './Article.scss';
 import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
-import { addComment, loadArticle, loadComments, deleteArticle } from '../../../backend/community';
+import { addComment, loadArticle, loadComments, deleteArticle, updateArticle } from '../../../backend/community';
 import { UserContext }  from '../../../context/Context';
+import heartImg from '../img/heart.png'; 
+import dialogImg from '../img/dialog.png';
 
 function Article({match, history}) {
 
@@ -56,28 +58,35 @@ function Article({match, history}) {
       });
     }
 
-    const clickLikes = ()=>{
-        /*user가 이미 좋아요를 눌렀는가?
-        const users = content.liked_user;
-        users.map((user_url)=>{
-            const u = user_url.split('/');
-            const uid = u[4];
-            return uid;
+    const isUserLiked = ()=>{
+        let result = -1;
+        content.liked_user.forEach((user, index)=>{
+            const t = user.split('/');
+            const id = t[4];
+            if(id == user_id){
+                result = index;
+                return false;
+            }
         })
-        const isUserLiked = users.find(user_id);
-        if(isUserLiked){
-
+        return result;
+    }
+    const clickLikes = ()=>{
+        const i = isUserLiked();
+        if(i == -1){
+            content.liked_user.push('https://guntor-guntee-data-server.herokuapp.com/user/' + user_id);
         }else{
-
+            content.liked_user.splice(i,1);
         }
-        */
-        let c = Object.assign({}, content);
-        c.likes++;
-        setContent(c);
-        //서버에 데이터 업데이트
+
+        updateArticle(content, token, article_id)
+        .then(res=>{
+            load();
+        }).catch(err=>{
+            console.log(err.response.data);
+        })
     }
 
-    const addCom=()=>{
+    const add=()=>{
         addComment(token, article_id, 2)
         .then(res=>{
             load();
@@ -92,8 +101,8 @@ function Article({match, history}) {
             <div className='community_title'>{content.title}</div>
             <div className='community_contents'>{content.content}</div>
             <div className='community_statistics'>
-                <div className='community_comments'>댓글 {content.question_comments.length}</div>
-                <div className='community_likes' onClick={clickLikes}>좋아요 {content.liked_user.length}</div>
+                <div className='community_comments'><img src={dialogImg}></img>{content.question_comments.length}</div>
+                <div className='community_likes' onClick={clickLikes}><img src={heartImg}></img>{content.liked_user.length}</div>
             </div>
             <div className='comments'>
                 {comments.map((comment)=>{
@@ -112,7 +121,7 @@ function Article({match, history}) {
             </div>
             <Form className="input-comment">
                 <Input className='description' id='description' type="text"></Input>
-                <Button className='button' onClick={addCom}>댓글 입력</Button>
+                <Button className='button' onClick={add}>댓글 입력</Button>
             </Form>
             <div className='buttons'>
                 <div className='remove button' onClick={remove}>삭제</div>

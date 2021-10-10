@@ -26,9 +26,9 @@
 		flex-direction: column;
 		border: solid;
 		width: 800px;
-		background-color: white;
-		border: 3px solid green;
-		color: black;
+		background-color: $white;
+		border: 3px solid $primary;
+		color: $black;
 		border-radius: 20px 20px 20px 0px;
 		text-decoration: none;
 		.community_title {
@@ -38,18 +38,6 @@
 			justify-content: flex-start;
 			font-weight: bold;
 		}
-		.community_statistics {
-			display: flex;
-			flex-direction: row;
-			width: 300px;
-			margin: 20px;
-			.community_comments {
-				border: 1px solid black;
-				margin-right: 5px;
-			}
-			.community_likes {
-				border: 1px solid black;
-			}
-		}
+		@include statistics;
 	}
 }

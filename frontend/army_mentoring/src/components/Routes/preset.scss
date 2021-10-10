@@ -25,3 +25,29 @@ $gray4 : #F0F0F0;
     font-weight: bold;
     cursor : pointer;
 }
+
+@mixin statistics{ 
+	.community_statistics {
+		display: flex;
+		flex-direction: row;
+		width: 300px;
+		margin: 20px;
+		.community_comments {
+			border: 1px solid $black;
+			margin-right: 5px;
+			padding:5px 10px;
+			border-radius: 15px 15px 15px 0px;
+            img{
+                margin: 0px 5px;
+            }
+		}
+		.community_likes {
+			border: 1px solid $black;
+			padding:5px 10px;
+			border-radius: 15px 15px 15px 0px;
+            img{
+                margin: 0px 5px;
+            }
+		}
+	}
+}
