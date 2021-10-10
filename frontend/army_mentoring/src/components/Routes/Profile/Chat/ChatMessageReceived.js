@@ -12,7 +12,7 @@ function ChatMessageReceived({userUrl, message}){
             setUser(response.data);
         })
         .catch(e=>console.error(e.response.data));
-    }, [])
+    }, [userUrl]);
 
     return (
         <div className='ChatMessage ChatMessageReceived'>

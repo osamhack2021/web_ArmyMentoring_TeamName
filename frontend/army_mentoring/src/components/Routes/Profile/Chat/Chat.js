@@ -11,11 +11,8 @@ import './Chat.scss';
 
 
 function Chat() {
-    const userUrl = "https://guntor-guntee-data-server.herokuapp.com/user/2"
-    const message="Lorem ipsum"
-
-    const socket=useContext(SocketContext);
-    const [user, setUser]=useContext(UserContext);
+    const socket = useContext(SocketContext);
+    const [user, setUser] = useContext(UserContext);
 
     const [chats, setChats] = useState([]);
     const [currentInput, setCurrentInput] = useState("");
@@ -31,16 +28,16 @@ function Chat() {
             console.log(socket.connected, socket.id);
         });
         
-        socket.on('joinRoom', (roomName, user) => {
-            console.log(`'${user}' joined ${roomName}.`);
+        socket.on('joinRoom', (roomName, userUrl) => {
+            console.log(`'${userUrl}' joined ${roomName}.`);
         });
         
-        socket.on('chatMessage', (message, user)=>{
+        socket.on('chatMessage', (message, userUrl)=>{
             setChats(
                 prevState => [
                     ...prevState, 
                     <ChatMessageReceived 
-                        userUrl={user}
+                        userUrl={userUrl}
                         message={message}
                         key={prevState.length} 
                     />
@@ -49,8 +46,7 @@ function Chat() {
         });
     }, [socket, user])
 
-    const onClickSendButton = (e) => {
-        e.preventDefault()
+    const sendMessage = () => {
         socket.emit('chatMessage', currentInput, "myRoom", user.url);
         setChats(
             prevState => [
@@ -63,19 +59,28 @@ function Chat() {
         setCurrentInput('');
     }
 
+    const onClickSendButton = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        sendMessage();
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        sendMessage();
+    }
 
     return (
         <div className='chat-body'>
             <div className='chat-area'>
-                <ChatMessageSent message={message} />
-                <ChatMessageReceived userUrl={userUrl} message={message}/>
                 {chats}
             </div>
-            <Form>
+            <Form onSubmit={onSubmit}>
                 <FormGroup className="typing-area">
                     <Input 
                         value={currentInput} 
-                        onChange={e => setCurrentInput(e.target.value)} 
+                        onChange={e => setCurrentInput(e.target.value)}
                         className='typing-bar' 
                         type="text" 
                     />
