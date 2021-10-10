@@ -23,6 +23,7 @@ function Article({match, history}) {
         url : ''
     }); 
     const [comments, setComments] = useState([]);
+    const [commentDescription, setCommentDescription] = useState('');
 
     const load = ()=>{
         loadArticle(token, article_id)
@@ -87,7 +88,7 @@ function Article({match, history}) {
     }
 
     const add=()=>{
-        addComment(token, article_id, 2)
+        addComment(token, article_id, 2, commentDescription)
         .then(res=>{
             load();
         }).catch(err=>{
@@ -97,21 +98,29 @@ function Article({match, history}) {
 
     return (
         <div key={article_id} className='community_post'>
-            <div>{"id : " + article_id}</div>
             <div className='community_title'>{content.title}</div>
             <div className='community_contents'>{content.content}</div>
             <div className='community_statistics'>
                 <div className='community_comments'><img src={dialogImg}></img>{content.question_comments.length}</div>
                 <div className='community_likes' onClick={clickLikes}><img src={heartImg}></img>{content.liked_user.length}</div>
             </div>
+            <Form className="input-comment">
+                <Input className='description' onChange={(e)=>{setCommentDescription(e.target.value)}} type="text"></Input>
+                <Button className='button' onClick={add}>댓글 입력</Button>
+            </Form>
             <div className='comments'>
                 {comments.map((comment)=>{
+                    const t = comment.user.split('/');
+                    const uid = t[4];
                     return (
                         <div className='comment'>
                             <div className='head'>
-                                <div className='writer'>작성자 : {comment.user}</div>
+                                <img className="profile-image" alt="profile image"></img>
                             </div>
-                            <div className='description'>{comment.url}</div>
+                            <div className='content'>
+                                <div className='writer'>작성자 : {uid}</div>
+                                <div className='description'>{comment.content}</div>
+                                </div>
                             <div className='tail'>
                                 <div className='date'>{comment.created_at}</div>
                             </div>
@@ -119,10 +128,6 @@ function Article({match, history}) {
                     )
                 })}
             </div>
-            <Form className="input-comment">
-                <Input className='description' id='description' type="text"></Input>
-                <Button className='button' onClick={add}>댓글 입력</Button>
-            </Form>
             <div className='buttons'>
                 <div className='remove button' onClick={remove}>삭제</div>
                 <div className='back button' onClick={()=>{history.goBack()}}>뒤로</div>

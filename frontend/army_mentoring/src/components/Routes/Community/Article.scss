@@ -1,49 +1,48 @@
-@import '../preset';
+@import '../preset.scss';
 
 .community_post {
-	margin: 30px auto;
-	display: flex;
-	flex-direction: column;
-	border: solid;
-	width: 800px;
-	background-color: white;
-	border: 3px solid green;
-	text-decoration: none;
-	color: black;
-	border-radius: 20px 20px 20px 0px;
-	.community_title {
-		margin: 0px 0px 20px 20px;
-		display:flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		font-weight: bold;
-	}
-	.community_contents{
-		margin: 0px 20px;
-	}
-	@include statistics;
+	@include communitiyPostTitleContentStatistics;
 	.comments{
 		.comment{
 			display:flex;
-			flex-direction: column;
+			flex-direction: row;
 			justify-content: space-around;
-			margin:10px;
-			border: 1px solid $primary;
+			border: 1px solid $gray3;
+			margin: 10px 0px;
 			border-radius: 15px 15px 15px 0px;
 			.head{
 				display:flex;
 				flex-direction: row;
 				justify-content: flex-start;
 				font-size: 15px;
-				font-weight:bold;
 				margin-left : 10px;
+				.profile-image{
+					width:100px;
+					height:100px;
+					border:1px solid $gray2;
+					border-radius:50px;
+					margin:10px;
+				}
 			}
-			.description{
+			.content{
+				display:flex;
+				flex-direction: column;
+				justify-content: flex-start;
 				margin: 10px 0px;
+				width:80%;
+				.writer{
+					color:$gray1;
+					text-align: left;
+					font-weight: bold;
+				}
+				.description{
+					color:$black;
+					text-align: left;
+				}
 			}
 			.tail{
 				display:flex;
-				flex-direction: row;
+				flex-direction: column;
 				justify-content: flex-end;
 				font-size:10px;
 				margin-right: 10px;
@@ -52,15 +51,20 @@
 		}
 	}
 	.input-comment{
+		padding:10px;
+		border-top: 1px solid $gray2;
 		display:flex;
 		flex-direction: row;
 		justify-content: center;
-		margin:10px;
 		.description{
-			width:500px;
+			width:600px;
+			height:100px;
 		}
 		.button{
-			width:200px;
+			width:195px;
+			height:100px;
+			background-color: $primary;
+			margin-left: 5px;
 		}
 	}
 	.buttons{

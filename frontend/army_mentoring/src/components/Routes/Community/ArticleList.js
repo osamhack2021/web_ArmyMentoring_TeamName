@@ -36,7 +36,6 @@ function ArticleList({match}) {
                 return (
                     <Link to={`${match.url}/${id}`}>
                         <div key={id} className='community_post'>
-                            {"id : " + id}
                             <div className='community_title'>{li.title}</div>
                             <div className='community_contents'>{li.content}</div>
                             <div className='community_statistics'>

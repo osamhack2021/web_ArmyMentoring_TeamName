@@ -39,14 +39,14 @@ const loadComments = async (token, article_id, question_id)=>{
     }
 }
 
-const addComment = async (token, article_id, user_id)=>{
+const addComment = async (token, article_id, user_id, content)=>{
     try{
         const response = await axios({
             method : 'POST',
             url : '/question-comment',
             headers : { Authorization : token },
             data : {
-                content : 'sample comment1',
+                content : content,
                 question : '/question/' + article_id,
                 user : '/user/' + user_id,
                 liked_user : [ '/user/' + user_id ]
