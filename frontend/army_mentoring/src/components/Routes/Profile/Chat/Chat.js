@@ -11,6 +11,8 @@ import './Chat.scss';
 
 
 function Chat() {
+    const chatAreaRef = useRef();
+
     const socket = useContext(SocketContext);
     const [user, setUser] = useContext(UserContext);
 
@@ -46,6 +48,12 @@ function Chat() {
         });
     }, [socket, user])
 
+    useEffect(()=>{
+        const chatAreaElement = chatAreaRef.current;
+        console.dir(chatAreaElement);
+        chatAreaElement.scrollTop = chatAreaElement.scrollHeight;
+    }, [chats])
+
     const sendMessage = () => {
         socket.emit('chatMessage', currentInput, "myRoom", user.url);
         setChats(
@@ -73,7 +81,7 @@ function Chat() {
 
     return (
         <div className='chat-body'>
-            <div className='chat-area'>
+            <div className='chat-area' ref={chatAreaRef}>
                 {chats}
             </div>
             <Form onSubmit={onSubmit}>
