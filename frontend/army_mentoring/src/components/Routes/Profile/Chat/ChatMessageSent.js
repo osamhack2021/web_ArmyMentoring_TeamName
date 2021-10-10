@@ -15,7 +15,7 @@ function ChatMessageSent({message}){
                     {message}
                 </div>
             </div>
-            <img src={user.profile_image || UTILS.RANDOM_IMAGE} alt="profile_image" className="profile-image"></img>
+            <img src={user.profile_image || UTILS.RANDOM_IMAGE} alt="profile_image" className="profile-image" />
         </div>
     )
 }

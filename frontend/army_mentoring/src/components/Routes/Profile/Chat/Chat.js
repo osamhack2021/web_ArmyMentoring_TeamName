@@ -15,11 +15,9 @@ function Chat() {
 
     const onClickSendButton = (e) => {
         e.preventDefault()
-        setChats(prevState=>{
-            prevState.push(
-                <ChatMessageSent message={currentInput} />
-            )
-        });
+        setChats(
+            prevState => [...prevState, <ChatMessageSent message={currentInput} />]
+            );
         setCurrentInput('');    
     }
 
@@ -29,6 +27,7 @@ function Chat() {
             <div className='chat-area'>
                 <ChatMessageSent message={message} />
                 <ChatMessageReceived userUrl={userUrl} message={message}/>
+                {chats}
             </div>
             <Form>
                 <FormGroup className="typing-area">
