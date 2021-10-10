@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./MentorIntroduction.scss";
 import soldier from "../img/soldier.png";
 import reactimg from "./react.png";
@@ -7,8 +7,10 @@ import tomcatimg from "./tomcat.png";
 import Subnavbar from '../Subnavbar';
 import axios from 'axios';
 
-function MentorInfo() {
-
+function MentorInfo(props) {
+  // location.search
+  const location = window.location.pathname;
+  console.log(location);
   // const userInfo = {
   //   url = "/users",
   //   method: 'GET',
@@ -69,16 +71,31 @@ function MentorInfo() {
   //   // always executed
   // });  
   
-  // axios.get('http://127.0.0.1:8000/auth/user/1')
+  // axios.get('https://guntor-guntee-data-server.herokuapp.com/user/1')
   // .then(function (response) {
   //   console.log(response);
   // })
   // .catch(function (error) {
   //   console.log(error);
+  //   console.log('you have an error!');
   // })
   // .then(function () {
   //   // always executed
-  // });  
+  // });
+
+  // const addButton = ()=>{
+  //   let id = -1;
+  //   axios({
+  //       method : 'GET',
+  //       url : 'https://guntor-guntee-data-server.herokuapp.com/user/1',
+  //       headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+  //   })
+  //   .then((res)=>{
+  //       console.log(res);
+  //       id = res.data.id;
+  //       console.log('This is work!');
+  //   })
+  // }
 
   // const getUser = async ()=>{
   //   const userInfo = await axios.get('http://127.0.0.1:8000/user/');
@@ -89,21 +106,67 @@ function MentorInfo() {
 
   // axios.getUri('http://127.0.0.1:8000/user HTTP/1.1')
 
+  const addButton = ()=>{
+    // let id = -1;
+    // let email = null;
+    axios({
+        method : 'GET',
+        url : 'https://guntor-guntee-data-server.herokuapp.com/user/2',
+        headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+    })
+    .then((res)=>{
+        // const info={
+        //   response.data.username,
 
+        // };
+        console.log(res);
+        let description = res.data.description;
+        // id = res.data.id;
+        // email = res.data.email;
+        // console.log(id);
+        // console.log(email);
+        console.log(description);
+        console.log('This is work!');
+    })
+  }
 
-  let [mentorInfo, setMentorInfo] = useState([
-  ]);
+  let [mentorInfo, setMentorInfo] = useState({
+  });
 
+// api 통신 안될 때 쓸 data
   const mentor =
   {
-    username: "김00",
+    username: "김0",
     nickname: "열혈 멘토",
     email: "guntor@email.com",
-    profileimage:  soldier,
+    profileimage: soldier,
     experience_point: 25,
     description : "한줄 소개"
   };
 
+   useEffect(()=>{
+      axios({
+        method : 'GET',
+        url : 'https://guntor-guntee-data-server.herokuapp.com/user/2',
+        headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+    })
+    .then((res)=>{
+        // const info={
+        //   response.data.username,
+
+        // };
+        setMentorInfo({...mentorInfo, ...res.data});
+        console.log(mentorInfo, "this is mentorinfo!!");
+        console.log(res);
+        let description = res.data.description;
+        // id = res.data.id;
+        // email = res.data.email;
+        // console.log(id);
+        // console.log(email);
+        console.log(description);
+        console.log('This is work!');
+    })
+  },[]);
 //   const getUserInfo = ()=>{
 //     const token = sessionStorage.getItem('token');
 //     axios({                                 //유저정보 요청
@@ -136,12 +199,12 @@ function MentorInfo() {
 
   return (
     <div className="MentorInfo" id="MentorInfos">
-      <h2 className="OneLineIntro">{mentor.description}</h2>
+      <h2 className="OneLineIntro">{mentorInfo.description}</h2>
       <div className="MentorProfile">
         <b className="blank"></b>
         <div className="mentor-img">
-          <img className="mentor-pic" src={mentor.profileimage} alt="멘토사진"></img>
-          <div className="username">{mentor.username}</div>
+          <img className="mentor-pic" src={mentorInfo.profileimage} alt="멘토사진"></img>
+          <div className="username">{mentorInfo.username}</div>
         </div>
         <div className="updown"></div>
         <b className="blank"></b>
@@ -158,7 +221,7 @@ function MentorInfo() {
         <b className="blank"></b>
         <b className="blank"></b>
         <b className="blank"></b>
-        <button className="GoMentorProf">멘토 프로필로 이동</button>
+        <button className="GoMentorProf" onClick={addButton}>멘토 프로필로 이동</button>
       </div>
     </div>
   );
@@ -264,6 +327,12 @@ function MentoringReview() {
     //   text: "지금까지 이런 멘토링은 없었다! 이것은 멘토링인가 PT인가."
     // }
   ];
+
+  const recievedReview = [
+    {
+    },
+
+]
 
   const reviewList = reviews.map((review) => (
     <div className="Review" key={review.id}>
