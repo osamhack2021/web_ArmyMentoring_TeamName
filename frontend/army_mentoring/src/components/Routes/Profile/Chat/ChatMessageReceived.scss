@@ -1,0 +1,11 @@
+@import "./ChatMessage.scss";
+
+.ChatMessageReceived{
+    justify-content: flex-start;
+
+    & > .description {
+        border:2px solid $black;
+        border-radius: 0px 15px 15px 15px;
+        background-color: $white;
+    }
+}
