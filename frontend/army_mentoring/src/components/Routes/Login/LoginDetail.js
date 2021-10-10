@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
-import { requestLogin, requestAuthenticatedUser } from "../../../backend/user";
+import { requestLogin, requestAuthenticatedUser } from "../../../backend/auth";
 import {UserContext} from "../../../context/Context";
 import './LoginDetail.scss';
 
