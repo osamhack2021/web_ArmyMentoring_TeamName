@@ -1,0 +1,20 @@
+@import "../../preset.scss";
+
+.ChatAnnouncement{
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .background-box{
+        width: fit-content;
+        height: 30px;
+        padding: 5px 25px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $gray4;
+        background-color: $tertiary;
+    }
+}

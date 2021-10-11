@@ -1,13 +1,14 @@
 import React, {useState, useEffect, useRef, useContext } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
-
-import {io} from "socket.io-client";
+import { Form, FormGroup, Input } from 'reactstrap';
 
 import { UserContext, SocketContext } from '../../../../context/Context';
 import ChatMessageSent from './ChatMessageSent';
 import ChatMessageReceived from './ChatMessageReceived';
 
 import './Chat.scss';
+import ChatAnnouncement from './ChatAnnouncement';
+import { getFromUrl } from '../../../../backend/common';
+import { updateUserContextBySavedToken } from '../../../../backend/auth';
 
 
 function Chat() {
@@ -20,33 +21,46 @@ function Chat() {
     const [currentInput, setCurrentInput] = useState("");
 
     useEffect(()=>{
-        socket.emit('joinRoom', "myRoom", user.url);
+        (async ()=>{ 
+            const currentUser = await updateUserContextBySavedToken(setUser);
 
-        socket.on('connect', () => {
-            console.log(socket.connected ,socket.id);
-          });
-          
-        socket.on('disconnect', () => {
-            console.log(socket.connected, socket.id);
-        });
-        
-        socket.on('joinRoom', (roomName, userUrl) => {
-            console.log(`'${userUrl}' joined ${roomName}.`);
-        });
-        
-        socket.on('chatMessage', (message, userUrl)=>{
-            setChats(
-                prevState => [
-                    ...prevState, 
-                    <ChatMessageReceived 
-                        userUrl={userUrl}
-                        message={message}
-                        key={prevState.length} 
-                    />
-                ]
-            );
-        });
-    }, [socket, user])
+            socket.emit('joinRoom', "myRoom", currentUser.url);
+    
+            socket.on('connect', () => {
+                console.log(socket.connected ,socket.id);
+              });
+              
+            socket.on('disconnect', () => {
+                console.log(socket.connected, socket.id);
+            });
+            
+            socket.on('joinRoom', async (roomName, userUrl) => {
+                const joinedUser = (await getFromUrl(userUrl)).data;
+                setChats(
+                    prevState=>[
+                        ...prevState,
+                        <ChatAnnouncement 
+                            message={`${joinedUser.nickname}님이 입장했습니다!`}
+                            key={prevState.length}
+                        />
+                    ]
+                )
+            });
+            
+            socket.on('chatMessage', (message, userUrl)=>{
+                setChats(
+                    prevState => [
+                        ...prevState, 
+                        <ChatMessageReceived 
+                            userUrl={userUrl}
+                            message={message}
+                            key={prevState.length} 
+                        />
+                    ]
+                );
+            });
+        })();
+    }, []);
 
     useEffect(()=>{
         const chatAreaElement = chatAreaRef.current;

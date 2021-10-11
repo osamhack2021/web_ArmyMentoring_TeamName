@@ -30,6 +30,7 @@ const updateUserContextBySavedToken = async (setUser) => {
         updateAxiosSettings();
         const user=(await requestAuthenticatedUser()).data;
         setUser(user);
+        return user;
     } catch (error) {
         throw(error);
     }
