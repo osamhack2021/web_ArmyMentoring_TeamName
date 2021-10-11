@@ -41,6 +41,7 @@ $gray3 : #D4D4D4;
     flex-direction: row;
     width: 1500px;
     justify-content: flex-start;
+    margin-bottom: 50px;
   };
   
   .updown{
@@ -103,6 +104,10 @@ $gray3 : #D4D4D4;
   
     // width: 334px;
     // height: 105px;
+    outline: none;
+    border: none;
+
+
     
     font-size:30px;
     color: white;
@@ -110,7 +115,7 @@ $gray3 : #D4D4D4;
     // padding:10px 10px;
     // padding: 0;
     // float: bottom;
-    margin-top: 200px;
+    margin-top: 175px;
     text-align: center;
     // margin-right: 70px;
     // margin-bottom: 70px; 
