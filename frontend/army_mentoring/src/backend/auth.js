@@ -1,4 +1,5 @@
 import axios from "axios";
+import { updateAxiosSettings } from "./common";
 
 
 const requestLogin = async (email, password) => {
@@ -24,5 +25,15 @@ const requestAuthenticatedUser = async () => {
     }
 }
 
+const updateUserContextBySavedToken = async (setUser) => {
+    try{
+        updateAxiosSettings();
+        const user=(await requestAuthenticatedUser()).data;
+        setUser(user);
+    } catch (error) {
+        throw(error);
+    }
+}
 
-export {requestLogin, requestAuthenticatedUser}
+
+export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken}
