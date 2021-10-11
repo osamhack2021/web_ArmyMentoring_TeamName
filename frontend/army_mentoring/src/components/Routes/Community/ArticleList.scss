@@ -1,40 +1,37 @@
+@import '../preset.scss';
+@import './community.scss';
+
 .community_board {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	width:1000px;
+	margin:0px auto;
 	a{
 		text-decoration: none;
 	}
+	.add-button{
+		display:flex;
+		width:100%;
+		flex-direction: row;
+		justify-content: flex-end;
+		.button{
+			@include button
+		}
+		.add{
+			background-color: $primary;
+		}
+	}
 	.community_post {
-		margin: 30px;
-		display: flex;
-		flex-direction: column;
-		border: solid;
-		width: 800px;
-		background-color: white;
-		border: 3px solid green;
-		color: black;
-		border-radius: 20px 20px 20px 0px;
-		text-decoration: none;
-		.community_title {
-			margin: 0px 0px 20px 20px;
-			display:flex;
-			flex-direction: row;
-			justify-content: flex-start;
-			font-weight: bold;
+		@include communityPost;
+		.community_title{
+			@include communityTitle;
+		}
+		.community_contents{
+			@include communityContent;
 		}
 		.community_statistics {
-			display: flex;
-			flex-direction: row;
-			width: 300px;
-			margin: 20px;
-			.community_comments {
-				border: 1px solid black;
-				margin-right: 5px;
-			}
-			.community_likes {
-				border: 1px solid black;
-			}
+			@include communityStatistics;
 		}
 	}
 }
