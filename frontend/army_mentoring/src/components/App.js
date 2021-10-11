@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import './App.css';
 import Router from "./Router";
 
-import axios from "axios";
 import {io} from "socket.io-client";
 
 import { UserContext, SocketContext } from "../context/Context";
 import { BACKEND } from "../CONST";
+import { updateAxiosSettings } from "../backend/common";
 
 
 const socket=io(BACKEND.CHATTING_SERVER_BASE_URL);
@@ -14,11 +14,7 @@ const socket=io(BACKEND.CHATTING_SERVER_BASE_URL);
 function App() {
     const [user, setUser] = useState({});
 
-    const token=sessionStorage.getItem('Token');
-    axios.defaults.baseURL = BACKEND.DATA_SERVER_BASE_URL;
-    if (token){
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-    }
+    updateAxiosSettings();
 
     return (
       <SocketContext.Provider value={socket}>

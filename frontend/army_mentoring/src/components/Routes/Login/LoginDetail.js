@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
-import { requestLogin, requestAuthenticatedUser } from "../../../backend/auth";
+import { requestLogin, updateUserContextBySavedToken } from "../../../backend/auth";
 import {UserContext} from "../../../context/Context";
 import './LoginDetail.scss';
 
@@ -26,19 +26,15 @@ function Login({match}){
 
     const onLogin = async (e) => {
         e.preventDefault();
-        requestLogin(email, password)
-        .then(response=>{
+        try {
+            const response = await requestLogin(email, password);
             const token = response.data.Token;
             sessionStorage.setItem('Token', token);
-            
-            requestAuthenticatedUser()
-            .then(response=>{
-                setUser(response.data);
-                history.goBack();
-            })
-            .catch(e=>{console.error(e.response.data)});
-        })
-        .catch(e=>console.error(e.response.data));
+            await updateUserContextBySavedToken(setUser);
+            history.goBack();
+        } catch (error) {
+            console.error(error.response.data)
+        }
     }
 
     return(

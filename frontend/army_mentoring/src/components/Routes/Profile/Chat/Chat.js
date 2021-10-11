@@ -1,56 +1,74 @@
 import React, {useState, useEffect, useRef, useContext } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
-
-import {io} from "socket.io-client";
+import { Form, FormGroup, Input } from 'reactstrap';
 
 import { UserContext, SocketContext } from '../../../../context/Context';
 import ChatMessageSent from './ChatMessageSent';
 import ChatMessageReceived from './ChatMessageReceived';
 
 import './Chat.scss';
+import ChatAnnouncement from './ChatAnnouncement';
+import { getFromUrl } from '../../../../backend/common';
+import { updateUserContextBySavedToken } from '../../../../backend/auth';
 
 
 function Chat() {
-    const userUrl = "https://guntor-guntee-data-server.herokuapp.com/user/2"
-    const message="Lorem ipsum"
+    const chatAreaRef = useRef();
 
-    const socket=useContext(SocketContext);
-    const [user, setUser]=useContext(UserContext);
+    const socket = useContext(SocketContext);
+    const [user, setUser] = useContext(UserContext);
 
     const [chats, setChats] = useState([]);
     const [currentInput, setCurrentInput] = useState("");
 
     useEffect(()=>{
-        socket.emit('joinRoom', "myRoom", user.url);
+        (async ()=>{ 
+            const currentUser = await updateUserContextBySavedToken(setUser);
 
-        socket.on('connect', () => {
-            console.log(socket.connected ,socket.id);
-          });
-          
-        socket.on('disconnect', () => {
-            console.log(socket.connected, socket.id);
-        });
-        
-        socket.on('joinRoom', (roomName, user) => {
-            console.log(`'${user}' joined ${roomName}.`);
-        });
-        
-        socket.on('chatMessage', (message, user)=>{
-            setChats(
-                prevState => [
-                    ...prevState, 
-                    <ChatMessageReceived 
-                        userUrl={user}
-                        message={message}
-                        key={prevState.length} 
-                    />
-                ]
-            );
-        });
-    }, [socket, user])
+            socket.emit('joinRoom', "myRoom", currentUser.url);
+    
+            socket.on('connect', () => {
+                console.log(socket.connected ,socket.id);
+              });
+              
+            socket.on('disconnect', () => {
+                console.log(socket.connected, socket.id);
+            });
+            
+            socket.on('joinRoom', async (roomName, userUrl) => {
+                const joinedUser = (await getFromUrl(userUrl)).data;
+                setChats(
+                    prevState=>[
+                        ...prevState,
+                        <ChatAnnouncement 
+                            message={`${joinedUser.nickname}님이 입장했습니다!`}
+                            key={prevState.length}
+                        />
+                    ]
+                )
+            });
+            
+            socket.on('chatMessage', (message, userUrl)=>{
+                setChats(
+                    prevState => [
+                        ...prevState, 
+                        <ChatMessageReceived 
+                            userUrl={userUrl}
+                            message={message}
+                            key={prevState.length} 
+                        />
+                    ]
+                );
+            });
+        })();
+    }, []);
 
-    const onClickSendButton = (e) => {
-        e.preventDefault()
+    useEffect(()=>{
+        const chatAreaElement = chatAreaRef.current;
+        console.dir(chatAreaElement);
+        chatAreaElement.scrollTop = chatAreaElement.scrollHeight;
+    }, [chats])
+
+    const sendMessage = () => {
         socket.emit('chatMessage', currentInput, "myRoom", user.url);
         setChats(
             prevState => [
@@ -63,19 +81,28 @@ function Chat() {
         setCurrentInput('');
     }
 
+    const onClickSendButton = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        sendMessage();
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        sendMessage();
+    }
 
     return (
         <div className='chat-body'>
-            <div className='chat-area'>
-                <ChatMessageSent message={message} />
-                <ChatMessageReceived userUrl={userUrl} message={message}/>
+            <div className='chat-area' ref={chatAreaRef}>
                 {chats}
             </div>
-            <Form>
+            <Form onSubmit={onSubmit}>
                 <FormGroup className="typing-area">
                     <Input 
                         value={currentInput} 
-                        onChange={e => setCurrentInput(e.target.value)} 
+                        onChange={e => setCurrentInput(e.target.value)}
                         className='typing-bar' 
                         type="text" 
                     />
