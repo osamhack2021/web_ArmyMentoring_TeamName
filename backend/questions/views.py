@@ -6,7 +6,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticate
 
 class QuestionViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    queryset=Question.objects.all()
+    queryset=Question.objects.all().order_by('created_at')
     serializer_class=QuestionSerializer
 
 class QuestionCommentViewSet(viewsets.ModelViewSet):
