@@ -9,6 +9,7 @@ function Community({match}) {
     <>
       <Switch>
         <Route exact path={`${match.path}/add`} component={EditArticle}></Route>
+        <Route exact path={`${match.path}/:id/edit`} component={EditArticle}></Route>
         <Route exact path={`${match.path}/:id`} component={Article}></Route>
         <Route exact path={`${match.path}`} component={ArticleList}></Route>
       </Switch>

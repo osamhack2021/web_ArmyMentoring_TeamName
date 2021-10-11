@@ -26,7 +26,7 @@ const _loadArticle = async (token, article_id)=>{
     }
 }
 
-const _loadComments = async (token, article_id, question_id)=>{
+const _loadComment = async (token, article_id, question_id)=>{
     try{
         const response = await axios({
             method : 'GET',
@@ -143,4 +143,5 @@ const _deleteComment = async (comment_id, token)=>{
 
 
 
-export { _loadArticleList, _deleteArticle, _loadArticle, _loadComments, _addComment, _addArticle, _updateArticle, _updateComment, _deleteComment};
+
+export { _loadArticleList, _deleteArticle, _loadArticle, _loadComment, _addComment, _addArticle, _updateArticle, _updateComment, _deleteComment};

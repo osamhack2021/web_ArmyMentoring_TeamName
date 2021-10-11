@@ -16,6 +16,16 @@ function ArticleList({match}) {
   const load = ()=>{
       _loadArticleList()
       .then(res=>{
+          res.data.sort((a,b)=>{
+              let front = a.updated_at;
+              let back = b.updated_at;
+              if(front < back)
+                return 1;
+              else if(front == back)
+                return 0;
+              else if(front > back)
+                return -1;
+          })
           setList(res.data);
       }).catch(err=>{
           console.log(err.response);
