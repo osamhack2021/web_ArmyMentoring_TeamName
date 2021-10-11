@@ -2,93 +2,274 @@ import React, {useState, useEffect } from 'react';
 import './Article.scss';
 import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
-import axios from 'axios';
+import { _addComment, _loadArticle, _loadComment, _deleteArticle, _updateArticle, _updateComment, _deleteComment} from '../../../backend/community';
+import { UserContext }  from '../../../context/Context';
+import heartImg from '../img/heart.png'; 
+import dialogImg from '../img/dialog.png';
 
-function Article({match}) {
+function Article({match, history}) {
 
-    //원래는 API로 불러옴
-    const id = match.params.id;
-    const [comments, setComments] = useState(
-    [
-        {
-            writer:'example', 
-            description:`Lorem Ipsum is simply dummy text of the printing 
-            and typesetting industry.`,
-            date:'21/10/08'
-        },
-        {
-            writer:'example1', 
-            description:`Lorem Ipsum is simply dummy text of the printing 
-            and typesetting industry.`,
-            date:'21/10/08'
-        }
-    ]);
-    const [content,setContent] = useState(
-    {
-        id:id, 
-        title:'What is Lorem Ipsum?',
-        contents:`Lorem Ipsum is simply dummy text of the printing 
-        and typesetting industry. Lorem Ipsum has been the industry'
-        s standard dummy text ever since the 1500s, when an unknown 
-        printer took a galley of type and scrambled it to make a typ
-        e specimen book. It has survived not only five centuries, but
-        also the leap into electronic typesetting, remaining essenti
-        ally unchanged. It was popularised in the 1960s with the rel
-        ease of Letraset sheets containing Lorem Ipsum passages, and
-        more recently with desktop publishing software like Aldus P
-        ageMaker including versions of Lorem Ipsum.`,
-        likes:1 
+    const article_id = match.params.id;
+    sessionStorage.setItem('Token', 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6');
+    const token = sessionStorage.getItem('Token');
+    const user_id = 2;
+
+    const [user, setUser] = useState(UserContext);
+    const [content,setContent] = useState({
+        title : '',
+        content : '',
+        liked_user : [],
+        question_comments : [],
+        url : ''
     }); 
-  
+    const [comments, setComments] = useState([]);
+    const [commentDescription, setCommentDescription] = useState('');
+    const [editCommentDescription, setEditCommentDescription] = useState('');
 
-    const clickLikes = ()=>{
-        //로그인 되어있는지 체크, 이미 클릭했는지 체크
-        let c = Object.assign({}, content);
-        c.likes++;
-        setContent(c);
-        //서버에 데이터 업데이트
+    const load = ()=>{
+        _loadArticle(token, article_id)
+        .then(res=>{
+            res.data.question_comments.sort((a,b)=>{
+                if(a < b)
+                    return -1;
+                else if(a == b)
+                    return 0;
+                else if(a > b)
+                    return 1;
+            })
+            setContent(()=>res.data);
+            const result = Promise.all( //map함수로 모든 비동기요청을 처리한 뒤 promise 배열을 새로만든다.
+                res.data.question_comments.map(url=>{
+                    const u = url.split('/');
+                    const comment_id = u[4];
+                    return _loadComment(token, article_id, comment_id)
+                            .then(res=>{return {comment : res.data, id:comment_id}})
+                })
+            )
+            .then(res=>{
+                setComments(()=>res);
+            })
+            .catch(err=>{
+                console.log(err.response);
+            })
+        })
+        .catch(err=>{
+            console.log(err.response);
+        })
+    }
+    useEffect(()=>{load();}, []);
+    useEffect(()=>{setArticleLikedStyle();}, [content]);
+    useEffect(()=>{setCommentsLikedStyle();}, [comments]);
+
+    const setArticleLikedStyle = ()=>{
+        let a = document.getElementById('article-like');
+        if(isUserLiked(content) != -1)
+            a.className = "community_likes pushed";
+        else
+            a.className = "community_likes";
     }
 
-    const addComment=()=>{
-        const writer = 'example2';
-        const description = document.getElementById('description').value;
-        const date = new Date().toDateString();
-        const c = {
-            writer : writer,
-            description : description,
-            date : date
+    const setCommentsLikedStyle = ()=>{
+        let a = document.getElementsByClassName('like');
+        
+        for(var i=0;i<a.length;i++){
+            if(isUserLiked(comments[i].comment) != -1)
+                a[i].className = 'like pushed';
+            else
+                a[i].className = 'like';
         }
-        setComments([...comments, c]);
     }
+
+    const deleteArticle = ()=>{
+        _deleteArticle(token, article_id)
+        .then((res)=>{
+          history.goBack();
+      }).catch((err)=>{
+          console.log(err.response);
+      });
+    }
+
+    const isUserLiked = (co)=>{
+        let result = -1;
+        co.liked_user.forEach((user, index)=>{
+            const t = user.split('/');
+            const id = t[4];
+            if(id == user_id){
+                result = index;
+                return false;
+            }
+        })
+        return result;
+    }
+
+    const clickArticleLikes = (e)=>{
+        const t_content = Object.assign({}, content);
+        const i = isUserLiked(t_content);
+        if(i == -1){
+            t_content.liked_user.push('https://guntor-guntee-data-server.herokuapp.com/user/' + user_id);
+        }else{
+            t_content.liked_user.splice(i,1);
+        }
+
+        _updateArticle(t_content, token, article_id)
+        .then(res=>{
+            load();
+        }).catch(err=>{
+            console.log(err.response.data);
+        })
+    }
+
+    const findIndexOfComment = (id)=>{
+        for(var i=0;i<comments.length;i++){
+            if (comments[i].id == id){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    const clickCommentLikes = (e, id)=>{
+        let index = findIndexOfComment(id);
+        let t_comments = comments.slice();
+        let t_comment = t_comments[index].comment;
+        let result = isUserLiked(t_comment);
+        if(result == -1){
+            t_comment.liked_user.push('https://guntor-guntee-data-server.herokuapp.com/user/' + user_id);
+        }else{
+            t_comment.liked_user.splice(result, 1);
+        }
+
+        _updateComment(content, t_comments[index].comment, id, token)
+        .then(res=>{
+            load();
+        })
+        .catch(err=>{
+            console.log(err.response);
+        })
+    }
+
+    const addComment=(e)=>{
+        if(commentDescription == ''){
+            alert('댓글 내용을 입력해 주세요');
+            return;
+        }
+        _addComment(token, article_id, 2, commentDescription)
+        .then(res=>{
+            e.target.previousSibling.value = '';
+            load();
+        }).catch(err=>{
+            console.log(err.response);
+        })
+    }
+
+    const deleteComment = (id) =>{
+        _deleteComment(id, token)
+        .then(res=>{
+            load();
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+
+    const goEditComment = (id)=>{
+        const i = findIndexOfComment(id);
+        const t = document.getElementById('edit-description'+id);
+        t.value = comments[i].comment.content;
+
+        const c = document.getElementById('comment'+id);
+        const e = document.getElementById('edit-comment'+id);
+        c.className="comment h";
+        e.className="editcomment s";
+    }
+
+    const backEditComment = (id)=>{
+        const c = document.getElementById('comment'+id);
+        const e = document.getElementById('edit-comment'+id);
+        c.className="comment s";
+        e.className="editcomment h";
+    }
+
+    const updateComment = (id)=>{
+        const i = findIndexOfComment(id);
+        const c = comments.slice();
+        c[i].comment.content = editCommentDescription;
+        backEditComment(id);
+        
+        _updateComment(content, c[i].comment, id, token)
+        .then(res=>{
+            load();
+        })
+        .catch(err=>{
+            console.log(err.response);
+        })
+    }
+
 
     return (
-        <div key={content.id} className='community_post'>
-            <div>{"id : " + content.id}</div>
+        <div key={article_id} className='community_post'>
             <div className='community_title'>{content.title}</div>
-            <div className='community_contents'>{content.contents}</div>
+            <div className='community_contents'>{content.content}</div>
             <div className='community_statistics'>
-                <div className='community_comments'>댓글 {comments.length}</div>
-                <div className='community_likes' onClick={clickLikes}>좋아요 {content.likes}</div>
+                <div className='community_comments'><img src={dialogImg} alt="dialog"></img>{content.question_comments.length}</div>
+                <div className='community_likes' id="article-like"><img src={heartImg} alt="heart" onClick={clickArticleLikes}></img>{content.liked_user.length}</div>
             </div>
+            <Form className="input-comment">
+                <Input className='description' onChange={(e)=>{setCommentDescription(e.target.value)}} type="text"></Input>
+                <Button className='button' onClick={addComment}>댓글 입력</Button>
+            </Form>
             <div className='comments'>
-                {comments.map((comment)=>{
+                {comments.map(({comment, id})=>{
+                    const t = comment.user.split('/');
+                    const uid = t[4];
                     return (
-                        <div className='comment'>
+                        <>
+
+                        <div className='comment s' id={'comment'+id}>
                             <div className='head'>
-                                <div className='writer'>작성자 : {comment.writer}</div>
+                                <img className="profile-image" alt="profile"></img>
                             </div>
-                            <div className='description'>{comment.description}</div>
+                            <div className='content'>
+                                <div className='writer'>작성자 : {uid}</div>
+                                <div className='description'>{comment.content}</div>
+                            </div>
                             <div className='tail'>
-                                <div className='date'>{comment.date}</div>
+                                <div className="update">
+                                    <div className="delete" onClick={()=>{deleteComment(id)}}>삭제</div>
+                                    <div className="edit" onClick={()=>{goEditComment(id)}}>수정</div>
+                                </div>
+                                <div className='like'><img src={heartImg} alt="heart" onClick={(e)=>{clickCommentLikes(e, id)}}></img>{comment.liked_user.length}</div>
+                                <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
                             </div>
                         </div>
+
+                        <div className='editcomment h' id={'edit-comment'+id}>
+                            <div className='head'>
+                                <img className="profile-image" alt="profile"></img>
+                            </div>
+                            <div className='content'>
+                                <div className='writer'>작성자 : {uid}</div>
+                                <Input type="text" className='edit-description' id={'edit-description'+id} onChange={(e)=>{setEditCommentDescription(e.target.value)}}></Input>
+                            </div>
+                            <div className='tail'>
+                                <div className="update">
+                                    <div className="delete" onClick={()=>{updateComment(id)}}>수정</div>
+                                    <div className="edit" onClick={()=>{backEditComment(id)}}>취소</div>
+                                </div>
+                                    <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
+                            </div>
+                        </div>
+
+                        </>
+                            
                     )
                 })}
             </div>
-            <Form className="input-comment">
-                <Input className='description' id='description' type="text"></Input>
-                <Button className='button' onClick={addComment}>댓글 입력</Button>
-            </Form>
+            <div className='buttons'>
+                <div className='remove button' onClick={deleteArticle}>삭제</div>
+                <Link className='edit button' to={`${match.url}/edit`}>수정</Link>
+                <div className='back button' onClick={()=>{history.goBack()}}>뒤로</div>
+            </div>
         </div>
     );
   }
