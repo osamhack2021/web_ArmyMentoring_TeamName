@@ -86,12 +86,10 @@ function Article({match, history}) {
     }
 
     const getUserId = ()=>{
-        console.log(user);
         if(Object.keys(user).length == 0)
             return -1;
         const url = user.url;
         const t = url.split('/');
-        console.log(t);
         return t[4];
     }
 

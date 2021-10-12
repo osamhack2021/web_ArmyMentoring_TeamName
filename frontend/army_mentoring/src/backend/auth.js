@@ -36,5 +36,25 @@ const updateUserContextBySavedToken = async (setUser) => {
     }
 }
 
+const _requestSignUp = async (username, email, password, nickname, description, profileimage) => {
+    try {
+        const response = await axios({
+            method:'POST',
+            url : '/auth/register',
+            data : {
+                username : username,
+                email : email,
+                password : password,
+                nickname : nickname,
+                description : description,
+                profileimage : profileimage
+            }
+        })
+        return response;
+    } catch (error) {
+        throw(error);
+    }
+}
 
-export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken}
+
+export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken, _requestSignUp}

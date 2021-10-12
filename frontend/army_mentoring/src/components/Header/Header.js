@@ -1,21 +1,28 @@
 import './Header.scss';
 import {Link} from "react-router-dom";
-import React, {useEffect} from 'react';
+import React, { useContext } from 'react';
 import logo from './3.png';
-import { Router, useHistory } from 'react-router-dom';
-import axios from "axios";
+import { UserContext } from '../../context/Context';
 
-function Header(){
-    let mypage = sessionStorage.getItem('userinfo');
-    const h = useHistory();
+function Header({match, history}){
+    const [user, setUser] = useContext(UserContext);
 
     /*API 코드 필요 */
     const logout = ()=>{
-        h.push("/");
+        history.push("/");
         sessionStorage.clear();
+        setUser({});
     }
-
-    let id = 1; //현재 로그인한 유저의 id
+    
+    const getUserId = ()=>{
+        console.log(user);
+        if(Object.keys(user).length == 0)
+            return -1;
+        const url = user.url;
+        const t = url.split('/');
+        console.log(t);
+        return t[4];
+    }
 
     return(
         <div className="header_div">
@@ -25,8 +32,8 @@ function Header(){
                 <li><Link to="/mentoring">Mentoring</Link></li>
                 <li><Link to="/mymentoring">My mentoring</Link></li>
                 <li><Link to="/community">Community</Link></li>
-                { mypage ? 
-                    <li><Link to={`/profile/${id}`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
+                { Object.keys(user).length != 0 ? 
+                    <li><Link to={`/profile/${getUserId()}`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
                     <li><Link to="/login">login</Link></li>
                 }  
             </ul>

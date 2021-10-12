@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
 import { requestLogin, updateUserContextBySavedToken } from "../../../backend/auth";
-import {UserContext} from "../../../context/Context";
+import { UserContext } from "../../../context/Context";
 import './LoginDetail.scss';
 
 

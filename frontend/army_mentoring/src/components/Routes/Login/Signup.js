@@ -1,12 +1,10 @@
-import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import './Signup.scss';
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import axios from 'axios';
+import { _requestSignUp } from '../../../backend/auth';
 
-function Login(){
+function Login({match, history}){
     const [imgUrl, setImgUrl] = useState("");
-
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,80 +20,19 @@ function Login(){
         })}, []
     );
 
-/*
     const register = ()=>{
-        const username = document.getElementById('name');
-        const email = document.getElementById('email');
-        const password = document.getElementById('password');
-        const nickname = document.getElementById('nickname');
-        const profileimage = document.getElementById('profileimage');
-        const formData = new FormData();
-        formData.append('profileimage', profileimage.files[0]);
-        const desc = document.getElementById('desc');
-        axios({                                 //입력된 가입정보를 서버로 보냄
-            method : 'POST',
-            url : 'https://???/auth/register',
-            data : {
-                "username" : username.value,
-                "email" : email.value,
-                "password" : password.value,
-                "nickname" : nickname.value,
-                "profileimage" : formData,
-                "desc" : desc.value
-            }
-        }).then(function(res)=>{
-            const response = res.data;                //서버에서 받은 json 데이터
-            sessionStorage.setItem('token', response.token);   //session에 서버에서 받은 데이터를 객체로 반환해 저장
-            document.location.href = "/";   //홈페이지로 이동
-        })
-        
-    }
-*/
-    //임시 register
-    const register = ()=>{
-        console.log('username : ' + username);
-        console.log('email : ' + email);
-        console.log('password : ' + password);
-        console.log('nickname : ' + nickname);
-        console.log('description : ' + description);
-        /*
-        axios({
-            method:'POST',
-            url : '/auth/register',
-            data : {
-                username : username,
-                email : email,
-                password : password,
-                nickname : nickname,
-                description : description,
-                profileimage : profileimage
-            }
-        }).then(res=>{
-            console.log(res);
+        _requestSignUp(username, email, password, nickname, description, profileimage)
+        .then(res=>{
+            history.goBack();
         }).catch(err=>{
             console.log(err.response);
         })
-        */
-        /*
-        const response = {   //서버에서 받은 json 데이터
-            "user": {
-                "username": "testuser",
-                "email": email.value
-            },
-            "token": "efd26a04e0222a160a5e819bfd4e6ca328c2bdc9"
-        };              
-        console.log("login : " + JSON.stringify(response));
-        sessionStorage.setItem('userinfo', JSON.stringify(response));  //session에 서버에서 받은 데이터를 객체로 반환해 저장
-        document.location.href="/";   //홈페이지로 이동
-        */
-        
     }
 
     const thumbnail= (e)=>{
         let reader = new FileReader();
         reader.readAsDataURL(e.target.files[0]);
         reader.onload = ()=>{
-            console.log(reader.result);
             setImgUrl(reader.result);
         }
     }
@@ -103,7 +40,6 @@ function Login(){
     const emailValid = (e)=>{
         const el = e.target;
         const rule = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
-        console.log(el.value);
         if(rule.test(el.value)){
             el.className = "is-valid form-control";
             setEmail(el.value);
