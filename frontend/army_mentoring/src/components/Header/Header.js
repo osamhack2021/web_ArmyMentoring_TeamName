@@ -21,10 +21,10 @@ function Header(){
         <div className="header_div">
             <img className="logo_image" alt="logo" src={logo}/>
             <ul className="menu_list">
-                <li><Link to="/">home</Link></li>
-                <li><Link to="/mentoring">mentoring</Link></li>
-                <li><Link to="/mymentoring">mymentoring</Link></li>
-                <li><Link to="/community">commuity</Link></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/mentoring">Mentoring</Link></li>
+                <li><Link to="/mymentoring">My mentoring</Link></li>
+                <li><Link to="/community">Commuity</Link></li>
                 { mypage ? 
                     <li><Link to={`/profile/${id}`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
                     <li><Link to="/login">login</Link></li>
