@@ -1,20 +1,5 @@
 import axios from "axios";
-import { UserContext } from "../context/Context";
 import { updateUserContextBySavedToken } from './auth';
-
-const requestLogin = async (email, password) => {
-    try {
-        const response = await axios.post(
-            'auth/login',
-            {
-                "email": email,
-                "password": password
-            });
-        return response;
-    } catch (error) {
-        throw(error);
-    }
-}
 
 const _editProfile = async (user, password, nickname, description, profileimage, setUser, user_id) =>{
     const formData = new FormData();
@@ -26,7 +11,7 @@ const _editProfile = async (user, password, nickname, description, profileimage,
             data : {
                 email : user.email,
                 username : user.username,
-                password :password,
+                password : '123',
                 nickname : nickname,
                 description : description,
                 profile_image : null,
@@ -39,5 +24,16 @@ const _editProfile = async (user, password, nickname, description, profileimage,
     }
 }
 
+const _loadPortfolio = async (portfolio_id) => {
+    try{
+        const response = await axios({
+            method : 'GET',
+            url : '/portfolio/' + portfolio_id
+        });
+        return response;
+    }catch(error){
+        throw error;
+    }
+}
 
-export { _editProfile }
+export { _editProfile, _loadPortfolio }

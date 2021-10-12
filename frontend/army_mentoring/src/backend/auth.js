@@ -65,6 +65,12 @@ const _requestLogout = async (setUser) => {
         setUser({});
         sessionStorage.removeItem('Token');
         console.log(1);//이거 없으면 session remove가 안됨... 뭐노...
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        console.log(1);
         updateAxiosSettings();
         return response;
     } catch (error) {
