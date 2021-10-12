@@ -1,6 +1,19 @@
 @import '../Routes/preset.scss';
 
-#footer{
+.footer{
     height:200px;
     background-color:$primary;
+}
+
+.copyright{
+    padding-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.contact{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
 }
