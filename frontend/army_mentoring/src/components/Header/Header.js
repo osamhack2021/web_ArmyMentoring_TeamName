@@ -10,13 +10,9 @@ function Header({match, history}){
 
     /*API 코드 필요 */
     const logout = ()=>{
-        _requestLogout()
+        _requestLogout(setUser)
         .then(res=>{
-            console.log(res);
-            setUser({});
-            sessionStorage.removeItem('Token');
-            console.log(sessionStorage.getItem('Token'));//이거 없으면 session remove가 안됨... 뭐노...
-            document.location.href = "/";//history 객체가 작동을 안함...
+            document.location.href = '/';//history 객체가 작동을 안함...
             //아무래도 sessionStorage를 지우는 과정이 비동기거나 뭐 그런 듯..
         }).catch(err=>{
             console.log(err.response);

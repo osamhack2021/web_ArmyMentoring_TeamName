@@ -16,6 +16,8 @@ const updateAxiosSettings = () => {
     axios.defaults.baseURL = BACKEND.DATA_SERVER_BASE_URL;
     if (token){
       axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+    }else{
+        delete axios.defaults.headers.common['Authorization'];
     }
 }
 
