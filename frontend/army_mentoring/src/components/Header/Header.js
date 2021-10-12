@@ -24,7 +24,7 @@ function Header(){
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/mentoring">Mentoring</Link></li>
                 <li><Link to="/mymentoring">My mentoring</Link></li>
-                <li><Link to="/community">Commuity</Link></li>
+                <li><Link to="/community">Community</Link></li>
                 { mypage ? 
                     <li><Link to={`/profile/${id}`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
                     <li><Link to="/login">login</Link></li>
