@@ -13,12 +13,11 @@ const _loadArticleList = async ()=>{
     }
 }
 
-const _loadArticle = async (token, article_id)=>{
+const _loadArticle = async (article_id)=>{
     try{
         const response = await axios({
             method : 'GET',
-            url : '/question/' + article_id,
-            headers : { Authorization : token}
+            url : '/question/' + article_id
         })
         return response;
     }catch(error){
@@ -26,12 +25,11 @@ const _loadArticle = async (token, article_id)=>{
     }
 }
 
-const _loadComment = async (token, article_id, question_id)=>{
+const _loadComment = async (article_id, question_id)=>{
     try{
         const response = await axios({
             method : 'GET',
-            url : '/question-comment/' + question_id,
-            headers : { Authorization : token}
+            url : '/question-comment/' + question_id
         })
         return response;
     }catch(error){
@@ -39,12 +37,11 @@ const _loadComment = async (token, article_id, question_id)=>{
     }
 }
 
-const _addComment = async (token, article_id, user_id, content)=>{
+const _addComment = async (article_id, user_id, content)=>{
     try{
         const response = await axios({
             method : 'POST',
             url : '/question-comment',
-            headers : { Authorization : token },
             data : {
                 content : content,
                 question : '/question/' + article_id,
@@ -58,12 +55,11 @@ const _addComment = async (token, article_id, user_id, content)=>{
     }
 }
 
-const _deleteArticle = async (token, article_id)=>{
+const _deleteArticle = async (article_id)=>{
     try{
         const response = await axios({
             method : 'DELETE',
-            url : '/question/' + article_id,
-            headers : { Authorization : token}
+            url : '/question/' + article_id
         })
         return response;
     }catch(error){
@@ -71,12 +67,11 @@ const _deleteArticle = async (token, article_id)=>{
     }
 }
 
-const _addArticle = async (title, content, token, user_id)=>{
+const _addArticle = async (title, content, user_id)=>{
     try{
         const response = await axios({
             method : 'POST',
             url : 'https://guntor-guntee-data-server.herokuapp.com/question',
-            headers : { Authorization : token},
             data : {
                 title : title,
                 content : content,
@@ -90,12 +85,11 @@ const _addArticle = async (title, content, token, user_id)=>{
 }
 
 
-const _updateArticle = async (content, token, article_id)=>{
+const _updateArticle = async (content, article_id)=>{
     try{
         const response = await axios({
             method : 'PUT',
             url : 'https://guntor-guntee-data-server.herokuapp.com/question/' + article_id,
-            headers : { Authorization : token },
             data : {
                 title : content.title,
                 content : content.content,
@@ -109,12 +103,11 @@ const _updateArticle = async (content, token, article_id)=>{
     }
 }
 
-const _updateComment = async (content, comment, comment_id, token)=>{
+const _updateComment = async (content, comment, comment_id)=>{
     try{
         const response = await axios({
             method : 'PUT',
-            url : 'https://guntor-guntee-data-server.herokuapp.com/question-comment/' + comment_id ,
-            headers : { Authorization : token },
+            url : 'https://guntor-guntee-data-server.herokuapp.com/question-comment/' + comment_id,
             data : {
                 question : content.url,
                 content : comment.content,
@@ -128,12 +121,11 @@ const _updateComment = async (content, comment, comment_id, token)=>{
     }
 }
 
-const _deleteComment = async (comment_id, token)=>{
+const _deleteComment = async (comment_id)=>{
     try{
         const response = await axios({
             method : 'DELETE',
-            url : 'https://guntor-guntee-data-server.herokuapp.com/question-comment/' + comment_id ,
-            headers : { Authorization : token }
+            url : 'https://guntor-guntee-data-server.herokuapp.com/question-comment/' + comment_id
         })
         return response;
     }catch(error){

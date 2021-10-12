@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext } from 'react';
 import './Article.scss';
 import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
@@ -10,11 +10,7 @@ import dialogImg from '../img/dialog.png';
 function Article({match, history}) {
 
     const article_id = match.params.id;
-    sessionStorage.setItem('Token', 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6');
-    const token = sessionStorage.getItem('Token');
-    const user_id = 2;
-
-    const [user, setUser] = useState(UserContext);
+    const [user, setUser] = useContext(UserContext);
     const [content,setContent] = useState({
         title : '',
         content : '',
@@ -27,7 +23,7 @@ function Article({match, history}) {
     const [editCommentDescription, setEditCommentDescription] = useState('');
 
     const load = ()=>{
-        _loadArticle(token, article_id)
+        _loadArticle(article_id)
         .then(res=>{
             res.data.question_comments.sort((a,b)=>{
                 if(a < b)
@@ -42,7 +38,7 @@ function Article({match, history}) {
                 res.data.question_comments.map(url=>{
                     const u = url.split('/');
                     const comment_id = u[4];
-                    return _loadComment(token, article_id, comment_id)
+                    return _loadComment(article_id, comment_id)
                             .then(res=>{return {comment : res.data, id:comment_id}})
                 })
             )
@@ -81,7 +77,7 @@ function Article({match, history}) {
     }
 
     const deleteArticle = ()=>{
-        _deleteArticle(token, article_id)
+        _deleteArticle(article_id)
         .then((res)=>{
           history.goBack();
       }).catch((err)=>{
@@ -89,11 +85,20 @@ function Article({match, history}) {
       });
     }
 
+    const getUserId = ()=>{
+        if(Object.keys(user).length == 0)
+            return -1;
+        const url = user.url;
+        const t = url.split('/');
+        return t[4];
+    }
+
     const isUserLiked = (co)=>{
         let result = -1;
         co.liked_user.forEach((user, index)=>{
             const t = user.split('/');
             const id = t[4];
+            const user_id = getUserId();
             if(id == user_id){
                 result = index;
                 return false;
@@ -105,13 +110,14 @@ function Article({match, history}) {
     const clickArticleLikes = (e)=>{
         const t_content = Object.assign({}, content);
         const i = isUserLiked(t_content);
+        const user_id = getUserId();
         if(i == -1){
             t_content.liked_user.push('https://guntor-guntee-data-server.herokuapp.com/user/' + user_id);
         }else{
             t_content.liked_user.splice(i,1);
         }
 
-        _updateArticle(t_content, token, article_id)
+        _updateArticle(t_content, article_id)
         .then(res=>{
             load();
         }).catch(err=>{
@@ -133,13 +139,14 @@ function Article({match, history}) {
         let t_comments = comments.slice();
         let t_comment = t_comments[index].comment;
         let result = isUserLiked(t_comment);
+        const user_id = getUserId();
         if(result == -1){
             t_comment.liked_user.push('https://guntor-guntee-data-server.herokuapp.com/user/' + user_id);
         }else{
             t_comment.liked_user.splice(result, 1);
         }
 
-        _updateComment(content, t_comments[index].comment, id, token)
+        _updateComment(content, t_comments[index].comment, id)
         .then(res=>{
             load();
         })
@@ -153,7 +160,8 @@ function Article({match, history}) {
             alert('댓글 내용을 입력해 주세요');
             return;
         }
-        _addComment(token, article_id, 2, commentDescription)
+        const user_id = getUserId();
+        _addComment(article_id, user_id, commentDescription)
         .then(res=>{
             e.target.previousSibling.value = '';
             load();
@@ -163,7 +171,7 @@ function Article({match, history}) {
     }
 
     const deleteComment = (id) =>{
-        _deleteComment(id, token)
+        _deleteComment(id)
         .then(res=>{
             load();
         })
@@ -196,7 +204,7 @@ function Article({match, history}) {
         c[i].comment.content = editCommentDescription;
         backEditComment(id);
         
-        _updateComment(content, c[i].comment, id, token)
+        _updateComment(content, c[i].comment, id)
         .then(res=>{
             load();
         })

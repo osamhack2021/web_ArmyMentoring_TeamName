@@ -7,10 +7,6 @@ import dialogImg from '../img/dialog.png';
 
 function ArticleList({match}) {
 
-  sessionStorage.setItem('Token', 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6');
-  const token = sessionStorage.getItem('Token');
-  const user_id = 2;
-
   const [list,setList] = useState([]);
 
   const load = ()=>{
