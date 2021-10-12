@@ -56,5 +56,17 @@ const _requestSignUp = async (username, email, password, nickname, description, 
     }
 }
 
+const _requestLogout = async () => {
+    try {
+        const response = await axios({
+            method:'GET',
+            url : '/auth/logout'
+        })
+        return response;
+    } catch (error) {
+        throw(error);
+    }
+}
 
-export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken, _requestSignUp}
+
+export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken, _requestSignUp, _requestLogout }
