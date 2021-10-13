@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 import "./EditPortfolio.scss";
-import { _addPortfolio, _addPortfolioItem } from "../../../../backend/profile";
+import { _addPortfolio, _addPortfolioItem, _loadPortfolio, _loadPortfolioItem } from "../../../../backend/profile";
 import { UserContext } from "../../../../context/Context";
 import { updateUserContextBySavedToken } from "../../../../backend/auth";
 
 function EditPortfolio({match, history}) {
 
+  //editPortfolio를 위해
   const p_id = match.params.pid;
   const [portfolio, setPortfolio] = useState('');
   const [items, setItems] = useState([]);
+
   //addPortfolio를 위해
   const [user, setUser] = useContext(UserContext);
   const [title, setTitle] = useState('');
@@ -19,6 +21,56 @@ function EditPortfolio({match, history}) {
   let isAddPage = false;
   if(match.params.pid == undefined)
     isAddPage = true;
+
+  const load = ()=>{
+    _loadPortfolio(p_id)
+    .then(res=>{
+      const mt = document.getElementById('main-title');
+      mt.value = res.data.title;
+      setTitle(res.data.title);
+
+      const f = res.data.portfolio_items;
+      Promise.all(
+        f.map((i)=>{
+          let t = i.url.split('/');
+          let piid = t[4];
+          return _loadPortfolioItem(piid)
+                .then(res=>{
+                  let fo = {
+                    title : res.data.title,
+                    content : res.data.content,
+                    order : res.data.order
+                  }
+                  return fo;
+                })
+                .catch(err=>{
+                  console.log('item load err');
+                  console.log(err.response);
+                })
+          })
+      )
+      .then(res=>{
+        setForms(res);
+        res.map((f)=>{
+          const t = document.getElementById('title'+f.order);
+          const d = document.getElementById('content'+f.order);
+          t.value = f.title;
+          d.value = f.content;
+        })
+      })
+      .catch(err=>{
+        console.log(err.response);
+      })
+    })
+    .catch(err=>{
+      console.log(err.response);
+    })
+  }
+
+  useEffect(()=>{
+    if(isAddPage==false)
+      load();
+  }, [isAddPage])
 
 
   const add = ()=>{
@@ -72,7 +124,7 @@ function EditPortfolio({match, history}) {
       })
     }
     else{
-
+      
     }
   }
 
@@ -100,7 +152,7 @@ function EditPortfolio({match, history}) {
       }
       <Form>
         <FormGroup className="main-section">
-          <Input type="text" className="main-title" placeholder="메인 제목입력..." onChange={(e)=>setTitle(e.target.value)}></Input>
+          <Input type="text" id="main-title" className="main-title" placeholder="메인 제목입력..." onChange={(e)=>setTitle(e.target.value)}></Input>
         </FormGroup>
         {forms.map((f)=>{
           return(
