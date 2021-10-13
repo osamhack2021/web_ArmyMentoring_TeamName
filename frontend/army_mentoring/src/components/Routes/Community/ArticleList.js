@@ -32,9 +32,13 @@ function ArticleList({match}) {
     return (
         <div>
             <div className='community_board'>
-            <div className='add-button'>
-                <Link to={`${match.url}/add`} className='add button'>+</Link>
-            </div>
+                <div className="title-container">
+                    <div className='title'>군토&군티 커뮤니티 게시판</div>
+                    <div className='button_set'>
+                    <Link to={`${match.url}/add`}><button>새로 글쓰기</button></Link>
+                    </div>
+                </div>
+
             {list.map((li) => {
                 let u = li.url.split('/');
                 let id = u[4];

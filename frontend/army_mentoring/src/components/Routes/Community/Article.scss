@@ -61,9 +61,29 @@
 			.tail{
 				display:flex;
 				flex-direction: column;
-				justify-content: space-between;
+				justify-content: center;
 				align-items: center;
 				margin-right: 10px;
+				font-family: 'Noto Sans KR', sans-serif;
+				font-weight: 700;
+				.update{
+					display:flex;
+					flex-direction: row;
+					justify-content: flex-start;	
+					.delete{
+						margin: 5px;
+						&:hover{
+							color: $gray3;
+						}   
+					}
+					.edit{
+						margin: 5px;
+						&:hover{
+							color: $gray3;
+						}   
+					}
+
+				}
 				.like{
 					@include communityLikes;
 					width:80px;
@@ -138,11 +158,19 @@
 			height:100px;
 		}
 		.button{
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 2rem;
 			width:195px;
 			height:100px;
-			background-color: $primary;
+			background-color: $secondary;
 			margin-left: 5px;
+			border: 0;
+			&:hover{
+				background: $gray3;
+				color: white;
+			}   
 		}
+
 	}
 	.buttons{
 		display:flex;
@@ -155,10 +183,10 @@
 			background-color: $gray2;
 		}
 		.back{
-			background-color: $gray2;
+			background-color: $quaternary;
 		}
 		.edit{
-			background-color: $gray2;
+			background-color: $secondary;
 		}
 	}
 }

@@ -1,26 +1,38 @@
 @import '../preset.scss';
 @import './community.scss';
+@import '../Home.scss';
 
 .community_board {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width:1000px;
-	margin:0px auto;
+	width:810px;
+	margin: 50px auto;
 	a{
 		text-decoration: none;
 	}
-	.add-button{
+	.title-container{
 		display:flex;
-		width:100%;
 		flex-direction: row;
-		justify-content: flex-end;
+		justify-content: flex-start;
+	}
+	.title{
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 3.3rem;
+		width: 600px;
+		text-align: left;
+		padding-top: 35px;
+
+	}
+	.add-button{
+		padding-left: 15px;
 		.button{
 			@include button
 		}
 		.add{
-			background-color: $primary;
+			background-color: $secondary;
 		}
+		
 	}
 	.community_post {
 		@include communityPost;
