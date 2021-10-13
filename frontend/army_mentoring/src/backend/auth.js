@@ -78,5 +78,4 @@ const _requestLogout = async (setUser) => {
     }
 }
 
-
 export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken, _requestSignUp, _requestLogout }

@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import React, { useEffect, useState, useContext } from "react";
+import { Form, FormGroup, Input, Button } from 'reactstrap';
 import "./EditPortfolio.scss";
-import axios from 'axios';
+import { _addPortfolio } from "../../../../backend/profile";
+import { UserContext } from "../../../../context/Context";
+import { updateUserContextBySavedToken } from "../../../../backend/auth";
 
 function EditPortfolio({match, history}) {
-  console.log(match.params);
-  //마찬가지로 id가 넘어오니까 이걸로 데이터 가져와서 하면 될듯
-
+  const [user, setUser] = useContext(UserContext);
+  const [title, setTitle] = useState('');
   let isAddPage = false;
-  if(match.params.id == undefined)
+  if(match.params.pid == undefined)
     isAddPage = true;
+
 
   let [forms, setForms] = useState([]);
   let [order, setOrder] = useState(0);
@@ -36,10 +37,28 @@ function EditPortfolio({match, history}) {
     setForms(form);
   }
 
-  //임시
-  const createPortfolio = ()=>{
-    console.log("create portfolio!");
-    console.log(match.url);
+  const getUserId = ()=>{
+    if(Object.keys(user).length == 0)
+        return -1;
+    const url = user.url;
+    const t = url.split('/');
+    return t[4];
+}
+  const addOrEditPortfolio = ()=>{
+    if(isAddPage == true){
+      let user_id = getUserId();
+      _addPortfolio(user_id, title)
+      .then(res=>{
+        updateUserContextBySavedToken(setUser);
+        console.log(res);
+        history.goBack();
+      }).catch(err=>{
+        console.log(err.response);
+      })
+    }
+    else{
+
+    }
   }
   
   return (
@@ -49,8 +68,7 @@ function EditPortfolio({match, history}) {
       }
       <Form>
         <FormGroup className="main-section">
-          <Input type="text" className="title" placeholder="메인 제목입력..."></Input>
-          <Input type="text" className="desc" placeholder="메인 내용입력..."></Input>
+          <Input type="text" className="main-title" placeholder="메인 제목입력..." onChange={(e)=>setTitle(e.target.value)}></Input>
         </FormGroup>
         {forms.map((f)=>{
           return(
@@ -65,7 +83,7 @@ function EditPortfolio({match, history}) {
         <div className='button' onClick={add}>+</div>
         <FormGroup className='buttons'>
           <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>   
-          <div className='confirm button' onClick={()=>{createPortfolio();history.goBack()}}>{ isAddPage ? '추가' : '수정'}</div>
+          <div className='confirm button' onClick={()=>{addOrEditPortfolio()}}>{ isAddPage ? '추가' : '수정'}</div>
         </FormGroup>
       </Form>
     </div>
@@ -73,22 +91,3 @@ function EditPortfolio({match, history}) {
 }
 
 export default EditPortfolio;
-
-/*
-const createPortfolio = ()=>{
-  const token = sessionStorage.getItem('token');
-  
-  axios({
-    method: 'POST',
-    url : 'https://???/portfolio-item',
-    headers : { 'Authorization' : token },
-    data : {
-      title : getElementById로 title 정보,
-      portfolio_items : 마찬가지로 가져옴,
-      specification_cards : 암튼 가져옴,
-      user : user id 알아와서 가져옴
-    }
-  }).then((res)=>{
-  })
-}
-*/

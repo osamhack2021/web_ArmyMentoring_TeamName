@@ -1,66 +1,75 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { _deletePortfolio, _loadPortfolio, _loadPortfolioItem } from "../../../../backend/profile";
 import "./PortfolioDetail.scss";
-
+import {updateUserContextBySavedToken} from "../../../../backend/auth";
+import { UserContext } from "../../../../context/Context";
 function Portfolio({match, history}) {
 
-  let [portfolio, setPortfolio] = useState({
-                                              id:1,
-                                              title:'react 프로젝트',
-                                              description:`저는 react를 이용해서 웹페이지를 만들어봤습니다. 그리고
-                                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                              when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                                              It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                              remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                              and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
-                                          });
-  //match.params.id 값을 가지고 axios로 portfolio 정보 요청
+  const p_id = match.params.pid;
+  const [portfolio, setPortfolio] = useState('');
+  const [items, setItems] = useState([]);
+  const [user, setUser] = useContext(UserContext);
+
+  const load = ()=>{
+    _loadPortfolio(p_id)
+    .then(res=>{
+      setPortfolio(res.data);
+      Promise.all(
+        res.data.portfolio_items.map((url)=>{
+          return _loadPortfolioItem(p_id)
+                  .then(res=>{return res.data})
+        })
+      )
+      .then(res=>{
+        setItems(res);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    })
+    .catch(err=>{
+      console.log(err.response);
+    })
+  }
+
+  useEffect(()=>{
+    load();
+  }, []);
+
+  const deletePortfolio = ()=>{
+    _deletePortfolio(p_id)
+    .then(res=>{
+      updateUserContextBySavedToken(setUser);
+      console.log(res);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
 
   return (
     <div className="portfolio-specific-body">
       <div className="main-section">
-        <div className="title">{"react project"}</div>
-        <div className="description">{"저는 react를 이용해서 웹페이지를 만들어봤습니다."}</div>
-      </div>
-      <div className="sectiont">
         <div className="title">{portfolio.title}</div>
-        <div className="description">{portfolio.description}</div>
       </div>
-      <div className="sectiont">
-        <div className="title">{"내용"}</div>
-        <div className="description">{portfolio.description}</div>
-      </div>
-      <div className="sectiont">
-        <div className="title">{"결과"}</div>
-        <div className="description">{portfolio.description}</div>
-      </div>
+      {
+        items.map((i)=>{
+          return(
+            <div className="sectiont">
+              <div className="title">{i.title}</div>
+              <div className="description">{i.content}</div>
+            </div>
+          )
+        })
+      }
       <div className="buttons">
         <div onClick={()=>{history.goBack()}} className="cancel button">뒤로</div>
         <Link to={`${match.url}/edit`} className="confirm button">수정</Link>
+        <div onClick={deletePortfolio} className="cancel button">삭제</div>
       </div>
     </div>
   );
 }
 
 export default Portfolio;
-
-/*
-const load = ()=>{
-  const token = sessionStorage.getItem('token');
-  const id;
-  axios({
-    method:'GET',
-    url:'https://???/portfolio/' + id,
-    headers : {
-      Authorization : token
-    }
-  }).then((res)=>{
-    const response = res.data;
-    setPortfolio(response.portfolio);
-  })
-}
-useEffect(()=>{
-  load()
-}, []);
-*/

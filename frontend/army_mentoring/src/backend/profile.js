@@ -24,6 +24,24 @@ const _editProfile = async (user, password, nickname, description, profileimage,
     }
 }
 
+const _addPortfolio = async (user_id, title) => {
+    try{
+        const response = axios({
+            method : 'POST',
+            url : '/portfolio',
+            data : { 
+                title : title,
+                portfolio_items : [],
+                specification_cards : [],
+                user : 'https://guntor-guntee-data-server.herokuapp.com/user/' + user_id
+            }
+        })
+        return response;
+    }catch(error){
+        throw error;
+    }
+}
+
 const _loadPortfolio = async (portfolio_id) => {
     try{
         const response = await axios({
@@ -36,4 +54,30 @@ const _loadPortfolio = async (portfolio_id) => {
     }
 }
 
-export { _editProfile, _loadPortfolio }
+const _loadPortfolioItem = async (portfolio_item_id) => {
+    try{
+        const response = await axios({
+            method : 'GET',
+            url : '/portfolio-item/' + portfolio_item_id
+        });
+        return response;
+    }catch(error){
+        throw error;
+    }
+}
+
+
+const _deletePortfolio = async (portfolio_id)=>{
+    try{
+        const response = await axios({
+            method : 'DELETE',
+            url : '/portfolio/' + portfolio_id
+        })
+        return response;
+    } catch (error){
+        throw error;
+    }
+}
+
+
+export { _editProfile, _loadPortfolio, _addPortfolio, _loadPortfolioItem, _deletePortfolio }

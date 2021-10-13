@@ -6,29 +6,8 @@ import "./ProfileDetail.scss";
 import { UserContext } from '../../../context/Context';
 
 function Profile({match}) {
-
   let [user, setUser] = useContext(UserContext);
 
-  const getPortfolioID= (url) =>{
-    const t = url.split('/');
-    return t[4];
-  }
-  const load = ()=>{
-    const c = user.portfolio;
-      const result = Promise.all(
-      c.map((url)=>{
-        const p_id = getPortfolioID(url);
-        return _loadPortfolio(p_id)
-      })
-    )
-    .then(res=>{
-      console.log(res);
-    })
-    .catch(err=>{
-      console.log(err.response);
-    })
-    
-  }
   let [userInfo, setUserInfo] = useState();
   let [mentorInfo, setMentorInfo] = useState([
                                               {
