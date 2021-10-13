@@ -3,24 +3,27 @@ import {Link} from "react-router-dom";
 import React, { useContext } from 'react';
 import logo from './3.png';
 import { UserContext } from '../../context/Context';
+import { _requestLogout } from '../../backend/auth';
 
 function Header({match, history}){
     const [user, setUser] = useContext(UserContext);
 
     /*API 코드 필요 */
     const logout = ()=>{
-        history.push("/");
-        sessionStorage.clear();
-        setUser({});
+        _requestLogout(setUser)
+        .then(res=>{
+            document.location.href = '/';//history 객체가 작동을 안함...
+            //아무래도 sessionStorage를 지우는 과정이 비동기거나 뭐 그런 듯..
+        }).catch(err=>{
+            console.log(err.response);
+        })
     }
     
     const getUserId = ()=>{
-        console.log(user);
         if(Object.keys(user).length == 0)
             return -1;
         const url = user.url;
         const t = url.split('/');
-        console.log(t);
         return t[4];
     }
 
@@ -43,18 +46,3 @@ function Header({match, history}){
 }
 
 export default Header;
-
-/*
-    const onLoggin = ()=>{
-        const token = sessionStorage.getItem('token');
-        axios({
-            method : 'GET',
-            url : 'https://???/auth/logout',
-            headers : { 'token' : token }
-        }).then(function(res)=>{
-            const response = res.data;       //서버에서 받은 json 데이터
-            //에러 발생시?
-            document.location.href = "/";   //홈페이지로 이동
-        })
-    }
-*/
