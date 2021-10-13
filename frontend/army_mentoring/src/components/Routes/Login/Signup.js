@@ -75,10 +75,16 @@ function Login({match, history}){
                     </FormGroup>
                     <FormGroup class="form-group">
                         <Label class="label">프로필 사진</Label>
+                        <div className='img_select'>
                         <img src={imgUrl}></img>
                         <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
+                        </div>
                     </FormGroup>
-                    <Button id="login_button" onClick={register}>회원가입</Button>
+                    <FormGroup class="form-group">
+                    <div className='button_set'>
+                        <Button className="more" onClick={register}>회원가입</Button>
+                    </div>
+                    </FormGroup>
                 </Form>
             </div>
         </div>

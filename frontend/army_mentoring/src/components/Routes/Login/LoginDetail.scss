@@ -1,4 +1,5 @@
 @import '../preset.scss';
+@import '../Home.scss';
 
 .login_body{
     display:flex;
@@ -7,10 +8,11 @@
     width:500px;
     height:350px;
     margin:150px auto;
+    font-family: 'Do Hyeon', sans-serif;
 
     .title{
-        font-weight: bold;
-        font-size: 50px;
+        font-size: 3.5rem;
+        padding-bottom: 1rem;
     }
     
     .form{
@@ -23,9 +25,10 @@
     
     .form-group{
         text-align: left;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size:2rem;
         label {
-            font-weight:bold;
-            font-size:20px;
+            font-family: 'Do Hyeon', sans-serif;
         }
     }
     
@@ -33,6 +36,26 @@
         border-radius: 0px 20px 20px 20px;
         height:50px;
         background-color: $secondary;
-        font-weight: bold;
     }
+
+    .more{
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 13.5rem;
+        padding-right: 13.5rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        font-size: 1.7rem;
+    }
+
+    .register{
+        margin-top: 10px;
+        font-family: 'Do Hyeon', sans-serif;
+        font-size: 1.7rem;
+        color: $secondary;
+        &:hover{
+            color:$gray3;
+        }
+    }
+    
 }

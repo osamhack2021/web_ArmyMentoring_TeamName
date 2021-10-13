@@ -50,8 +50,10 @@ function Login({match}){
                         <Label class="label">비밀번호</Label>
                         <Input onChange={e => setPassword(e.target.value)}  type="password" id="password" name="password"></Input>
                     </FormGroup>
-                    <Button id="login_button" onClick={onLogin}>로그인</Button>
-                    <Link to={`${match.url}/signup`}>회원가입</Link>
+                    <div className='button_set'>
+                        <Button className="more" onClick={onLogin}>로그인</Button>
+                    </div>
+                    <Link to={`${match.url}/signup`} style={{textDecoration: 'none'}}><div className='register'>회원가입</div></Link>
                 </Form>
             </div>
         </div>
