@@ -10,8 +10,8 @@ function Portfolio({match}) {
       <Route exact path={match.path} component={PortfolioList}></Route>
       <Switch>
         <Route exact path={`${match.path}/add`} component={EditPortfolio}></Route>
-        <Route exact path={`${match.path}/:id`} component={PortfolioDetail}></Route>
-        <Route exact path={`${match.path}/:id/edit`} component={EditPortfolio}></Route>
+        <Route exact path={`${match.path}/:pid`} component={PortfolioDetail}></Route>
+        <Route exact path={`${match.path}/:pid/edit`} component={EditPortfolio}></Route>
       </Switch>
     </>
   )

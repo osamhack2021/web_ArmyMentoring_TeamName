@@ -56,5 +56,26 @@ const _requestSignUp = async (username, email, password, nickname, description, 
     }
 }
 
+const _requestLogout = async (setUser) => {
+    try {
+        const response = await axios({
+            method:'GET',
+            url : '/auth/logout'
+        })
+        setUser({});
+        sessionStorage.removeItem('Token');
+        console.log(1);//이거 없으면 session remove가 안됨... 뭐노...
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        console.log(1);
+        updateAxiosSettings();
+        return response;
+    } catch (error) {
+        throw(error);
+    }
+}
 
-export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken, _requestSignUp}
+export {requestLogin, requestAuthenticatedUser, updateUserContextBySavedToken, _requestSignUp, _requestLogout }

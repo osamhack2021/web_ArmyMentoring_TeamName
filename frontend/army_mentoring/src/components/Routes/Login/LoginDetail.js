@@ -8,8 +8,7 @@ import { UserContext } from "../../../context/Context";
 import './LoginDetail.scss';
 
 
-function Login({match}){
-    const history=useHistory();
+function Login({match, history}){
     const [user, setUser]=useContext(UserContext);
 
     const [email, setEmail]=useState("");
@@ -31,7 +30,7 @@ function Login({match}){
             const token = response.data.Token;
             sessionStorage.setItem('Token', token);
             await updateUserContextBySavedToken(setUser);
-            history.goBack();
+            history.push('/');
         } catch (error) {
             console.error(error.response.data)
         }
