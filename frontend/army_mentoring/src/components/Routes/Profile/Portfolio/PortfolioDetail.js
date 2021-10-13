@@ -16,8 +16,11 @@ function Portfolio({match, history}) {
     .then(res=>{
       setPortfolio(res.data);
       Promise.all(
-        res.data.portfolio_items.map((url)=>{
-          return _loadPortfolioItem(p_id)
+        res.data.portfolio_items.map((item)=>{
+          let t = item.url.split('/');
+          let pi_id = t[4];
+          console.log(pi_id);
+          return _loadPortfolioItem(pi_id)
                   .then(res=>{return res.data})
         })
       )
@@ -25,7 +28,7 @@ function Portfolio({match, history}) {
         setItems(res);
       })
       .catch(err=>{
-        console.log(err);
+        console.log(err.response);
       })
     })
     .catch(err=>{

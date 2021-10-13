@@ -15,7 +15,6 @@ function PortfolioList({match, history}) {
   }
   const load = ()=>{
     const c = user.portfolio;
-    console.log(c);
     Promise.all(
       c.map((url)=>{
         const p_id = getPortfolioID(url);
