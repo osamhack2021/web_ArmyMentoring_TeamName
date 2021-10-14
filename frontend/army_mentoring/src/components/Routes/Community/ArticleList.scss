@@ -12,31 +12,31 @@
 		text-decoration: none;
 	}
 	.search_bar{
-		background-color: $primary;
+		background-color: $white;
 		display: flex;
 		align-items: left;
 		flex-direction: row;
 		font-family: 'Noto Sans KR', sans-serif;
 		font-weight: 500;
-		font-size: 3rem;
+		font-size: 2.5rem;
 		text-align: left;
-		width:25rem;
-		position: fixed;
-		top: 270px;
-		left: 0px;
-		border-radius: 0px 15px 15px 0px;
+		width:50rem;
+		border-radius: 15px 15px 15px 15px;
+		border: 2px solid $secondary;
+		margin-top: 15px;
 
 		.txt_field{
 			background-color: $white;
-			margin-left: 10px;
+			margin-left: 15px;
 			margin-top: 15px;
 			margin-bottom: 15px;
+			border-width: 2px;
 		}
 
 		.s_button{
 			font-family: 'Do Hyeon', sans-serif;
 			text-align:center;
-			font-size: 1.7rem;
+			font-size: 1.5rem;
 			margin-left: 15px;
 			margin-top: 15px;
 			margin-right: 15px;
@@ -62,10 +62,10 @@
 	.title{
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 3.3rem;
-		width: 600px;
+		width: 650px;
 		text-align: left;
 		padding-top: 35px;
-
+		padding-right: 100px;
 	}
 	.add-button{
 		padding-left: 15px;

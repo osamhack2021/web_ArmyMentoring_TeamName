@@ -34,15 +34,15 @@ function ArticleList({match}) {
         <div>
             <div className='community_board'>
                 <div className="title-container">
-                    <div className='search_bar'>
+                    <div className='title'>군토&군티 커뮤니티 게시판</div>
+                    <div className='button_set'>
+                    <Link to={`${match.url}/add`}><button>새 글쓰기</button></Link>
+                    </div>
+                </div>
+                <div className='search_bar'>
                         <Input type='text' className='txt_field' placeholder='게시글 제목..'></Input>
                         <div className='s_button'>검색</div>
                     </div>
-                    <div className='title'>군토&군티 커뮤니티 게시판</div>
-                    <div className='button_set'>
-                    <Link to={`${match.url}/add`}><button>새로 글쓰기</button></Link>
-                    </div>
-                </div>
 
             {list.map((li) => {
                 let u = li.url.split('/');
