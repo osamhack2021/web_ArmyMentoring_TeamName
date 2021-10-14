@@ -11,6 +11,49 @@
 	a{
 		text-decoration: none;
 	}
+	.search_bar{
+		background-color: $primary;
+		display: flex;
+		align-items: left;
+		flex-direction: row;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-weight: 500;
+		font-size: 3rem;
+		text-align: left;
+		width:25rem;
+		position: fixed;
+		top: 270px;
+		left: 0px;
+		border-radius: 0px 15px 15px 0px;
+
+		.txt_field{
+			background-color: $white;
+			margin-left: 10px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+
+		.s_button{
+			font-family: 'Do Hyeon', sans-serif;
+			text-align:center;
+			font-size: 1.7rem;
+			margin-left: 15px;
+			margin-top: 15px;
+			margin-right: 15px;
+			margin-bottom: 15px;
+			width: 5rem;
+			background-color: white;
+			border-radius: 5px 5px 5px 5px;
+			color: $tertiary;
+			border-color: $tertiary;
+			border: 2px solid $tertiary;
+			&:hover{
+				border: 2px solid $gray3;
+				background: $gray3;
+				color: white;
+			}   
+		}
+	}
 	.title-container{
 		display:flex;
 		flex-direction: row;
