@@ -12,7 +12,6 @@ function Profile({match}) {
 
   useEffect(()=>{
     load();
-    console.log(user);
   }, [])
 
   const load = () =>{
@@ -59,28 +58,7 @@ function Profile({match}) {
     })
 
   }
-
-  let [mentorInfo, setMentorInfo] = useState([
-                                              {
-                                                id: 1,
-                                                title: "#1. 멘토링 제목"
-                                              },
-                                              {
-                                                id: 2,
-                                                title: "#2. 멘토링 제목"
-                                              }
-                                            ]);
-  let [menteeInfo, setMenteeInfo] = useState([
-                                              {
-                                                id: 1,
-                                                title: "멘티로 참여하는 멘토링 #1"
-                                              },
-                                              {
-                                                id: 2,
-                                                title: "멘티로 참여하는 멘토링 #2"
-                                              }
-                                            ]);
-
+  
   return (
     <div className="profile">
       <div className="intro">
@@ -103,12 +81,16 @@ function Profile({match}) {
       </div>
       <div className="mentorings">{
       mentorM.map((m)=>{
-        return (<Link><li>{m.title}</li></Link>)
+        let t = m.url.split('/');
+        let mid = t[4];
+        return (<Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>)
         })}
       </div>
       <div className="mentorings">{
       menteeM.map((m) =>{
-        return (<Link><li>{m.title}</li></Link>)
+        let t = m.url.split('/');
+        let mid = t[4];
+        return (<Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>)
         })}
       </div>
     </div>

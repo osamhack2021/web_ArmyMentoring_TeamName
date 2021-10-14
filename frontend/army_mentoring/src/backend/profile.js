@@ -110,5 +110,17 @@ const _loadMentoring = async (mentoring_id) => {
     }
 }
 
+const _loadUser = async (user_id) =>{
+    try{
+        const response = axios({
+            method : 'GET',
+            url : '/user/' + user_id
+        })
+        return response;
+    } catch(error){
+        throw error;
+    }
+}
 
-export { _editProfile, _loadPortfolio, _addPortfolio, _loadPortfolioItem, _deletePortfolio, _addPortfolioItem, _loadMentoring}
+
+export { _editProfile, _loadPortfolio, _addPortfolio, _loadPortfolioItem, _deletePortfolio, _addPortfolioItem, _loadMentoring, _loadUser }
