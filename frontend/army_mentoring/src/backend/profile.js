@@ -98,5 +98,17 @@ const _addPortfolioItem = async (title, content, portfolio_id, order) => {
     }
 }
 
+const _loadMentoring = async (mentoring_id) => {
+    try{
+        const response = axios({
+            method : 'GET',
+            url : '/mentoring/' + mentoring_id
+        })
+        return response;
+    } catch(error){
+        throw error;
+    }
+}
 
-export { _editProfile, _loadPortfolio, _addPortfolio, _loadPortfolioItem, _deletePortfolio, _addPortfolioItem}
+
+export { _editProfile, _loadPortfolio, _addPortfolio, _loadPortfolioItem, _deletePortfolio, _addPortfolioItem, _loadMentoring}
