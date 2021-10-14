@@ -19,7 +19,6 @@ function Portfolio({match, history}) {
         res.data.portfolio_items.map((item)=>{
           let t = item.url.split('/');
           let pi_id = t[4];
-          console.log(pi_id);
           return _loadPortfolioItem(pi_id)
                   .then(res=>{return res.data})
         })
@@ -44,6 +43,7 @@ function Portfolio({match, history}) {
     _deletePortfolio(p_id)
     .then(res=>{
       updateUserContextBySavedToken(setUser);
+      history.goBack();
       console.log(res);
     })
     .catch(err=>{
