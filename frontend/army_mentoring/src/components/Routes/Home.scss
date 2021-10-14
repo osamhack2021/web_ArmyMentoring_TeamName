@@ -155,6 +155,12 @@ $main-green: #6ba259;
 			background-repeat: no-repeat;
 			background-position: center;
 		}
+		.text_light{
+			background: linear-gradient(to top, $secondary 55%, transparent 50%);
+			padding-right: 7px;
+			padding-left: 7px;
+			height: 3.5rem;
+		}
 	}
 }
 
@@ -196,7 +202,7 @@ $main-green: #6ba259;
 	margin-bottom: 100px;
 	.carousel-inner {
 		height: 800px;
-		width: 600px;
+		width: 800px;
 	}
 	.carousel-item > img {
 		height: 500px;

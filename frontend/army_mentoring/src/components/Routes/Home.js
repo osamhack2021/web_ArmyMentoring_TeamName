@@ -52,12 +52,20 @@ function Home(){
                 <div className='mentoring home_section'>
                     <h2 className="section_title">추천 멘토링 분야</h2>
                     <div className='section_mentoring'>
-                        <div className='mentoring_box1 mentoring_img1'>코딩</div>
-                        <div className='mentoring_box1 mentoring_img2'>운동</div>
+                        <div className='mentoring_box1 mentoring_img1'>
+                            <div className='text_light'>코딩</div>
+                        </div>
+                        <div className='mentoring_box1 mentoring_img2'>
+                            <div className='text_light'>운동</div>
+                        </div>
                     </div>
                     <div className='section_mentoring'>
-                        <div className='mentoring_box1 mentoring_img3'>외국어</div>
-                        <div className='mentoring_box1 mentoring_img4'>군 생활</div>
+                        <div className='mentoring_box1 mentoring_img3'>
+                            <div className='text_light'>외국어</div>
+                        </div>
+                        <div className='mentoring_box1 mentoring_img4'>
+                            <div className='text_light'>군 생활</div>
+                        </div>
                     </div>
                     <Link to="/mentoring#srchmentoring">
                         <div className="button_set">
