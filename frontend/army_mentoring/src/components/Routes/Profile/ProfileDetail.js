@@ -12,7 +12,6 @@ function Profile({match}) {
 
   useEffect(()=>{
     load();
-    console.log(user);
   }, [])
 
   const load = () =>{
