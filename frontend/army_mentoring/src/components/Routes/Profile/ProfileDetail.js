@@ -1,14 +1,65 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "reactstrap";
-import { _loadPortfolio } from '../../../backend/profile';
+import { _loadMentoring, _loadPortfolio } from '../../../backend/profile';
 import "./ProfileDetail.scss";
 import { UserContext } from '../../../context/Context';
 
 function Profile({match}) {
-  let [user, setUser] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
+  const [menteeM, setMenteeM] = useState([]);
+  const [mentorM, setMentorM] = useState([]);
 
-  let [userInfo, setUserInfo] = useState();
+  useEffect(()=>{
+    load();
+    console.log(user);
+  }, [])
+
+  const load = () =>{
+    Promise.all(
+      user.opened_mentoring.map((url)=>{
+        let t = url.split('/');
+        let m_id = t[4];
+        return _loadMentoring(m_id)
+              .then(res=>{
+                return res.data;
+              })
+              .catch(err=>{
+                console.log(err);
+              })
+      })
+    )
+    .then(res=>{
+      setMentorM(res);
+      console.log(res);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+    Promise.all(
+      user.participated_mentoring.map((url)=>{
+        let t = url.split('/');
+        let m_id = t[4];
+        return _loadMentoring(m_id)
+              .then(res=>{
+                return res.data;
+              })
+              .catch(err=>{
+                console.log(err);
+              })
+      })
+    )
+    .then(res=>{
+      setMenteeM(res);
+      console.log(res);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+  }
+
   let [mentorInfo, setMentorInfo] = useState([
                                               {
                                                 id: 1,
@@ -50,8 +101,16 @@ function Profile({match}) {
         <Link to={`${match.url}/chat`} className="button">메시지 보내기</Link>
         <Link to={`${match.url}/edit`} className="button">개인정보 수정</Link>
       </div>
-      <div className="mentorings">{mentorInfo.map((m) => (<li key={m.id}>{m.title}</li>))}</div>
-      <div className="mentorings">{menteeInfo.map((m) => (<li key={m.id}>{m.title}</li>))}</div>
+      <div className="mentorings">{
+      mentorM.map((m)=>{
+        return (<Link><li>{m.title}</li></Link>)
+        })}
+      </div>
+      <div className="mentorings">{
+      menteeM.map((m) =>{
+        return (<Link><li>{m.title}</li></Link>)
+        })}
+      </div>
     </div>
   );
 }

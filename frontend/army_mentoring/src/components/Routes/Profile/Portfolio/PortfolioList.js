@@ -41,7 +41,6 @@ function PortfolioList({match, history}) {
         portfolios.map((p)=>{
           return (
           <div className="portfolio">
-            <img className="thumbnail" alt="abcd" src=""></img>
             <div className="text-column">
               <div className="title">{p.portfolio.title}</div>
               <Link to={`${match.url}/${p.pid}`} className="link">자세히 보기</Link>
