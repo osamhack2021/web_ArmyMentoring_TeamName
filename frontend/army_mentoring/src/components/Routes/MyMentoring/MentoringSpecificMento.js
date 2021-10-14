@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { _loadMentoring } from '../../../backend/profile';
+import { UserContext } from '../../../context/Context';
 import './MentoringSpecificMento.scss';
 
-function MentoringSpecificMento(){
+function MentoringSpecificMento({match, history}){
 
+    const mid = match.params.id;
+    const [user, setUser] = useContext(UserContext);
+    const [mentoring, setMentoring] = useState({
+        title : ''
+    });
 
     useEffect(()=>{
         window.scroll({
@@ -11,6 +18,19 @@ function MentoringSpecificMento(){
             behavior:'instant'
         })}, []
     );
+    useEffect(()=>{
+        load();
+    }, []);
+
+    const load = ()=>{
+        _loadMentoring(mid)
+        .then(res=>{
+            setMentoring(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
 
     return (
         <div>
@@ -19,7 +39,7 @@ function MentoringSpecificMento(){
             </div>
 
             <div className="section" id="">
-                <h2>멘토링 제목</h2>
+                <h2>{'제목 : ' + mentoring.title}</h2>
             </div>
 
             <div className="section" id="">

@@ -56,8 +56,10 @@ function MymentoringList({match}){
                 <div className="mentoring_cards">
                 {
                     participated_mentoring.map((element, index) => {
+                        let t = element.split('/');
+                        let mid = t[4];
                         return (
-                            <Link to={`${match.url}/mentee/${0}`} key={index}>
+                            <Link to={`${match.url}/mentee/${mid}`} key={index}>
                                 <MyMentoringCard mentoringUrl={element}  />
                             </Link>
                             )
@@ -72,8 +74,10 @@ function MymentoringList({match}){
                 <div className="mentoring_cards">
                 {
                     opened_mentoring.map((element, index) => {
+                        let t = element.split('/');
+                        let mid = t[4];
                         return (
-                            <Link to={`${match.url}/mentor/${0}`}>
+                            <Link to={`${match.url}/mentor/${mid}`}>
                                 <MyMentoringCard mentoringUrl={element} key={index} />
                             </Link>
                             )
