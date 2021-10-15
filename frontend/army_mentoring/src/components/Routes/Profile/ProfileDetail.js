@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "reactstrap";
-import { _loadMentoring, _loadPortfolio } from '../../../backend/profile';
+import { _loadMentoring, _loadUser } from '../../../backend/profile';
 import "./ProfileDetail.scss";
 import { UserContext } from '../../../context/Context';
 
@@ -23,7 +23,6 @@ function Profile({match}) {
     user = u;
   else
     user = other;
-
   const [menteeM, setMenteeM] = useState([]);
   const [mentorM, setMentorM] = useState([]);
 
@@ -32,45 +31,64 @@ function Profile({match}) {
   }, [])
 
   const load = () =>{
-    Promise.all(
-      user.opened_mentoring.map((url)=>{
-        let t = url.split('/');
-        let m_id = t[4];
-        return _loadMentoring(m_id)
-              .then(res=>{
-                return res.data;
-              })
-              .catch(err=>{
-                console.log(err);
-              })
+    if(isMe == false){
+      _loadUser(match.params.id)
+      .then(res=>{
+        setOther(res.data);
+        Promise.all(
+          user.opened_mentoring.map((url)=>{
+            let t = url.split('/');
+            let m_id = t[4];
+            return _loadMentoring(m_id)
+                  .then(res=>{
+                    return res.data;
+                  })
+                  .catch(err=>{
+                    console.log(err);
+                  })
+          })
+        )
+        .then(res=>{
+          setMentorM(res);
+        })
+        .catch(err=>{
+          console.log(err);
+        })
       })
-    )
-    .then(res=>{
-      setMentorM(res);
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+      .catch(err=>{
+        console.log(err);
+      })
+    }
+    if(isMe == false){
+      _loadUser(match.params.id)
+      .then(res=>{
+        setOther(res.data);
+        Promise.all(
+          user.participated_mentoring.map((url)=>{
+            let t = url.split('/');
+            let m_id = t[4];
+            return _loadMentoring(m_id)
+                  .then(res=>{
+                    return res.data;
+                  })
+                  .catch(err=>{
+                    console.log(err);
+                  })
+          })
+        )
+        .then(res=>{
+          setMenteeM(res);
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    }
 
-    Promise.all(
-      user.participated_mentoring.map((url)=>{
-        let t = url.split('/');
-        let m_id = t[4];
-        return _loadMentoring(m_id)
-              .then(res=>{
-                return res.data;
-              })
-              .catch(err=>{
-                console.log(err);
-              })
-      })
-    )
-    .then(res=>{
-      setMenteeM(res);
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+    
 
   }
   
