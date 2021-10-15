@@ -36,7 +36,7 @@ function Header({match, history}){
                 <li><Link to="/mymentoring">My mentoring</Link></li>
                 <li><Link to="/community">Community</Link></li>
                 { Object.keys(user).length != 0 ? 
-                    <li><Link to={`/profile`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
+                    <li><Link to={`/profile/${getUserId()}`}>profile</Link>/<a href="" onClick={logout}>logout</a></li> :
                     <li><Link to="/login">login</Link></li>
                 }  
             </ul>

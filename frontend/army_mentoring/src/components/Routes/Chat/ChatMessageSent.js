@@ -1,8 +1,8 @@
 import { useContext } from "react"
 
 import "./ChatMessageSent.scss"
-import { UserContext } from "../../../../context/Context"
-import { UTILS } from "../../../../CONST";
+import { UserContext } from "../../../context/Context"
+import { UTILS } from "../../../CONST";
 
 
 function ChatMessageSent({message}){

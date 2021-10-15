@@ -6,7 +6,24 @@ import "./ProfileDetail.scss";
 import { UserContext } from '../../../context/Context';
 
 function Profile({match}) {
-  const [user, setUser] = useContext(UserContext);
+  let isMe = false;
+  const [u, setU] = useContext(UserContext);
+  const [other, setOther] = useState({});
+  let user;
+  const getUserId = ()=>{
+    if(Object.keys(u).length == 0)
+        return -1;
+    const url = u.url;
+    const t = url.split('/');
+    return t[4];
+  }
+  if(getUserId() == match.params.id)
+    isMe = true;
+  if(isMe)
+    user = u;
+  else
+    user = other;
+
   const [menteeM, setMenteeM] = useState([]);
   const [mentorM, setMentorM] = useState([]);
 
@@ -30,7 +47,6 @@ function Profile({match}) {
     )
     .then(res=>{
       setMentorM(res);
-      console.log(res);
     })
     .catch(err=>{
       console.log(err);
@@ -51,7 +67,6 @@ function Profile({match}) {
     )
     .then(res=>{
       setMenteeM(res);
-      console.log(res);
     })
     .catch(err=>{
       console.log(err);

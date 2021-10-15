@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { getFromUrl } from "../../../../backend/common";
-import {UTILS} from '../../../../CONST';
+import { getFromUrl } from "../../../backend/common";
+import {UTILS} from '../../../CONST';
 import "./ChatMessageReceived.scss";
 
 function ChatMessageReceived({userUrl, message}){

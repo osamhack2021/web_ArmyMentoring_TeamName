@@ -6,9 +6,25 @@ import { _loadPortfolio } from '../../../../backend/profile';
 
 function PortfolioList({match, history}) {
   
-  const [user, setUser] = useContext(UserContext);
+  const [u, setU] = useContext(UserContext);
   const [portfolios, setPortfolios] = useState([]);
-  
+  const [other, setOther] = useState({});
+  const getUserId = ()=>{
+    if(Object.keys(u).length == 0)
+        return -1;
+    const url = u.url;
+    const t = url.split('/');
+    return t[4];
+  }
+  let isMe = false;
+  let user;
+  if(match.params.id == getUserId())
+    isMe = true;
+  if(isMe)
+    user = u;
+  else
+    user = other;
+
   const getPortfolioID= (url) =>{
     const t = url.split('/');
     return t[4];
