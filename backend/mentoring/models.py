@@ -15,6 +15,7 @@ class Mentoring(AbstractTimeStampModel):
     end_date=models.DateTimeField(null=False)
     memo=models.TextField(null=False)
     thumbnail=models.ImageField(null=True, blank=True)
+    description=models.TextField(null=False, default="")
 
     def __str__(self):
         return self.title
