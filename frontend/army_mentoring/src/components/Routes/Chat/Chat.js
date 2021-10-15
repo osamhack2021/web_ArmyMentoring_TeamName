@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useRef, useContext } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
 
-import { UserContext, SocketContext } from '../../../../context/Context';
+import { UserContext, SocketContext } from '../../../context/Context';
 import ChatMessageSent from './ChatMessageSent';
 import ChatMessageReceived from './ChatMessageReceived';
 
 import './Chat.scss';
 import ChatAnnouncement from './ChatAnnouncement';
-import { getFromUrl } from '../../../../backend/common';
-import { updateUserContextBySavedToken } from '../../../../backend/auth';
+import { getFromUrl } from '../../../backend/common';
+import { updateUserContextBySavedToken } from '../../../backend/auth';
 
 
 function Chat() {

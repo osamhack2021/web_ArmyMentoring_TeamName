@@ -9,6 +9,7 @@ import Login from './Routes/Login/Login';
 import Signup from './Routes/Login/Signup';
 import Profile from './Routes/Profile/Profile';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Chat from "./Routes/Chat/Chat";
 
 export default () => (
   
@@ -22,6 +23,8 @@ export default () => (
       <Route path="/login" component={Login}></Route>
       <Route path="/signup" component={Signup}></Route>
       <Route path="/profile" component={Profile}></Route>
+      <Route path="/chat" component={Chat}></Route>
+      
     </Switch>
     <Footer />
   </BrowserRouter> 

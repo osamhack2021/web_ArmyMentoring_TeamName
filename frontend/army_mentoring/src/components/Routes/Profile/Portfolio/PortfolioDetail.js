@@ -4,12 +4,31 @@ import { _deletePortfolio, _loadPortfolio, _loadPortfolioItem } from "../../../.
 import "./PortfolioDetail.scss";
 import {updateUserContextBySavedToken} from "../../../../backend/auth";
 import { UserContext } from "../../../../context/Context";
-function Portfolio({match, history}) {
 
+function PortfolioDetail({match, history}) {
+  console.log(match.url);
   const p_id = match.params.pid;
   const [portfolio, setPortfolio] = useState('');
   const [items, setItems] = useState([]);
-  const [user, setUser] = useContext(UserContext);
+  const [u, setU] = useContext(UserContext);
+  const [other, setOther] = useState({});
+  const getUserId = ()=>{
+    if(Object.keys(u).length == 0)
+        return -1;
+    const url = u.url;
+    const t = url.split('/');
+    return t[4];
+  }
+  let isMe = false;
+  let user;
+  if(p_id == getUserId())
+    isMe = true;
+  if(isMe)
+    user = u;
+  else
+    user = other;
+  console.log(isMe);
+    
 
   const load = ()=>{
     _loadPortfolio(p_id)
@@ -42,9 +61,8 @@ function Portfolio({match, history}) {
   const deletePortfolio = ()=>{
     _deletePortfolio(p_id)
     .then(res=>{
-      updateUserContextBySavedToken(setUser);
+      updateUserContextBySavedToken(setU);
       history.goBack();
-      console.log(res);
     })
     .catch(err=>{
       console.log(err);
@@ -75,4 +93,4 @@ function Portfolio({match, history}) {
   );
 }
 
-export default Portfolio;
+export default PortfolioDetail;
