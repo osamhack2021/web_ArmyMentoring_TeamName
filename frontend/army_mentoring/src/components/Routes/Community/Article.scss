@@ -154,14 +154,15 @@
 		flex-direction: row;
 		justify-content: center;
 		.description{
-			width:600px;
-			height:100px;
+			width:900px;
+			height:70px;
 		}
 		.button{
-			font-family: 'Do Hyeon', sans-serif;
-			font-size: 2rem;
+			font-family: 'Noto Sans KR', sans-serif;
+			font-weight:500;
+			font-size: 1.2rem;
 			width:195px;
-			height:100px;
+			height:70px;
 			background-color: $secondary;
 			margin-left: 5px;
 			border: 0;

@@ -1,16 +1,17 @@
 @import '../preset.scss';
 
 @mixin button{
-    font-family: 'Do Hyeon', sans-serif;
-    font-size: 1.7rem;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight:500;
+    font-size: 1.2rem;
     display:flex;
     justify-content: center;
     align-items: center;
     width: auto;
     height: auto;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 15px 15px 15px 0px;
-    margin: 1rem;
+    margin: 0.2rem;
     color: $white;
     cursor : pointer;
     text-decoration: none;
