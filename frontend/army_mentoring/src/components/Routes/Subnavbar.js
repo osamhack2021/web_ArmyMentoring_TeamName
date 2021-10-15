@@ -27,10 +27,8 @@ function Subnavbar(props){
     /* sub nav bar 화면 따라가기 및 하이라이팅 */
     const setNavStyle = ()=>{
         const u = document.getElementById('container');
-        if(u == null || u == undefined){
-            console.log('u is null');
+        if(u == null || u == undefined)
             return;
-        }
         if(window.pageYOffset > 80)
             u.className = 'fixedNav';
         else

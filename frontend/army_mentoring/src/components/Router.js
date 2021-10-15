@@ -21,7 +21,7 @@ export default () => (
       <Route path="/Community" component={Community}></Route>
       <Route path="/login" component={Login}></Route>
       <Route path="/signup" component={Signup}></Route>
-      <Route path="/profile/:id" component={Profile}></Route>
+      <Route path="/profile" component={Profile}></Route>
     </Switch>
     <Footer />
   </BrowserRouter> 
