@@ -1,3 +1,4 @@
+@import '../Routes/preset.scss';
 $background-color: white;
 $main-green: #6ba259;
 
@@ -11,24 +12,90 @@ $main-green: #6ba259;
 	background: $background-color;
 }
 
+.button_set {
+	button {
+		margin-top: 40px;
+		font-family: 'Do Hyeon', sans-serif;
+		color: $white;
+		font-size: 2rem;
+		background: $main-green;
+		color: #fff;
+		border: none;
+		position: relative;
+		height: auto;
+		width: auto;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		cursor: pointer;
+		transition: 800ms ease all;
+		outline: none;
+		margin-left: 5px;
+		border-radius: 5px;
+	}
+	button:hover {
+		background: #fff;
+		color: $main-green;
+	}
+	button:before,
+	button:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 2px;
+		width: 0;
+		background: $main-green;
+		transition: 400ms ease all;
+	}
+	button:after {
+		right: inherit;
+		top: inherit;
+		left: 0;
+		bottom: 0;
+	}
+	button:hover:before,
+	button:hover:after {
+		width: 100%;
+		transition: 800ms ease all;
+	}
+
+	.more{
+		font-size: 1.5rem;
+	}
+	
+}
+
+
 .service {
 	background-color: #f0f0f0;
 	margin-bottom: 100px;
 	.section_service {
 		display: flex;
-		align-items: center;
-		margin: 30px;
+
 		.service_text {
 			flex-direction: column;
 			justify-content: center;
+			text-align: left;
 			margin: 30px;
 			h2 {
-				margin: 30px;
+				font-family: 'Do Hyeon', sans-serif;
+				font-size: 5rem;
+				margin-top: 30px;
+			}
+			h3 {
+				font-family: 'Noto Sans KR', sans-serif;
+				font-weight: 500;
+				color: $gray2;
+				font-size: 2rem;
+				margin-top: 5px;
 			}
 		}
 		img {
+			margin-left: 40px;
 			width: 300px;
-			height: auto;
+			height: 400px;
 		}
 	}
 	img {
@@ -38,11 +105,18 @@ $main-green: #6ba259;
 
 .mentoring {
 	margin-bottom: 100px;
+	h2 {
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 3.5rem;
+		margin-bottom: 30px;
+	}
 	.section_mentoring {
 		display: flex;
 		flex-direction: row;
 
 		.mentoring_box1 {
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 3rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -81,21 +155,46 @@ $main-green: #6ba259;
 			background-repeat: no-repeat;
 			background-position: center;
 		}
+		.text_light{
+			background: linear-gradient(to top, $secondary 55%, transparent 50%);
+			padding-right: 7px;
+			padding-left: 7px;
+			height: 3.5rem;
+		}
 	}
 }
 
 .howtodo {
 	background-color: #f0f0f0;
 	margin-bottom: 100px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+	h2{
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 5rem;
+		margin-bottom: 40px;
+	}
 	.section_howtodo {
 		display: flex;
 		.howtodo_box1 {
-			height: 200px;
+			height: 220px;
 			width: 200px;
-			margin: 10px;
-			background-color: $main-green;
+			margin: 15px;
+			border: 5px solid $secondary;
 			border-radius: 30px 30px 30px 0px;
+			h3{
+				font-family: 'Do Hyeon', sans-serif;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				margin-left: 10px;
+				margin-right: 10px;
+				font-size: 1.8rem;
+				padding-bottom: 5px;
+				border-bottom: 4px solid $secondary;
+			}
 			img {
+				margin-top: 20px;
 				height: 50px;
 				width: 50px;
 			}
@@ -104,26 +203,57 @@ $main-green: #6ba259;
 }
 
 .review {
-	margin-bottom: 100px;
+	margin-bottom: 200px;
 	.carousel-inner {
 		height: 800px;
-		width: 600px;
+		width: 800px;
 	}
 	.carousel-item > img {
 		height: 500px;
-		width: 450px;
+		width: 600px;
 		//img 크기 500/450으로 고정
 	}
 	.carousel-caption {
+		font-family: 'Noto Sans KR', sans-serif;
+		font-weight: 300;
+		font-size: 1.3rem;
 		color: black;
 		position: relative;
 		left: 0;
 		top: 0;
 	}
+	h2{
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 5rem;
+		margin-top: 150px;
+		margin-bottom: 50px;
+	}
+	h3{
+		display:inline-block;
+		text-align: center;
+		margin: 0 auto;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-weight: 700;
+		font-size: 1.5rem;
+		margin-top: 15px;
+		margin-bottom: 25px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 3px;
+		background: linear-gradient(to top, $primary 55%, transparent 50%);
+	}
+	p {
+		text-align: left;
+	}
 }
 .faqs {
 	background-color: #f0f0f0;
-
+	margin-top: 200px;
+	h2{
+		font-family: 'Righteous', cursive;
+		font-size: 5rem;
+		margin-bottom: 40px;
+	}
 	button {
 		background: $main-green;
 		color: #fff;
@@ -169,7 +299,10 @@ $main-green: #6ba259;
 .Q {
 	display: flex;
 	flex-direction: row;
-
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+	margin-bottom: 10px;
 	justify-content: center;
 	button {
 		margin-left: 20px;
@@ -177,7 +310,11 @@ $main-green: #6ba259;
 }
 .A {
 	display: none;
-
+	color: $gray2;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 1rem;
+	margin-bottom: 30px;
 	&.hide {
 		display: block;
 	}

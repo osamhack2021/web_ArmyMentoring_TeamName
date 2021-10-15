@@ -1,15 +1,18 @@
 @import '../preset.scss';
+@import '../Home.scss';
 
 .signup_body{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     width:500px;
-    height:600px;
-    margin:150px auto;
+    height:auto;
+    margin:100px auto;
+    font-family: 'Do Hyeon', sans-serif;
 
     .title{
-        font-weight: bold;
+        display:flex;
+        width: auto;
         font-size: 50px;
     }
     
@@ -18,14 +21,16 @@
         flex-direction: column;
         justify-content: space-between;
         width:500px;
-        height:500px;
+        height: auto;
     }
     
     .form-group{
         text-align: left;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size:2rem;
         label {
-            font-weight:bold;
-            font-size:20px;
+            font-family: 'Do Hyeon', sans-serif;
+            font-size:1.7rem;
         }
     }
 
@@ -34,6 +39,21 @@
         border-radius: 0px 20px 20px 20px;
         height:50px;
         background-color: $secondary;
-        font-weight: bold;
+    }
+
+    .more{
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 13rem;
+        padding-right: 13rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        font-size: 1.7rem;
+    }
+    
+    .img_select{
+        margin-top: 20px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size:1.4rem;
     }
 }

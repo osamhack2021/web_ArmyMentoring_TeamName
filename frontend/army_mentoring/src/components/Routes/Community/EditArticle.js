@@ -1,53 +1,85 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext } from 'react';
 import './EditArticle.scss';
 import { Input, Form, FormGroup } from 'reactstrap';
-import axios from 'axios';
+import { _addArticle, _loadArticle, _updateArticle } from '../../../backend/community';
+import { UserContext }  from '../../../context/Context';
 
 function EditArticle({match, history}) {
 
-    const addArticle = ()=>{
-        let id = -1;
-        axios({
-            method : 'GET',
-            url : 'https://guntor-guntee-data-server.herokuapp.com/auth/user',
-            headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
-        }).then((res)=>{
-            console.log('get user inform success');
-            id = res.data.id;
-            const title = document.getElementById('title').value;
-            const content = document.getElementById('content').value;
-            console.log('title : '+title);
-            console.log('content : ' +content);
-            axios({
-                method : 'POST',
-                url : 'https://guntor-guntee-data-server.herokuapp.com/question',
-                headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'},
-                data : {
-                    title : title,
-                    content : content,
-                    user : 'https://guntor-guntee-data-server.herokuapp.com/user/' + id,
-                    liked_user : [ 'https://guntor-guntee-data-server.herokuapp.com/user/' + id ] 
-                }
-            }).then((res)=>{
-                console.log(res);
+    const article_id = match.params.id;
+    let isAddPage = false;
+    if(article_id == undefined){
+        isAddPage = true;
+    }
+
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [user, setUser] = useContext(UserContext);
+    const [liked_user, setLiked_user] = useState([]);
+
+    useEffect(()=>{
+        if(!isAddPage){
+            const t = document.getElementById('title');
+            const c = document.getElementById('content');
+            _loadArticle(article_id)
+            .then(res=>{
+                t.value = res.data.title;
+                c.value = res.data.content;
+                setTitle(t.value);
+                setContent(c.value); 
+                setUser(res.data.user);
+                setLiked_user(res.data.liked_user);
+            })
+            .catch(err=>{
+                console.log(err.response);
+            })
+        }
+    }, [isAddPage]);
+
+    const getUserId = ()=>{
+        if(Object.keys(user).length == 0)
+            return -1;
+        const url = user.url;
+        const t = url.split('/');
+        return t[4];
+    }
+
+    const addOrEditArticle = ()=>{
+        if(isAddPage){
+            const user_id = getUserId();
+            _addArticle(title, content, user_id)
+            .then((res)=>{
                 history.goBack();
             }).catch((err)=>{
-                console.log(err);
+                console.log(err.response);
             });
-        }).catch((err)=>{
-            console.log(err);
-        });
+        }
+        else{
+            const c = {
+                title : title,
+                content : content,
+                user : user,
+                liked_user : liked_user
+            }
+            _updateArticle(c, article_id)
+            .then(res=>{
+                history.goBack();
+            })
+            .catch(err=>{
+                console.log(err.response);
+            })
+        }
     }
 
     return (
         <div className='edit-article-body'>
             <Form className='input-area'>
-                <Input type='text' id='title' className='community_title' placeholder='제목 입력..'></Input>
-                <Input type='textarea' id='content' className='community_contents' placeholder='내용 입력..'></Input>
+                <Input type='text' id='title' onChange={(e)=>{setTitle(e.target.value)}} className='community_title' placeholder='제목 입력..'></Input>
+                <Input type='textarea' id='content' onChange={(e)=>{setContent(e.target.value)}} className='community_contents' placeholder='내용 입력..'></Input>
             </Form>
             <div className='buttons'>
                 <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>
-                <div className='confirm button' onClick={()=>{addArticle()}}>등록</div>
+                <div className='confirm button' onClick={addOrEditArticle}>{isAddPage ? '등록': '수정'}</div>
             </div>
         </div>
     );

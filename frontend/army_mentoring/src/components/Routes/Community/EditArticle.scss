@@ -1,4 +1,6 @@
 @import '../preset';
+@import './community.scss';
+
 .edit-article-body{
     display:flex;
     flex-direction: column;
@@ -24,20 +26,23 @@
         flex-direction: row;
         justify-content: flex-end;
         .button{
-            display:block;
-            width:100px;
-            margin: 10px;
-            height:50px;
-            line-height:50px;
-            border: 1px solid $black;
-            border-radius: 15px 15px 15px 0px;
-            cursor: pointer;
+            @include button
         }
         .confirm{
-            background-color: $primary;
+            background-color: $secondary;
         }
         .cancel{
             background-color: $gray2;
         }
+        /*
+        .confirm{
+            color: $secondary;
+            border-color: $secondary;
+        }
+        .cancel{
+            color: $gray2;
+            border-color: $gray2;
+        }
+        */
     }
 }

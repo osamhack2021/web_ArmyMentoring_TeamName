@@ -1,4 +1,5 @@
 @import '../Routes/preset.scss';
+
 .header_div
 {
   background-color:$white;
@@ -23,13 +24,14 @@
 }
 
 li{
+  font-family: 'Fredoka One', cursive;
   list-style-type: none;
-  margin-right: 5rem;
-  font-size: 1rem;
-  font-weight: bold;
+  margin-right: 3rem;
+  font-size: 1.2rem;
+  font-weight: 100;
   a{
     text-decoration: none;
-    color:$black;
+    color:$tertiary;
     &:hover{
         color:$gray3;
     }

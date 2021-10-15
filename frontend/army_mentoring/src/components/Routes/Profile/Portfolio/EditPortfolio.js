@@ -1,45 +1,148 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import React, { useEffect, useState, useContext } from "react";
+import { Form, FormGroup, Input, Button } from 'reactstrap';
 import "./EditPortfolio.scss";
-import axios from 'axios';
+import { _addPortfolio, _addPortfolioItem, _loadPortfolio, _loadPortfolioItem } from "../../../../backend/profile";
+import { UserContext } from "../../../../context/Context";
+import { updateUserContextBySavedToken } from "../../../../backend/auth";
 
 function EditPortfolio({match, history}) {
-  console.log(match.params);
-  //마찬가지로 id가 넘어오니까 이걸로 데이터 가져와서 하면 될듯
+
+  //editPortfolio를 위해
+  const p_id = match.params.pid;
+  const [portfolio, setPortfolio] = useState('');
+  const [items, setItems] = useState([]);
+
+  //addPortfolio를 위해
+  const [user, setUser] = useContext(UserContext);
+  const [title, setTitle] = useState('');
+  let [forms, setForms] = useState([]);
+  let [ordering, setOrdering] = useState(0);
 
   let isAddPage = false;
-  if(match.params.id == undefined)
+  if(match.params.pid == undefined)
     isAddPage = true;
 
-  let [forms, setForms] = useState([]);
-  let [order, setOrder] = useState(0);
+  const load = ()=>{
+    _loadPortfolio(p_id)
+    .then(res=>{
+      const mt = document.getElementById('main-title');
+      mt.value = res.data.title;
+      setTitle(res.data.title);
+
+      const f = res.data.portfolio_items;
+      Promise.all(
+        f.map((i)=>{
+          let t = i.url.split('/');
+          let piid = t[4];
+          return _loadPortfolioItem(piid)
+                .then(res=>{
+                  let fo = {
+                    title : res.data.title,
+                    content : res.data.content,
+                    order : res.data.order
+                  }
+                  return fo;
+                })
+                .catch(err=>{
+                  console.log('item load err');
+                  console.log(err.response);
+                })
+          })
+      )
+      .then(res=>{
+        setForms(res);
+        res.map((f)=>{
+          const t = document.getElementById('title'+f.order);
+          const d = document.getElementById('content'+f.order);
+          t.value = f.title;
+          d.value = f.content;
+        })
+      })
+      .catch(err=>{
+        console.log(err.response);
+      })
+    })
+    .catch(err=>{
+      console.log(err.response);
+    })
+  }
+
+  useEffect(()=>{
+    if(isAddPage==false)
+      load();
+  }, [isAddPage])
+
 
   const add = ()=>{
-    console.log("add");
     const f = {
-      id : order,
+      order : ordering,
       title : "",
-      description : ""
+      content : ""
     }
     let form = forms.slice();
     form.push(f);
     setForms(form);
-    let o = order+1;
-    setOrder(o);
+    let o = ordering+1;
+    setOrdering(o);
   }
 
-  const remove = (el, id)=>{
-    console.log("remove");
+  const remove = (order)=>{
     let form = forms.slice();
-    form.splice(id, 1);
+    form.splice(order, 1);
     setForms(form);
   }
 
-  //임시
-  const createPortfolio = ()=>{
-    console.log("create portfolio!");
-    console.log(match.url);
+  const getUserId = ()=>{
+    if(Object.keys(user).length == 0)
+        return -1;
+    const url = user.url;
+    const t = url.split('/');
+    return t[4];
+}
+  const addOrEditPortfolio = ()=>{
+    if(isAddPage == true){
+      let user_id = getUserId();
+      _addPortfolio(user_id, title)
+      .then(res=>{
+        let url = res.data.url;
+        let t = url.split('/');
+        let pid = t[4]; 
+        forms.map((f)=>{
+          _addPortfolioItem(f.title, f.content, pid, f.order)
+          .then(res=>{
+            console.log(res)
+          })
+          .catch(err=>{
+            console.log(err.response);
+          });
+        })
+        updateUserContextBySavedToken(setUser);
+        console.log(res);
+        history.goBack();
+      }).catch(err=>{
+        console.log(err.response);
+      })
+    }
+    else{
+      
+    }
+  }
+
+  const setItemTitle = (e, order)=>{
+    const v = e.target.value;
+    const f = forms.slice();
+    const i = forms.findIndex((element, index, array)=>{
+      return element.order == order;
+    })
+    f[i].title = v;
+  }
+  const setItemContent = (e, order)=>{
+    const v = e.target.value;
+    const f = forms.slice();
+    const i = forms.findIndex((element, index, array)=>{
+      return element.order == order;
+    })
+    f[i].content = v;
   }
   
   return (
@@ -49,23 +152,22 @@ function EditPortfolio({match, history}) {
       }
       <Form>
         <FormGroup className="main-section">
-          <Input type="text" className="title" placeholder="메인 제목입력..."></Input>
-          <Input type="text" className="desc" placeholder="메인 내용입력..."></Input>
+          <Input type="text" id="main-title" className="main-title" placeholder="메인 제목입력..." onChange={(e)=>setTitle(e.target.value)}></Input>
         </FormGroup>
         {forms.map((f)=>{
           return(
             <FormGroup className="sectiont">
-              {"id : " + f.id}
-              <Input type="text" className="title" placeholder="제목입력..."></Input>
-              <Input type="textarea" className="desc" placeholder="내용입력..."></Input>
-              <Button className="c" onClick={()=>{remove(f.id)}}>-</Button>
+              {"id : " + f.order}
+              <Input type="text" id={"title"+f.order} onChange={(e)=>{setItemTitle(e, f.order)}} className="title" placeholder="제목입력..."></Input>
+              <Input type="textarea" id={'content'+f.order} onChange={(e)=>{setItemContent(e, f.order)}} className="content" placeholder="내용입력..."></Input>
+              <Button className="c" onClick={()=>{remove(f.order)}}>-</Button>
             </FormGroup>
           )
         })}
         <div className='button' onClick={add}>+</div>
         <FormGroup className='buttons'>
           <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>   
-          <div className='confirm button' onClick={()=>{createPortfolio();history.goBack()}}>{ isAddPage ? '추가' : '수정'}</div>
+          <div className='confirm button' onClick={()=>{addOrEditPortfolio()}}>{ isAddPage ? '추가' : '수정'}</div>
         </FormGroup>
       </Form>
     </div>
@@ -73,22 +175,3 @@ function EditPortfolio({match, history}) {
 }
 
 export default EditPortfolio;
-
-/*
-const createPortfolio = ()=>{
-  const token = sessionStorage.getItem('token');
-  
-  axios({
-    method: 'POST',
-    url : 'https://???/portfolio-item',
-    headers : { 'Authorization' : token },
-    data : {
-      title : getElementById로 title 정보,
-      portfolio_items : 마찬가지로 가져옴,
-      specification_cards : 암튼 가져옴,
-      user : user id 알아와서 가져옴
-    }
-  }).then((res)=>{
-  })
-}
-*/

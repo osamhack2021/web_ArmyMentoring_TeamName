@@ -3,13 +3,12 @@ import { Link, useHistory } from "react-router-dom";
 
 import { Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
-import { requestLogin, requestAuthenticatedUser } from "../../../backend/auth";
-import {UserContext} from "../../../context/Context";
+import { requestLogin, updateUserContextBySavedToken } from "../../../backend/auth";
+import { UserContext } from "../../../context/Context";
 import './LoginDetail.scss';
 
 
-function Login({match}){
-    const history=useHistory();
+function Login({match, history}){
     const [user, setUser]=useContext(UserContext);
 
     const [email, setEmail]=useState("");
@@ -26,19 +25,15 @@ function Login({match}){
 
     const onLogin = async (e) => {
         e.preventDefault();
-        requestLogin(email, password)
-        .then(response=>{
+        try {
+            const response = await requestLogin(email, password);
             const token = response.data.Token;
             sessionStorage.setItem('Token', token);
-            
-            requestAuthenticatedUser()
-            .then(response=>{
-                setUser(response.data);
-                history.goBack();
-            })
-            .catch(e=>{console.error(e.response.data)});
-        })
-        .catch(e=>console.error(e.response.data));
+            await updateUserContextBySavedToken(setUser);
+            history.push('/');
+        } catch (error) {
+            console.error(error.response.data)
+        }
     }
 
     return(
@@ -54,8 +49,10 @@ function Login({match}){
                         <Label class="label">비밀번호</Label>
                         <Input onChange={e => setPassword(e.target.value)}  type="password" id="password" name="password"></Input>
                     </FormGroup>
-                    <Button id="login_button" onClick={onLogin}>로그인</Button>
-                    <Link to={`${match.url}/signup`}>회원가입</Link>
+                    <div className='button_set'>
+                        <Button className="more" onClick={onLogin}>로그인</Button>
+                    </div>
+                    <Link to={`${match.url}/signup`} style={{textDecoration: 'none'}}><div className='register'>회원가입</div></Link>
                 </Form>
             </div>
         </div>

@@ -1,0 +1,52 @@
+.MyMentoringCard {
+    background-color: white;
+    box-shadow: 1px 15px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 20px 20px 20px 0px;
+    width: 250px;
+    height: 350px;
+    text-decoration: none;
+    color:black;
+    
+    
+    &:hover {
+        transform: scale(1.02);
+        transition: .2s;
+    }
+    
+    & > * {
+        text-decoration: none;
+        color:black;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & > img {
+        height: 50%;
+        object-fit: cover;
+        border-radius: 20px 20px 20px 0px;
+        margin-bottom: 20px;
+    }
+
+    & > .text-container {
+        margin: auto 0;
+        height: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        & > .title{
+            font-weight: bold;
+        }
+
+        & > .participants {
+            margin-bottom: 15px;
+        }
+    }
+}

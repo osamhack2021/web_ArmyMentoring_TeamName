@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { BACKEND } from '../CONST';
+
 
 const getFromUrl = async (url) => {
     try {
@@ -9,4 +11,15 @@ const getFromUrl = async (url) => {
     }
 };
 
-export {getFromUrl};
+const updateAxiosSettings = () => {
+    const token=sessionStorage.getItem('Token');
+    axios.defaults.baseURL = BACKEND.DATA_SERVER_BASE_URL;
+    if (token){
+      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+    }else{
+        delete axios.defaults.headers.common['Authorization'];
+    }
+}
+
+
+export {getFromUrl, updateAxiosSettings};

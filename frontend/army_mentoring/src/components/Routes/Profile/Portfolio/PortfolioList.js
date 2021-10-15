@@ -1,39 +1,65 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./PortfolioList.scss";
-import axios from 'axios';
+import { UserContext } from '../../../../context/Context';
+import { _loadPortfolio } from '../../../../backend/profile';
 
 function PortfolioList({match, history}) {
-  let [portfolios, setPortfolios] = useState([
-                                              {
-                                                id:1,
-                                                title:'react 프로젝트',
-                                                description:'저는 react를 이용해서 웹페이지를 만들어봤습니다'
-                                              },
-                                              {
-                                                id:2,
-                                                title:'tomact 프로젝트',
-                                                description:'저는 tomact을 이용해서 서버를 만들어봤습니다'
-                                              },
-                                              {
-                                                id:3,
-                                                title:'vue 프로젝트',
-                                                description:'저는 vue를 이용해서 웹페이지를 만들어봤습니다'
-                                              },
-                                            ]);
   
+  const [u, setU] = useContext(UserContext);
+  const [portfolios, setPortfolios] = useState([]);
+  const [other, setOther] = useState({});
+  const getUserId = ()=>{
+    if(Object.keys(u).length == 0)
+        return -1;
+    const url = u.url;
+    const t = url.split('/');
+    return t[4];
+  }
+  let isMe = false;
+  let user;
+  if(match.params.id == getUserId())
+    isMe = true;
+  if(isMe)
+    user = u;
+  else
+    user = other;
+
+  const getPortfolioID= (url) =>{
+    const t = url.split('/');
+    return t[4];
+  }
+  const load = ()=>{
+    const c = user.portfolio;
+    Promise.all(
+      c.map((url)=>{
+        const p_id = getPortfolioID(url);
+        return _loadPortfolio(p_id)
+                .then(res=>{
+                  return { portfolio : res.data, pid : p_id }
+                })
+      })
+    )
+    .then(res=>{
+      setPortfolios(res);
+    })
+    .catch(err=>{
+      console.log(err.response);
+    })
+  }
+  useEffect(()=>{
+    load();
+  }, [user]);
 
   return (
     <div className="portfolio-body">
       {
-        portfolios.map(({id, title, description})=>{
+        portfolios.map((p)=>{
           return (
           <div className="portfolio">
-            <img className="thumbnail" alt="abcd" src=""></img>
             <div className="text-column">
-              <div className="title">{title}</div>
-              <div className="description">{description}</div>
-              <Link to={`${match.url}/${id}`} className="link">자세히 보기</Link>
+              <div className="title">{p.portfolio.title}</div>
+              <Link to={`${match.url}/${p.pid}`} className="link">자세히 보기</Link>
             </div> 
           </div>
           ) 
@@ -48,23 +74,3 @@ function PortfolioList({match, history}) {
 }
 
 export default PortfolioList;
-
-/*
-
-const load = ()=>{
-  const token = sessionStorage.getItem('token');
-  axios({
-    method:'GET',
-    url:'https://???/portfolio',
-    headers : {
-      Authorization : token
-    }
-  }).then((res)=>{
-    const response = res.data;
-    setPortfolios(response.portfolio_items);
-  })
-}
-useEffect(()=>{
-  load()
-}, []);
-*/

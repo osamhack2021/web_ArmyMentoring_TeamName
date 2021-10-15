@@ -1,40 +1,92 @@
+@import '../preset.scss';
+@import './community.scss';
+@import '../Home.scss';
+
 .community_board {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	width:810px;
+	margin: 50px auto;
 	a{
 		text-decoration: none;
 	}
-	.community_post {
-		margin: 30px;
+	.search_bar{
+		background-color: $white;
 		display: flex;
-		flex-direction: column;
-		border: solid;
-		width: 800px;
-		background-color: white;
-		border: 3px solid green;
-		color: black;
-		border-radius: 20px 20px 20px 0px;
-		text-decoration: none;
-		.community_title {
-			margin: 0px 0px 20px 20px;
-			display:flex;
-			flex-direction: row;
-			justify-content: flex-start;
-			font-weight: bold;
+		align-items: left;
+		flex-direction: row;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-weight: 500;
+		font-size: 2.5rem;
+		text-align: left;
+		width:50rem;
+		border-radius: 15px 15px 15px 15px;
+		border: 2px solid $secondary;
+		margin-top: 15px;
+
+		.txt_field{
+			background-color: $white;
+			margin-left: 15px;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			border-width: 2px;
+		}
+
+		.s_button{
+			font-family: 'Do Hyeon', sans-serif;
+			text-align:center;
+			font-size: 1.5rem;
+			margin-left: 15px;
+			margin-top: 15px;
+			margin-right: 15px;
+			margin-bottom: 15px;
+			width: 5rem;
+			background-color: white;
+			border-radius: 5px 5px 5px 5px;
+			color: $tertiary;
+			border-color: $tertiary;
+			border: 2px solid $tertiary;
+			&:hover{
+				border: 2px solid $gray3;
+				background: $gray3;
+				color: white;
+			}   
+		}
+	}
+	.title-container{
+		display:flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	.title{
+		font-family: 'Do Hyeon', sans-serif;
+		font-size: 3.3rem;
+		width: 650px;
+		text-align: left;
+		padding-top: 25px;
+		padding-right: 100px;
+	}
+	.add-button{
+		padding-left: 15px;
+		.button{
+			@include button
+		}
+		.add{
+			background-color: $secondary;
+		}
+		
+	}
+	.community_post {
+		@include communityPost;
+		.community_title{
+			@include communityTitle;
+		}
+		.community_contents{
+			@include communityContent;
 		}
 		.community_statistics {
-			display: flex;
-			flex-direction: row;
-			width: 300px;
-			margin: 20px;
-			.community_comments {
-				border: 1px solid black;
-				margin-right: 5px;
-			}
-			.community_likes {
-				border: 1px solid black;
-			}
+			@include communityStatistics;
 		}
 	}
 }

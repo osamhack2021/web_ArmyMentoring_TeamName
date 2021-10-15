@@ -4,8 +4,7 @@
     justify-content: flex-end;
 
     & > .description {
-        border:2px solid $black;
         border-radius: 15px 0px 15px 15px;
-        background-color: $quinary;
+        background-color: $primary;
     }
 }
