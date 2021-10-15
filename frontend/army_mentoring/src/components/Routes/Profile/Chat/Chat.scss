@@ -1,42 +1,64 @@
 @import '../../preset.scss';
 
+.title{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 4rem;
+    display:flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+    width:1000px;
+    height:auto;
+    margin:10px auto;
+}
+
 .chat-body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    width:800px;
-    height:1000px;
+    width:1000px;
+    height:800px;
     margin:10px auto;
     border-radius: 15px;
-    background-color: $secondary;
+    //border: 2px solid $tertiary; 
+    background: $gray4;
+    margin-bottom: 40px;
 
     .chat-area {
-        width:800px;
-        height:900px;
+        margin: 20px 10px;
+        width:900px;
+        height:800px;
+        padding: 20px;
         overflow-y: auto;
     }
 
     .typing-area {
         display:flex;
         flex-direction: row;
-        margin-bottom: 10px;
-
+        margin-bottom: 20px;
+        height:50px;
         .typing-bar {
-            width:500px;
-            height:100px;
+            width:880px;
+            height:50px;
+            border-radius: 15px 15px 0px 15px;
         }
-
         .send-button {
-            display:block;
-            background-color: $primary;
-            border: 1px solid $black;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            background-color: $secondary;
+            //border: 1px solid $black;
             border-radius: 15px 15px 15px 0px;
-            width:100px;
-            height:100px;
+            width:auto;
+            height:auto;
             line-height: 100px;
-            margin-left:10px;
+            padding:5px 10px;
             color:$white;
-            font-weight: bold;
+            &:hover{
+                background-color: $gray3;
+            }
         }
     }
 }

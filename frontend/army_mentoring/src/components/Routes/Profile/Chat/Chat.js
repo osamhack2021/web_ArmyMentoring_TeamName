@@ -94,21 +94,27 @@ function Chat() {
     }
 
     return (
-        <div className='chat-body'>
-            <div className='chat-area' ref={chatAreaRef}>
-                {chats}
+        <div>
+            <div className='title'>
+                <div>멘토링 채팅방</div>
             </div>
-            <Form onSubmit={onSubmit}>
-                <FormGroup className="typing-area">
-                    <Input 
-                        value={currentInput} 
-                        onChange={e => setCurrentInput(e.target.value)}
-                        className='typing-bar' 
-                        type="text" 
-                    />
-                    <div onClick={onClickSendButton} className='send-button'>send</div>
-                </FormGroup>
-            </Form>
+            
+            <div className='chat-body'>
+                <div className='chat-area' ref={chatAreaRef}>
+                    {chats}
+                </div>
+                <Form onSubmit={onSubmit}>
+                    <FormGroup className="typing-area">
+                        <Input 
+                            value={currentInput} 
+                            onChange={e => setCurrentInput(e.target.value)}
+                            className='typing-bar' 
+                            type="text" 
+                        />
+                        <div onClick={onClickSendButton} className='send-button'>보내기</div>
+                    </FormGroup>
+                </Form>
+            </div>
         </div>
     );
   }
