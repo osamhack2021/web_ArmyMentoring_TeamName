@@ -38,23 +38,23 @@
         margin-bottom: 20px;
         height:50px;
         .typing-bar {
-            width:880px;
+            width:870px;
             height:50px;
-            border-radius: 15px 15px 0px 15px;
+            border-radius: 7px 7px 0px 7px;
         }
         .send-button {
             font-family: 'Noto Sans KR', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             background-color: $secondary;
             //border: 1px solid $black;
-            border-radius: 15px 15px 15px 0px;
+            border-radius: 7px 7px 7px 0px;
             width:auto;
             height:auto;
             line-height: 100px;
-            padding:5px 10px;
+            padding:8px 12px;
             color:$white;
             &:hover{
                 background-color: $gray3;
