@@ -99,15 +99,33 @@
     flex-direction: column;
     height:400px;
     width: 1300px;
+    padding:50px;
     margin: 0 auto;
     background-color: $gray3;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: flex-start;
+    .mentoring-list-title{
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      height: 50px;
+      font-weight: bold;
+      font-size:30px;
+      margin-bottom:20px;
+    }
+    .mentoring-lists{
+      border:1px solid $black;
+      padding:0 0 0 20px;
+      text-align: left;
+    }
     li{
-      margin-left: 50px;
       list-style: none;
       font-size: 34px;
       font-weight: bold;
+    }
+    a{
+      text-decoration: none;
+      color:$secondary;
     }
   }
 }

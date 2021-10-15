@@ -104,19 +104,29 @@ function Profile({match}) {
         <Link to={`${match.url}/chat`} className="button" id="message">메시지 보내기</Link>
         <Link to={`${match.url}/edit`} className="button" id='edit'>개인정보 수정</Link>
       </div>
-      <div className="mentorings">{
-      mentorMentorings.map((m)=>{
-        let t = m.url.split('/');
-        let mid = t[4];
-        return (<Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>)
-        })}
+      <div className="mentorings">
+        <div className='mentoring-list-title'>멘토 역할 멘토링</div>
+        <ul className='mentoring-lists'>
+        {
+          mentorMentorings.map((m)=>{
+            let t = m.url.split('/');
+            let mid = t[4];
+            return (<Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>)
+            })
+        }
+        </ul>
       </div>
-      <div className="mentorings">{
-      menteeMentorings.map((m) =>{
-        let t = m.url.split('/');
-        let mid = t[4];
-        return (<Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>)
-        })}
+      <div className="mentorings">
+        <div className='mentoring-list-title'>멘티 역할 멘토링</div>
+        <ul className='mentoring-lists'>
+        {
+          menteeMentorings.map((m) =>{
+            let t = m.url.split('/');
+            let mid = t[4];
+            return (<Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>)
+            })
+        }
+        </ul>
       </div>
     </div>
   );
