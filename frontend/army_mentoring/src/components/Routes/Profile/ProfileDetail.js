@@ -38,7 +38,7 @@ function Profile({match}) {
   }, [])
 
 
-  const loadMentorings = (mentorings)=>{
+  const loadMentorings = (mentorings, setMentoring)=>{
     _loadUser(match.params.id)
     .then(res=>{
       setOther(res.data);
@@ -55,7 +55,7 @@ function Profile({match}) {
         })
       )
       .then(res=>{
-        setMentorMentorings(res);
+        setMentoring(res);
       })
       .catch(err=>{
         console.log(err);
@@ -67,8 +67,8 @@ function Profile({match}) {
   }
   
   const load = () =>{
-    loadMentorings(user.opened_mentoring);
-    loadMentorings(user.participated_mentoring);
+    loadMentorings(user.opened_mentoring, setMentorMentorings);
+    loadMentorings(user.participated_mentoring, setMenteeMentorings);
 
     const m = document.getElementById('message');
     const e = document.getElementById('edit');
