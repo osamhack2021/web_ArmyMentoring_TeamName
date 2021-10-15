@@ -4,8 +4,7 @@ const _loadArticleList = async ()=>{
     try{
         const response = await axios({
             method : 'GET',
-            url : '/question',
-            headers : '' //왠지는 모르는데 이거 없으면 401에러 뜸
+            url : '/question'
         })
         return response;
     }catch(error){

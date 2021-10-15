@@ -8,7 +8,6 @@ import MyMentoringCard from "./MyMentoringCard";
 
 import './MymentoringList.scss';
 
-
 const MENU = [
     {id:'recent', desc:'최근 수강 강좌'},
     {id:'asMentee', desc:'멘티로서 진행중인 멘토링 목록'},

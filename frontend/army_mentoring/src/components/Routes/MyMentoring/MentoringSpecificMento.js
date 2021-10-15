@@ -9,7 +9,9 @@ function MentoringSpecificMento({match, history}){
     const mentoring_id = match.params.id;
     const [user, setUser] = useContext(UserContext);
     const [mentoring, setMentoring] = useState({
-        title : ''
+        title : '',
+        tags : [],
+        assignments : []
     });
     const [mentor, setMentor] = useState({});
 
@@ -20,34 +22,34 @@ function MentoringSpecificMento({match, history}){
             behavior:'instant'
         })}, []
     );
+
     useEffect(()=>{
         load();
     }, []);
 
-    const getMentorId = ()=>{
-        if(Object.keys(mentor).length == 0)
-            return -1;
-        let url = mentor.url;
-        let t = url.split('/');
+    const getId = (url)=>{
+        const t = url.split('/');
         return t[4];
     }
 
+    const getMentorId = ()=>{
+        if(Object.keys(mentor).length == 0)
+            return -1;
+        return getId(mentor.url);
+    }
+    
     const getPortfolioId = ()=>{
         let url = mentoring.portfolio;
         if(url == undefined)
             return -1;
-        console.log(mentoring);
-        let t = url.split('/');
-        return t[4];
+        return getId(url);
     }
 
     const load = ()=>{
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
-            let url = res.data.mentor;
-            let t = url.split('/');
-            let mentor_id = t[4];
+            let mentor_id = getId(res.data.mentor);
             _loadUser(mentor_id)
             .then(res=>{
                 setMentor(res.data);
@@ -81,11 +83,9 @@ function MentoringSpecificMento({match, history}){
                 <div className='tags'>
                     tags
                     {
-                        ( Boolean(mentoring.tags) &&
-                            mentoring.tags.map((t)=>{
-                                return (<div>{'#'+t.name}</div>)
-                            })
-                        )
+                        mentoring.tags.map((t)=>{
+                            return (<div>{'#'+t.name}</div>)
+                        })
                     }
                 </div>
             </div>
@@ -95,12 +95,10 @@ function MentoringSpecificMento({match, history}){
                     <h2>오늘의 과제</h2>
                     <ul>
                         {
-                            (
-                                Boolean(mentoring.assignments) &&
-                                mentoring.assignments.map((a)=>{
-                                    return (<div>{a}</div>)
-                                })
-                            )
+                            
+                            mentoring.assignments.map((a)=>{
+                                return (<div>{a}</div>)
+                            })
                         }
                     </ul>
                 </div>

@@ -6,29 +6,34 @@ import {updateUserContextBySavedToken} from "../../../../backend/auth";
 import { UserContext } from "../../../../context/Context";
 
 function PortfolioDetail({match, history}) {
-  console.log(match.url);
-  const p_id = match.params.pid;
   const [portfolio, setPortfolio] = useState('');
   const [items, setItems] = useState([]);
   const [u, setU] = useContext(UserContext);
   const [other, setOther] = useState({});
-  const getUserId = ()=>{
-    if(Object.keys(u).length == 0)
-        return -1;
-    const url = u.url;
+
+  const p_id = match.params.pid;
+
+  const getId = (url)=>{
     const t = url.split('/');
     return t[4];
   }
+
+  const getUserId = ()=>{
+    if(Object.keys(u).length == 0)
+        return -1;
+    return getId(u.url);
+  }
+
   let isMe = false;
   let user;
+
   if(p_id == getUserId())
     isMe = true;
+
   if(isMe)
     user = u;
   else
-    user = other;
-  console.log(isMe);
-    
+    user = other;    
 
   const load = ()=>{
     _loadPortfolio(p_id)

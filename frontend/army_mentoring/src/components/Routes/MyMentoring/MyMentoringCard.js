@@ -9,6 +9,7 @@ import "./MyMentoringCard.scss";
 function MyMentoringCard({mentoringUrl}){
     const [mentoring, setMentoring] = useState(null);
     const [user, setUser] = useContext(UserContext);
+    
     useEffect(()=>{
         (async ()=>{
             await updateUserContextBySavedToken(setUser);

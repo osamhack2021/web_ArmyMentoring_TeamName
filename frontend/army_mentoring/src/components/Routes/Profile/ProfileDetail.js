@@ -6,90 +6,82 @@ import "./ProfileDetail.scss";
 import { UserContext } from '../../../context/Context';
 
 function Profile({match}) {
-  let isMe = false;
-  const [u, setU] = useContext(UserContext);
+  const [me, setMe] = useContext(UserContext);
   const [other, setOther] = useState({});
+  const [menteeMentorings, setMenteeMentorings] = useState([]);
+  const [mentorMentorings, setMentorMentorings] = useState([]);
+
+  let isMe = false;
   let user;
+
   const getUserId = ()=>{
-    if(Object.keys(u).length == 0)
+    if(Object.keys(me).length == 0)
         return -1;
-    const url = u.url;
+    return getId(me.url);
+  }
+
+  const getId = (url)=>{
     const t = url.split('/');
     return t[4];
   }
+
   if(getUserId() == match.params.id)
     isMe = true;
+
   if(isMe)
-    user = u;
+    user = me;
   else
     user = other;
-  const [menteeM, setMenteeM] = useState([]);
-  const [mentorM, setMentorM] = useState([]);
 
   useEffect(()=>{
     load();
   }, [])
 
+
+  const loadMentorings = (mentorings)=>{
+    _loadUser(match.params.id)
+    .then(res=>{
+      setOther(res.data);
+      Promise.all(
+        mentorings.map((url)=>{
+          let m_id = getId(url);
+          return _loadMentoring(m_id)
+                .then(res=>{
+                  return res.data;
+                })
+                .catch(err=>{
+                  console.log(err);
+                })
+        })
+      )
+      .then(res=>{
+        setMentorMentorings(res);
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  }
+  
   const load = () =>{
-    if(isMe == false){
-      _loadUser(match.params.id)
-      .then(res=>{
-        setOther(res.data);
-        Promise.all(
-          user.opened_mentoring.map((url)=>{
-            let t = url.split('/');
-            let m_id = t[4];
-            return _loadMentoring(m_id)
-                  .then(res=>{
-                    return res.data;
-                  })
-                  .catch(err=>{
-                    console.log(err);
-                  })
-          })
-        )
-        .then(res=>{
-          setMentorM(res);
-        })
-        .catch(err=>{
-          console.log(err);
-        })
-      })
-      .catch(err=>{
-        console.log(err);
-      })
-    }
-    if(isMe == false){
-      _loadUser(match.params.id)
-      .then(res=>{
-        setOther(res.data);
-        Promise.all(
-          user.participated_mentoring.map((url)=>{
-            let t = url.split('/');
-            let m_id = t[4];
-            return _loadMentoring(m_id)
-                  .then(res=>{
-                    return res.data;
-                  })
-                  .catch(err=>{
-                    console.log(err);
-                  })
-          })
-        )
-        .then(res=>{
-          setMenteeM(res);
-        })
-        .catch(err=>{
-          console.log(err);
-        })
-      })
-      .catch(err=>{
-        console.log(err);
-      })
-    }
+    loadMentorings(user.opened_mentoring);
+    loadMentorings(user.participated_mentoring);
 
-    
-
+    const m = document.getElementById('message');
+    const e = document.getElementById('edit');
+    console.log(m);
+    console.log(e);
+    if(isMe){
+      m.className = 'button h';
+      e.className = 'button';
+    }
+    else{
+      m.className = 'button';
+      e.className = 'button h';
+    }
   }
   
   return (
@@ -109,18 +101,18 @@ function Profile({match}) {
         </div>
       </div>
       <div className="buttons">
-        <Link to={`${match.url}/chat`} className="button">메시지 보내기</Link>
-        <Link to={`${match.url}/edit`} className="button">개인정보 수정</Link>
+        <Link to={`${match.url}/chat`} className="button" id="message">메시지 보내기</Link>
+        <Link to={`${match.url}/edit`} className="button" id='edit'>개인정보 수정</Link>
       </div>
       <div className="mentorings">{
-      mentorM.map((m)=>{
+      mentorMentorings.map((m)=>{
         let t = m.url.split('/');
         let mid = t[4];
         return (<Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>)
         })}
       </div>
       <div className="mentorings">{
-      menteeM.map((m) =>{
+      menteeMentorings.map((m) =>{
         let t = m.url.split('/');
         let mid = t[4];
         return (<Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>)
