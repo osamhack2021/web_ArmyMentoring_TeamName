@@ -24,7 +24,6 @@ export default () => (
       <Route path="/signup" component={Signup}></Route>
       <Route path="/profile" component={Profile}></Route>
       <Route path="/chat" component={Chat}></Route>
-      
     </Switch>
     <Footer />
   </BrowserRouter> 
