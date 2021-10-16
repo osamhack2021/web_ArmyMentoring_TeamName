@@ -54,34 +54,120 @@
     }
     .content-container{
         display:flex;
-        width:100%;
+        width:90%;
         margin : 10px auto;
-        background-color: $gray3;
+        padding:30px;
         flex-direction: column;
-        .progress-content{
-        }
         .assignments{
-            ul {
-                padding:0px;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 5px solid $secondary;
+            border-radius: 30px;
+            padding:30px;
+            margin-bottom: 30px;
+            .h{
+                display:none;
             }
-            .add-assignment-container{
-                border:1px solid $black;
+            .assignment-title{
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                font-weight: bold;
+                font-size:50px;  
+                margin-bottom: 10px;
             }
-            .edit-assignment{
+            .assignment{
+                padding:30px;
                 border:1px solid $black;
+                margin-bottom: 10px;
+                .assignment-container{
+                    display:flex;
+                    flex-direction: row;
+                    .main-col{
+                        display:flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width:80%;
+                    }
+                    .sub-col{
+                        display:flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        align-items: center;
+                        width:20%;
+                        .buttons{
+                            display:flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            margin-bottom: 5px;
+                            .button{
+                                padding:5px 10px;
+                                margin-left:10px;
+                                background-color: $primary;
+                            }
+                        }
+                    }
+                }
+                .h{
+                    display:none;
+                }
             }
             .h{
                 display:none;
             }
-            .assignment-buttons{
+            .add-button-container{
                 display:flex;
                 flex-direction: row;
-                justify-content : space-around;
-                
+                width:100%;
+                justify-content: center;
+                margin:10px 0px;
+                .add-button{
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    width:100px;
+                    height:50px;
+                    background-color: $primary;
+                }
             }
-            .assignment{
+            .add-assignment{
                 border:1px solid $black;
+                .buttons{
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-bottom: 5px;
+                    .button{
+                        padding:5px 10px;
+                        margin-left:10px;
+                        background-color: $primary;
+                    }
+                }
+            }
+        }
+        .memo {
+            display:flex;
+            flex-direction: column;
+            border: 5px solid $secondary;
+            border-radius: 30px;
+            padding:30px;
+            .memo-header{
+                display:flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
                 margin-bottom: 10px;
+                .memo-title{
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    font-weight: bold;
+                    font-size:50px;  
+                }
+                .content{
+
+                }
             }
         }
     }
