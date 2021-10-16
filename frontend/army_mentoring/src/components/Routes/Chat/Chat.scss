@@ -56,9 +56,13 @@
             line-height: 100px;
             padding:8px 12px;
             color:$white;
+            border: 3px solid $secondary;
             &:hover{
-                background-color: $gray3;
-            }
+                background-color: white;
+                border: 3px solid $tertiary;
+                color: $tertiary;
+                transition: 500ms;
+              }
         }
     }
 }

@@ -1,28 +1,31 @@
 @import '../../preset.scss';
+@import '../../Community/community.scss';
 
 .edit-portfolio-body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
     display:flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items:center;
     width:800px;
-    background-color: $secondary;
-    margin:10px auto;
-    border:1px solid $black;
-    border-radius: 15px 0px 15px 0px;
+    margin:40px auto;
+    border:3px solid $gray3;
+    border-radius: 20px;
+    
     .main-section{
         display:flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        padding:10px;
-        background-color: $primary;
-        margin:10px;
-        border:1px solid $black;
-        border-radius: 15px 0px 15px 0px;
+        padding:0px 12px;
+        margin: 30px 10px;
+        border:3px solid $secondary;
+        border-radius: 20px;
         .title{
-            width:600px;
-            font-weight:bold;
+            width:700px;
+            font-size: 3.5rem;
+            border-radius: 20px;
         }
         .desc{
             width:600px;
@@ -34,54 +37,88 @@
         justify-content: flex-start;
         align-items: flex-start;
         padding:10px;
-        background-color: $primary;
+        border:2px solid $gray3;
         margin:10px;
-        border:1px solid $black;
-        border-radius: 15px 0px 15px 0px;
+        border-radius: 20px;
         .title{
-            width:600px;
-            font-weight:bold;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            width: 700px;
+            font-size: 2rem;
+            text-align: left;
+            border-radius: 20px;
         }
-        .desc{
-            width:600px;
+        .content{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 300;
+            width: 700px;
+            font-size: 1.1rem;
+            margin-left: 3px;
+            text-align: left;
+            display:flex;
+            border-radius: 20px;
+            height: 200px;
+        }
+        .button_del{
+            background-color: $quaternary;
+            font-size: 1rem;
+            color: white;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 20px 300px;
+            margin-left: 315px;
+            border-radius: 300px;
+            text-align: center;
+            &:hover{
+                background: $gray3;
+                color: white;
+                transition: 500ms;
+            }
+    
         }
     }
-    .button{
-        display:block;
-        width:200px;
-        height:50px;
-        line-height: 50px;
-        color:$white;
-        font-weight: bold;
-        text-decoration: none;
-        margin:10px auto;
-        border:1px solid $black;
-        border-radius: 15px 15px 15px 0px;
-        cursor:pointer;
-        background-color: $primary;
-    }
-    .buttons{
+
+    .button_body{
         display:flex;
         flex-direction: row;
-        justify-content: space-around;
-        .button{
-            display:block;
-            width:200px;
-            height:50px;
-            line-height: 50px;
-            color:$white;
-            font-weight: bold;
-            text-decoration: none;
-            margin:10px;
-            border:1px solid $black;
-            border-radius: 15px 15px 15px 0px;
-            cursor:pointer;
-        }
-        .confirm{
-            background-color: $primary;
-        }
-        .cancel{
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
+        margin-left: 400px;
+
+        .button_cancel{
+            @include button;
+            padding: 10px 50px;
+            margin: 10px 10px;
             background-color: $gray2;
         }
+        .button_confirm{
+            @include button;
+            padding: 10px 50px;
+            margin: 10px 10px;
+        }
+    }
+
+    .button_add{
+        background-color: $quaternary;
+        font-size: 1rem;
+        color: white;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        margin: 20px 300px;
+        border-radius: 300px;
+        text-align: center;
+        &:hover{
+            background: $gray3;
+            color: white;
+            transition: 500ms;
+        }
+
     }
 }

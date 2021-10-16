@@ -8,10 +8,10 @@ function Portfolio({match}) {
   return(
     <>
       <Switch>
-        <Route path={`${match.path}/add`} component={EditPortfolio}></Route>
-        <Route path={`${match.path}/:pid/edit`} component={EditPortfolio}></Route>
-        <Route path={`${match.path}/:pid`} component={PortfolioDetail}></Route>
-        <Route path={match.path} component={PortfolioList}></Route>
+        <Route exact path={`${match.path}/add`} component={EditPortfolio}></Route>
+        <Route exact path={`${match.path}/:pid/edit`} component={EditPortfolio}></Route>
+        <Route exact path={`${match.path}/:pid`} component={PortfolioDetail}></Route>
+        <Route exact path={match.path} component={PortfolioList}></Route>
       </Switch>
     </>
   )

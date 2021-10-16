@@ -8,7 +8,6 @@ import MyMentoringCard from "./MyMentoringCard";
 
 import './MymentoringList.scss';
 
-
 const MENU = [
     {id:'recent', desc:'최근 수강 강좌'},
     {id:'asMentee', desc:'멘티로서 진행중인 멘토링 목록'},
@@ -59,7 +58,7 @@ function MymentoringList({match}){
                         let t = element.split('/');
                         let mid = t[4];
                         return (
-                            <Link to={`${match.url}/mentee/${mid}`} key={index}>
+                            <Link to={`${match.url}/${mid}`} key={index}>
                                 <MyMentoringCard mentoringUrl={element}  />
                             </Link>
                             )
@@ -77,7 +76,7 @@ function MymentoringList({match}){
                         let t = element.split('/');
                         let mid = t[4];
                         return (
-                            <Link to={`${match.url}/mentor/${mid}`}>
+                            <Link to={`${match.url}/${mid}`}>
                                 <MyMentoringCard mentoringUrl={element} key={index} />
                             </Link>
                             )

@@ -6,29 +6,34 @@ import {updateUserContextBySavedToken} from "../../../../backend/auth";
 import { UserContext } from "../../../../context/Context";
 
 function PortfolioDetail({match, history}) {
-  console.log(match.url);
-  const p_id = match.params.pid;
   const [portfolio, setPortfolio] = useState('');
   const [items, setItems] = useState([]);
   const [u, setU] = useContext(UserContext);
   const [other, setOther] = useState({});
-  const getUserId = ()=>{
-    if(Object.keys(u).length == 0)
-        return -1;
-    const url = u.url;
+
+  const p_id = match.params.pid;
+
+  const getId = (url)=>{
     const t = url.split('/');
     return t[4];
   }
+
+  const getUserId = ()=>{
+    if(Object.keys(u).length == 0)
+        return -1;
+    return getId(u.url);
+  }
+
   let isMe = false;
   let user;
+
   if(p_id == getUserId())
     isMe = true;
+
   if(isMe)
     user = u;
   else
-    user = other;
-  console.log(isMe);
-    
+    user = other;    
 
   const load = ()=>{
     _loadPortfolio(p_id)
@@ -70,24 +75,27 @@ function PortfolioDetail({match, history}) {
   }
 
   return (
-    <div className="portfolio-specific-body">
-      <div className="main-section">
-        <div className="title">{portfolio.title}</div>
-      </div>
-      {
-        items.map((i)=>{
-          return(
-            <div className="sectiont">
-              <div className="title">{i.title}</div>
-              <div className="description">{i.content}</div>
-            </div>
-          )
-        })
-      }
-      <div className="buttons">
-        <div onClick={()=>{history.goBack()}} className="cancel button">뒤로</div>
-        <Link to={`${match.url}/edit`} className="confirm button">수정</Link>
-        <div onClick={deletePortfolio} className="cancel button">삭제</div>
+    <div>
+      <div className='port_title_1'>포트폴리오 상세</div>
+      <div className="portfolio-specific-body">
+        <div className="main-section">
+          <div className="title">{portfolio.title}</div>
+        </div>
+        {
+          items.map((i)=>{
+            return(
+              <div className="sectiont">
+                <div className="title">{i.title}</div>
+                <div className="description">{i.content}</div>
+              </div>
+            )
+          })
+        }
+        <div className='button_body'>
+            <div onClick={deletePortfolio} className="button_del">삭제</div>
+            <Link to={`${match.url}/edit`} className="button_confirm">수정</Link>
+            <div onClick={()=>{history.goBack()}} className="button_cancel">뒤로</div>
+        </div>
       </div>
     </div>
   );

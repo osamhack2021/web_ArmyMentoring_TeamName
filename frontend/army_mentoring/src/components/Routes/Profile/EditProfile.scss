@@ -3,13 +3,16 @@
 .editprofile_body{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     width:500px;
     height:600px;
     margin:150px auto;
+    font-family: 'Do Hyeon', sans-serif;
+    @import '../Home.scss';
 
     .title{
-        font-weight: bold;
+        display:flex;
+        width: auto;
         font-size: 50px;
     }
     
@@ -18,38 +21,31 @@
         flex-direction: column;
         justify-content: space-between;
         width:500px;
-        height:500px;
+        height:auto;
     }
-    
+
+    .img_select{
+        margin-top: 20px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size:1.4rem;
+    }
+
     .form-group{
         text-align: left;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size:2rem;
         label {
-            font-weight:bold;
-            font-size:20px;
+            font-family: 'Do Hyeon', sans-serif;
+            font-size:1.7rem;
         }
     }
 
-    .buttons{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        .button{
-            display: block;
-            border-radius: 0px 20px 20px 20px;
-            width:200px;
-            height:50px;
-            line-height: 50px;
-            font-weight: bold;
-            text-decoration: none;
-            color:$white;
-            border : 1px solid $black;
-        }
-        .confirm{
-            background-color: $primary;
-        }
-        .cancel{
-            background-color: $gray2;
-        }
+
+    .confirm{
+        background-color: $primary;
+    }
+    .cancel{
+        background-color: $gray2;
     }
     
 }

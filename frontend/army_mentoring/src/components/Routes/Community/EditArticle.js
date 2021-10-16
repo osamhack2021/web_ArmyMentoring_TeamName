@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext } from 'react';
 import './EditArticle.scss';
-import { Input, Form, FormGroup } from 'reactstrap';
+import { Input, Form } from 'reactstrap';
 import { _addArticle, _loadArticle, _updateArticle } from '../../../backend/community';
 import { UserContext }  from '../../../context/Context';
 

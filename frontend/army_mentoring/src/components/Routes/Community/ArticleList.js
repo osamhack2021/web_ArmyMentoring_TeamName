@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { _loadArticleList } from '../../../backend/community';
 import heartImg from '../img/heart.png'; 
 import dialogImg from '../img/dialog.png';
-import { Input, Form, FormGroup } from 'reactstrap';
+import { Input } from 'reactstrap';
 
 function ArticleList({match}) {
 

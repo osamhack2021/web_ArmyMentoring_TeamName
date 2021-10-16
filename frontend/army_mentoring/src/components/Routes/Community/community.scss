@@ -15,9 +15,12 @@
     color: $white;
     cursor : pointer;
     text-decoration: none;
+    background: $secondary;
+
     &:hover{
         background: $gray3;
         color: white;
+        transition: 500ms;
     }
 }
 
@@ -61,9 +64,18 @@
     padding: 10px 5px;
     .community_comments{
         @include communityComments;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 700;
+        color: gray;
     }
     .community_likes{
         @include communityLikes;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 700;
+        color: gray;
+        &:hover{
+            filter: grayscale(40%);
+        }
     }
 }
 @mixin communityLikes{
