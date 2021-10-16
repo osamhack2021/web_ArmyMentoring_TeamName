@@ -3,6 +3,7 @@ from rest_framework import serializers
 from mentoring.models import Mentoring, Assignment
 from tags.models import Tag
 from tags.serializers import TagSerializer
+from users.models import User
 
 class AssignmentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -23,6 +24,12 @@ class MentoringSerializer(serializers.HyperlinkedModelSerializer):
         many=True,
         required=False
         )
+    mentees=serializers.HyperlinkedRelatedField(
+        many=True,
+        required=False,
+        view_name='user-detail',
+        queryset=User.objects.all()
+    )
 
     class Meta:
         model = Mentoring
@@ -30,18 +37,19 @@ class MentoringSerializer(serializers.HyperlinkedModelSerializer):
         read_only_fields=['created_at', 'updated_at']
         extra_kwargs = {
             'thumbnail': {'required': False},
-            'description': {'required': False}
+            'description': {'required': False},
+            'memo': {'required': False},
         }
 
     def create(self, validated_data):
-
         tags_data=validated_data.pop('tags', None)
-
         mentees_data=validated_data.pop('mentees')
+
         mentoring=Mentoring.objects.create(**validated_data)
 
-        for mentee_data in mentees_data:
-            mentoring.mentees.add(mentee_data)
+        if mentees_data:
+            for mentee_data in mentees_data:
+                mentoring.mentees.add(mentee_data)
 
         if tags_data:
             for tag_data in tags_data:
