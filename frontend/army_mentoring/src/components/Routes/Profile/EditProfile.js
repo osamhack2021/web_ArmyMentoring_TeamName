@@ -87,12 +87,14 @@ function Editprofile({match, history}) {
                 </FormGroup>
                 <FormGroup class="form-group">
                     <Label class="label">프로필 사진</Label>
-                    <img id='thumbimage' src={imgUrl}></img>
-                    <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
+                    <div className='img_select'>
+                        <img src={imgUrl}></img>
+                        <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
+                        </div>
                 </FormGroup>
-                <div className="buttons">
-                    <div onClick={()=>{history.goBack()}} className="cancel button">취소</div>
-                    <div onClick={()=>{editProfile();history.goBack()}} className="confirm button">변경</div>
+                <div className='button_set'>
+                        <Button onClick={()=>{history.goBack()}}>취소</Button>
+                        <Button onClick={()=>{editProfile();history.goBack()}}>변경</Button>
                 </div>
             </Form>
         </div>

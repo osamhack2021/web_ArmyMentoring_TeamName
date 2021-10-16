@@ -1,30 +1,53 @@
 @import '../../preset.scss';
+@import '../../Community/community.scss';
 
-.portfolio-specific-body{
+.port_title_1{
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items:center;
-    width:800px;
-    margin:10px auto;
-    background-color: $secondary;
-    border: 1px solid $black;
-    border-radius: 15px 0px 15px 0px;
+    width:900px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 2rem;
+    padding-left: 100px;
+    margin-top: 20px;
+}
+
+.portfolio-specific-body{
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    width:900px;
+    background-color: white;
+    border: 2px solid $gray3;
+    border-radius: 2rem;
+    margin:0px auto;
+    margin-bottom: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+
     .main-section{
         display:flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        padding:10px;
-        background-color: $primary;
-        margin:10px;
-        border:1px solid $black;
+        width: 900px;
+        padding-left: 50px;
         border-radius: 15px 0px 15px 0px;
         
         .title{
-            margin:10px;
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 800px;
+            margin: 0;
+            padding: 0;
+            padding-top: 10px;
             font-weight: bold;
-            font-size:50px;
+            font-size: 4rem;
+            border-bottom: 2px solid $gray3;
         }
         .description{
             margin:10px;
@@ -37,41 +60,52 @@
         justify-content: flex-start;
         align-items: flex-start;
         padding:10px;
-        background-color: $primary;
-        margin:10px;
-        border:1px solid $black;
-        border-radius: 15px 0px 15px 0px;
+        width: 800px;
+        margin:20px;
+        border: 2px solid $gray3;
+        border-radius: 20px;
         
         .title{
             margin:10px;
             font-weight: bold;
             font-size:30px;
+            width: auto;
+            height: 35px;
+            text-align: left;
+            background: linear-gradient(to top, $primary 40%, transparent 40%);
+            padding-right: 7px;
+            padding-left: 7px;
+
         }
         .description{
+            padding-left: 7px;
             margin:10px;
         }
     }
-    .buttons{
+
+    .button_body{
         display:flex;
         flex-direction: row;
-        justify-content: space-around;
-        .button{
-            display:block;
-            width:200px;
-            height:50px;
-            line-height: 50px;
-            text-decoration: none;
-            color:$white;
-            font-weight: bold;
-            margin:10px;
-            border:1px solid $black;
-            border-radius: 15px 15px 15px 0px;
-            cursor:pointer;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0px;
+        margin-left: 470px;
+
+        .button_cancel{
+            @include button;
+            padding: 10px 30px;
+            margin: 10px 10px;
+            background-color: $quaternary;
         }
-        .confirm{
-            background-color: $primary;
+        .button_confirm{
+            @include button;
+            padding: 10px 30px;
+            margin: 10px 10px;
         }
-        .cancel{
+        .button_del{
+            @include button;
+            padding: 10px 30px;
+            margin: 10px 10px;
             background-color: $gray2;
         }
     }
