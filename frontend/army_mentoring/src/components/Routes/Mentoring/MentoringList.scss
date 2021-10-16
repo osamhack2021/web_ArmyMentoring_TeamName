@@ -1,106 +1,51 @@
 @import '../preset.scss';
 
-#sgstmentoring{
-    & div{
-        width:1800px;
-        height:90%;
-        margin:0px auto;
-        & h2{
-            text-align: left;
+.mentoring-list-container{
+    display:flex;
+    flex-direction: column;
+    width:90%;
+    margin:0px auto;
+    & .mentoring-list-header{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        & .mentoring-list-title{
             font-weight:bold;
+            font-size:50px;
         }
-        & p{
-            width:100%;
-            height:80%;
+        & .mentoring-list-search-bar{
             display:flex;
             flex-direction: row;
-            flex-wrap:wrap;
-            justify-content: center;
-            align-content: center;
-            a{
-                & p{
-                    font-size:15px;
-                }
-                display:block;
-                background-color:white;
+            align-items: center;
+            margin:0px 30px;
+            & input{
                 width:300px;
-                height:120px;
-                margin:15px;
-                border:3px solid green;
-                box-shadow: 10px 5px 5px $gray3;
-                text-decoration: none;
-                color:black;
-                border-radius: 20px 20px 20px 0px;
             }
         }
     }
-}
-
-#sgstmentor{
-    & div{
-        width:1800px;
-        height:90%;
-        margin:0px auto;
-        & h2{
-            text-align: left;
-            font-weight:bold;
-        }
-        & p{
-            width:100%;
-            height:80%;
+    & .mentoring-list-box{
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        padding:30px;
+        & a{
             display:flex;
-            flex-direction: row;
-            flex-wrap:wrap;
-            justify-content: center;
-            align-content: center;
-            a{
-                & p{
-                    font-size:15px;
-                }
-                display:block;
-                background-color:white;
-                width:300px;
-                height:120px;
-                margin:15px;
-                border:3px solid green;
-                box-shadow: 10px 5px 5px black;
-                text-decoration: none;
-                color:black;
-                border-radius: 20px 20px 20px 0px;
+            flex-direction: column;
+            & p{
+                font-size:15px;
             }
-        }
-    }
-}
-
-#srchmentoring{
-    & div{
-        width:90%;
-        height:90%;
-        margin:0px auto;
-        & h2{
-            text-align: left;
-            font-weight:bold;
-        }
-        & ul{
-            margin:0px;
-            padding:0px;
-            list-style:none;
-            display:flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            li{
-                display:inline-block;
-                width:300px;
-                height:50px;
-                line-height: 50px;
-                margin: 0px 10px 0px 0px;
-                border:1px solid green;
-            }
-        }
-        & div{
-            height:50px;
-            text-align: left;
-            margin:0px;
+            width:500px;
+            height:300px;
+            margin:20px;
+            border:3px solid green;
+            box-shadow: 10px 5px 5px $gray3;
+            text-decoration: none;
+            color:black;
+            border-radius: 20px 20px 20px 0px;
         }
     }
 }

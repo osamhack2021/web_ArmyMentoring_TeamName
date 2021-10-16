@@ -62,6 +62,17 @@ const _updateAssignment = async (title, content, mentoring_id,  deadline, assign
     }
 }
 
+const _loadMentoring = async () =>{
+    try{
+        const response = await axios({
+            method : 'GET',
+            url : '/mentoring'
+        })
+        return response;
+    } catch (error){
+        throw error;
+    }
+}
 
 const _addMentoring = async (form) => {
     try {
@@ -73,3 +84,4 @@ const _addMentoring = async (form) => {
 }
 
 export {_addMentoring, _addAssignment, _loadAssignment, _deleteAssignment, _updateAssignment };
+
