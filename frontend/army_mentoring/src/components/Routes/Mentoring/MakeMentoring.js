@@ -6,12 +6,14 @@ import MakeMentoringAssignment from './MakeMentoringAssignment';
 import './MakeMentoring.scss';
 import { updateUserContextBySavedToken } from '../../../backend/auth';
 import { getFromUrl } from '../../../backend/common';
+import { _addMentoring } from '../../../backend/mentoring';
 
-function MakeMentoring(){
+function MakeMentoring({history}){
     const today=new Date();
     const dateTimeNow=today.toISOString().substring(0, 16);
 
     const [user, setUser] = useContext(UserContext); 
+    const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [portfolio, setPortfolio] = useState("");
     const [startDate, setStartDate] = useState(dateTimeNow);
@@ -82,7 +84,6 @@ function MakeMentoring(){
     }
 
     const handleUploadImage=(e)=>{
-        console.log(e);
         const image = e.target.files[0];
         setThumbnail(image);
         const reader = new FileReader();
@@ -95,6 +96,26 @@ function MakeMentoring(){
           reader.readAsDataURL(image);
     }
 
+    const submitMentoring = async () => {
+        try {
+            const form = new FormData();
+            form.append('title', title);
+            form.append('description', description);
+            form.append('portfolio', portfolio);
+            form.append('start_date', startDate);
+            form.append('end_date', endDate);
+            form.append('tags', tags);
+            form.append('thumbnail', thumbnail);
+            form.append('mentor', user.url);
+            form.append('memo', "새로운 메모를 입력해보세요!");
+            await _addMentoring(form);
+
+            history.push('/mymentoring#asMentor');
+        }catch (error){
+            console.error(error.response.data);
+        }
+    }
+
     return (
         <div className="MakeMentoring">
             <div className="make_mentoring_container">
@@ -105,9 +126,17 @@ function MakeMentoring(){
                     </div>
                     
                     <div className="thumbnail">
-                        <img className="preview" ref={thumbnailPreviewRef} />
+                        <img className="preview" alt ref={thumbnailPreviewRef} />
                         <input type="file" accept="image/*" 
                         onChange={handleUploadImage}/>
+                    </div>
+
+                    <div className="title">
+                        <h2>제목</h2>
+                        <input 
+                        type="text" 
+                        onChange={(e)=>setTitle(e.target.value)} 
+                        />
                     </div>
 
                     <div className="tags">
@@ -203,8 +232,7 @@ function MakeMentoring(){
 
                     
                     <div>
-                        <button>확인</button>
-                        <button>취소</button>
+                        <button onClick={submitMentoring}>멘토링 등록</button>
                     </div>
                 </div>
 
