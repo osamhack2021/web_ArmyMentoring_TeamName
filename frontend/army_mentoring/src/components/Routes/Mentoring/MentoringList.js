@@ -81,7 +81,7 @@ function MentoringList({match}){
           </div>
 
 
-            <Link to={`${match.url}/make`} id="button">make mentoring</Link>
+            <Link to={`${match.url}/make`} id="button"><button>make mentoring</button></Link>
         </div>
     )
 

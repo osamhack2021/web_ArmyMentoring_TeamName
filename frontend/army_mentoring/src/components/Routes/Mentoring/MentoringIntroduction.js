@@ -50,15 +50,15 @@ function MentoringIntroduction(){
     //  }
 
     return (
-        <div>           
-            <Subnavbar menu={menu}></Subnavbar>
-
-            <div className="section" id="home">
-                <h2>홈</h2>
+        <div className='mentoring_section'>           
+            
+            <div className='mentoring_introduction'>
+            <div className="section" id="mentoring_portfolio">
+                <h2>이름/ 포트폴리오</h2>
             </div>
 
             <div className="section" id="mentorintro">
-                <h2>멘토 소개</h2>
+                <h2>멘토링 소개</h2>
             </div>
 
             <div className="section" id="assignmentintro">
@@ -71,6 +71,7 @@ function MentoringIntroduction(){
 
             <div className="section" id="review">
                 <h2>후기</h2>
+            </div>
             </div>
         </div>
     )

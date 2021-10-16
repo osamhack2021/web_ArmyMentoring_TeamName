@@ -1,0 +1,31 @@
+@import "../preset.scss";
+.mentoring_section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.mentoring_introduction {
+		margin: 20px;
+		justify-content: center;
+		border: 1px solid $gray3;
+		padding: 5px 10px;
+		border-radius: 15px 15px 15px 0px;
+		width: 800px;
+		.section {
+			height: 300px;
+		}
+		#mentoring_portfolio {
+			background-color: white;
+		}
+		#mentorintro {
+			background-color: $primary;
+		}
+		#assignmentintro {
+		}
+		#plan {
+			background-color: $primary;
+		}
+		#review {
+		}
+	}
+}
