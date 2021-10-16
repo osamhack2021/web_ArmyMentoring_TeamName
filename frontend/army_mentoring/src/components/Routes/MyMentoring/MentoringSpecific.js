@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { _loadMentoring, _loadUser } from '../../../backend/profile';
 import { UserContext } from '../../../context/Context';
-import './MentoringSpecificMento.scss';
+import './MentoringSpecific.scss';
 import { Link } from 'react-router-dom';
 import { Input } from 'reactstrap';
-import { _addAssignment, _loadAssignment } from '../../../backend/mentoring';
+import { _addAssignment, _deleteAssignment, _loadAssignment } from '../../../backend/mentoring';
 
 function MentoringSpecificMento({match, history}){
-
     const mentoring_id = match.params.id;
     const [user, setUser] = useContext(UserContext);
     const [mentoring, setMentoring] = useState({
@@ -100,12 +99,30 @@ function MentoringSpecificMento({match, history}){
     const hideEditAssignment = ()=>{
         const a = document.getElementById('edit-assignment');
         a.className = 'edit-assignment h';
+        const t = document.getElementById('assignment-title');
+        const c = document.getElementById('assignment-content');
+        t.value = '';
+        c.value = '';
+        setAssignmentTitle('');
+        setAssignmentContent('');
     }
 
     const addAssignment = ()=>{
         _addAssignment(assignmentTitle, assignmentContent, mentoring_id)
         .then(res=>{
             load();
+            hideEditAssignment();
+        })
+        .catch(err=>{
+            console.log(err.response);
+        })
+    }
+
+    const deleteAssignment = (assignment_id)=>{
+        _deleteAssignment(assignment_id)
+        .then(res=>{
+            load();
+            hideEditAssignment();
         })
         .catch(err=>{
             console.log(err.response);
@@ -144,6 +161,7 @@ function MentoringSpecificMento({match, history}){
                     <ul>
                         {
                             assignments.map((a)=>{
+                                let aid = getId(a.url);
                                 return (
                                 <div className='assignment'>
                                     <div>
@@ -152,16 +170,22 @@ function MentoringSpecificMento({match, history}){
                                     <div>
                                         내용 : {a.content}
                                     </div>
+                                    <div>
+                                        기한 : {a.deadline}
+                                    </div>
+                                    <div onClick={()=>{deleteAssignment(aid)}}>
+                                        삭제
+                                    </div>
                                 </div>
                                 )
                             })
                         }
                     </ul>
-                    <div className='edit-assignment-container'>
+                    <div id='edit-assignment-container' className='edit-assignment-container h'>
                         <div onClick={showEditAssignment}>과제 추가</div>
                         <div id='edit-assignment' className='edit-assignment h'>
-                            제목 : <Input onChange={(e)=>{setAssignmentTitle(e.target.value)}}></Input>
-                            내용 : <Input onChange={(e)=>{setAssignmentContent(e.target.value)}}></Input>
+                            제목 : <Input id='assignment-title' onChange={(e)=>{setAssignmentTitle(e.target.value)}}></Input>
+                            내용 : <Input id='assignment-content' onChange={(e)=>{setAssignmentContent(e.target.value)}}></Input>
                             <div className='assignment-buttons'>
                                 <div onClick={addAssignment}>추가</div>
                                 <div onClick={hideEditAssignment}>취소</div>

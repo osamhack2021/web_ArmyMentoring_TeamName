@@ -31,5 +31,17 @@ const _loadAssignment = async (assignment_id) =>{
     }
 }
 
+const _deleteAssignment = async (assignment_id) =>{
+    try{
+        const response = await axios({
+            method : 'DELETE',
+            url : '/assignment/' + assignment_id
+        })
+        return response;
+    } catch (error){
+        throw error;
+    }
+}
 
-export { _addAssignment, _loadAssignment };
+
+export { _addAssignment, _loadAssignment, _deleteAssignment };
