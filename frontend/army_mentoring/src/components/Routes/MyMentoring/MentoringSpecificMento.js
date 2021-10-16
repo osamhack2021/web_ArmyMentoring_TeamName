@@ -3,6 +3,8 @@ import { _loadMentoring, _loadUser } from '../../../backend/profile';
 import { UserContext } from '../../../context/Context';
 import './MentoringSpecificMento.scss';
 import { Link } from 'react-router-dom';
+import { Input } from 'reactstrap';
+import { _addAssignment, _loadAssignment } from '../../../backend/mentoring';
 
 function MentoringSpecificMento({match, history}){
 
@@ -14,19 +16,10 @@ function MentoringSpecificMento({match, history}){
         assignments : []
     });
     const [mentor, setMentor] = useState({});
-
-    useEffect(()=>{
-        window.scroll({
-            top:0,
-            left:0,
-            behavior:'instant'
-        })}, []
-    );
-
-    useEffect(()=>{
-        load();
-    }, []);
-
+    const [assignmentTitle, setAssignmentTitle] = useState('');
+    const [assignmentContent, setAssignmentContent] = useState('');
+    const [assignments, setAssignments] = useState([]);
+    
     const getId = (url)=>{
         const t = url.split('/');
         return t[4];
@@ -45,11 +38,28 @@ function MentoringSpecificMento({match, history}){
         return getId(url);
     }
 
+    let isMe = false;
+
+    useEffect(()=>{
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:'instant'
+        })}, []
+    );
+
+    useEffect(()=>{
+        load();
+    }, []);
+
     const load = ()=>{
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
             let mentor_id = getId(res.data.mentor);
+            isMe = (mentor_id == getId(user.url)) ? true : false;
+            const c = document.getElementById('edit-assignment-container');
+            c.className = isMe ? 'edit-assignment-container' : 'edit-assignment-container h';
             _loadUser(mentor_id)
             .then(res=>{
                 setMentor(res.data);
@@ -57,9 +67,48 @@ function MentoringSpecificMento({match, history}){
             .catch(err=>{
                 console.log(err.response);
             })
+
+            Promise.all(
+                res.data.assignments.map((a)=>{
+                    let aid = getId(a);
+                    return _loadAssignment(aid)
+                            .then(res=>{
+                                return res.data
+                            })
+                            .catch(err=>{
+                                console.log(err.response);
+                            })
+                })
+            )
+            .then(res=>{
+                setAssignments(res);
+            })
+            .catch(err=>{
+                console.log(err);
+            })
         })
         .catch(err=>{
             console.log(err);
+        })
+    }
+
+    const showEditAssignment = ()=>{
+        const a = document.getElementById('edit-assignment');
+        a.className = 'edit-assignment';
+    }
+
+    const hideEditAssignment = ()=>{
+        const a = document.getElementById('edit-assignment');
+        a.className = 'edit-assignment h';
+    }
+
+    const addAssignment = ()=>{
+        _addAssignment(assignmentTitle, assignmentContent, mentoring_id)
+        .then(res=>{
+            load();
+        })
+        .catch(err=>{
+            console.log(err.response);
         })
     }
 
@@ -85,17 +134,40 @@ function MentoringSpecificMento({match, history}){
                     </div>
                 </div>
             </div>
+            <div className='buttons'>
+                <Link to={`${match.url}/chat`} className='chat-button'>채팅방으로 이동</Link>
+            </div>
             <div className='content-container'>
 
                 <div className="assignments" id="">
-                    <h2>오늘의 과제</h2>
+                    <h2>과제 목록</h2>
                     <ul>
                         {
-                            mentoring.assignments.map((a)=>{
-                                return (<div>{a}</div>)
+                            assignments.map((a)=>{
+                                return (
+                                <div className='assignment'>
+                                    <div>
+                                        제목 : {a.title}
+                                        </div>
+                                    <div>
+                                        내용 : {a.content}
+                                    </div>
+                                </div>
+                                )
                             })
                         }
                     </ul>
+                    <div className='edit-assignment-container'>
+                        <div onClick={showEditAssignment}>과제 추가</div>
+                        <div id='edit-assignment' className='edit-assignment h'>
+                            제목 : <Input onChange={(e)=>{setAssignmentTitle(e.target.value)}}></Input>
+                            내용 : <Input onChange={(e)=>{setAssignmentContent(e.target.value)}}></Input>
+                            <div className='assignment-buttons'>
+                                <div onClick={addAssignment}>추가</div>
+                                <div onClick={hideEditAssignment}>취소</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="section" id="plan">

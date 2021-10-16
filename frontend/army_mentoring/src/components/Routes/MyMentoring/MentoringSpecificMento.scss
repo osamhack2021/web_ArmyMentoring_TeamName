@@ -60,7 +60,22 @@
         .progress-content{
         }
         .assignments{
-
+            .edit-assignment-container{
+                border:1px solid $black;
+            }
+            .h{
+                display:none;
+            }
+            .assignment-buttons{
+                display:flex;
+                flex-direction: row;
+                justify-content : space-around;
+                
+            }
+            .assignment{
+                border:1px solid $black;
+                margin-bottom: 10px;
+            }
         }
     }
 }
