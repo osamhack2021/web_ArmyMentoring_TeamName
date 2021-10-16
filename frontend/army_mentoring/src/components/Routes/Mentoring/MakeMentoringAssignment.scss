@@ -1,0 +1,24 @@
+.MakeMentoringAssignment{
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 650px;
+    
+    & > div{
+        display: flex;
+        width: 80%;
+        align-items: center;
+    }
+
+    & > .title_container {
+        & > input {
+            height: 30px;
+            font-size: 18px;
+        }
+    }
+    
+    & > .content_container{
+        & > textarea {
+            height: 150px;
+        }
+    }
+}
