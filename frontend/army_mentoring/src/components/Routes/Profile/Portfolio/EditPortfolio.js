@@ -147,27 +147,26 @@ function EditPortfolio({match, history}) {
   
   return (
     <div className="edit-portfolio-body">
-      {
-         isAddPage && 'this is add page'
-      }
       <Form>
         <FormGroup className="main-section">
-          <Input type="text" id="main-title" className="main-title" placeholder="메인 제목입력..." onChange={(e)=>setTitle(e.target.value)}></Input>
+          <Input type="text" id="main-title" className="main title" placeholder="메인 제목입력..." onChange={(e)=>setTitle(e.target.value)}></Input>
         </FormGroup>
         {forms.map((f)=>{
           return(
             <FormGroup className="sectiont">
-              {"id : " + f.order}
+              {/* {"id : " + f.order} */}
               <Input type="text" id={"title"+f.order} onChange={(e)=>{setItemTitle(e, f.order)}} className="title" placeholder="제목입력..."></Input>
               <Input type="textarea" id={'content'+f.order} onChange={(e)=>{setItemContent(e, f.order)}} className="content" placeholder="내용입력..."></Input>
-              <Button className="c" onClick={()=>{remove(f.order)}}>-</Button>
+              <div className="button_del" onClick={()=>{remove(f.order)}}>삭제</div>
             </FormGroup>
           )
         })}
-        <div className='button' onClick={add}>+</div>
-        <FormGroup className='buttons'>
-          <div className='cancel button' onClick={()=>{history.goBack()}}>취소</div>   
-          <div className='confirm button' onClick={()=>{addOrEditPortfolio()}}>{ isAddPage ? '추가' : '수정'}</div>
+        <div className='button_add' onClick={add}>+ Item 추가</div>
+        <FormGroup>
+        <div className='button_body'>
+          <div className="button_cancel" onClick={()=>{history.goBack()}}>취소</div>   
+          <div className="button_confirm" onClick={()=>{addOrEditPortfolio()}}>{ isAddPage ? '추가' : '수정'}</div>
+        </div>
         </FormGroup>
       </Form>
     </div>

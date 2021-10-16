@@ -70,24 +70,27 @@ function PortfolioDetail({match, history}) {
   }
 
   return (
-    <div className="portfolio-specific-body">
-      <div className="main-section">
-        <div className="title">{portfolio.title}</div>
-      </div>
-      {
-        items.map((i)=>{
-          return(
-            <div className="sectiont">
-              <div className="title">{i.title}</div>
-              <div className="description">{i.content}</div>
-            </div>
-          )
-        })
-      }
-      <div className="buttons">
-        <div onClick={()=>{history.goBack()}} className="cancel button">뒤로</div>
-        <Link to={`${match.url}/edit`} className="confirm button">수정</Link>
-        <div onClick={deletePortfolio} className="cancel button">삭제</div>
+    <div>
+      <div className='port_title_1'>포트폴리오 상세</div>
+      <div className="portfolio-specific-body">
+        <div className="main-section">
+          <div className="title">{portfolio.title}</div>
+        </div>
+        {
+          items.map((i)=>{
+            return(
+              <div className="sectiont">
+                <div className="title">{i.title}</div>
+                <div className="description">{i.content}</div>
+              </div>
+            )
+          })
+        }
+        <div className='button_body'>
+            <div onClick={deletePortfolio} className="button_del">삭제</div>
+            <Link to={`${match.url}/edit`} className="button_confirm">수정</Link>
+            <div onClick={()=>{history.goBack()}} className="button_cancel">뒤로</div>
+        </div>
       </div>
     </div>
   );

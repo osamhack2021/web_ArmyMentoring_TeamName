@@ -52,22 +52,26 @@ function PortfolioList({match, history}) {
   }, [user]);
 
   return (
-    <div className="portfolio-body">
-      {
-        portfolios.map((p)=>{
-          return (
-          <div className="portfolio">
-            <div className="text-column">
-              <div className="title">{p.portfolio.title}</div>
-              <Link to={`${match.url}/${p.pid}`} className="link">자세히 보기</Link>
-            </div> 
-          </div>
-          ) 
-        })
-      }
-      <div className="buttons">
-        <div onClick={()=>{history.goBack()}} className="cancel button">뒤로</div>
-        <Link to={`${match.url}/add`} className="confirm button">추가</Link>
+    <div>
+      <div className='port_title_2'>내 포트폴리오</div>
+      <div className="portfolio-body">
+        {
+          portfolios.map((p)=>{
+            return (
+            <div className="portfolio">
+              <div className="text-column">
+                <div className="title">{p.portfolio.title}</div>
+                <div className="title">{p.portfolio.de}</div>
+                <Link to={`${match.url}/${p.pid}`} className="link">자세히 보기</Link>
+              </div> 
+            </div>
+            ) 
+          })
+        }
+        <div className='button_body'>
+            <div onClick={()=>{history.goBack()}} className="button_cancel">뒤로</div>
+            <Link to={`${match.url}/add`} className="button_confirm">추가</Link>
+        </div>
       </div>
     </div>
   );

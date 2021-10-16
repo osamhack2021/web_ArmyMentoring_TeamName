@@ -76,14 +76,15 @@ function Profile({match}) {
   
   return (
     <div className="profile">
+      <div className="pro_title">내 프로필</div>
       <div className="intro">
         <img className="my-img" src={user.profile_image} alt="내 사진"></img>
         <div className="desc-col">
-          <h1>{user.description}</h1>
-          <h3>{user.username} / {user.nickname} / {user.email}</h3>
-          <div>
-            <span>lv. {user.level}</span>
-            <Progress value={user.experience_point} />
+          <h1>"{user.description}"</h1>
+          <h3> {user.username} / {user.nickname} / {user.email}</h3>
+          <div className='level'>
+            <span>lv. {user.level} </span>
+            <Progress className='progress_bar' value={user.experience_point / 100} />
           </div>
         </div>
         <div className="button-col">
