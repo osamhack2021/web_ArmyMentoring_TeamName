@@ -4,7 +4,7 @@ import { UserContext } from '../../../context/Context';
 import './MentoringSpecific.scss';
 import { Link } from 'react-router-dom';
 import { Input } from 'reactstrap';
-import { _addAssignment, _deleteAssignment, _loadAssignment } from '../../../backend/mentoring';
+import { _addAssignment, _deleteAssignment, _loadAssignment, _updateAssignment } from '../../../backend/mentoring';
 import DatePicker from "react-datepicker";
 
 function MentoringSpecificMento({match, history}){
@@ -20,10 +20,8 @@ function MentoringSpecificMento({match, history}){
     const [assignmentContent, setAssignmentContent] = useState('');
     const [assignments, setAssignments] = useState([]);
     const [endDate, setEndDate] = useState(new Date());
-    const [editAssignmentTitle, setEditAssignmentTitle] = useState([]);
-    const [editAssignmentContent, setEditAssignmentContent] = useState([]);
-    const [editAssignmentDeadline, setEditAssignmentDeadline] = useState([]);
-    
+    const [editEndDate, setEditEndDate] = useState(new Date());
+
     const getId = (url)=>{
         const t = url.split('/');
         return t[4];
@@ -134,16 +132,56 @@ function MentoringSpecificMento({match, history}){
         })
     }
 
+    const findIndexOfAssignment = (assignment_id) =>{
+        for(var i=0;i<assignments.length;i++){
+            if (getId(assignments[i].url) == assignment_id){
+                return i;
+            }
+        }
+        return -1;
+    }
     const showEditAssignment = (assignment_id)=>{
+        const i = findIndexOfAssignment(assignment_id);
+        console.log(assignments);
         const a = document.getElementById('edit-assignment'+assignment_id);
         a.className = 'edit-assignment';
         const b = document.getElementById('assignment'+assignment_id);
+        b.className = 'edit-assignment h';
+        
+        const t = document.getElementById('edit-assignment-title'+assignment_id);
+        t.value = assignments[i].title;
+        const c = document.getElementById('edit-assignment-content'+assignment_id);
+        c.value = assignments[i].content;
+    }
+
+    const hideEditAssignment = (assignment_id)=>{
+        const i = findIndexOfAssignment(assignment_id);
+        const a = document.getElementById('edit-assignment'+assignment_id);
+        a.className = 'edit-assignment h';
+        const b = document.getElementById('assignment'+assignment_id);
         b.className = 'edit-assignment';
+
+        const t = document.getElementById('edit-assignment-title'+assignment_id);
+        t.value = '';
+        const c = document.getElementById('edit-assignment-content'+assignment_id);
+        c.value = '';
     }
 
     const editAssignment = (assignment_id)=>{
-
+        const t = document.getElementById('edit-assignment-title'+assignment_id);
+        const c = document.getElementById('edit-assignment-content'+assignment_id);
+        
+        _updateAssignment(t.value, c.value, mentoring_id, editEndDate, assignment_id)
+        .then(res=>{
+            load();
+            hideEditAssignment(assignment_id);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
     }
+
+
 
     return (
         <div className='specific-mentor-body'>
@@ -190,7 +228,7 @@ function MentoringSpecificMento({match, history}){
                                         <div>
                                             기한 : {a.deadline}
                                         </div>
-                                        <div onClick={()=>{editAssignment(aid)}}>
+                                        <div onClick={()=>{showEditAssignment(aid)}}>
                                             관리
                                         </div>
                                         <div onClick={()=>{deleteAssignment(aid)}}>
@@ -205,12 +243,12 @@ function MentoringSpecificMento({match, history}){
                                             제목 : <Input id={'edit-assignment-content'+aid}></Input>
                                         </div>
                                         <div>
-                                            기한 : <DatePicker id='assignment-deadline' />
+                                            기한 : <DatePicker id='assignment-deadline' selected={editEndDate} onChange={(date)=>{setEditEndDate(date)}}/>
                                         </div>
-                                        <div>
+                                        <div onClick={()=>{editAssignment(aid)}}>
                                             수정
                                         </div>
-                                        <div>
+                                        <div onClick={()=>{hideEditAssignment(aid)}}>
                                             취소
                                         </div>
                                     </div>

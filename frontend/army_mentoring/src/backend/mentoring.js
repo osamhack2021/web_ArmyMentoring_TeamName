@@ -43,7 +43,7 @@ const _deleteAssignment = async (assignment_id) =>{
     }
 }
 
-const _editAssignment = async (title, content, mentoring_id,  deadline, assignment_id) =>{
+const _updateAssignment = async (title, content, mentoring_id,  deadline, assignment_id) =>{
     try{
         const response = await axios({
             method : 'PUT',
@@ -63,4 +63,4 @@ const _editAssignment = async (title, content, mentoring_id,  deadline, assignme
 }
 
 
-export { _addAssignment, _loadAssignment, _deleteAssignment, _editAssignment };
+export { _addAssignment, _loadAssignment, _deleteAssignment, _updateAssignment };
