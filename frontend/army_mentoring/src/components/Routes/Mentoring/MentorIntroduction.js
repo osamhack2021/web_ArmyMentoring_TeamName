@@ -9,39 +9,16 @@ import axios from 'axios';
 
 function MentorInfo() {
   // location.search
-  const location = window.location.pathname;
-  console.log(location);
+  const location = window.location.pathname.split('/');
+  const id = location[3];
+  // console.log(id);
 
-  const addButton = ()=>{
-    // let id = -1;
-    // let email = null;
-    axios({
-        method : 'GET',
-        url : 'https://guntor-guntee-data-server.herokuapp.com/user/2',
-        headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
-    })
-    .then((res)=>{
-        // const info={
-        //   response.data.username,
-
-        // };
-        console.log(res);
-        let description = res.data.description;
-        // id = res.data.id;
-        // email = res.data.email;
-        // console.log(id);
-        // console.log(email);
-        console.log(description);
-        console.log('This is work!');
-    })
-  }
-
-  const [mentorInfo, setMentorInfo] = useState({});
+  let [mentorInfo, setMentorInfo] = useState({});
 
 // api 통신 안될 때 쓸 data
   const mentor =
   {
-    username: "김0",
+    username: "김00",
     nickname: "열혈 멘토",
     email: "guntor@email.com",
     profileimage: soldier,
@@ -52,32 +29,16 @@ function MentorInfo() {
    useEffect(()=>{
       axios({
         method : 'GET',
-        url : 'https://guntor-guntee-data-server.herokuapp.com/user/2',
-        headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+        url : `https://guntor-guntee-data-server.herokuapp.com/user/${id}`,
+        // headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+        // headers : { Authorization : 'Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'}
+        headers : { Authorization : 'Token c6812396a7a62208735940a3b20386fd94535c54'}    
     })
     .then((res)=>{
-        // const info={
-        //   response.data.username,
-
-        // };
-        // setMentorInfo({mentorInfo, ...res.data});
         const Info = res.data;
         console.log('this is info!!');
         console.log(Info);
-        // setMentorInfo(res.data);
         setMentorInfo(Info);
-        console.log(JSON.stringify(mentorInfo));
-        console.log('this is mentorInfo!!!');
-        console.log(mentorInfo);
-        console.log('this is mentorInfo!!!');
-        console.log(res.data);
-        let description = res.data.description;
-        // id = res.data.id;
-        // email = res.data.email;
-        // console.log(id);
-        // console.log(email);
-        console.log(description);
-        console.log('This is work!');
     })
   },[]);
 
@@ -106,7 +67,7 @@ function MentorInfo() {
         <b className="blank"></b>
         <b className="blank"></b>
         
-        <Link to={`/profile/1`}>
+        <Link to={`/profile/${id}`}>
           <button className="GoMentorProf">멘토 프로필로 이동</button>
         </Link>
       </div>
@@ -116,17 +77,50 @@ function MentorInfo() {
 
 function Project() {
 
+  const location = window.location.pathname.split('/');
+  const id = location[3];
+
   let [CardInfo, setCardInfo] = useState({
   });
+
+  let [specCardList, setSpecCardList] = useState([]);
+
+  const specCardInfo = () =>{ 
+    axios({
+    method : 'GET',
+    url : CardInfo.portfolio[0],
+    // headers : { Authorization : 'Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'}
+    headers : { Authorization : 'Token c6812396a7a62208735940a3b20386fd94535c54'}
+   })
+    .then((res)=>{
+    // const info={
+    //   response.data.username,
+
+    // };
+    // setCardInfo(res.data);
+    console.log('mentoringInfo!!!');
+    console.log(res);
+    setSpecCardList(res.data.specification_cards);
+    console.log('mentoringInfo!!!');
+    
+    
+    // id = res.data.id;
+    // email = res.data.email;
+    // console.log(id);
+    // console.log(email);
+    // console.log(description);
+    // console.log('This is work!');
+    })
+  }
 
   useEffect(()=>{
     axios({
       method : 'GET',
-      url : 'https://guntor-guntee-data-server.herokuapp.com/portfolio',
+      url : `https://guntor-guntee-data-server.herokuapp.com/user/${id}`,
       // headers : { Authorization : 'Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'}
-      headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
-  })
-  .then((res)=>{
+      headers : { Authorization : 'Token c6812396a7a62208735940a3b20386fd94535c54'}
+    })
+    .then((res)=>{
       // const info={
       //   response.data.username,
 
@@ -137,15 +131,31 @@ function Project() {
       console.log(res);
       console.log('this is CardInfo!!!');
       
+      
       // id = res.data.id;
       // email = res.data.email;
       // console.log(id);
       // console.log(email);
       // console.log(description);
       // console.log('This is work!');
-  })
+    })
+
+    if(CardInfo.portfolio){
+        console.log('portfolio!!');
+        return specCardInfo();
+      }
+
   },[]);
 
+
+  // if(CardInfo.portfolio && i){
+  //   console.log('portfolio!!');
+  //   return specCardInfo();
+  // }
+
+  console.log('thus');
+  console.log(specCardList);
+  console.log('thus');
 
   const project = [
     {
@@ -170,9 +180,17 @@ function Project() {
     </div>
   ));
 
+  const specification_cardLists = specCardList.map((specCardList) => (
+    <div key = {specCardList[0]} className="Card">
+      <img src={specCardList.image} alt={specCardList.title} />
+      <h2>{specCardList.title}</h2>
+      <div className="Cardtext">{specCardList.description}</div>
+    </div>
+  ));
+
   return (
     <div className="Project" id="Projects">
-      <div className="CardList">{projects}</div>
+      <div className="CardList"> {specCardList ? specification_cardLists : projects}</div>
     </div>
   );
 }
@@ -186,6 +204,7 @@ function Certificate() {
 
   const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
 
+
   return (
     <div className="Certificate" id="Certificates">
       <ul className="CertList">
@@ -197,6 +216,10 @@ function Certificate() {
 }
 
 function MentoringInfo() {
+
+  const location = window.location.pathname.split('/');
+  const id = location[3];
+
   const mentorings = [
     {
       id: 1,
@@ -212,6 +235,50 @@ function MentoringInfo() {
     }
   ];
 
+  let [mentoringInfo, setMentoringInfo] = useState({});
+  let mentoringInfos = [];
+
+
+  useEffect(()=>{
+    axios({
+      method : 'GET',
+      url : `https://guntor-guntee-data-server.herokuapp.com/user/${id}`,
+      // headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+      // headers : { Authorization : 'Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'}
+      headers : { Authorization : 'Token c6812396a7a62208735940a3b20386fd94535c54'}    
+  })
+  .then((res)=>{
+      const Info = res.data.opened_mentoring;
+      setMentoringInfo(Info);
+  })
+  },[]);
+
+// let mentoringInfos = [];
+
+  for ( let i = 0; i < mentoringInfo.length; i++) {
+    axios({
+      method : 'GET',
+      url : mentoringInfo[i],
+      // headers : { Authorization : 'Token 905e125ab3ee40e3a74f6915c9dd3f540b987dc6'}
+      // headers : { Authorization : 'Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'}
+      headers : { Authorization : 'Token c6812396a7a62208735940a3b20386fd94535c54'}    
+  })
+    .then((res)=>{
+      // const Info = res.data.opened_mentoring;
+      console.log('this is mentroing info by by !!');
+      console.log(res);
+      // mentoringInfos[i].title = res.data.title;
+      // mentoringInfos[i].thumbnail = res.data.thumbnail;
+      // mentoringInfos[i].description = res.data.description;
+      mentoringInfos.push({id: i,
+        title: res.data.title, 
+        thumbnail: res.data.thumbnail, 
+        description: res.data.description
+      });
+    });
+  }
+
+
   const mentoringLists = mentorings.map((mentoring) => (
     <div className="Mentoring" key={mentoring.id} id="Mentorings">
       <h4 className="MentoringTitle" key={mentoring.id}>
@@ -223,11 +290,32 @@ function MentoringInfo() {
     </div>
   ));
 
-  return <div className="MentoringInfo" id="MentoringInfos">{mentoringLists}</div>;
+  const mentoringInfoLists = mentoringInfos.map((mentoringInfos) => (
+    <div className="Mentoring" key={mentoringInfos.id} id="Mentoringinfor">
+      <h4 className="MentoringTitle" key={mentoringInfos.id}>
+        {mentoringInfos.title} 
+      </h4>
+      <p className="MentoringText" key={mentoringInfos.id} >
+        {mentoringInfos.description}
+      </p>
+    </div>
+  ));
+
+  // console.log('this is mentoring!!!!!!!!!!!');
+  // console.log('this is mentoring');
+  // console.log(mentoringInfos);
+  // console.log(mentoringInfoLists);
+  // console.log('this is mentoring');
+  // console.log('this is mentoring!!!!!!!!!!');
+
+
+  // console.log(mentoringLists, '!!!!!!!!!!!!!!!!!!!!!!!');
+  return <div className="MentoringInfo" id="MentoringInfos">
+    {/*mentoringInfos ? mentoringInfoLists : */ mentoringLists}
+    </div>;
 }
 
 function MentoringReview() {
-
 
 //sample
   const reviews = [
