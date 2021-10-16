@@ -107,27 +107,33 @@ function Profile({match}) {
       </div>
       <div className="mentorings">
         <div className='mentoring-list-title'>멘토 역할 멘토링</div>
-        <ul className='mentoring-lists'>
         {
           mentorMentorings.map((m)=>{
             let t = m.url.split('/');
             let mid = t[4];
-            return (<Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>)
+            return (
+              <ul className='mentoring-lists'>
+                <Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>
+              </ul>
+            )
             })
         }
-        </ul>
       </div>
       <div className="mentorings">
         <div className='mentoring-list-title'>멘티 역할 멘토링</div>
-        <ul className='mentoring-lists'>
+        
         {
           menteeMentorings.map((m) =>{
             let t = m.url.split('/');
             let mid = t[4];
-            return (<Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>)
-            })
+            return (
+            <ul className='mentoring-lists'>
+            <Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>
+            </ul>
+            )
+          })
         }
-        </ul>
+        
       </div>
     </div>
   );
