@@ -1,4 +1,5 @@
 @import '../preset.scss';
+@import "~react-datepicker/dist/react-datepicker.css";
 
 .specific-mentor-body{
     .title-container{
@@ -53,14 +54,17 @@
     }
     .content-container{
         display:flex;
-        width:90%;
+        width:100%;
         margin : 10px auto;
         background-color: $gray3;
         flex-direction: column;
         .progress-content{
         }
         .assignments{
-            .edit-assignment-container{
+            ul {
+                padding:0px;
+            }
+            .add-assignment-container{
                 border:1px solid $black;
             }
             .h{

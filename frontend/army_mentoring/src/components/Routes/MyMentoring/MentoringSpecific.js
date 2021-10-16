@@ -5,6 +5,7 @@ import './MentoringSpecific.scss';
 import { Link } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import { _addAssignment, _deleteAssignment, _loadAssignment } from '../../../backend/mentoring';
+import DatePicker from "react-datepicker";
 
 function MentoringSpecificMento({match, history}){
     const mentoring_id = match.params.id;
@@ -18,6 +19,10 @@ function MentoringSpecificMento({match, history}){
     const [assignmentTitle, setAssignmentTitle] = useState('');
     const [assignmentContent, setAssignmentContent] = useState('');
     const [assignments, setAssignments] = useState([]);
+    const [endDate, setEndDate] = useState(new Date());
+    const [editAssignmentTitle, setEditAssignmentTitle] = useState([]);
+    const [editAssignmentContent, setEditAssignmentContent] = useState([]);
+    const [editAssignmentDeadline, setEditAssignmentDeadline] = useState([]);
     
     const getId = (url)=>{
         const t = url.split('/');
@@ -57,8 +62,8 @@ function MentoringSpecificMento({match, history}){
             setMentoring(res.data);
             let mentor_id = getId(res.data.mentor);
             isMe = (mentor_id == getId(user.url)) ? true : false;
-            const c = document.getElementById('edit-assignment-container');
-            c.className = isMe ? 'edit-assignment-container' : 'edit-assignment-container h';
+            const c = document.getElementById('add-assignment-container');
+            c.className = isMe ? 'add-assignment-container' : 'add-assignment-container h';
             _loadUser(mentor_id)
             .then(res=>{
                 setMentor(res.data);
@@ -91,14 +96,14 @@ function MentoringSpecificMento({match, history}){
         })
     }
 
-    const showEditAssignment = ()=>{
-        const a = document.getElementById('edit-assignment');
-        a.className = 'edit-assignment';
+    const showAddAssignment = ()=>{
+        const a = document.getElementById('add-assignment');
+        a.className = 'add-assignment';
     }
 
-    const hideEditAssignment = ()=>{
-        const a = document.getElementById('edit-assignment');
-        a.className = 'edit-assignment h';
+    const hideAddAssignment = ()=>{
+        const a = document.getElementById('add-assignment');
+        a.className = 'add-assignment h';
         const t = document.getElementById('assignment-title');
         const c = document.getElementById('assignment-content');
         t.value = '';
@@ -108,10 +113,10 @@ function MentoringSpecificMento({match, history}){
     }
 
     const addAssignment = ()=>{
-        _addAssignment(assignmentTitle, assignmentContent, mentoring_id)
+        _addAssignment(assignmentTitle, assignmentContent, mentoring_id, endDate)
         .then(res=>{
             load();
-            hideEditAssignment();
+            hideAddAssignment();
         })
         .catch(err=>{
             console.log(err.response);
@@ -119,14 +124,25 @@ function MentoringSpecificMento({match, history}){
     }
 
     const deleteAssignment = (assignment_id)=>{
-        _deleteAssignment(assignment_id)
+        _deleteAssignment(assignmentTitle, assignmentContent, mentoring_id, endDate, assignment_id)
         .then(res=>{
             load();
-            hideEditAssignment();
+            hideAddAssignment();
         })
         .catch(err=>{
             console.log(err.response);
         })
+    }
+
+    const showEditAssignment = (assignment_id)=>{
+        const a = document.getElementById('edit-assignment'+assignment_id);
+        a.className = 'edit-assignment';
+        const b = document.getElementById('assignment'+assignment_id);
+        b.className = 'edit-assignment';
+    }
+
+    const editAssignment = (assignment_id)=>{
+
     }
 
     return (
@@ -163,32 +179,55 @@ function MentoringSpecificMento({match, history}){
                             assignments.map((a)=>{
                                 let aid = getId(a.url);
                                 return (
-                                <div className='assignment'>
-                                    <div>
-                                        제목 : {a.title}
+                                <div>
+                                    <div id={'assignment'+aid} className='assignment'>
+                                        <div>
+                                            제목 : {a.title}
+                                            </div>
+                                        <div>
+                                            내용 : {a.content}
                                         </div>
-                                    <div>
-                                        내용 : {a.content}
+                                        <div>
+                                            기한 : {a.deadline}
+                                        </div>
+                                        <div onClick={()=>{editAssignment(aid)}}>
+                                            관리
+                                        </div>
+                                        <div onClick={()=>{deleteAssignment(aid)}}>
+                                            삭제
+                                        </div>
                                     </div>
-                                    <div>
-                                        기한 : {a.deadline}
-                                    </div>
-                                    <div onClick={()=>{deleteAssignment(aid)}}>
-                                        삭제
+                                    <div id={'edit-assignment'+aid} className='assignment h'>
+                                        <div>
+                                            제목 : <Input id={'edit-assignment-title'+aid}></Input>
+                                            </div>
+                                        <div>
+                                            제목 : <Input id={'edit-assignment-content'+aid}></Input>
+                                        </div>
+                                        <div>
+                                            기한 : <DatePicker id='assignment-deadline' />
+                                        </div>
+                                        <div>
+                                            수정
+                                        </div>
+                                        <div>
+                                            취소
+                                        </div>
                                     </div>
                                 </div>
                                 )
                             })
                         }
                     </ul>
-                    <div id='edit-assignment-container' className='edit-assignment-container h'>
-                        <div onClick={showEditAssignment}>과제 추가</div>
-                        <div id='edit-assignment' className='edit-assignment h'>
+                    <div id='add-assignment-container' className='add-assignment-container h'>
+                        <div onClick={showAddAssignment}>과제 추가</div>
+                        <div id='add-assignment' className='add-assignment h'>
                             제목 : <Input id='assignment-title' onChange={(e)=>{setAssignmentTitle(e.target.value)}}></Input>
                             내용 : <Input id='assignment-content' onChange={(e)=>{setAssignmentContent(e.target.value)}}></Input>
+                            기한 : <DatePicker id='assignment-deadline' selected={endDate} onChange={(date)=>{setEndDate(date)}} />
                             <div className='assignment-buttons'>
                                 <div onClick={addAssignment}>추가</div>
-                                <div onClick={hideEditAssignment}>취소</div>
+                                <div onClick={hideAddAssignment}>취소</div>
                             </div>
                         </div>
                     </div>

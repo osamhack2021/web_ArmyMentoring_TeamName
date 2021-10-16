@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const _addAssignment = async (title, content, mentoring_id) =>{
+const _addAssignment = async (title, content, mentoring_id, deadline) =>{
     try{
         const response = await axios({
             method : 'POST',
@@ -8,7 +8,7 @@ const _addAssignment = async (title, content, mentoring_id) =>{
             data : {
                 title : title,
                 content : content,
-                deadline : new Date(),
+                deadline : deadline,
                 mentoring : 'https://guntor-guntee-data-server.herokuapp.com/mentoring/' + mentoring_id,
                 passed_mentees : [ 'https://guntor-guntee-data-server.herokuapp.com/user/1' ]
             }
@@ -43,5 +43,24 @@ const _deleteAssignment = async (assignment_id) =>{
     }
 }
 
+const _editAssignment = async (title, content, mentoring_id,  deadline, assignment_id) =>{
+    try{
+        const response = await axios({
+            method : 'PUT',
+            url : '/assignment/' + assignment_id,
+            data : {
+                title : title,
+                content : content,
+                deadline : deadline,
+                mentoring : 'https://guntor-guntee-data-server.herokuapp.com/mentoring/' + mentoring_id,
+                passed_mentees : [ 'https://guntor-guntee-data-server.herokuapp.com/user/1' ]
+            }
+        })
+        return response;
+    } catch (error){
+        throw error;
+    }
+}
 
-export { _addAssignment, _loadAssignment, _deleteAssignment };
+
+export { _addAssignment, _loadAssignment, _deleteAssignment, _editAssignment };
