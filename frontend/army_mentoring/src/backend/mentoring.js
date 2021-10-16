@@ -63,4 +63,13 @@ const _updateAssignment = async (title, content, mentoring_id,  deadline, assign
 }
 
 
-export { _addAssignment, _loadAssignment, _deleteAssignment, _updateAssignment };
+const _addMentoring = async (form) => {
+    try {
+        const response = await axios.post("mentoring", form)
+        return response;
+    } catch (error) {
+        throw(error);
+    }
+}
+
+export {_addMentoring, _addAssignment, _loadAssignment, _deleteAssignment, _updateAssignment };
