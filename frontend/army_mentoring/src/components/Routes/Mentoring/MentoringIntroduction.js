@@ -66,8 +66,19 @@ function MentoringIntroduction({match, history}){
 
             _loadMentoringReviewList()
             .then(r=>{
-                const a = r.data.filter((review)=>{return getId(review.mentor) == getId(res.data.mentor)})
-                setMentoringReviews(r.data)
+                const filtered_array = r.data.filter((review)=>{return getId(review.mentor) == getId(res.data.mentor)})
+                Promise.all( 
+                    filtered_array.map((el)=>{
+                        return _loadUser(getId(el.mentee))
+                                .then(res=>{
+                                    return { mentee : res.data, review: el }
+                                })
+                    })
+                )
+                .then(res=>{
+                    setMentoringReviews(res);
+                    console.log(res);
+                })
             })
             .catch(err=>{console.log(err.response)})
 
@@ -92,51 +103,51 @@ function MentoringIntroduction({match, history}){
                 <div className='header-mentor'>
                     <div className='mentor-thumbnail'></div>
                     <Link to={`/profile/${getMentorId(mentor.url)}`} className='mentor-name'>{mentor.username}</Link>
+                    <Link to={`/profile/${getMentorId(mentor.url)}/portfolio`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
                 </div>
-                <div className='header-title'>{mentoring.title}</div>
-                <div className='header-tags'>
-                    <div className='tag-box'>
-                    {
-                        mentoring.tags.map((t)=>{
-                            return (<div className='tag'>{'#'+t.name}</div>)
-                        })
-                    }
+                <div className='header-content'>
+                    <div className='header-title'>{mentoring.title}</div>
+                    <div className='header-tags'>
+                        {
+                            mentoring.tags.map((t)=>{
+                                return (<div className='tag'>{'#'+t.name}</div>)
+                            })
+                        }
                     </div>
                 </div>
             </div>
 
-            <div className="mentoring-introduction">
-                <h2>멘토링 소개</h2>
-                <div>{mentoring.description}</div>
-            </div>
+            <div className='content'>
+                <div className="mentoring-introduction">
+                    <div className='section-title'>멘토링 소개</div>
+                    <div>{mentoring.description}</div>
+                </div>
 
-            <div className="assignments">
-                <h2>과제 소개</h2>
-                <div className='assignment-box'>
-                    {
-                        assignments.map((a)=>{
-                            return (<div className='assignment'>
-                                        <div>제목 : {a.title}</div>
-                                        <div>내용 : {a.content}</div>
-                                    </div>)
-                        })
-                    }
+                <div className="assignments">
+                    <div className='section-title'>과제 소개</div>
+                    <div className='assignment-box'>
+                        {
+                            assignments.map((a)=>{
+                                return (<div className='assignment'>
+                                            <div>제목 : {a.title}</div>
+                                            <div>내용 : {a.content}</div>
+                                        </div>)
+                            })
+                        }
+                    </div>
+                </div>
+
+                <div className="mentoring-reviews">
+                    <div className='section-title'>후기</div>
+                    <div>
+                        {
+                            mentoringReviews.map((r)=>{
+                                return (<div> {r.mentee.username}:{r.review.content} </div>)
+                            })
+                        }
+                    </div>
                 </div>
             </div>
-
-            <div className="mentoring-reviews">
-                <h2>후기</h2>
-                <div>
-                    {
-                        mentoringReviews.map((r)=>{
-                            return(<div>
-                                        {r.content}
-                                    </div>)
-                        })
-                    }
-                </div>
-            </div>
-
         </div>
     )
 
