@@ -6,7 +6,7 @@ import MakeMentoringAssignment from './MakeMentoringAssignment';
 import './MakeMentoring.scss';
 import { updateUserContextBySavedToken } from '../../../backend/auth';
 import { getFromUrl } from '../../../backend/common';
-import { _addMentoring } from '../../../backend/mentoring';
+import { _addMentoring, _addMultipleAssigment } from '../../../backend/mentoring';
 
 function MakeMentoring({history}){
     const today=new Date();
@@ -107,8 +107,9 @@ function MakeMentoring({history}){
             form.append('tags', tags);
             form.append('thumbnail', thumbnail);
             form.append('mentor', user.url);
-            form.append('memo', "새로운 메모를 입력해보세요!");
-            await _addMentoring(form);
+            const response = await _addMentoring(form);
+            const mentoringUrl = response.data.url;
+            await _addMultipleAssigment(assignments, mentoringUrl);
 
             history.push('/mymentoring#asMentor');
         }catch (error){
