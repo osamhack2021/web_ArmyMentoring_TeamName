@@ -35,31 +35,24 @@ function Profile({match}) {
 
   useEffect(()=>{
     load();
-  }, [])
+  }, [other])
 
 
   const loadMentorings = (mentorings, setMentoring)=>{
-    _loadUser(match.params.id)
+    Promise.all(
+      mentorings.map((url)=>{
+        let m_id = getId(url);
+        return _loadMentoring(m_id)
+              .then(res=>{
+                return res.data;
+              })
+              .catch(err=>{
+                console.log(err);
+              })
+      })
+    )
     .then(res=>{
-      setOther(res.data);
-      Promise.all(
-        mentorings.map((url)=>{
-          let m_id = getId(url);
-          return _loadMentoring(m_id)
-                .then(res=>{
-                  return res.data;
-                })
-                .catch(err=>{
-                  console.log(err);
-                })
-        })
-      )
-      .then(res=>{
-        setMentoring(res);
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+      setMentoring(res);
     })
     .catch(err=>{
       console.log(err);
@@ -67,13 +60,18 @@ function Profile({match}) {
   }
   
   const load = () =>{
-    loadMentorings(user.opened_mentoring, setMentorMentorings);
-    loadMentorings(user.participated_mentoring, setMenteeMentorings);
+    _loadUser(match.params.id)
+    .then(res=>{
+      setOther(res.data);
+      loadMentorings(user.opened_mentoring, setMentorMentorings);
+      loadMentorings(user.participated_mentoring, setMenteeMentorings);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
 
     const m = document.getElementById('message');
     const e = document.getElementById('edit');
-    console.log(m);
-    console.log(e);
     if(isMe){
       m.className = 'button h';
       e.className = 'button';

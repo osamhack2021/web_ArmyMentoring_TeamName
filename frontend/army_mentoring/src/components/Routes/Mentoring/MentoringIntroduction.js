@@ -50,7 +50,6 @@ function MentoringIntroduction({match, history}){
 
             Promise.all(
                 res.data.assignments.map((a)=>{
-                    console.log(getId(a));
                     return _loadAssignment(getId(a))
                             .then(res=>{
                                 return res.data;
@@ -62,14 +61,12 @@ function MentoringIntroduction({match, history}){
             )
             .then(res=>{
                 setAssignments(res);
-                console.log(res);
             })
             .catch(err=>{console.log(err.response)})
 
             _loadMentoringReviewList()
             .then(r=>{
                 const a = r.data.filter((review)=>{return getId(review.mentor) == getId(res.data.mentor)})
-                console.log(a);
                 setMentoringReviews(r.data)
             })
             .catch(err=>{console.log(err.response)})
@@ -118,7 +115,6 @@ function MentoringIntroduction({match, history}){
                 <div className='assignment-box'>
                     {
                         assignments.map((a)=>{
-                            console.log(a);
                             return (<div className='assignment'>
                                         <div>제목 : {a.title}</div>
                                         <div>내용 : {a.content}</div>
