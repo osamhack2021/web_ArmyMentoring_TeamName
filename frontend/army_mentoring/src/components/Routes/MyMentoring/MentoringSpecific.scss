@@ -3,6 +3,7 @@
 
 .specific-mentor-body{
 	font-family: 'Do Hyeon', sans-serif;
+    font-size:30px;
     .title-container{
         display:flex;
         flex-direction: row;
@@ -70,10 +71,12 @@
             display:flex;
             flex-direction: column;
             justify-content: space-between;
-            border: 5px solid $secondary;
-            border-radius: 30px;
-            padding:30px;
             margin-bottom: 30px;
+            .assignments-box{
+                border: 5px solid $secondary;
+                border-radius: 30px;
+                padding:30px;
+            }
             .h{
                 display:none;
             }
@@ -113,6 +116,7 @@
                                 padding:5px 10px;
                                 margin-left:10px;
                                 background-color: $primary;
+                                border-radius: 10px;
                             }
                         }
                     }
@@ -134,9 +138,10 @@
                     display:flex;
                     justify-content: center;
                     align-items: center;
-                    width:100px;
+                    width:200px;
                     height:50px;
                     background-color: $primary;
+                    border-radius: 30px;
                 }
                 .h{
                     display:none;
@@ -160,24 +165,21 @@
         .memo {
             display:flex;
             flex-direction: column;
-            border: 5px solid $secondary;
-            border-radius: 30px;
-            padding:30px;
-            .memo-header{
+            .memo-title{
                 display:flex;
                 flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-bottom: 10px;
-                .memo-title{
+                justify-content: flex-start;
+                font-weight: bold;
+                font-size:50px;  
+            }
+            .memo-box{
+                border: 5px solid $secondary;
+                border-radius: 30px;
+                padding:30px;
+                .edit-content{
                     display:flex;
                     flex-direction: row;
-                    justify-content: flex-start;
-                    font-weight: bold;
-                    font-size:50px;  
-                }
-                .content{
-
+                    justify-content: flex-end;
                 }
             }
         }

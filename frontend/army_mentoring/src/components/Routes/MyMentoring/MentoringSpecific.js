@@ -215,6 +215,7 @@ function MentoringSpecificMento({match, history}){
 
                 <div className="assignments">
                     <div className='assignment-title'>과제 목록</div>
+                    <div className='assignments-box'>
                         {
                             assignments.map((a)=>{
                                 let aid = getId(a.url);
@@ -263,26 +264,27 @@ function MentoringSpecificMento({match, history}){
                                 )
                             })
                         }
-                    <div className='add-button-container'>
-                        <div id='add-button' className='add-button' onClick={showAddAssignment}>과제 추가</div>
-                    </div>
-                    <div id='add-assignment' className='add-assignment h'>
-                            제목 : <Input id='assignment-title' onChange={(e)=>{setAssignmentTitle(e.target.value)}}></Input>
-                            내용 : <Input id='assignment-content' onChange={(e)=>{setAssignmentContent(e.target.value)}}></Input>
-                            기한 : <DatePicker id='assignment-deadline' selected={endDate} onChange={(date)=>{setEndDate(date)}} />
-                            <div className='buttons'>
-                                <div className='button' onClick={addAssignment}>추가</div>
-                                <div className='button' onClick={hideAddAssignment}>취소</div>
-                            </div>
+                        <div className='add-button-container'>
+                            <div id='add-button' className='add-button' onClick={showAddAssignment}>과제 추가</div>
+                        </div>
+                        <div id='add-assignment' className='add-assignment h'>
+                                제목 : <Input id='assignment-title' onChange={(e)=>{setAssignmentTitle(e.target.value)}}></Input>
+                                내용 : <Input id='assignment-content' onChange={(e)=>{setAssignmentContent(e.target.value)}}></Input>
+                                기한 : <DatePicker id='assignment-deadline' selected={endDate} onChange={(date)=>{setEndDate(date)}} />
+                                <div className='buttons'>
+                                    <div className='button' onClick={addAssignment}>추가</div>
+                                    <div className='button' onClick={hideAddAssignment}>취소</div>
+                                </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="memo">
-                    <div className='memo-header'>
-                        <div className='memo-title'>메모</div>
+                    <div className='memo-title'>메모</div>
+                    <div className='memo-box'>
                         <div className='edit-content'>메모 수정</div>
+                        <div className='memo-content'>{mentoring.memo}</div>
                     </div>
-                    <div className='content'>{mentoring.memo}</div>
                 </div>
             </div>
         </div>
