@@ -122,5 +122,26 @@ const _loadMentoringReviewList = async () => {
     }
 }
 
+const _updateMentoring = async (mentoring, mentoring_id) => {
+    try {
+        const response = await axios({
+            method : 'PUT',
+            url : '/mentoring/' + mentoring_id,
+            data : {
+                title : mentoring.title,
+                memo : mentoring.memo,
+                mentor : mentoring.mentor,
+                mentees : mentoring.mentees,
+                portfolio : mentoring.portfolio,
+                start_date : mentoring.start_date,
+                end_date : mentoring.end_date
+            }
+        })
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
 
-export {_addMentoring, _addAssignment, _loadAssignment, _addMultipleAssigment, _loadMentoringReviewList, _loadMentoring, _loadMentoringList , _deleteAssignment, _updateAssignment };
+
+export { _updateMentoring, _addMentoring, _addAssignment, _loadAssignment, _addMultipleAssigment, _loadMentoringReviewList, _loadMentoring, _loadMentoringList , _deleteAssignment, _updateAssignment };

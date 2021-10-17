@@ -73,6 +73,27 @@
 		}
 	}
 
+	.join-button-container{
+		display:flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		.join-button-edge{
+			display:flex;
+			border: 3px solid $secondary;
+			border-radius: 40px 0px 40px 40px;
+			margin: 10px 20px;
+			.join-button{
+				display:flex;
+				padding:10px 20px;
+				background-color: $secondary;
+				border-radius: 40px;
+				margin: 10px;
+				font-size:30px;
+				color:$white;
+			}
+		}
+	}
+
 	.content{
 		display:flex;
 		flex-direction: column;

@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './MentoringIntroduction.scss';
+import {UserContext} from '../../../context/Context';
 import Subnavbar from '../Subnavbar';
-import { _loadMentoring, _loadAssignment, _loadMentoringReviewList } from '../../../backend/mentoring';
+import { _loadMentoring, _loadAssignment, _loadMentoringReviewList, _updateMentoring } from '../../../backend/mentoring';
 import { _loadUser } from '../../../backend/profile';
 import { Link } from 'react-router-dom';
 
 function MentoringIntroduction({match, history}){
 
     const mentoring_id = match.params.id;
+    const [user, setUser] = useContext(UserContext);
     const menu = 
     [
         {id:'home', desc:'홈'},
@@ -95,6 +97,17 @@ function MentoringIntroduction({match, history}){
         load();
     }, []);
 
+    const joinMentoring = () =>{
+        console.log(mentoring);
+        const c = Object.assign({}, mentoring);
+        c.mentees.push(user.url);
+        console.log(c);
+        _updateMentoring(c, mentoring_id)
+        .then(res=>{
+            console.log(res);
+        })
+        .catch(err=>{console.log(err.response)})
+    }
 
     return (
         <div className='mentoring-introduction-body'>           
@@ -117,6 +130,12 @@ function MentoringIntroduction({match, history}){
                             })
                         }
                     </div>
+                </div>
+            </div>
+
+            <div className='join-button-container'>
+                <div className='join-button-edge'>
+                    <div onClick={joinMentoring} className='join-button'>멘토링 참여하기</div>
                 </div>
             </div>
 
