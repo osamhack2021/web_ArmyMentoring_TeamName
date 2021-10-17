@@ -239,7 +239,9 @@ function MentoringSpecificMento({match, history}){
                 </div>
             </div>
             <div className='buttons'>
-                <Link to={`${match.url}/chat`} className='chat-button'>채팅방으로 이동</Link>
+                <div className='button-border'>
+                    <Link to={`${match.url}/chat`} className='chat-button'>채팅방으로 이동</Link>
+                </div>
             </div>
             <div className='content-container'>
 
@@ -312,15 +314,17 @@ function MentoringSpecificMento({match, history}){
                 <div className="memo">
                     <div className='memo-title'>메모</div>
                     <div id='memo-box' className='memo-box'>
-                        <div className='edit-content' onClick={goEditMemo}>메모 수정</div>
+                        <div className='button-container'>
+                            <div className='edit-content-button' onClick={goEditMemo}>메모수정</div>              
+                        </div>
                         <div className='memo-content'>{mentoring.memo}</div>
                     </div>
                     <div id='memo-box-edit' className='memo-box h'>
                         <div className='edit-content'>
-                            <div onClick={editMemo}>수정</div>
-                            <div onClick={exitEditMemo}>취소</div>
+                            <div className='confirm' onClick={editMemo}>수정</div>
+                            <div className='cancel' onClick={exitEditMemo}>취소</div>
                         </div>
-                        <Input type='textarea' id='memo-edit' onChange={(e)=>{setMemoText(e.target.value)}}></Input>
+                        <Input type='textarea' id='memo-edit' className='memo-edit' onChange={(e)=>{setMemoText(e.target.value)}}></Input>
                     </div>
                 </div>
             </div>

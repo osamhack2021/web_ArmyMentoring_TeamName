@@ -61,6 +61,29 @@
             }
         }
     }
+    .buttons{
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top:20px;
+        .button-border{
+            border-radius: 50px 0px 50px 50px;
+            border:3px solid $secondary;
+            margin-right:20px;
+
+            .chat-button{
+                display:block;
+                text-decoration: none;
+                padding:10px 20px;
+                margin:10px;
+                background-color: $secondary;
+                color:$white;
+                border-radius: 50px 0px 50px 50px;
+            }
+
+        }
+
+    }
     .content-container{
         display:flex;
         width:90%;
@@ -176,10 +199,42 @@
                 border: 5px solid $secondary;
                 border-radius: 30px;
                 padding:30px;
+                .button-container{
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    .edit-content-button{
+                        display: flex;
+                        padding:5px 10px;
+                        background-color: $primary;
+                        border-radius: 5px;
+                    }
+                }
+                .memo-content{
+                    text-align: left;
+                }
                 .edit-content{
                     display:flex;
                     flex-direction: row;
                     justify-content: flex-end;
+                    margin-bottom: 10px;
+                    .confirm{
+                        display: flex;
+                        padding:5px 10px;
+                        background-color: $primary;
+                        border-radius: 5px;
+                    }
+                    .cancel{
+                        display: flex;
+                        padding:5px 10px;
+                        background-color: $primary;
+                        margin-left:10px;
+                        border-radius: 5px;
+                    }
+                }
+                .memo-edit{
+                    font-size:30px;
+                    padding:0px;
                 }
             }
             .h{
