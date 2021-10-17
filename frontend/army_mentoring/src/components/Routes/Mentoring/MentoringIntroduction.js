@@ -108,7 +108,7 @@ function MentoringIntroduction({match, history}){
                 <div className='header-content'>
                     <div className='header-title'>
                         <div className='header-title-title'>{mentoring.title}</div>
-                        <div className='header-title-during'>{mentoring.start_date.substring(0,10)}~{mentoring.end_date.substring(0,10)}</div>
+                        <div className='header-title-during'>{mentoring.start_date}~{mentoring.end_date}</div>
                     </div>
                     <div className='header-tags'>
                         {
