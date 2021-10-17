@@ -1,57 +1,59 @@
 ![guntor-guntee-logo](image/guntor-guntee-logo.png)
 
-# 🪖 군토&군티 (Guntor & Guntee)
-
-### 군토&군티는 군복무 중 멘토링 활동을 통해 서로 성장하는 서비스입니다.
-
 > ### *누구에게나 의미있고 값져야 할 군생활이니까*
 > 
 
 <br>
 
-### 📍 목차
+# 🪖 군토&군티 (Guntor & Guntee)
 
-- [🫂 프로잭트 소개](#-프로잭트-소개)  
-
-    - [🗺 Overview](#-Overview)  
-
-    - [🤔 문제 인식](#-문제-인식)  
-
-    - [💡 해결 방안](#-해결-방안)  
-
-    - [💭 상황 설정](#-상황-설정)  
-
-    - [👤 예상 사용자](#-예상-사용자)  
-
-- [⚙️ 기능 설명](#-기능-설명)  
-
-    - 
-
-- [✨ 기대 효과](#-기대-효과)
-
-    - [🍀 의미있고 값진 군생활](#-의미있고-값진-군생활)
-
-    - [🔭 발전 가능성](#-발전-가능성)
-
-    - [⌨ 공개 SW 발전 방향](#-공개-SW-발전-방향)
-
-- [🖥️ 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](#-컴퓨터-구성-/-필수-조건-안내-(Prerequisites))
-
-- [🔧 기술 스택 (Techniques Used)](#-기술-스택-(Techniques-Used))
-
-- [📀 설치 안내 (Installation Process)](#-설치-안내-(Installation-Process))
-
-- [📋 프로젝트 사용법 (Getting Started)](#-프로젝트-사용법-(Getting-Started))
-
-- [👥 팀 정보 (Team Information)](#-팀-정보-(Team-Information))
-
-- [# ©️ 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-저작권-및-사용권-정보-(Copyleft-/-End-User-License))
+군토&군티는 군복무 중 멘토링 활동을 통해 서로 성장하는 서비스입니다.
 
 <br>
 
-# 🫂 프로잭트 소개
+### 📍 목차
 
-### 🗺 Overview
+- [1. 🫂 프로잭트 소개](#1.-프로잭트-소개)  
+
+    - [1.1 🗺 Overview](#1.1--Overview)  
+
+    - [1.2 🤔 문제 인식](#1.2--문제-인식)  
+
+    - [1.3 💡 해결 방안](#1.3--해결-방안)  
+
+    - [1.4 💭 상황 설정](#1.4--상황-설정)  
+
+    - [1.5 👤 예상 사용자](#1.5--예상-사용자)  
+
+- [2. ⚙️ 기능 설명](#2.--기능-설명)  
+
+    - 
+
+- [3. ✨ 기대 효과](#3.--기대-효과)
+
+    - [3.1 🍀 의미있고 값진 군생활](#3.1--의미있고-값진-군생활)
+
+    - [3.2 🔭 발전 가능성](#3.2--발전-가능성)
+
+    - [3.3 ⌨ 공개 SW 발전 방향](#3.3--공개-SW-발전-방향)
+
+- [4. 🖥️ 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](#4.--컴퓨터-구성-/-필수-조건-안내-(Prerequisites))
+
+- [5. 🔧 기술 스택 (Techniques Used)](#5.--기술-스택-(Techniques-Used))
+
+- [6. 📀 설치 안내 (Installation Process)](#6.--설치-안내-(Installation-Process))
+
+- [7. 📋 프로젝트 사용법 (Getting Started)](#7.--프로젝트-사용법-(Getting-Started))
+
+- [8. 👥 팀 정보 (Team Information)](#8.--팀-정보-(Team-Information))
+
+- [9. ©️ 저작권 및 사용권 정보 (Copyleft / End User License)](9.-#%EF%B8%8F-저작권-및-사용권-정보-(Copyleft-/-End-User-License))
+
+<br>
+
+# 1. 🫂 프로잭트 소개
+
+## 1.1 🗺 Overview
 
 '군토&군티'는 멘토링에 필요한 모든 것을 제공합니다.
 
@@ -67,7 +69,7 @@
 
 <br>
 
-## 🤔 문제 인식
+## 1.2 🤔 문제 인식
 
 ### 진로, 학업에 대한 고민
 
@@ -81,46 +83,61 @@
 [출처] [전역예정자 65% "진로 큰 고민…치킨집이라도 해야하나"](https://mirakle.mk.co.kr/view.php?year=2017&no=189906)
 > 
 
-    청년 장병들의 가장 큰 고민은 진로입니다. 청년 장병들은 20여 년간 쌓아온 것들을 뒤로한 채 군인으로서의 책임을 다합니다. 군 복무 기간 동안 학업과 경력이 단절됩니다. 청년 장병들은 전역 후의 삶에 대해 부담과 불안감을 느끼고 있습니다. 무엇을 공부해야 할지 고민하는 장병뿐만 아니라 미래와 진로에 대한 근본적인 고민을 하는 장병도 많습니다. 통계 자료에 의하면 청년 장병들의 36.8%가 멘토링을, 23.2%가 전문상담을 희망합니다. 50% 이상의 장병이 일회성의 강의-강연이 아닌, 장기간에 걸친 체계적 프로그램을 필요로 하고 있습니다.
+청년 장병들의 가장 큰 고민은 진로입니다. 청년 장병들은 20여 년간 쌓아온 것들을 뒤로한 채 군인으로서의 책임을 다합니다. 군 복무 기간 동안 학업과 경력이 단절됩니다. 청년 장병들은 전역 후의 삶에 대해 부담과 불안감을 느끼고 있습니다. 무엇을 공부해야 할지 고민하는 장병뿐만 아니라 미래와 진로에 대한 근본적인 고민을 하는 장병도 많습니다. 통계 자료에 의하면 청년 장병들의 36.8%가 멘토링을, 23.2%가 전문상담을 희망합니다. 50% 이상의 장병이 일회성의 강의-강연이 아닌, 장기간에 걸친 체계적 프로그램을 필요로 하고 있습니다.
 
 <br>
     
 
-## 💡 해결 방안
+## 1.3 💡 해결 방안
     
 ### 경력과 역량 개발에 효과적인 멘토링
 
-    경력 개발과 역량 개발에서 멘토링의 우수성은 수년간의 연구를 통해 증명되었습니다. 대기업들 또한 신입사원들의 역량 개발을 위한 프로그램으로 멘토링을 시행하고 있습니다. 50% 이상의 장병이 멘토링과 같은 체계적인 프로그램을 필요로 하고 있습니다. 고민에 대한 답을 찾을 의지와 능력이 있는 청년 장병에게 고민을 덜어줄 수 있는 가장 효과적인 방법은 멘토링입니다.
+경력 개발과 역량 개발에서 멘토링의 우수성은 수년간의 연구를 통해 증명되었습니다. 대기업들 또한 신입사원들의 역량 개발을 위한 프로그램으로 멘토링을 시행하고 있습니다. 50% 이상의 장병이 멘토링과 같은 체계적인 프로그램을 필요로 하고 있습니다. 고민에 대한 답을 찾을 의지와 능력이 있는 청년 장병에게 고민을 덜어줄 수 있는 가장 효과적인 방법은 멘토링입니다.
 
 <br>
 
-## 💭 상황 설정
+## 1.4 💭 상황 설정
     
 ### 입대를 앞둔 사람의 고민과 결정 - 죽느냐 사느냐, 그것이 문제로다
 
-    여기 입대를 앞둔 굳건이가 있습니다. 굳건이는 막연한 군생활이 걱정됩니다. 너무 답답한 나머지 굳건이는 군대를 갔다온 주변 선배들에게 조언을 구해봅니다.
+<details>
+<summary>(펼치기)</summary>
 
-    '선배 A'는 군생활이 크게 성장할 수 있었던 인생의 터닝 포인트였다고 말합니다. 몸도 좋아졌고, 돈도 모았고, 책도 읽고, 원하는 공부도 할 수 있었다고 합니다. 군대에서 삶에 대한 진지한 고민을 할 수 있었고 구체적인 목표와 계획을 세울 수 있었다고 합니다. 선배 A는 굳건이에게 너무 걱정하지 말라고 말하며 의미있고 값진 시간으로 만들어나가길 바란다고 충고해줍니다.
+여기 입대를 앞둔 굳건이가 있습니다. 굳건이는 막연한 군생활이 걱정됩니다. 너무 답답한 나머지 굳건이는 군대를 갔다온 주변 선배들에게 조언을 구해봅니다.
 
-    '선배 B'는 군생활에 대한 다른 이야기를 말해줍니다. 군생활은 시간 낭비라고, 군대에 가서 바보가 되서 나왔다고 말합니다. 군생활이 너무 끔찍했으며 몸만 건강히 전역해도 충분하다고 말합니다. 군생활 열심히 하는 것 만큼 쓸모 없는 것이 없다고 말합니다. 선배 B는 군 복무 기간 동안 그냥 죽었다고 생각하라고 충고합니다.
+'선배 A'는 군생활이 크게 성장할 수 있었던 인생의 터닝 포인트였다고 말합니다. 몸도 좋아졌고, 돈도 모았고, 책도 읽고, 원하는 공부도 할 수 있었다고 합니다. 군대에서 삶에 대한 진지한 고민을 할 수 있었고 구체적인 목표와 계획을 세울 수 있었다고 합니다. 선배 A는 굳건이에게 너무 걱정하지 말라고 말하며 의미있고 값진 시간으로 만들어나가길 바란다고 충고해줍니다.
 
-    두 선배의 의견 모두 일리가 있습니다. 하지만 굳건이는 인생의 가장 중요한 시기를 군대에 있다고 낭비하고 싶지는 않습니다. 슬기롭게 군생활을 해쳐나간 선배 A가 존경스럽습니다. 굳건이도 선배 A를 본받아 자기계발을 열심히 하기로 마음을 먹습니다.
+'선배 B'는 군생활에 대한 다른 이야기를 말해줍니다. 군생활은 시간 낭비라고, 군대에 가서 바보가 되서 나왔다고 말합니다. 군생활이 너무 끔찍했으며 몸만 건강히 전역해도 충분하다고 말합니다. 군생활 열심히 하는 것 만큼 쓸모 없는 것이 없다고 말합니다. 선배 B는 군 복무 기간 동안 그냥 죽었다고 생각하라고 충고합니다.
+
+두 선배의 의견 모두 일리가 있습니다. 하지만 굳건이는 인생의 가장 중요한 시기를 군대에 있다고 낭비하고 싶지는 않습니다. 슬기롭게 군생활을 해쳐나간 선배 A가 존경스럽습니다. 굳건이도 선배 A를 본받아 자기계발을 열심히 하기로 마음을 먹습니다.
+
+</details>
 
 ### 머지 않아 찾아온 불편한 손님, 슬럼프 - 어디로 가야하오...
 
-    큰 꿈을 안고 입대한 굳건이는 머지 않아 어려움을 겪습니다. 하고 싶은 것은 많지만 어떻게 해야할지 하나도 모르겠습니다. 운동을 하고 싶지만 팔굽혀펴기 10개 하기도 너무 힘듭니다. 맛있는 냉동 음식과 과자를 매 끼니 챙겨 먹느라 돈도 잘 모이지 않습니다. 책을 읽어도 졸리기만 합니다. 어떤 공부를 해야할지 감이 오지 않습니다. 당장 내일을 어떻게 살아야 할지도 모르겠습니다. 삶의 목표가 더욱 흐릿해지기만 했습니다.
+<details>
+<summary>(펼치기)</summary>
 
-    이렇게 살면 안 된다고 자신을 다그치고 또 다그치지만 변하지 않는 자신이 야속합니다. 굳건이는 속으로 멘토 같은 사람이 방향을 설정해주고 이끌어줬으면 좋겠다고 생각합니다. 열심히 하고 싶은 마음은 정말 가득하지만 실천할 의지와 정보가 부족함을 느낍니다. 굳건이를 도와줄 사람은 존재하지 않는 것일까요?
+큰 꿈을 안고 입대한 굳건이는 머지 않아 어려움을 겪습니다. 하고 싶은 것은 많지만 어떻게 해야할지 하나도 모르겠습니다. 운동을 하고 싶지만 팔굽혀펴기 10개 하기도 너무 힘듭니다. 맛있는 냉동 음식과 과자를 매 끼니 챙겨 먹느라 돈도 잘 모이지 않습니다. 책을 읽어도 졸리기만 합니다. 어떤 공부를 해야할지 감이 오지 않습니다. 당장 내일을 어떻게 살아야 할지도 모르겠습니다. 삶의 목표가 더욱 흐릿해지기만 했습니다.
+
+이렇게 살면 안 된다고 자신을 다그치고 또 다그치지만 변하지 않는 자신이 야속합니다. 굳건이는 속으로 멘토 같은 사람이 방향을 설정해주고 이끌어줬으면 좋겠다고 생각합니다. 열심히 하고 싶은 마음은 정말 가득하지만 실천할 의지와 정보가 부족함을 느낍니다. 굳건이를 도와줄 사람은 존재하지 않는 것일까요?
+
+</details>
 
 ### 뭐가 문제야 Say Something - '군토&군티'가 있잖아!
 
-    슬럼프에 빠진 굳건이는 '군토&군티'라는 서비스를 접하게 됩니다. 군토&군티에 등록된 유능한 멘토들의 다양한 멘토링 프로그램 중 굳건이가 필요한 멘토링이 찾아봅니다. 굳건이는 평소 관심을 갖고 있던 운동, 공부 관련 멘토링의 소개 글을 상세히 살펴봅니다. 멘토의 포트폴리오까지 꼼꼼히 참고해 찾은 멘토링을 신청합니다. 유능한 멘토를 만나 자신이 원하던 자기 계발을 효과적으로 진행합니다. 채팅 기능을 이용해 과제도 주고 받으며 멘토링을 체계적으로 진행합니다. 이렇게 자기계발에 성공한 굳건이는 이번에 멘토로서 활동해 자신의 지식과 노하우를 또 전달해줍니다. 군토&군티를 통해 굳건이는 자신이 계획하던 꿈을 이루고 전역하게 됩니다. 멘토링을 통해 배우고 느낀 점들은 소중한 경험이 되었습니다.
+<details>
+<summary>(펼치기)</summary>
 
-    이 이야기는 비단 굳건이만의 이야기가 아닙니다. 군토&군티를 사용하는 모든 장병의 이야기가 될 수 있습니다. 군토&군티는 장병들의 적극적인 참여로 더욱 더 큰 커뮤니티로 성장할 수 있습니다. 서로 배우고 가르치며 모든 장병들이 자신의 꿈을 이룰 수 있는 성장형 커뮤니티가 될 것 입니다.
+슬럼프에 빠진 굳건이는 '군토&군티'라는 서비스를 접하게 됩니다. 군토&군티에 등록된 유능한 멘토들의 다양한 멘토링 프로그램 중 굳건이가 필요한 멘토링이 찾아봅니다. 굳건이는 평소 관심을 갖고 있던 운동, 공부 관련 멘토링의 소개 글을 상세히 살펴봅니다. 멘토의 포트폴리오까지 꼼꼼히 참고해 찾은 멘토링을 신청합니다. 유능한 멘토를 만나 자신이 원하던 자기 계발을 효과적으로 진행합니다. 채팅 기능을 이용해 과제도 주고 받으며 멘토링을 체계적으로 진행합니다. 이렇게 자기계발에 성공한 굳건이는 이번에 멘토로서 활동해 자신의 지식과 노하우를 또 전달해줍니다. 군토&군티를 통해 굳건이는 자신이 계획하던 꿈을 이루고 전역하게 됩니다. 멘토링을 통해 배우고 느낀 점들은 소중한 경험이 되었습니다.
+
+이 이야기는 비단 굳건이만의 이야기가 아닙니다. 군토&군티를 사용하는 모든 장병의 이야기가 될 수 있습니다. 군토&군티는 장병들의 적극적인 참여로 더욱 더 큰 커뮤니티로 성장할 수 있습니다. 서로 배우고 가르치며 모든 장병들이 자신의 꿈을 이룰 수 있는 성장형 커뮤니티가 될 것 입니다.
+
+</details>
 
 <br>
 
-## 👤 예상 사용자
+## 1.5 👤 예상 사용자
     
 ### 자신의 지식과 노하우를 함께 공유하고자 하는 멘토
 
@@ -139,7 +156,7 @@
 
 <br>
 
-# ⚙️ 기능 설명
+# 2. ⚙️ 기능 설명
 
 ### 📌 골라 들을 수 있는 멘토링
 
@@ -157,9 +174,9 @@
 
 <br>
 
-# ✨ 기대 효과
+# 3. ✨ 기대 효과
 
-## 🍀 의미있고 값진 군생활
+## 3.1 🍀 의미있고 값진 군생활
 
 ### 자발적인 멘토링을 통한 체계적인 자기계발
 
@@ -176,7 +193,7 @@
 
 <br>
 
-## 🔭 발전 가능성
+## 3.2 🔭 발전 가능성
 
 ### 신병 및 초급 간부의 조기 조직사회화 프로그램
 
@@ -188,7 +205,7 @@
 
 <br>
 
-## ⌨ 공개 SW 발전 방향
+## 3.3 ⌨ 공개 SW 발전 방향
 
 ### 공개된 API와 체계적으로 정리된 관련 문서
 
@@ -204,7 +221,7 @@
 
 <br>
 
-# 🖥️ 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
+# 4. 🖥️ 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 
 - ECMAScript 6 지원 브라우저 사용
 - 권장: Google Chrome 버젼 77 이상
@@ -212,7 +229,7 @@
 
 <br>
 
-# 🔧 기술 스택 (Techniques Used)
+# 5. 🔧 기술 스택 (Techniques Used)
 
 ### BackEnd
 
@@ -272,7 +289,7 @@
 
 <br>
 
-# 📀 설치 안내 (Installation Process)
+# 6. 📀 설치 안내 (Installation Process)
 
 ```jsx
 $ git clone git주소
@@ -284,24 +301,73 @@ $ yarn start or npm run start
 
 <br>
 
-# 📋 프로젝트 사용법 (Getting Started)
+# 7. 📋 프로젝트 사용법 (Getting Started)
 
 <br>
 
-# 👥 팀 정보 (Team Information)
+# 8. 👥 팀 정보 (Team Information)
 
-|  이름  |        역할       |                           GitHub IDs                          |         E-Mails         |
-|:------:|:-----------------:|:-------------------------------------------------------------:|:-----------------------:|
-| 이지호 | 조장 / 프론트엔드 |           [mangming2](https://github.com/mangming2)           |   leejiho35@gmail.com   |
-| 박지인 |       백엔드      |            [nagi0101](https://github.com/nagi0101)            |   demon0315@naver.com   |
-| 양현동 |       백엔드      |       [Yanghyeondong](https://github.com/Yanghyeondong)       |   hdyang0686@naver.com  |
-| 이재용 |     프론트엔드    | [VirtualExplorer7613](https://github.com/VirtualExplorer7613) |  roqkfwk7613@gmail.com  |
-| 이채준 |       백엔드      |          [chaejunlee](https://github.com/chaejunlee)          |   chainjaxx@naver.com   |
-| 이현희 |     프론트엔드    |          [nonaninona](https://github.com/nonaninona)          | starcraft0529@gmail.com |
+<table>
+ <tr>
+  <td align='center'>Pics</td>
+  <td align='center'>Names</td>
+  <td align='center'>Roles</td>
+  <td align='center'>GitHub</td>
+  <td align='center'>E-Mail</td>
+ </tr>
+   
+ <tr>
+  <td align='center'><img src="image/1.png" width="50" height="50"></td>
+  <td align='center'>이지호</td>
+  <td align='center'>팀장<br>프로젝트 기획<br>프론트엔드</td>
+  <td align='center'><a href="https://github.com/mangming2"><img src="http://img.shields.io/badge/mangming2-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:leejiho35@gmail.com"><img src="https://img.shields.io/badge/leejiho35@gmail.com-green?logo=gmail&style=social"/></a></td>
+ </tr>
+
+ <tr>
+  <td align='center'><img src="image/2.png" width="50" height="50"></td>
+  <td align='center'>박지인</td>
+  <td align='center'>디비 설계<br>프론트-백 연동<br>백엔드</td>
+  <td align='center'><a href="https://github.com/nagi0101"><img src="http://img.shields.io/badge/nagi0101-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:demon0315@naver.com"><img src="https://img.shields.io/badge/demon0315@naver.com-green?logo=naver&style=social"/></a></td>
+ </tr>
+ 
+ <tr>
+  <td align='center'><img src="image/3.png" width="50" height="50"></td>
+  <td align='center'>양현동</td>
+  <td align='center'>API 설계<br>서버 관리<br>백엔드</td>
+  <td align='center'><a href="https://github.com/Yanghyeondong"><img src="http://img.shields.io/badge/Yanghyeondong-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:hdyang0686@naver.com"><img src="https://img.shields.io/badge/hdyang0686@naver.com-green?logo=naver&style=social"/></a></td>
+ </tr>
+
+ <tr>
+  <td align='center'><img src="image/4.png" width="50" height="50"></td>
+  <td align='center'>이재용</td>
+  <td align='center'>페이지 디자인<br>프론트엔드</td>
+  <td align='center'><a href="https://github.com/VirtualExplorer7613"><img src="http://img.shields.io/badge/VirtualExplorer7613-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:roqkfwk7613@gmail.com"><img src="https://img.shields.io/badge/roqkfwk7613@gmail.com-green?logo=gmail&style=social"/></a></td>
+ </tr>
+
+ <tr>
+  <td align='center'><img src="image/5.png" width="50" height="50"></td>
+  <td align='center'>이채준</td>
+  <td align='center'>발표자료 준비<br>로고 디자인<br>백엔드</td>
+  <td align='center'><a href="https://github.com/chaejunlee"><img src="http://img.shields.io/badge/chaejunlee-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:zheedong@gmail.com"><img src="https://img.shields.io/badge/chainjaxx@naver.com-green?logo=naver&style=social"/></a></td>
+ </tr>
+   
+ <tr>
+  <td align='center'><img src="image/6.png" width="50" height="50"></td>
+  <td align='center'>이현희</td>
+  <td align='center'>Deep Learning (Pytorch)<br>MLOps (Django)</td>
+  <td align='center'><a href="https://github.com/nonaninona"><img src="http://img.shields.io/badge/nonaninona-green?style=social&logo=github"/></a></td>
+  <td align='center'><a href="mailto:starcraft0529@gmail.com"><img src="https://img.shields.io/badge/starcraft0529@gmail.com-green?logo=gmail&style=social"/></a></td>
+ </tr>
+</table>
 
 <br>
 
-# ©️ 저작권 및 사용권 정보 (Copyleft / End User License)
+# 9. ©️ 저작권 및 사용권 정보 (Copyleft / End User License)
 
 * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
 
