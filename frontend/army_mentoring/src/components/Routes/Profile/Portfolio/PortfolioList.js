@@ -64,7 +64,7 @@ function PortfolioList({match, history}) {
 
   return (
     <div>
-      <div className='port_title_2'>내 포트폴리오</div>
+      <div className='port_title_2'>포트폴리오</div>
       <div className="portfolio-body">
         {
           portfolios.map((p)=>{
