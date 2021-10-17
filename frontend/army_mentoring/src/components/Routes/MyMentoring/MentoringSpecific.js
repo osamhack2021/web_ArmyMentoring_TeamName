@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Input } from 'reactstrap';
 import { _addAssignment, _deleteAssignment, _loadAssignment, _updateAssignment, _updateMentoring } from '../../../backend/mentoring';
 import DatePicker from "react-datepicker";
+import note from '../img/note.png';
 
 function MentoringSpecificMento({match, history}){
     const mentoring_id = match.params.id;
@@ -312,7 +313,8 @@ function MentoringSpecificMento({match, history}){
                 </div>
 
                 <div className="memo">
-                    <div className='memo-title'>메모</div>
+                    <div className='memo-title'>메모
+                    <img src={note}/></div>
                     <div id='memo-box' className='memo-box'>
                         <div className='button-container'>
                             <div className='edit-content-button' onClick={goEditMemo}>메모수정</div>              
