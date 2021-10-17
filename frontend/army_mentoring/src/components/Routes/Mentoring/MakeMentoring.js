@@ -122,58 +122,59 @@ function MakeMentoring({history}){
     return (
         <div className="MakeMentoring">
             <div className="make_mentoring_container">
-
+                <div className="head_title"> 멘토링 제작 페이지 </div>
                 <div className="make_mentoring_header">
                     <div className='user_profile'>
                         <img src={user.profile_image} alt="user_profile" />
                     </div>
                     
-                    <div className="thumbnail">
-                        <img className="preview" alt ref={thumbnailPreviewRef} />
-                        <input type="file" accept="image/*" 
-                        onChange={handleUploadImage}/>
-                    </div>
-
-                    <div className="title">
-                        <h2>제목</h2>
-                        <input 
-                        type="text" 
-                        onChange={(e)=>setTitle(e.target.value)} 
-                        />
-                    </div>
-
-                    <div className="tags">
-                        <h2>태그</h2>
-                        <div className="tags_container">
-                            {
-                                tags.map((tag, index)=>{
-                                    return <span className="tag" key={index}>
-                                        {tag.name}
-                                        </span>
-                                })
-                            }
+                    <div className='edit_block'>
+                        <div className="thumbnail">
+                            <img className="preview" alt ref={thumbnailPreviewRef} />
+                            <input type="file" className='thumbnail_input' accept="image/*" 
+                            onChange={handleUploadImage}/>
                         </div>
-                        <input 
-                        type="text" className="tag_input"
-                        onKeyPress={handleEnterPress}
-                        />
-                    </div>
-                    
-                </div>
 
-                <hr />
+                        <div className="title">
+                            {/* <h2>제목</h2> */}
+                            <input 
+                            type="text" className='title_input' placeholder="제목 입력..." spellcheck="false"
+                            onChange={(e)=>setTitle(e.target.value)} 
+                            />
+                        </div>
+
+                        <div className="tags">
+                            {/* <h2>태그</h2> */}
+                            <input 
+                            type="text" className="tag_input" placeholder="태그 입력 후 엔터를 누르세요..." spellcheck="false"
+                            onKeyPress={handleEnterPress}
+                            />
+                            <div className="tags_container">
+                                {
+                                    tags.map((tag, index)=>{
+                                        return <span className="tag" key={index}>
+                                            #{tag.name}
+                                            </span>
+                                    })
+                                }
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
                 
                 <div className="make_mentoring_body">
                     <section className="input_description">
-                        <h2>멘토링 소개</h2>
-                        <textarea 
+                        <div className="sub_title">멘토링 소개 작성</div>
+                        <textarea
+                            className="t_box"
                             onChange={(e)=>{setDescription(e.target.value)}}
                         >
                         </textarea>
                     </section>
                     
                     <section className="input_assignments">
-                        <h2>과제</h2>
+                    <div className="sub_title">과제</div>
                         <div className="make_mentoring_assignments_container">
                             {
                                 assignments.map((assignment, index)=>{
@@ -183,16 +184,18 @@ function MakeMentoring({history}){
                                     />
                                 })
                             }
-                        </div>
                         <button onClick={onAddAssignment}>+</button>
+                        </div>
+                        
                     </section>
                     
                     
                     <section className="input_date">
-                        <h2>날짜 설정</h2>
+                    <div className="sub_title">날짜 설정</div>
                         <div className="start_date_container">
                             <label for="start_date">시작일자:</label> 
                             <input 
+                                className="date_input"
                                 type="datetime-local" id="start_date"
                                 name="start_date"
                                 ref={startDateRef}
@@ -207,6 +210,7 @@ function MakeMentoring({history}){
                         <div className="end_date_container">
                             <label for="end_date">마감일자:</label> 
                             <input 
+                                className="date_input"
                                 type="datetime-local" id="end_date"
                                 name="end_date"
                                 ref={endDateRef}
@@ -220,8 +224,9 @@ function MakeMentoring({history}){
                     </section>
                     
                     <section className="input_portfolio">
-                        <h2>포트폴리오 선택</h2>
+                        <div className="sub_title">포트폴리오 선택</div>
                         <select 
+                            className="selecter"
                             name="portfolio" 
                             id="portfolio"
                             defaultValue={portfolio}
@@ -234,7 +239,7 @@ function MakeMentoring({history}){
                     </section>
 
                     
-                    <div>
+                    <div className="button_container">
                         <button onClick={submitMentoring}>멘토링 등록</button>
                     </div>
                 </div>

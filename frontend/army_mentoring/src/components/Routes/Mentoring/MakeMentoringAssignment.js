@@ -17,7 +17,7 @@ function MakeMentoringAssignment({index, onChange }){
     return (
         <div className="MakeMentoringAssignment" key={index}>
             <div className="title_container">
-                <label>제목</label>
+                <div className="assignment_title">제목</div>
                 <input
                 type="text"
                 className="title"
@@ -25,7 +25,7 @@ function MakeMentoringAssignment({index, onChange }){
                 />
             </div>
             <div className="content_container">
-                <label>내용</label>
+                <div className="content_title">내용</div>
                 <textarea
                 className="content"
                 onChange={e=>setContent(e.target.value)}
@@ -33,7 +33,7 @@ function MakeMentoringAssignment({index, onChange }){
                 </textarea>
             </div>
             <div className="deadline_container">
-                <label>마감 기한</label>
+                <div className="deadline_title">마감 기한</div>
                 <input 
                     type="datetime-local"
                     min={dateTimeNow}
