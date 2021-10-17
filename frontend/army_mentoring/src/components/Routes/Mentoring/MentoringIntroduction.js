@@ -106,7 +106,10 @@ function MentoringIntroduction({match, history}){
                     <Link to={`/profile/${getMentorId(mentor.url)}/portfolio`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
                 </div>
                 <div className='header-content'>
-                    <div className='header-title'>{mentoring.title}</div>
+                    <div className='header-title'>
+                        <div className='header-title-title'>{mentoring.title}</div>
+                        <div className='header-title-during'>{mentoring.start_date}~{mentoring.end_date}</div>
+                    </div>
                     <div className='header-tags'>
                         {
                             mentoring.tags.map((t)=>{
@@ -120,7 +123,11 @@ function MentoringIntroduction({match, history}){
             <div className='content'>
                 <div className="mentoring-introduction">
                     <div className='section-title'>멘토링 소개</div>
-                    <div>{mentoring.description}</div>
+                    <div className='desc-content'>
+                        <div className='quote f'>''</div>
+                        <div className='introduction-description'>{mentoring.description}</div>
+                        <div className='quote l'>''</div>
+                    </div>
                 </div>
 
                 <div className="assignments">
@@ -129,8 +136,9 @@ function MentoringIntroduction({match, history}){
                         {
                             assignments.map((a)=>{
                                 return (<div className='assignment'>
-                                            <div>제목 : {a.title}</div>
-                                            <div>내용 : {a.content}</div>
+                                            <div className='assignment-title'>제목 : {a.title}</div>
+                                            <div className='assignment-content'>내용 : {a.content}</div>
+                                            <div className='assignment-side'>기한 : {a.deadline.substring(0,10)}</div>
                                         </div>)
                             })
                         }
@@ -139,10 +147,14 @@ function MentoringIntroduction({match, history}){
 
                 <div className="mentoring-reviews">
                     <div className='section-title'>후기</div>
-                    <div>
+                    <div className='review-box'>
                         {
                             mentoringReviews.map((r)=>{
-                                return (<div> {r.mentee.username}:{r.review.content} </div>)
+                                return (<div className='review'> 
+                                            <div className='review-creator'>작성자 : {r.mentee.username}</div>
+                                            <div className='review-content'>내용 : {r.review.content}</div>
+                                            <div className='review-side'>작성일 : {r.review.created_at.substring(0,10)}</div> 
+                                        </div>)
                             })
                         }
                     </div>
