@@ -15,21 +15,21 @@
 
 - [🫂 1. 프로잭트 소개](#-1-프로잭트-소개)  
 
-- [⚙️ 2. 기능 설명](#-2-기능-설명)  
+- [⚙️ 2. 기능 설명](#%EF%B8%8F-2-기능-설명)  
 
 - [✨ 3. 기대 효과](#-3-기대-효과)
 
-- [🖥️  4.컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](#-4-컴퓨터-구성-/-필수-조건-안내-(Prerequisites))
+- [🖥️  4.컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](%EF%B8%8F-4-컴퓨터-구성--필수-조건-안내-prerequisites)
 
-- [🔧 5. 기술 스택 (Techniques Used)](#-5-기술-스택-(Techniques-Used))
+- [🔧 5. 기술 스택 (Techniques Used)](#-5-기술-스택-techniques-used)
 
-- [📀 6. 설치 안내 (Installation Process)](#-6-설치-안내-(Installation-Process))
+- [📀 6. 설치 안내 (Installation Process)](#-6-설치-안내-installation-process)
 
-- [📋 7. 프로젝트 사용법 (Getting Started)](#-7-프로젝트-사용법-(Getting-Started))
+- [📋 7. 프로젝트 사용법 (Getting Started)](#-7-프로젝트-사용법-getting-started)
 
-- [👥 8. 팀 정보 (Team Information)](#-8-팀-정보-(Team-Information))
+- [👥 8. 팀 정보 (Team Information)](#-8-팀-정보-team-information)
 
-- [©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-9-저작권-및-사용권-정보-(Copyleft-/-End-User-License))
+- [©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-9-저작권-및-사용권-정보-copyleft--end-user-license)
 
 <br>
 
@@ -54,8 +54,6 @@
 ## 🤔 1.2 문제 인식
 
 ### 진로, 학업에 대한 고민
-
-<br>
 
 ![stat](image/stat.png)
 
@@ -156,7 +154,7 @@
 
 <br>
 
-# 3. ✨ 기대 효과
+# ✨ 3. 기대 효과
 
 ## 🍀 3.1 의미있고 값진 군생활
 
@@ -191,11 +189,11 @@
 
 ### 공개된 API와 체계적으로 정리된 관련 문서
 
-공개된 API와 체계적으로 정리된 관련 문서로 군토&군티는 iOS 앱, 안드로이드 앱 등 다양한 플랫폼으로 확장 가능합니다. 현재 군토&군티는 웹 앱으로 개발되었습니다. iOS 앱, 안드로이드 앱으로의 확장은 국군 장병들의 사용에 대한 편리성과 접근성을 높일 것입니다. 높은 접근성은 국군 장병의 더욱 적극적인 참여를 장려할 수 있습니다. 또 음성 채팅과 같이 스마트폰 앱의 특징을 활용하여 멘토링을 더욱 효과적으로 실시할 수 있을 것입니다.
+저희는 API를 공개할 목적으로 개발을 시작하였습니다. OPEN API를 위해 관련된 정보들을 체계적인 문서로 정리하였습니다. 이 문서를 사용해 군토&군티는 iOS 앱, 안드로이드 앱 등 다양한 플랫폼으로 확장 가능합니다. 모바일 앱은 국군 장병들의 사용에 대한 편리성과 접근성을 높이며 국군 장병의 적극적인 참여를 장려할 수 있습니다. 음성 채팅과 같이 스마트폰 앱의 장점을 활용하여 멘토링을 더욱 효과적으로 실시할 수 있습니다.
 
 ### 기능별 MSA를 통해 가능한 확장 유연성
 
-저희는 MSA 개념을 적극적으로 도입해 개발하였습니다. 채팅 기능이 대표적인 예입니다. 서버는 django(python)를 이용했고 채팅 기능은 socket.io(javascript)를 이용하였습니다. MSA와 자세한 문서를 작성해 유연한 확장성을 갖추었습니다. socket.io를 이용해 음성 채팅으로 기능을 추가할 수 있습니다. 이외에도 추가 확장을 위한 프레임워크를 큰 충돌 없이 도입 가능합니다.
+저희는 개발 과정에서 MSA 개념을 적극적으로 도입했습니다. 군토&군티는 MSA와 상세한 문서화를 통해 유연한 확장성을 갖추었습니다. 채팅 기능이 대표적인 예입니다. 데이터 서버는 django(python)를 이용했고 채팅 서버는 socket.io(javascript)를 이용하였습니다. socket.io를 이용해 음성 채팅 기능을 추가할 수 있습니다. 이외에도 추가 확장을 위한 새로운 프레임워크도 큰 충돌 없이 도입 가능합니다.
 
 ### 국군 장병의 가려운 부분을 알려주는 데이터
 
@@ -339,7 +337,7 @@ $ yarn start or npm run start
  <tr>
   <td align='center'><img src="image/6.png" width="50" height="50"></td>
   <td align='center'>이현희</td>
-  <td align='center'>Deep Learning (Pytorch)<br>MLOps (Django)</td>
+  <td align='center'>페이지 디자인<br>프론트엔드</td>
   <td align='center'><a href="https://github.com/nonaninona"><img src="http://img.shields.io/badge/nonaninona-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:starcraft0529@gmail.com"><img src="https://img.shields.io/badge/starcraft0529@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
@@ -352,9 +350,3 @@ $ yarn start or npm run start
 * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
 
 This project is licensed under the terms of the MIT license.
-
-※ [라이선스 비교표(클릭)](https://olis.or.kr/license/compareGuide.do)
-
-※ [Github 내 라이선스 키워드(클릭)](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/licensing-a-repository)
-
-※ [\[참조\] Github license의 종류와 나에게 맞는 라이선스 선택하기(클릭)](https://flyingsquirrel.medium.com/github-license%EC%9D%98-%EC%A2%85%EB%A5%98%EC%99%80-%EB%82%98%EC%97%90%EA%B2%8C-%EB%A7%9E%EB%8A%94-%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4-%EC%84%A0%ED%83%9D%ED%95%98%EA%B8%B0-ae29925e8ff4)
