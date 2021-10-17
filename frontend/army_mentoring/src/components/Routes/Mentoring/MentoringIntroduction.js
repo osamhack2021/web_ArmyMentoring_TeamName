@@ -41,7 +41,8 @@ function MentoringIntroduction({match, history}){
 
     const [mentoring, setMentoring] = useState({
         tags : [],
-        assignments : []
+        assignments : [],
+        mentees : []
     });
     const [mentor, setMentor] = useState({});
     const [assignments, setAssignments] = useState([]);
@@ -127,6 +128,7 @@ function MentoringIntroduction({match, history}){
                     <div className='header-title'>
                         <div className='header-title-title'>{mentoring.title}</div>
                         <div className='header-title-during'>{mentoring.start_date}~{mentoring.end_date}</div>
+                        <div className='number-of-mentee'>참여 중인 멘티 수 : {mentoring.mentees.length}</div>
                     </div>
                     <div className='header-tags'>
                         {
