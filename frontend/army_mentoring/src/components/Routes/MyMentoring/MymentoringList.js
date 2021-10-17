@@ -60,7 +60,7 @@ function MymentoringList({match, history}){
                         let t = element.split('/');
                         let mid = t[4];
                         return (
-                            <Link to={`${match.url}/${mid}`} key={index}>
+                            <Link to={`${match.url}/${mid}`} key={index} className="more">
                                 <MyMentoringCard mentoringUrl={element}  />
                             </Link>
                             )
@@ -78,8 +78,8 @@ function MymentoringList({match, history}){
                         let t = element.split('/');
                         let mid = t[4];
                         return (
-                            <Link to={`${match.url}/${mid}`}>
-                                <MyMentoringCard mentoringUrl={element} key={index} />
+                            <Link to={`${match.url}/${mid}`} key={index} className="more">
+                                <MyMentoringCard mentoringUrl={element} />
                             </Link>
                             )
                     })
