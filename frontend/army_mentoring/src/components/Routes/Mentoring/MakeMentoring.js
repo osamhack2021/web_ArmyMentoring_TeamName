@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 
+import axios from 'axios';
+
 import { UserContext } from "../../../context/Context";
 import MakeMentoringAssignment from './MakeMentoringAssignment';
 
 import './MakeMentoring.scss';
 import { updateUserContextBySavedToken } from '../../../backend/auth';
 import { getFromUrl } from '../../../backend/common';
-import { _addMentoring } from '../../../backend/mentoring';
+import { _addMentoring, _addMultipleAssigment } from '../../../backend/mentoring';
 
 function MakeMentoring({history}){
     const today=new Date();
@@ -104,11 +106,12 @@ function MakeMentoring({history}){
             form.append('portfolio', portfolio);
             form.append('start_date', startDate);
             form.append('end_date', endDate);
-            form.append('tags', tags);
             form.append('thumbnail', thumbnail);
             form.append('mentor', user.url);
-            form.append('memo', "새로운 메모를 입력해보세요!");
-            await _addMentoring(form);
+            const mentoringData = await (await _addMentoring(form)).data;
+            const mentoringUrl = mentoringData.url;
+            await axios.patch(mentoringUrl, {tags});
+            await _addMultipleAssigment(assignments, mentoringUrl);
 
             history.push('/mymentoring#asMentor');
         }catch (error){

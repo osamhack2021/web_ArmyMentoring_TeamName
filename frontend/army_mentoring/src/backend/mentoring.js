@@ -19,6 +19,20 @@ const _addAssignment = async (title, content, mentoring_id, deadline) =>{
     }
 }
 
+const _addMultipleAssigment = async (assignmentList, mentoringUrl) => {
+    try {
+        const response = await axios.all(assignmentList.map((assignment)=>{
+            return axios.post('assignment', {
+                ...assignment, 
+                'mentoring' : mentoringUrl
+            })
+        }))
+        return response;
+    } catch (error) {
+        throw(error);
+    }
+}
+
 const _loadAssignment = async (assignment_id) =>{
     try{
         const response = await axios({
@@ -107,5 +121,6 @@ const _loadMentoringReviewList = async () => {
         throw error;
     }
 }
-export {_addMentoring, _addAssignment, _loadAssignment, _loadMentoringReviewList, _loadMentoring, _loadMentoringList , _deleteAssignment, _updateAssignment };
 
+
+export {_addMentoring, _addAssignment, _loadAssignment, _addMultipleAssigment, _loadMentoringReviewList, _loadMentoring, _loadMentoringList , _deleteAssignment, _updateAssignment };
