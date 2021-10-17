@@ -29,7 +29,7 @@ function Header({match, history}){
 
     return(
         <div className="header_div">
-            <img className="logo_image" alt="logo" src={logo}/>
+            <Link to='/'><img className="logo_image" alt="logo" src={logo}/></Link>
             <ul className="menu_list">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/mentoring">Mentoring</Link></li>
