@@ -184,7 +184,9 @@ function MakeMentoring({history}){
                                     />
                                 })
                             }
-                        <button onClick={onAddAssignment}>+</button>
+                        <div className="button_set">
+                            <button onClick={onAddAssignment}>&nbsp;+&nbsp;</button>
+                        </div>
                         </div>
                         
                     </section>
@@ -240,7 +242,9 @@ function MakeMentoring({history}){
 
                     
                     <div className="button_container">
-                        <button onClick={submitMentoring}>멘토링 등록</button>
+                        <div className="button_set">
+                            <button onClick={submitMentoring}>멘토링 등록</button>
+                        </div>
                     </div>
                 </div>
 

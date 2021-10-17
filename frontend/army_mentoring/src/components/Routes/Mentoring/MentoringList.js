@@ -62,7 +62,7 @@ function MentoringList({match}){
                         />
                     </div>
                 </div>
-                <hr />
+                <hr/>
                 <div className='mentoring-list-box'>
                     {searchResult.map((m)=>{
                             return (
@@ -76,7 +76,9 @@ function MentoringList({match}){
           </div>
 
 
-            <Link to={`${match.url}/make`} id="button"><button>멘토링 만들기</button></Link>
+            <Link to={`${match.url}/make`} id="button" className="button_more">
+                <button>멘토링 만들기</button>
+            </Link>
         </div>
     )
 

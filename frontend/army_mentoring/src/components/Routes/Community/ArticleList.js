@@ -50,8 +50,8 @@ function ArticleList({match}) {
                     </div>
                 </div>
                 <div className='search_bar'>
-                        <Input onChange={(e)=>{searchArticle(e.target.value)}} type='text' className='txt_field' placeholder='게시글 제목..'></Input>
-                        <div className='s_button'>검색</div>
+                        <Input onChange={(e)=>{searchArticle(e.target.value)}} type='text' className='txt_field' placeholder='검색할 게시글 제목..'></Input>
+                        {/* <div className='s_button'>검색</div> */}
                     </div>
 
             {searchResult.map((li) => {
