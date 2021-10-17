@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 function MentoringIntroduction({match, history}){
 
     const mentoring_id = match.params.id;
+    let isJoin = false;
     const [user, setUser] = useContext(UserContext);
     const menu = 
     [
@@ -49,7 +50,14 @@ function MentoringIntroduction({match, history}){
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
-
+            isJoin = (getId(res.data.mentor) == getId(user.url))? true : false;
+            res.data.mentees.forEach((mentee)=>{
+                if(getId(mentee) == getId(user.url)){
+                    isJoin = true;
+                    return false;
+                }
+            })
+            console.log(isJoin);
             Promise.all(
                 res.data.assignments.map((a)=>{
                     return _loadAssignment(getId(a))
@@ -79,7 +87,6 @@ function MentoringIntroduction({match, history}){
                 )
                 .then(res=>{
                     setMentoringReviews(res);
-                    console.log(res);
                 })
             })
             .catch(err=>{console.log(err.response)})
@@ -98,13 +105,11 @@ function MentoringIntroduction({match, history}){
     }, []);
 
     const joinMentoring = () =>{
-        console.log(mentoring);
         const c = Object.assign({}, mentoring);
         c.mentees.push(user.url);
-        console.log(c);
         _updateMentoring(c, mentoring_id)
         .then(res=>{
-            console.log(res);
+            load();
         })
         .catch(err=>{console.log(err.response)})
     }
@@ -135,7 +140,12 @@ function MentoringIntroduction({match, history}){
 
             <div className='join-button-container'>
                 <div className='join-button-edge'>
-                    <div onClick={joinMentoring} className='join-button'>멘토링 참여하기</div>
+                    {
+                        isJoin ? 
+                        (<div onClick={joinMentoring} className='join-button'>멘토링 참여하기</div>)
+                        :
+                        (<Link to={`/mymentoring/${mentoring_id}`} className='join-button'>내 멘토링으로 이동</Link>)
+                    }
                 </div>
             </div>
 
