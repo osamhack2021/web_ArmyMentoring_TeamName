@@ -4,7 +4,7 @@ import { UserContext } from '../../../context/Context';
 import './MentoringSpecific.scss';
 import { Link } from 'react-router-dom';
 import { Input } from 'reactstrap';
-import { _addAssignment, _deleteAssignment, _loadAssignment, _updateAssignment } from '../../../backend/mentoring';
+import { _addAssignment, _deleteAssignment, _loadAssignment, _updateAssignment, _updateMentoring } from '../../../backend/mentoring';
 import DatePicker from "react-datepicker";
 
 function MentoringSpecificMento({match, history}){
@@ -21,6 +21,7 @@ function MentoringSpecificMento({match, history}){
     const [assignments, setAssignments] = useState([]);
     const [endDate, setEndDate] = useState(new Date());
     const [editEndDate, setEditEndDate] = useState(new Date());
+    const [memoText, setMemoText] = useState('');
 
     const getId = (url)=>{
         const t = url.split('/');
@@ -185,6 +186,35 @@ function MentoringSpecificMento({match, history}){
     }
 
 
+    const goEditMemo = ()=>{
+        const e = document.getElementById('memo-box-edit');
+        const b = document.getElementById('memo-box');
+        e.className='memo-box';
+        b.className='memo-box h';
+
+        const i = document.getElementById('memo-edit');
+        i.value = mentoring.memo;
+    }
+    const exitEditMemo = ()=>{
+        const e = document.getElementById('memo-box-edit');
+        const b = document.getElementById('memo-box');
+        e.className='memo-box h';
+        b.className='memo-box';
+
+        const i = document.getElementById('memo-edit');
+        i.value = ''
+    }
+
+    const editMemo = ()=>{
+        const m = Object.assign({}, mentoring);
+        m.memo = memoText;
+        _updateMentoring(m, mentoring_id)
+        .then(res=>{
+            load();
+            exitEditMemo();
+        })
+        .catch(err=>{console.log(err.response)})
+    }
 
     return (
         <div className='specific-mentor-body'>
@@ -281,9 +311,16 @@ function MentoringSpecificMento({match, history}){
 
                 <div className="memo">
                     <div className='memo-title'>메모</div>
-                    <div className='memo-box'>
-                        <div className='edit-content'>메모 수정</div>
+                    <div id='memo-box' className='memo-box'>
+                        <div className='edit-content' onClick={goEditMemo}>메모 수정</div>
                         <div className='memo-content'>{mentoring.memo}</div>
+                    </div>
+                    <div id='memo-box-edit' className='memo-box h'>
+                        <div className='edit-content'>
+                            <div onClick={editMemo}>수정</div>
+                            <div onClick={exitEditMemo}>취소</div>
+                        </div>
+                        <Input type='textarea' id='memo-edit' onChange={(e)=>{setMemoText(e.target.value)}}></Input>
                     </div>
                 </div>
             </div>
