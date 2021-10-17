@@ -221,8 +221,8 @@ function MentoringSpecificMento({match, history}){
             <div className="title-container" id="">
                 <div className='mentor-content'>
                     <img alt="mentor profile"></img>
-                    <Link to={`/profile/${getMentorId()}`}>멘토 : {mentor.username}</Link><br />
-                    <Link to={`/profile/${getMentorId()}/portfolio/${getPortfolioId()}`}>포트폴리오 보러 가기</Link>
+                    <Link className='mentor-name' to={`/profile/${getMentorId()}`}>멘토 : {mentor.username}</Link><br />
+                    <Link classname='mentor-portfolio' to={`/profile/${getMentorId()}/portfolio/${getPortfolioId()}`}>포트폴리오 보러 가기</Link>
                 </div>
                 <div className='other-content'>
                     <div className='title-content'>

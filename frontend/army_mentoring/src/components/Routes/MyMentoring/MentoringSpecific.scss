@@ -13,7 +13,7 @@
         height:500px;
         background-color: $primary;
         border-radius: 0px 30px 30px 30px;
-        padding:10px;
+        padding:30px;
         .mentor-content{
             img {
                 display:block;
@@ -24,6 +24,10 @@
             a {
                 text-decoration: none;
                 color:$black;
+                &:hover{
+                    color:$gray2;
+                    transition: 500ms;
+                }
             }
         }
         .other-content{
@@ -69,16 +73,24 @@
         .button-border{
             border-radius: 50px 0px 50px 50px;
             border:3px solid $secondary;
-            margin-right:20px;
+            margin-right:40px;
 
             .chat-button{
                 display:block;
                 text-decoration: none;
-                padding:10px 20px;
+                padding:20px 40px;
                 margin:10px;
                 background-color: $secondary;
                 color:$white;
+                border:3px solid $secondary;
                 border-radius: 50px 0px 50px 50px;
+
+                &:hover{
+                  background-color: white;
+                  border: 3px solid $tertiary;
+                  color: $tertiary;
+                  transition: 500ms;
+                }
             }
 
         }
@@ -138,8 +150,17 @@
                             .button{
                                 padding:5px 10px;
                                 margin-left:10px;
-                                background-color: $primary;
+                                background-color: $secondary;
                                 border-radius: 10px;
+                                border:3px solid $secondary;
+                                color:$white;
+                                border-radius: 20px;
+                                &:hover{
+                                    color:$tertiary;
+                                    background-color: $white;
+                                    border:3px solid $tertiary;
+                                    transition: 500ms;
+                                }
                             }
                         }
                     }
@@ -163,8 +184,16 @@
                     align-items: center;
                     width:200px;
                     height:50px;
-                    background-color: $primary;
+                    background-color: $secondary;
                     border-radius: 30px;
+                    border:3px solid $secondary;
+                    color:$white;
+                    &:hover{
+                        color:$tertiary;
+                        background-color: $white;
+                        border:3px solid $tertiary;
+                        transition: 500ms;
+                    }
                 }
                 .h{
                     display:none;
@@ -180,7 +209,16 @@
                     .button{
                         padding:5px 10px;
                         margin-left:10px;
-                        background-color: $primary;
+                        background-color: $secondary;
+                        border:3px solid $secondary;
+                        color:$white;
+                        border-radius: 20px;
+                        &:hover{
+                            color:$tertiary;
+                            background-color: $white;
+                            border:3px solid $tertiary;
+                            transition: 500ms;
+                        }
                     }
                 }
             }
@@ -206,8 +244,17 @@
                     .edit-content-button{
                         display: flex;
                         padding:5px 10px;
-                        background-color: $primary;
+                        background-color: $secondary;
                         border-radius: 5px;
+                        border:3px solid $secondary;
+                        color:$white;
+                        border-radius: 20px;
+                        &:hover{
+                            color:$tertiary;
+                            background-color: $white;
+                            border:3px solid $tertiary;
+                            transition: 500ms;
+                        }
                     }
                 }
                 .memo-content{
@@ -221,15 +268,33 @@
                     .confirm{
                         display: flex;
                         padding:5px 10px;
-                        background-color: $primary;
+                        background-color: $secondary;
                         border-radius: 5px;
+                        border:3px solid $secondary;
+                        color:$white;
+                        border-radius: 20px;
+                        &:hover{
+                            color:$tertiary;
+                            background-color: $white;
+                            border:3px solid $tertiary;
+                            transition: 500ms;
+                        }
                     }
                     .cancel{
                         display: flex;
                         padding:5px 10px;
-                        background-color: $primary;
+                        background-color: $secondary;
                         margin-left:10px;
                         border-radius: 5px;
+                        border:3px solid $secondary;
+                        color:$white;
+                        border-radius: 20px;
+                        &:hover{
+                            color:$tertiary;
+                            background-color: $white;
+                            border:3px solid $tertiary;
+                            transition: 500ms;
+                        }
                     }
                 }
                 .memo-edit{
