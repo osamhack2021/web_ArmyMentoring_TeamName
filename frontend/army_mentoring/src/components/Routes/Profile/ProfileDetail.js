@@ -84,7 +84,7 @@ function Profile({match}) {
   
   return (
     <div className="profile">
-      <div className="pro_title">내 프로필</div>
+      <div className="pro_title">{isMe ? '내 프로필' : user.username + '의 프로필'}</div>
       <div className="intro">
         <img className="my-img" src={user.profile_image} alt="내 사진"></img>
         <div className="desc-col">
