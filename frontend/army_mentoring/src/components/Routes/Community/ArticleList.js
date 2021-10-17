@@ -9,6 +9,8 @@ import { Input } from 'reactstrap';
 function ArticleList({match}) {
 
   const [list,setList] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [searchResult, setSearchResult] = useState([]);
 
   const load = ()=>{
       _loadArticleList()
@@ -24,12 +26,20 @@ function ArticleList({match}) {
                 return -1;
           })
           setList(res.data);
-      }).catch(err=>{
+          setSearchResult(res.data);
+        }).catch(err=>{
           console.log(err.response);
       });
   }
   useEffect(()=>{ load(); }, []);
 
+  const searchArticle = (text)=>{
+    setSearchText(text);
+    const result = list.filter((article)=>{
+        return article.title.toLowerCase().includes(text.toLowerCase());
+    });
+    setSearchResult(result);
+  }
     return (
         <div>
             <div className='community_board'>
@@ -40,11 +50,11 @@ function ArticleList({match}) {
                     </div>
                 </div>
                 <div className='search_bar'>
-                        <Input type='text' className='txt_field' placeholder='게시글 제목..'></Input>
+                        <Input onChange={(e)=>{searchArticle(e.target.value)}} type='text' className='txt_field' placeholder='게시글 제목..'></Input>
                         <div className='s_button'>검색</div>
                     </div>
 
-            {list.map((li) => {
+            {searchResult.map((li) => {
                 let u = li.url.split('/');
                 let id = u[4];
                 return (
