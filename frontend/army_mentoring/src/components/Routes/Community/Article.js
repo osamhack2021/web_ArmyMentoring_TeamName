@@ -278,8 +278,8 @@ function Article({match, history}) {
                             </div>
                             <div className='tail'>
                                 <div className="update">
-                                    <div className="delete" onClick={()=>{deleteComment(id)}}>삭제</div>
-                                    <div className="edit" onClick={()=>{goEditComment(id)}}>수정</div>
+{/*                                     <div className="delete" onClick={()=>{deleteComment(id)}}>삭제</div>
+                                    <div className="edit" onClick={()=>{goEditComment(id)}}>수정</div> */}
                                 </div>
                                 <div className='like'><img src={heartImg} alt="heart" onClick={(e)=>{clickCommentLikes(e, id)}}></img>{comment.liked_user.length}</div>
                                 <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
@@ -309,8 +309,8 @@ function Article({match, history}) {
                 })}
             </div>
             <div className='buttons'>
-                <div className='remove button' onClick={deleteArticle}>삭제</div>
-                <Link className='edit button' to={`${match.url}/edit`}>수정</Link>
+{/*                 <div className='remove button' onClick={deleteArticle}>삭제</div>
+                <Link className='edit button' to={`${match.url}/edit`}>수정</Link> */}
                 <div className='back button' onClick={()=>{history.goBack()}}>뒤로</div>
             </div>
         </div>
