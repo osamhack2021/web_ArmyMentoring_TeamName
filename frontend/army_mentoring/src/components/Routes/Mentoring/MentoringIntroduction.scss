@@ -3,15 +3,16 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 10px;
 	width: 100%;
+	font-family: 'Do Hyeon', sans-serif;
 
 	.header{
 		display:flex;
 		flex-direction: row;
 		justify-content: center;
 		background-color: $primary;
-		padding:15px;
+		width:100%;
+		padding:30px;
 		border-radius: 0px 30px 30px 30px;
 		.header-mentor{
 			display:flex;
@@ -37,11 +38,26 @@
 				display:flex;
 				flex-direction: column;
 				justify-content: center;
-				font-weight: bold;
-				font-size: 50px;
-				color:$white;
 				width:100%;
 				height:90%;
+				.header-title-title{
+					display:flex;
+					flex-direction: row;
+					justify-content: center;
+					width:100%;
+					font-weight: bold;
+					font-size: 50px;
+					color:$white;
+				}
+				.header-title-during{
+					display:flex;
+					flex-direction: row;
+					justify-content: center;
+					width:100%;
+					font-size: 30px;
+					color:$black;
+
+				}
 			}
 			.header-tags{
 				display:flex;
@@ -61,32 +77,120 @@
 		display:flex;
 		flex-direction: column;
 		width:90%;
-		margin: 0px auto;
+		margin: 10px auto;
 		.section-title{
 			display:flex;
 			flex-direction: row;
 			justify-content: flex-start;
 			font-weight: bold;
 			font-size:50px;
+			margin-bottom: 5px;
 		}
+
 		.mentoring-introduction{
 			display:flex;
 			flex-direction: column;
+			margin-bottom: 30px;
+			font-size: 30px;
+			.desc-content{
+				border: 5px solid $secondary;
+				width: 100%;
+				border-radius: 30px;
+				padding:30px;
+				.quote{
+					display:flex;
+					flex-direction: row;
+					font-weight: bold;
+					font-size: 30px;
+				}
+				.f{
+					justify-content: flex-start;
+				}
+				.l{
+					justify-content: flex-end;
+				}
+			}
 		}
 	
 		.assignments{
 			display:flex;
 			flex-direction: column;
-			.assignment{
-				border:1px solid $black;
-				margin: 10px 0px;
+			margin-bottom:30px;
+			font-size: 30px;
+			.assignment-box{
+				border: 5px solid $secondary;
+				width: 100%;
+				border-radius: 30px;
+				padding:30px;
+				.assignment{
+					display:flex;
+					flex-direction: row;
+					border:1px solid $primary;
+					border-radius: 10px;
+					padding:30px;
+					height:200px;
+					margin: 10px 0px;
+					.assignment-title{
+						display:flex;
+						flex-direction: column;
+						justify-content: flex-start;
+						width:20%;
+					}
+					.assignment-content{
+						display:flex;
+						flex-direction: column;
+						justify-content: center;
+						width:65%;
+					}
+					.assignment-side{
+						display:flex;
+						flex-direction: column;
+						justify-content: flex-end;
+						width:15%;
+						font-size: 15px;
+					}
+				}
 			}
 		}
 	
 		.mentoring-reviews{
 			display:flex;
 			flex-direction: column;
-	
+			font-size: 30px;
+			.review-box{
+				border: 5px solid $secondary;
+				width: 100%;
+				border-radius: 30px;
+				padding:30px;
+				.review{
+					display: flex;
+					flex-direction: row;
+					border:1px solid $primary;
+					border-radius: 10px;
+					padding:30px;
+					height:200px;
+					margin: 10px 0px;
+					.review-creator{
+						display:flex;
+						flex-direction: column;
+						justify-content: flex-start;
+						width:20%;
+					}
+					.review-content{
+						display:flex;
+						flex-direction: column;
+						justify-content: center;
+						width:65%;
+					}
+					.review-side{
+						display:flex;
+						flex-direction: column;
+						justify-content: flex-end;
+						width:15%;
+						font-size: 15px;
+					}
+				}
+			}
 		}
 
 	}
