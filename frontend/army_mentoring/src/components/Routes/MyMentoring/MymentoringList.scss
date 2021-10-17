@@ -8,26 +8,26 @@
         background-color: white;
         align-items:flex-start;
         justify-content: center;
-
-        & > *{
-            margin: 0 100px;
-        }
-
+        
+        
         & > h2 {
-            font-weight: bold;
-            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Do Hyeon', sans-serif;
+            font-size: 30px;
             margin-bottom: 40px;
         }
-
+        
         & + .section {
-            margin-top: 60px;
-            height: 600px;
+            // margin-top: 60px;
+            padding: 50px 150px;
+            // height: 600px;
         }
 
-        .mentoring_cards{
-            display: flex;
+        & >.mentoring_cards{
+            display: grid;
+            row-gap: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, auto));
             width: 100%;
-            margin: 0 50px;
             
             & > .more{
                 text-decoration: none;
@@ -41,16 +41,15 @@
         }
     }
 
-    & > .recent-container {
+    & > .recent-wrapper {
         & > .recent {
-            margin: 0;
             width: 100%;
             height: 75%;
-            background-color: $primary;
-            padding: 20px 60px;
-            padding-bottom: 40px;
+            margin: 0;
+            padding: 20px 150px 40px 150px;
             display: flex;
             flex-direction: column;
+            background-color: $primary;
             
             & > h2 {
                 font-family: 'Do Hyeon', sans-serif;
@@ -58,6 +57,12 @@
                 width: 100%;
                 text-align: left;
                 padding: 20px 0px;
+            }
+
+            & > .card-wrapper {
+                & > a {
+                    text-decoration: none;
+                }
             }
         }
     }
