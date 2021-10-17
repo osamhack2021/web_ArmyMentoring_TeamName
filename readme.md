@@ -13,41 +13,41 @@
 
 <summary>(펼치기)</summary>
 
-- [🫂 프로잭트 소개](#🫂-프로잭트-소개)  
+- [🫂 프로잭트 소개](#-프로잭트-소개)  
 
-    - [🗺 Overview](###🗺-Overview)  
+    - [🗺 Overview](###-Overview)  
 
-    - [🤔 문제 인식](##🤔-문제-인식)  
+    - [🤔 문제 인식](##-문제-인식)  
 
-    - [💡 해결 방안](##💡-해결-방안)  
+    - [💡 해결 방안](##-해결-방안)  
 
-    - [💭 상황 설정](##💭-상황-설정)  
+    - [💭 상황 설정](##-상황-설정)  
 
-    - [👤 예상 사용자](##👤-예상-사용자)  
+    - [👤 예상 사용자](##-예상-사용자)  
 
-- [⚙️ 기능 설명](#⚙️-기능-설명)  
+- [⚙️ 기능 설명](#-기능-설명)  
 
     - 
 
-- [✨ 기대 효과](#✨-기대-효과)
+- [✨ 기대 효과](#-기대-효과)
 
-    - [🍀 의미있고 값진 군생활](##🍀-의미있고-값진-군생활)
+    - [🍀 의미있고 값진 군생활](##-의미있고-값진-군생활)
 
-    - [🔭 발전 가능성](##🔭-발전-가능성)
+    - [🔭 발전 가능성](##-발전-가능성)
 
-    - [⌨ 공개 SW 발전 방향](##⌨-공개-SW-발전-방향)
+    - [⌨ 공개 SW 발전 방향](##-공개-SW-발전-방향)
 
-- [🖥️ 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](#🖥️-컴퓨터-구성-/-필수-조건-안내-(Prerequisites))
+- [🖥️ 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](#-컴퓨터-구성-/-필수-조건-안내-(Prerequisites))
 
-- [🔧 기술 스택 (Techniques Used)](#🔧-기술-스택-(Techniques-Used))
+- [🔧 기술 스택 (Techniques Used)](#-기술-스택-(Techniques-Used))
 
-- [📀 설치 안내 (Installation Process)](#📀-설치-안내-(Installation-Process))
+- [📀 설치 안내 (Installation Process)](#-설치-안내-(Installation-Process))
 
-- [📋 프로젝트 사용법 (Getting Started)](#📋-프로젝트-사용법-(Getting-Started))
+- [📋 프로젝트 사용법 (Getting Started)](#-프로젝트-사용법-(Getting-Started))
 
-- [👥 팀 정보 (Team Information)](#👥-팀-정보-(Team-Information))
+- [👥 팀 정보 (Team Information)](#-팀-정보-(Team-Information))
 
-- [# ©️ 저작권 및 사용권 정보 (Copyleft / End User License)](#©️-저작권-및-사용권-정보-(Copyleft-/-End-User-License))
+- [# ©️ 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-저작권-및-사용권-정보-(Copyleft-/-End-User-License))
 
 </details>
 
