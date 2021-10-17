@@ -62,7 +62,7 @@ const _updateAssignment = async (title, content, mentoring_id,  deadline, assign
     }
 }
 
-const _loadMentoring = async () =>{
+const _loadMentoringList = async () =>{
     try{
         const response = await axios({
             method : 'GET',
@@ -74,6 +74,19 @@ const _loadMentoring = async () =>{
     }
 }
 
+const _loadMentoring = async (mentoring_id) =>{
+    try{
+        const response = await axios({
+            method : 'GET',
+            url : '/mentoring/' + mentoring_id
+        })
+        return response;
+    } catch (error){
+        throw error;
+    }
+}
+
+
 const _addMentoring = async (form) => {
     try {
         const response = await axios.post("mentoring", form)
@@ -83,5 +96,16 @@ const _addMentoring = async (form) => {
     }
 }
 
-export {_addMentoring, _addAssignment, _loadAssignment,_loadMentoring , _deleteAssignment, _updateAssignment };
+const _loadMentoringReviewList = async () => {
+    try {
+        const response = await axios({
+            method : 'GET',
+            url : '/user-review'
+        })
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+export {_addMentoring, _addAssignment, _loadAssignment, _loadMentoringReviewList, _loadMentoring, _loadMentoringList , _deleteAssignment, _updateAssignment };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState }  from 'react';
 import { Link } from 'react-router-dom';
 import './MentoringList.scss';
 import { Input } from 'reactstrap';
-import { _loadMentoring } from '../../../backend/mentoring';
+import { _loadMentoringList } from '../../../backend/mentoring';
 
 function MentoringList({match}){
 
@@ -35,7 +35,7 @@ function MentoringList({match}){
         return t[4];
     }
     const load = ()=>{
-        _loadMentoring()
+        _loadMentoringList()
         .then(res=>{
             console.log(res);
             setMentoringList(res.data);
