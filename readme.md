@@ -35,7 +35,7 @@
 
 # 🫂 1. 프로잭트 소개
 
-## 🗺 1.1 Overview
+## 🗺 1.1. Overview
 
 '군토&군티'는 멘토링에 필요한 모든 것을 제공합니다.
 
@@ -51,7 +51,7 @@
 
 <br>
 
-## 🤔 1.2 문제 인식
+## 🤔 1.2. 문제 인식
 
 ### 진로, 학업에 대한 고민
 
@@ -68,7 +68,7 @@
 <br>
     
 
-## 💡 1.3 해결 방안
+## 💡 1.3. 해결 방안
     
 ### 경력과 역량 개발에 효과적인 멘토링
 
@@ -76,7 +76,7 @@
 
 <br>
 
-## 💭 1.4 상황 설정
+## 💭 1.4. 상황 설정
     
 ### 입대를 앞둔 사람의 고민과 결정 - 죽느냐 사느냐, 그것이 문제로다
 
@@ -117,7 +117,7 @@
 
 <br>
 
-## 👤 1.5 예상 사용자
+## 👤 1.5. 예상 사용자
     
 ### 자신의 지식과 노하우를 함께 공유하고자 하는 멘토
 
@@ -156,7 +156,7 @@
 
 # ✨ 3. 기대 효과
 
-## 🍀 3.1 의미있고 값진 군생활
+## 🍀 3.1. 의미있고 값진 군생활
 
 ### 자발적인 멘토링을 통한 체계적인 자기계발
 
@@ -173,7 +173,7 @@
 
 <br>
 
-## 🔭 3.2 발전 가능성
+## 🔭 3.2. 발전 가능성
 
 ### 신병 및 초급 간부의 조기 조직사회화 프로그램
 
@@ -185,11 +185,13 @@
 
 <br>
 
-## ⌨ 3.3 공개 SW 발전 방향
+## ⌨ 3.3. 공개 SW 발전 방향
 
 ### 공개된 API와 체계적으로 정리된 관련 문서
 
 저희는 API를 공개할 목적으로 개발을 시작하였습니다. OPEN API를 위해 관련된 정보들을 체계적인 문서로 정리하였습니다. 이 문서를 사용해 군토&군티는 iOS 앱, 안드로이드 앱 등 다양한 플랫폼으로 확장 가능합니다. 모바일 앱은 국군 장병들의 사용에 대한 편리성과 접근성을 높이며 국군 장병의 적극적인 참여를 장려할 수 있습니다. 음성 채팅과 같이 스마트폰 앱의 장점을 활용하여 멘토링을 더욱 효과적으로 실시할 수 있습니다.
+
+[API Document 확인하기](https://held-mangosteen-e92.notion.site/API-Docs-cd0263002931498fbfa910f7c7d4e3d3)
 
 ### 기능별 MSA를 통해 가능한 확장 유연성
 
@@ -201,11 +203,12 @@
 
 <br>
 
-# 🖥️ 4, 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
+# 🖥️ 4. 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 
 - ECMAScript 6 지원 브라우저 사용
 - 권장: Google Chrome 버젼 77 이상
 - Python 3.9 이상
+- npm 6.14 이상
 
 <br>
 
@@ -232,7 +235,6 @@
 **Web Dev**
 
 - React.js
-- Babel
 - HTML/CSS/JS
 - AXIOS
 
@@ -249,19 +251,35 @@
 
 **Documentation**
 
-- Notion
+- Notion [(링크)](https://held-mangosteen-e92.notion.site/Notion-853c57f2b4d74113b437fef3278f327b)
+<details>
+<summary>펼치기</summary>
+![erd](image/notion.png)
+</details>
 
 **Communication**
 
 - Jandi
+<details>
+<summary>펼치기</summary>
+![erd](image/jandi.png)
+</details>
 
 **Web Design**
 
-- Figma
+- Figma [(링크)](https://www.figma.com/file/6Yau8QRRaXSDcZNJixO8jh?embed_host=notion&kind=&node-id=0%3A1&viewer=1)
+<details>
+<summary>펼치기</summary>
+![erd](image/figma.png)
+</details>
 
 **Database Design**
 
 - ERD Cloud
+<details>
+<summary>펼치기</summary>
+![erd](image/erd.png)
+</details>
 
 <br>
 
