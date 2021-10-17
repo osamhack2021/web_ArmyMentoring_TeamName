@@ -188,22 +188,22 @@ function MentoringSpecificMento({match, history}){
     return (
         <div className='specific-mentor-body'>
             <div className="title-container" id="">
-                <div>
+                <div className='mentor-content'>
                     <img alt="mentor profile"></img>
                     <Link to={`/profile/${getMentorId()}`}>멘토 : {mentor.username}</Link><br />
                     <Link to={`/profile/${getMentorId()}/portfolio/${getPortfolioId()}`}>포트폴리오 보러 가기</Link>
                 </div>
-                <div>
-                    <h2>{'제목 : ' + mentoring.title}</h2>
-                    <div className="during">기간 : {mentoring.start_date}~{mentoring.end_date}</div>
-                </div>
-                <div className='tags'>
-                    <div className='tag-box'>
-                    {
-                        mentoring.tags.map((t)=>{
-                            return (<div className='tag'>{'#'+t.name}</div>)
-                        })
-                    }
+                <div className='other-content'>
+                    <div className='title-content'>
+                        <h2>{'제목 : ' + mentoring.title}</h2>
+                        <div className="during">기간 : {mentoring.start_date}~{mentoring.end_date}</div>
+                    </div>
+                    <div className='tags'>
+                        {
+                            mentoring.tags.map((t)=>{
+                                return (<div className='tag'>{'#'+t.name}</div>)
+                            })
+                        }
                     </div>
                 </div>
             </div>

@@ -29,25 +29,66 @@
 				color:$black;
 			}
 		}
-		.header-title{
-			display:flex;
+		.header-content{
+			display: flex;
 			flex-direction: column;
-			justify-content: center;
-			font-weight: bold;
-			font-size: 50px;
-			color:$white;
 			width:80%;
-		}
-		.header-tags{
-			display:flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			.tag{
-				background-color: $gray2;
-				padding:5px;
-				border-radius: 5px;
+			.header-title{
+				display:flex;
+				flex-direction: column;
+				justify-content: center;
+				font-weight: bold;
+				font-size: 50px;
+				color:$white;
+				width:100%;
+				height:90%;
+			}
+			.header-tags{
+				display:flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				.tag{
+					background-color: $gray2;
+					margin-left : 10px;
+					padding:5px;
+					border-radius: 5px;
+				}
 			}
 		}
+	}
+
+	.content{
+		display:flex;
+		flex-direction: column;
+		width:90%;
+		margin: 0px auto;
+		.section-title{
+			display:flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			font-weight: bold;
+			font-size:50px;
+		}
+		.mentoring-introduction{
+			display:flex;
+			flex-direction: column;
+		}
+	
+		.assignments{
+			display:flex;
+			flex-direction: column;
+			.assignment{
+				border:1px solid $black;
+				margin: 10px 0px;
+			}
+		}
+	
+		.mentoring-reviews{
+			display:flex;
+			flex-direction: column;
+	
+		}
+
 	}
 
 
