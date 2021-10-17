@@ -31,6 +31,9 @@ function MentoringIntroduction({match, history}){
         return getId(url);
     }
 
+    const getPortfolioId = (url)=>{
+        return getMentorId(url);
+    }
     useEffect(()=>{
         window.scroll({
             top:0,
@@ -122,7 +125,7 @@ function MentoringIntroduction({match, history}){
                 <div className='header-mentor'>
                     <div className='mentor-thumbnail'></div>
                     <Link to={`/profile/${getMentorId(mentor.url)}`} className='mentor-name'>{mentor.username}</Link>
-                    <Link to={`/profile/${getMentorId(mentor.url)}/portfolio`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
+                    <Link to={`/profile/${getMentorId(mentor.url)}/portfolio/${getPortfolioId(mentoring.portfolio)}`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
                 </div>
                 <div className='header-content'>
                     <div className='header-title'>
@@ -167,8 +170,10 @@ function MentoringIntroduction({match, history}){
                         {
                             assignments.map((a)=>{
                                 return (<div className='assignment'>
-                                            <div className='assignment-title'>제목 : {a.title}</div>
-                                            <div className='assignment-content'>내용 : {a.content}</div>
+                                            <div className='assignment-content'>
+                                                <div>제목 : {a.title}</div>
+                                                <div>내용 : {a.content}</div>
+                                            </div>
                                             <div className='assignment-side'>기한 : {a.deadline.substring(0,10)}</div>
                                         </div>)
                             })

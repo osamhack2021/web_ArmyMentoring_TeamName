@@ -154,23 +154,17 @@
 					padding:30px;
 					height:200px;
 					margin: 10px 0px;
-					.assignment-title{
-						display:flex;
-						flex-direction: column;
-						justify-content: flex-start;
-						width:20%;
-					}
 					.assignment-content{
 						display:flex;
 						flex-direction: column;
 						justify-content: center;
-						width:65%;
+						width:75%;
 					}
 					.assignment-side{
 						display:flex;
 						flex-direction: column;
 						justify-content: flex-end;
-						width:15%;
+						width:25%;
 						font-size: 15px;
 					}
 				}
