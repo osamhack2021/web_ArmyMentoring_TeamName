@@ -25,9 +25,12 @@
 				height:300px;
 				border:1px solid $black;
 			}
-			.mentor-name{
+			a{
 				text-decoration: none;
 				color:$black;
+				&:hover{
+					color:$gray2;
+				}
 			}
 		}
 		.header-content{
@@ -86,13 +89,22 @@
 			margin: 10px 20px;
 			.join-button{
 				display:flex;
-				padding:10px 20px;
+				padding:20px 30px;
 				background-color: $secondary;
 				border-radius: 40px;
 				margin: 10px;
 				font-size:30px;
 				color:$white;
 				text-decoration: none;
+                border:3px solid $secondary;
+                border-radius: 50px 0px 50px 50px;
+
+                &:hover{
+                  background-color: white;
+                  border: 3px solid $tertiary;
+                  color: $tertiary;
+                  transition: 500ms;
+                }
 			}
 		}
 	}

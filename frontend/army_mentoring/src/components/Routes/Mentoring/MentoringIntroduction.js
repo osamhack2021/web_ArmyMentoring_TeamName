@@ -11,6 +11,9 @@ function MentoringIntroduction({match, history}){
     const mentoring_id = match.params.id;
     let isJoin = false;
     const [user, setUser] = useContext(UserContext);
+    const [mentor, setMentor] = useState({});
+    const [assignments, setAssignments] = useState([]);
+    const [mentoringReviews, setMentoringReviews] = useState([]);
     const menu = 
     [
         {id:'home', desc:'홈'},
@@ -21,18 +24,10 @@ function MentoringIntroduction({match, history}){
     ]
 
     const getId = (url)=>{
-        const t = url.split('/');
-        return t[4];
-    }
-
-    const getMentorId = (url)=>{
         if(url == undefined)
             return -1;
-        return getId(url);
-    }
-
-    const getPortfolioId = (url)=>{
-        return getMentorId(url);
+        const t = url.split('/');
+        return t[4];
     }
     useEffect(()=>{
         window.scroll({
@@ -47,21 +42,26 @@ function MentoringIntroduction({match, history}){
         assignments : [],
         mentees : []
     });
-    const [mentor, setMentor] = useState({});
-    const [assignments, setAssignments] = useState([]);
-    const [mentoringReviews, setMentoringReviews] = useState([]);
     const load = ()=>{
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
-            isJoin = (getId(res.data.mentor) == getId(user.url))? true : false;
+            let mentor_id = getId(res.data.mentor);
+
+            _loadUser(mentor_id)
+            .then(res=>{
+                setMentor(res.data);
+            })
+            .catch(err=>{console.log(err.response)})
+
+            isJoin = (mentor_id == getId(user.url)) ? true : false;
             res.data.mentees.forEach((mentee)=>{
                 if(getId(mentee) == getId(user.url)){
                     isJoin = true;
                     return false;
                 }
             })
-            console.log(isJoin);
+
             Promise.all(
                 res.data.assignments.map((a)=>{
                     return _loadAssignment(getId(a))
@@ -94,13 +94,7 @@ function MentoringIntroduction({match, history}){
                 })
             })
             .catch(err=>{console.log(err.response)})
-
-            let mentor_id = getId(res.data.mentor);
-            _loadUser(mentor_id)
-            .then(res=>{
-                setMentor(res.data);
-            })
-            .catch(err=>{console.log(err.response)})
+            
         })
         .catch(err=>{console.log(err.response)})
     }
@@ -124,8 +118,8 @@ function MentoringIntroduction({match, history}){
             <div className="header">
                 <div className='header-mentor'>
                     <div className='mentor-thumbnail'></div>
-                    <Link to={`/profile/${getMentorId(mentor.url)}`} className='mentor-name'>{mentor.username}</Link>
-                    <Link to={`/profile/${getMentorId(mentor.url)}/portfolio/${getPortfolioId(mentoring.portfolio)}`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
+                    <Link to={`/profile/${getId(mentor.url)}`} className='mentor-name'>{mentor.username}</Link>
+                    <Link to={`/profile/${getId(mentor.url)}/portfolio/${getId(mentoring.portfolio)}`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
                 </div>
                 <div className='header-content'>
                     <div className='header-title'>
