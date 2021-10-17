@@ -9,6 +9,10 @@
 
 군토&군티는 군복무 중 멘토링 활동을 통해 서로 성장하는 서비스입니다.
 
+### 📋 [발표 자료 (PDF)](PPT.pdf)
+### 📺 [시연 영상 (Youtube)](https://youtube.com)
+### 📁 [팀 다큐멘테이션 (Notion)](https://held-mangosteen-e92.notion.site/Notion-853c57f2b4d74113b437fef3278f327b)
+
 <br>
 
 # 📍 목차
@@ -93,6 +97,8 @@
 
 </details>
 
+<br>
+
 ### 머지 않아 찾아온 불편한 손님, 슬럼프 - 어디로 가야하오...
 
 <details>
@@ -103,6 +109,8 @@
 이렇게 살면 안 된다고 자신을 다그치고 또 다그치지만 변하지 않는 자신이 야속합니다. 굳건이는 속으로 멘토 같은 사람이 방향을 설정해주고 이끌어줬으면 좋겠다고 생각합니다. 열심히 하고 싶은 마음은 정말 가득하지만 실천할 의지와 정보가 부족함을 느낍니다. 굳건이를 도와줄 사람은 존재하지 않는 것일까요?
 
 </details>
+
+<br>
 
 ### 뭐가 문제야 Say Something - '군토&군티'가 있잖아!
 
@@ -252,45 +260,70 @@
 **Documentation**
 
 - Notion [(링크)](https://held-mangosteen-e92.notion.site/Notion-853c57f2b4d74113b437fef3278f327b)
-<details>
-<summary>펼치기</summary>
-![erd](image/notion.png)
-</details>
+    <details>
+    <summary>사진 펼치기</summary>
+
+    ![notion](image/notion.png)
+
+    </details>
 
 **Communication**
 
 - Jandi
-<details>
-<summary>펼치기</summary>
-![erd](image/jandi.png)
-</details>
+
+    <details>
+    <summary>사진 펼치기</summary>
+
+    ![jandi](image/jandi.png)
+
+    </details>
 
 **Web Design**
 
 - Figma [(링크)](https://www.figma.com/file/6Yau8QRRaXSDcZNJixO8jh?embed_host=notion&kind=&node-id=0%3A1&viewer=1)
-<details>
-<summary>펼치기</summary>
-![erd](image/figma.png)
-</details>
+
+    <details>
+    <summary>사진 펼치기</summary>
+
+    ![erd](image/figma.png)
+
+    </details>
 
 **Database Design**
 
 - ERD Cloud
-<details>
-<summary>펼치기</summary>
-![erd](image/erd.png)
-</details>
+
+    <details>
+    <summary>펼치기</summary>
+
+    ![erd](image/erd.png)
+
+    </details>
 
 <br>
 
 # 📀 6. 설치 안내 (Installation Process)
 
-```jsx
-$ git clone git주소
+```shell
 
-$ yarn or npm install
+# 먼저 리포지터리를 다운 받습니다.
 
-$ yarn start or npm run start
+$ git clone https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried.git
+
+# 서버를 먼저 실행해줍니다.
+
+$ cd backend
+$ pip install -r requirements.txt && python manage.py migrate
+$ nohup python manage.py runserver &
+$ cd ../chatting
+$ yarn install && nohup yarn start &
+$ cd ..
+
+# 다음으로 웹 앱을 실행해줍니다.
+
+$ cd frontend/army_mentoring
+$ yarn install && nohup yarn start &
+
 ```
 
 <br>
@@ -305,15 +338,17 @@ $ yarn start or npm run start
 
 <table>
  <tr>
-  <td align='center'>Pics</td>
-  <td align='center'>Names</td>
-  <td align='center'>Roles</td>
+  <td align='center'>사진</td>
+  <td align='center'>계급</td>
+  <td align='center'>이름</td>
+  <td align='center'>역할</td>
   <td align='center'>GitHub</td>
   <td align='center'>E-Mail</td>
  </tr>
    
  <tr>
   <td align='center'><img src="image/1.png" width="50" height="50"></td>
+  <td align='center'>육군 병장</td>
   <td align='center'>이지호</td>
   <td align='center'>팀장<br>프로젝트 기획<br>프론트엔드</td>
   <td align='center'><a href="https://github.com/mangming2"><img src="http://img.shields.io/badge/mangming2-green?style=social&logo=github"/></a></td>
@@ -322,6 +357,7 @@ $ yarn start or npm run start
 
  <tr>
   <td align='center'><img src="image/2.png" width="50" height="50"></td>
+  <td align='center'>육군 일병</td>
   <td align='center'>박지인</td>
   <td align='center'>디비 설계<br>프론트-백 연동<br>백엔드</td>
   <td align='center'><a href="https://github.com/nagi0101"><img src="http://img.shields.io/badge/nagi0101-green?style=social&logo=github"/></a></td>
@@ -330,6 +366,7 @@ $ yarn start or npm run start
  
  <tr>
   <td align='center'><img src="image/3.png" width="50" height="50"></td>
+  <td align='center'>육군 상병</td>
   <td align='center'>양현동</td>
   <td align='center'>API 설계<br>서버 관리<br>백엔드</td>
   <td align='center'><a href="https://github.com/Yanghyeondong"><img src="http://img.shields.io/badge/Yanghyeondong-green?style=social&logo=github"/></a></td>
@@ -338,6 +375,7 @@ $ yarn start or npm run start
 
  <tr>
   <td align='center'><img src="image/4.png" width="50" height="50"></td>
+  <td align='center'>육군 상병</td>
   <td align='center'>이재용</td>
   <td align='center'>페이지 디자인<br>프론트엔드</td>
   <td align='center'><a href="https://github.com/VirtualExplorer7613"><img src="http://img.shields.io/badge/VirtualExplorer7613-green?style=social&logo=github"/></a></td>
@@ -346,6 +384,7 @@ $ yarn start or npm run start
 
  <tr>
   <td align='center'><img src="image/5.png" width="50" height="50"></td>
+  <td align='center'>육군 병장</td>
   <td align='center'>이채준</td>
   <td align='center'>발표자료 준비<br>로고 디자인<br>백엔드</td>
   <td align='center'><a href="https://github.com/chaejunlee"><img src="http://img.shields.io/badge/chaejunlee-green?style=social&logo=github"/></a></td>
@@ -354,6 +393,7 @@ $ yarn start or npm run start
    
  <tr>
   <td align='center'><img src="image/6.png" width="50" height="50"></td>
+  <td align='center'>육군 일병</td>
   <td align='center'>이현희</td>
   <td align='center'>페이지 디자인<br>프론트엔드</td>
   <td align='center'><a href="https://github.com/nonaninona"><img src="http://img.shields.io/badge/nonaninona-green?style=social&logo=github"/></a></td>
