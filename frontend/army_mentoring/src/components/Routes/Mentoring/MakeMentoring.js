@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 
+import axios from 'axios';
+
 import { UserContext } from "../../../context/Context";
 import MakeMentoringAssignment from './MakeMentoringAssignment';
 
@@ -104,11 +106,11 @@ function MakeMentoring({history}){
             form.append('portfolio', portfolio);
             form.append('start_date', startDate);
             form.append('end_date', endDate);
-            form.append('tags', tags);
             form.append('thumbnail', thumbnail);
             form.append('mentor', user.url);
-            const response = await _addMentoring(form);
-            const mentoringUrl = response.data.url;
+            const mentoringData = await (await _addMentoring(form)).data;
+            const mentoringUrl = mentoringData.url;
+            await axios.patch(mentoringUrl, {tags});
             await _addMultipleAssigment(assignments, mentoringUrl);
 
             history.push('/mymentoring#asMentor');
