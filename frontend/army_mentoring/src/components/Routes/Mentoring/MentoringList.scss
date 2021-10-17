@@ -1,102 +1,144 @@
 @import '../preset.scss';
 
-.mentoring-list-container {
+.MentoringList{
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	width: 90%;
-	margin: 0px auto;
-	& .mentoring-list-header {
+	align-items: center;
+	justify-content: flex-start;
+
+	& > .mentoring-list-container {
 		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
-		& .mentoring-list-title {
-			font-weight: bold;
-			font-size: 50px;
+		flex-direction: column;
+		width: 80%;
+		max-width: 1280px;
+		margin: 0px auto;
+		padding-top: 50px;
+		
+		& > .mentoring-list-header {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 350px auto;
+
+			& .mentoring-list-title {
+				font-weight: bold;
+				font-size: 50px;
+			}
+			
+			& .mentoring-list-search-bar {
+				width: 100%;
+				justify-self: end;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: flex-end;
+				margin: 0px 30px;
+
+				& > input {
+					min-width: 230px;
+					width: 30%;
+					margin-left: 15px;
+					transition: .3s;
+				}
+
+				& > input:focus {
+					width: 70%;
+				}
+			}
 		}
-		& .mentoring-list-search-bar {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			margin: 0px 30px;
-			& input {
-				width: 300px;
+	
+		& .mentoring-list-box {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(380px, auto));
+			padding: 30px;
+	
+			& > a {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-between;
+				width: 350px;
+				height: 200px;
+				margin: 20px;
+				text-decoration: none;
+				color: black;
+				border-radius: 20px 20px 20px 0px;
+				
+				& > img {
+					box-shadow: 10px 5px 5px $gray3;
+					border-radius: 20px 20px 20px 0px;
+					object-fit: cover;
+					height: 85%;
+					width: 100%;
+					box-sizing: border-box;
+				}
+	
+				& > h4 {
+					text-align: start;
+					width: 100%;
+					font-size: 18px;
+					font-family: sans-serif;
+					font-weight: 600;
+					height: 12%;
+					margin: 0;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			& > a:hover{
+				transition: .3s;
+				transform: scale(1.03);
 			}
 		}
 	}
-	& .mentoring-list-box {
+	
+	button {
+		background: #6ba259;
+		color: #fff;
+		border: none;
+		position: relative;
+		height: 50px;
+		width: auto;
+		font-size: 1em;
+		padding: 0 2em;
+		cursor: pointer;
+		transition: 800ms ease all;
+		outline: none;
+		margin-left: 5px;
+		border-radius: 5px;
+	}
+	button:hover {
+		background: #fff;
+		color: #6ba259;
+	}
+	button:before,
+	button:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 2px;
+		width: 0;
+		background: #6ba259;
+		transition: 400ms ease all;
+	}
+	button:after {
+		right: inherit;
+		top: inherit;
+		left: 0;
+		bottom: 0;
+	}
+	button:hover:before,
+	button:hover:after {
 		width: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-content: flex-start;
-		padding: 30px;
-		& a {
-			display: flex;
-			flex-direction: column;
-			& p {
-				font-size: 15px;
-			}
-			width: 350px;
-			height: 200px;
-			margin: 20px;
-			border: 3px solid green;
-			background-color: $primary;
-			box-shadow: 10px 5px 5px $gray3;
-			text-decoration: none;
-			color: black;
-			border-radius: 20px 20px 20px 0px;
-			h4 {
-				margin-top: 10px;
-			}
-		}
+		transition: 800ms ease all;
 	}
-}
-
-button {
-	background: #6ba259;
-	color: #fff;
-	border: none;
-	position: relative;
-	height: 30px;
-	width: auto;
-	font-size: 1em;
-	padding: 0 2em;
-	cursor: pointer;
-	transition: 800ms ease all;
-	outline: none;
-	margin-left: 5px;
-	border-radius: 5px;
-}
-button:hover {
-	background: #fff;
-	color: #6ba259;
-}
-button:before,
-button:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 2px;
-	width: 0;
-	background: #6ba259;
-	transition: 400ms ease all;
-}
-button:after {
-	right: inherit;
-	top: inherit;
-	left: 0;
-	bottom: 0;
-}
-button:hover:before,
-button:hover:after {
-	width: 100%;
-	transition: 800ms ease all;
-}
-
-button {
-	margin-left: 20px;
-	margin-bottom: 20px;
+	
+	button {
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
 }

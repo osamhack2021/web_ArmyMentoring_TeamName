@@ -14,22 +14,6 @@ function MentoringList({match}){
         })}, []
     );
 
-
-    const handleChange = (e)=>{
-
-        e.preventDefault();
-
-        let v = e.target.value;
-        let abc = searchResult.slice();
-        abc.push(v);
-        setSearchResult(abc);
-    }
-
-    const filtering = (e)=>{
-        console.log('filtering');
-    }
-
-
     const getId = (url)=>{
         const t = url.split('/');
         return t[4];
@@ -66,22 +50,33 @@ function MentoringList({match}){
     }
 
     return (
-        <div>           
-
+        <div className="MentoringList">           
             <div className="mentoring-list-container" id="sgstmentoring">
                 <div className='mentoring-list-header'>
                     <div className='mentoring-list-title'>멘토링 목록</div>
-                    <div className='mentoring-list-search-bar'>검색 <Input type='text' onChange={(e)=>{searchMentoring(e.target.value)}}></Input></div>
+                    <div className='mentoring-list-search-bar'>
+                        <Input 
+                        type='text' 
+                        onChange={(e)=>{searchMentoring(e.target.value)}} 
+                        placeholder="검색어를 입력하세요"
+                        />
+                    </div>
                 </div>
+                <hr />
                 <div className='mentoring-list-box'>
                     {searchResult.map((m)=>{
-                            return <Link to={`${match.url}/mentoring/${getId(m.url)}`}><h4>{m.title}</h4><p>{m.desc}</p></Link>
+                            return (
+                            <Link to={`${match.url}/mentoring/${getId(m.url)}`}>
+                                <img src={m.thumbnail} alt="thumbnail" />
+                                <h4>{m.title}</h4>
+                            </Link>
+                            )
                     })}
                 </div>
           </div>
 
 
-            <Link to={`${match.url}/make`} id="button"><button>make mentoring</button></Link>
+            <Link to={`${match.url}/make`} id="button"><button>멘토링 만들기</button></Link>
         </div>
     )
 
