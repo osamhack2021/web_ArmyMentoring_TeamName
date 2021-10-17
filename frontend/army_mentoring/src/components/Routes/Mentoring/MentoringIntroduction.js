@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './MentoringIntroduction.scss';
+import {UserContext} from '../../../context/Context';
 import Subnavbar from '../Subnavbar';
-import { _loadMentoring, _loadAssignment, _loadMentoringReviewList } from '../../../backend/mentoring';
+import { _loadMentoring, _loadAssignment, _loadMentoringReviewList, _updateMentoring } from '../../../backend/mentoring';
 import { _loadUser } from '../../../backend/profile';
 import { Link } from 'react-router-dom';
 
 function MentoringIntroduction({match, history}){
 
     const mentoring_id = match.params.id;
+    let isJoin = false;
+    const [user, setUser] = useContext(UserContext);
     const menu = 
     [
         {id:'home', desc:'홈'},
@@ -38,7 +41,8 @@ function MentoringIntroduction({match, history}){
 
     const [mentoring, setMentoring] = useState({
         tags : [],
-        assignments : []
+        assignments : [],
+        mentees : []
     });
     const [mentor, setMentor] = useState({});
     const [assignments, setAssignments] = useState([]);
@@ -47,7 +51,14 @@ function MentoringIntroduction({match, history}){
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
-
+            isJoin = (getId(res.data.mentor) == getId(user.url))? true : false;
+            res.data.mentees.forEach((mentee)=>{
+                if(getId(mentee) == getId(user.url)){
+                    isJoin = true;
+                    return false;
+                }
+            })
+            console.log(isJoin);
             Promise.all(
                 res.data.assignments.map((a)=>{
                     return _loadAssignment(getId(a))
@@ -77,7 +88,6 @@ function MentoringIntroduction({match, history}){
                 )
                 .then(res=>{
                     setMentoringReviews(res);
-                    console.log(res);
                 })
             })
             .catch(err=>{console.log(err.response)})
@@ -95,6 +105,15 @@ function MentoringIntroduction({match, history}){
         load();
     }, []);
 
+    const joinMentoring = () =>{
+        const c = Object.assign({}, mentoring);
+        c.mentees.push(user.url);
+        _updateMentoring(c, mentoring_id)
+        .then(res=>{
+            load();
+        })
+        .catch(err=>{console.log(err.response)})
+    }
 
     return (
         <div className='mentoring-introduction-body'>           
@@ -109,6 +128,7 @@ function MentoringIntroduction({match, history}){
                     <div className='header-title'>
                         <div className='header-title-title'>{mentoring.title}</div>
                         <div className='header-title-during'>{mentoring.start_date}~{mentoring.end_date}</div>
+                        <div className='number-of-mentee'>참여 중인 멘티 수 : {mentoring.mentees.length}</div>
                     </div>
                     <div className='header-tags'>
                         {
@@ -117,6 +137,17 @@ function MentoringIntroduction({match, history}){
                             })
                         }
                     </div>
+                </div>
+            </div>
+
+            <div className='join-button-container'>
+                <div className='join-button-edge'>
+                    {
+                        isJoin ? 
+                        (<div onClick={joinMentoring} className='join-button'>멘토링 참여하기</div>)
+                        :
+                        (<Link to={`/mymentoring/${mentoring_id}`} className='join-button'>내 멘토링으로 이동</Link>)
+                    }
                 </div>
             </div>
 
