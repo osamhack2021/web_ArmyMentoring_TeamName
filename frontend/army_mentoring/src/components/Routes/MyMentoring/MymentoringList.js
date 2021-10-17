@@ -15,9 +15,11 @@ const MENU = [
     // {id:'waiting', desc:'신청 승낙 대기중인 멘토링 목록'}
 ]
 
-function MymentoringList({match}){  
+function MymentoringList({match, history}){  
     const [user, setUser] = useContext(UserContext);
-
+    if(Object.keys(user).length==0){
+        history.push('/login');
+    }
     useEffect(()=>{
         updateUserContextBySavedToken(setUser);
     }, [])
