@@ -40,7 +40,7 @@ function MentoringSpecificMento({match, history}){
         return getId(url);
     }
 
-    let isMe = false;
+    const [isMe, setIsMe] = useState(false);
 
     useEffect(()=>{
         window.scroll({
@@ -59,9 +59,10 @@ function MentoringSpecificMento({match, history}){
         .then(res=>{
             setMentoring(res.data);
             let mentor_id = getId(res.data.mentor);
-            isMe = (mentor_id == getId(user.url)) ? true : false;
+            let isme = (mentor_id == getId(user.url)) ? true : false;
+            setIsMe(isme);
             const c = document.getElementById('add-button');
-            c.className = isMe ? 'add-button' : 'add-button h';
+            c.className = isme ? 'add-button' : 'add-button h';
             _loadUser(mentor_id)
             .then(res=>{
                 setMentor(res.data);
@@ -226,14 +227,19 @@ function MentoringSpecificMento({match, history}){
                                         </div>
                                         <div className='sub-col'>
                                             기한 : {a.deadline.substring(0,10)}
-                                            <div className='buttons'>
-                                                <div className='button' onClick={()=>{showEditAssignment(aid)}}>
-                                                    관리
-                                                </div>
-                                                <div className='button' onClick={()=>{deleteAssignment(aid)}}>
-                                                    삭제
-                                                </div>
-                                            </div>
+                                            {
+                                                isMe ?
+                                                (<div className='setting-buttons'>
+                                                    <div className='button' onClick={()=>{showEditAssignment(aid)}}>
+                                                        관리
+                                                    </div>
+                                                    <div className='button' onClick={()=>{deleteAssignment(aid)}}>
+                                                        삭제
+                                                    </div>
+                                                </div>)
+                                                :
+                                                (<div></div>)
+                                            }
                                         </div>
                                     </div>
                                     <div id={'edit-assignment'+aid} className='assignment-container h'>

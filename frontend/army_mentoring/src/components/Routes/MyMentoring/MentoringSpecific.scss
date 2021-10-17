@@ -2,6 +2,7 @@
 @import "~react-datepicker/dist/react-datepicker.css";
 
 .specific-mentor-body{
+	font-family: 'Do Hyeon', sans-serif;
     .title-container{
         display:flex;
         flex-direction: row;
@@ -103,7 +104,7 @@
                         justify-content: flex-end;
                         align-items: center;
                         width:20%;
-                        .buttons{
+                        .setting-buttons{
                             display:flex;
                             flex-direction: row;
                             justify-content: center;
@@ -136,6 +137,9 @@
                     width:100px;
                     height:50px;
                     background-color: $primary;
+                }
+                .h{
+                    display:none;
                 }
             }
             .add-assignment{
