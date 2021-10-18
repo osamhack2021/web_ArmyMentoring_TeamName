@@ -25,8 +25,12 @@ function MentoringSpecificMento({match, history}){
     const [endDate, setEndDate] = useState(new Date());
     const [editEndDate, setEditEndDate] = useState(new Date());
     const [memoText, setMemoText] = useState('');
+    const [mentees, setMentees] = useState([]);
+    const [passedList, setPassedList] = useState([]);
 
     const getId = (url)=>{
+        if(url == undefined)
+            return -1;
         const t = url.split('/');
         return t[4];
     }
@@ -62,7 +66,19 @@ function MentoringSpecificMento({match, history}){
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
-            console.log(typeof res.data.start_date)
+            Promise.all(
+                res.data.mentees.map((m)=>{
+                    let mid = getId(m);
+                    return _loadUser(mid)
+                            .then(res=>{
+                                return res.data;
+                            })
+                })
+            ).then(res=>{
+                setMentees(res);
+            })
+            .catch(err=>{console.log(err)})
+            setMentees(res.data.mentees);
             let mentor_id = getId(res.data.mentor);
             let isme = (mentor_id == getId(user.url)) ? true : false;
             setIsMe(isme);
@@ -148,7 +164,6 @@ function MentoringSpecificMento({match, history}){
     }
     const showEditAssignment = (assignment_id)=>{
         const i = findIndexOfAssignment(assignment_id);
-        console.log(assignments);
         const a = document.getElementById('edit-assignment'+assignment_id);
         a.className = 'assignment-container';
         const b = document.getElementById('assignment'+assignment_id);
@@ -179,7 +194,7 @@ function MentoringSpecificMento({match, history}){
         const t = document.getElementById('edit-assignment-title'+assignment_id);
         const c = document.getElementById('edit-assignment-content'+assignment_id);
         
-        _updateAssignment(t.value, c.value, mentoring_id, editEndDate, assignment_id)
+        _updateAssignment(t.value, c.value, mentoring_id, editEndDate, assignment_id, passedList)
         .then(res=>{
             load();
             hideEditAssignment(assignment_id);
@@ -218,6 +233,30 @@ function MentoringSpecificMento({match, history}){
             exitEditMemo();
         })
         .catch(err=>{console.log(err.response)})
+    }
+
+    const addPassedList = (e, mentee_url)=>{
+        const l = passedList.slice();
+        l.push(mentee_url);
+        setPassedList(l);
+        console.log(l);
+        const el = e.target;
+        el.className = 'passbutton passed';
+        el.nextSibling.className='passbutton';
+
+    }
+
+    const removePassedList = (e, mentee_url)=>{
+        const l = passedList.slice();
+        let i = l.findIndex(url=>{return url == mentee_url});
+        if(i!=-1){
+            l.splice(i,1);
+            setPassedList(l);
+        }
+        console.log(l);
+        const el = e.target;
+        el.className = 'passbutton unpassed';
+        el.previousSibling.className='passbutton';
     }
 
     return (
@@ -282,7 +321,21 @@ function MentoringSpecificMento({match, history}){
                                     <div id={'edit-assignment'+aid} className='assignment-container h'>
                                         <div className='main-col'>
                                             제목 : <Input id={'edit-assignment-title'+aid}></Input>
-                                            제목 : <Input id={'edit-assignment-content'+aid}></Input>
+                                            내용 : <Input id={'edit-assignment-content'+aid}></Input>
+                                            과제 완료 멘토
+                                            {
+                                                mentees.map((mentee)=>{
+                                                    let mentee_id = getId(mentee.url);
+                                                    let isPassed = a.passed_mentees.forEach((li)=>{
+                                                        if(getId(li) == mentee_id)
+                                                            return true;
+                                                    })
+                                                    return isPassed ? 
+                                                    (<div><div>{mentee.username}</div><div onClick={(e)=>addPassedList(e, mentee.url)} className='passbutton passed'>통과</div><div className='passbutton' onClick={(e)=>removePassedList(e, mentee.url)}>미통과</div></div>) 
+                                                    :
+                                                    (<div><div>{mentee.username}</div><div onClick={(e)=>addPassedList(e, mentee.url)} className='passbutton'>통과</div><div className='passbutton unpassed' onClick={(e)=>removePassedList(e, mentee.url)}>미통과</div></div>) 
+                                                })
+                                            }
                                         </div>
                                         <div className='sub-col'>
                                             기한 : <DatePicker id={'edit-assignment-deadline'+aid} selected={editEndDate} onChange={(date)=>{setEditEndDate(date)}}/>

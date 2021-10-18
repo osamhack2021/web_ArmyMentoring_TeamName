@@ -57,7 +57,7 @@ const _deleteAssignment = async (assignment_id) =>{
     }
 }
 
-const _updateAssignment = async (title, content, mentoring_id,  deadline, assignment_id) =>{
+const _updateAssignment = async (title, content, mentoring_id,  deadline, assignment_id, passed_mentees) =>{
     try{
         const response = await axios({
             method : 'PUT',
@@ -67,7 +67,7 @@ const _updateAssignment = async (title, content, mentoring_id,  deadline, assign
                 content : content,
                 deadline : deadline,
                 mentoring : 'https://guntor-guntee-data-server.herokuapp.com/mentoring/' + mentoring_id,
-                passed_mentees : [ 'https://guntor-guntee-data-server.herokuapp.com/user/1' ]
+                passed_mentees : passed_mentees
             }
         })
         return response;
