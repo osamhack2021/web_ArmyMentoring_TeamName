@@ -63,6 +63,8 @@ function Article({match, history}) {
             .then(res=>{
                 console.log(res);
                 setComments(()=>res);
+                setCommentsLikedStyle();
+                setArticleLikedStyle();
             })
             .catch(err=>{
                 console.log(err.response);
@@ -73,8 +75,6 @@ function Article({match, history}) {
         })
     }
     useEffect(()=>{load();}, []);
-    useEffect(()=>{setArticleLikedStyle();}, [content]);
-    useEffect(()=>{setCommentsLikedStyle();}, [comments]);
 
 
     const setArticleLikedStyle = ()=>{

@@ -40,12 +40,23 @@
         }
     }
 
+    .button_set{
+        button {
+            margin:10px 20px;
+        }
+        .cancel{
+            background-color: $gray2;
+            &:hover{
+                color:$gray2;
 
-    .confirm{
-        background-color: $primary;
-    }
-    .cancel{
-        background-color: $gray2;
+            }
+            &:after{
+                background-color: $gray2; 
+            }
+            &:before{
+                background-color: $gray2; 
+            }
+        }
     }
     
 }
