@@ -14,7 +14,9 @@ function MentoringSpecificMento({match, history}){
     const [mentoring, setMentoring] = useState({
         title : '',
         tags : [],
-        assignments : []
+        assignments : [],
+        start_date : '',
+        end_date : ''
     });
     const [mentor, setMentor] = useState({});
     const [assignmentTitle, setAssignmentTitle] = useState('');
@@ -60,6 +62,7 @@ function MentoringSpecificMento({match, history}){
         _loadMentoring(mentoring_id)
         .then(res=>{
             setMentoring(res.data);
+            console.log(typeof res.data.start_date)
             let mentor_id = getId(res.data.mentor);
             let isme = (mentor_id == getId(user.url)) ? true : false;
             setIsMe(isme);
@@ -228,7 +231,7 @@ function MentoringSpecificMento({match, history}){
                 <div className='other-content'>
                     <div className='title-content'>
                         <h2>{'제목 : ' + mentoring.title}</h2>
-                        <div className="during">기간 : {mentoring.start_date}~{mentoring.end_date}</div>
+                        <div className="during">기간 : {mentoring.start_date.substring(0,10)} ~ {mentoring.end_date.substring(0,10)}</div>
                     </div>
                     <div className='tags'>
                         {

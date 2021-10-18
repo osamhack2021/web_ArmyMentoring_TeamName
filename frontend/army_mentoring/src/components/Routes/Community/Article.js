@@ -290,7 +290,7 @@ function Article({match, history}) {
                                 }
 
                                 <div className='like'><img src={heartImg} alt="heart" onClick={(e)=>{clickCommentLikes(e, id)}}></img>{comment.liked_user.length}</div>
-                                <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
+                                <div className='date'>{comment.created_at.substring(0,10)}</div>
                             </div>
                         </div>
 
@@ -307,7 +307,7 @@ function Article({match, history}) {
                                     <div className="delete" onClick={()=>{updateComment(id)}}>수정</div>
                                     <div className="edit" onClick={()=>{backEditComment(id)}}>취소</div>
                                 </div>
-                                    <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
+                                    <div className='date'>{comment.created_at}</div>
                             </div>
                         </div>
 

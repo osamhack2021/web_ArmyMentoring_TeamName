@@ -124,7 +124,7 @@ function MentoringIntroduction({match, history}){
                 <div className='header-content'>
                     <div className='header-title'>
                         <div className='header-title-title'>{mentoring.title}</div>
-                        <div className='header-title-during'>{mentoring.start_date}~{mentoring.end_date}</div>
+                        <div className='header-title-during'>기간 : {mentoring.start_date.substring(0,10)} ~ {mentoring.end_date.substring(0,10)}</div>
                         <div className='number-of-mentee'>참여 중인 멘티 수 : {mentoring.mentees.length}</div>
                     </div>
                     <div className='header-tags'>
