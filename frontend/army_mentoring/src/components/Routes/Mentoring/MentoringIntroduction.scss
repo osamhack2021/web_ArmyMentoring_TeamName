@@ -16,6 +16,7 @@
 		border-radius: 0px 30px 30px 30px;
 		height: 500px;
 		.header-mentor {
+			margin-left: 10%;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -23,9 +24,9 @@
 			font-size: 2rem;
 			.mentor-thumbnail {
 				display: flex;
-				width: 300px;
+				width: 450px;
 				height: 300px;
-				border: 1px solid $black;
+				border-radius: 30px;
 			}
 			a {
 				text-decoration: none;
@@ -50,8 +51,7 @@
 					flex-direction: row;
 					justify-content: center;
 					width: 100%;
-					font-weight: bold;
-					font-size: 50px;
+					font-size: 4rem;
 					color: $white;
 				}
 				.header-title-during {
