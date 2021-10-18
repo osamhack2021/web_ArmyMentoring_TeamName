@@ -12,6 +12,7 @@ function Editprofile({match, history}) {
   const [password, setPassword] = useState('');
   const [nickname, setNickname] = useState('');
   const [description, setDescription] = useState('');
+  const [profileimage, setProfileimage] = useState(null);
 
   useEffect(()=>{
       console.log(user);
@@ -42,7 +43,7 @@ function Editprofile({match, history}) {
   //임시 change
   const editProfile = (e)=>{
     const user_id = getUserId();
-    _editProfile(user, password, nickname, description, '', setUser, user_id)
+    _editProfile(user, password, nickname, description, profileimage, setUser, user_id)
     .then(res=>{
         console.log(res);
     }).catch(err=>{
@@ -53,6 +54,7 @@ function Editprofile({match, history}) {
   const thumbnail= (e)=>{
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
+      setProfileimage(e.target.files[0]);
       reader.onload = ()=>{
           console.log(reader.result);
           setImgUrl(reader.result);

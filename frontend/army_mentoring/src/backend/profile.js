@@ -11,10 +11,10 @@ const _editProfile = async (user, password, nickname, description, profileimage,
             data : {
                 email : user.email,
                 username : user.username,
-                password : '123',
+                password : password,
                 nickname : nickname,
                 description : description,
-                profile_image : null,
+                profile_image : formData,
             }
         })
         await updateUserContextBySavedToken(setUser);
