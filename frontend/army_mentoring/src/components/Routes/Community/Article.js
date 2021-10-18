@@ -273,7 +273,7 @@ function Article({match, history}) {
 
                         <div className='comment s' id={'comment'+id}>
                             <div className='head'>
-                                <img className="profile-image" alt="profile"></img>
+                                <div className="profile-image">{user.profile_image}</div>
                             </div>
                             <div className='content'>
                                 <div className='writer'>작성자 : {user.username}</div>

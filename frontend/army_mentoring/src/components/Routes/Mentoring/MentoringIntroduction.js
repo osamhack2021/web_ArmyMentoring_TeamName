@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 function MentoringIntroduction({match, history}){
 
     const mentoring_id = match.params.id;
-    let isJoin = false;
+    const [isJoin, setIsJoin] = useState(false);
     const [user, setUser] = useContext(UserContext);
     const [mentor, setMentor] = useState({});
     const [assignments, setAssignments] = useState([]);
@@ -56,10 +56,10 @@ function MentoringIntroduction({match, history}){
             })
             .catch(err=>{console.log(err.response)})
 
-            isJoin = (mentor_id == getId(user.url)) ? true : false;
+            setIsJoin((mentor_id == getId(user.url)) ? true : false);
             res.data.mentees.forEach((mentee)=>{
                 if(getId(mentee) == getId(user.url)){
-                    isJoin = true;
+                    setIsJoin(true);
                     return false;
                 }
             })
@@ -108,9 +108,11 @@ function MentoringIntroduction({match, history}){
     const joinMentoring = () =>{
         const c = Object.assign({}, mentoring);
         c.mentees.push(user.url);
+        console.log(c);
         _updateMentoring(c, mentoring_id)
         .then(res=>{
             load();
+            history.push(`/mymentoring/${mentoring_id}`);
         })
         .catch(err=>{console.log(err.response)})
     }

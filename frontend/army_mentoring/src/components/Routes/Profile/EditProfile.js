@@ -33,7 +33,6 @@ function Editprofile({match, history}) {
     }, [user]);
 
   const getUserId = ()=>{
-    console.log(user);
     if(Object.keys(user).length == 0)
         return -1;
     const url = user.url;

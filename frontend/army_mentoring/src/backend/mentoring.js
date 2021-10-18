@@ -102,6 +102,7 @@ const _loadMentoring = async (mentoring_id) =>{
 
 
 const _addMentoring = async (form) => {
+    console.log(form);
     try {
         const response = await axios.post("mentoring", form)
         return response;

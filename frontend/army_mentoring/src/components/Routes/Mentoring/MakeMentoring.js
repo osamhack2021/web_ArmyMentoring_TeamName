@@ -108,7 +108,9 @@ function MakeMentoring({history}){
             form.append('end_date', endDate);
             form.append('thumbnail', thumbnail);
             form.append('mentor', user.url);
+            console.log(form);
             const mentoringData = await (await _addMentoring(form)).data;
+            console.log(mentoringData);
             const mentoringUrl = mentoringData.url;
             await axios.patch(mentoringUrl, {tags});
             await _addMultipleAssigment(assignments, mentoringUrl);
