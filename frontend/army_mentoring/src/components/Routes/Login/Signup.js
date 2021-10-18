@@ -23,6 +23,7 @@ function Login({match, history}){
     const register = ()=>{
         _requestSignUp(username, email, password, nickname, description, profileimage)
         .then(res=>{
+            console.log(res);
             history.goBack();
         }).catch(err=>{
             console.log(err.response);
@@ -32,6 +33,7 @@ function Login({match, history}){
     const thumbnail= (e)=>{
         let reader = new FileReader();
         reader.readAsDataURL(e.target.files[0]);
+        setProfileimage(e.target.files[0]);
         reader.onload = ()=>{
             setImgUrl(reader.result);
         }

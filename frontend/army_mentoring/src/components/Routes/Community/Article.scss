@@ -10,6 +10,9 @@
         @include communityContent;
     }
     .community_statistics {
+		.pushed{
+			color:red;
+		}
         @include communityStatistics;
     }
 	.pushed{
@@ -34,6 +37,7 @@
 				justify-content: flex-start;
 				font-size: 15px;
 				margin-left : 10px;
+				width:20%;
 				.profile-image{
 					width:100px;
 					height:100px;
@@ -47,7 +51,7 @@
 				flex-direction: column;
 				justify-content: flex-start;
 				margin: 10px 0px;
-				width:80%;
+				width:65%;
 				.writer{
 					color:$gray1;
 					text-align: left;
@@ -66,6 +70,7 @@
 				margin-right: 10px;
 				font-family: 'Noto Sans KR', sans-serif;
 				font-weight: 700;
+				width:15%;
 				.update{
 					display:flex;
 					flex-direction: row;

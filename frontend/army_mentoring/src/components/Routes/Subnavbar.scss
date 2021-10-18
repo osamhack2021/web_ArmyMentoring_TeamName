@@ -1,6 +1,7 @@
-$gray3 :#D4D4D4;
+@import "./preset.scss";
 
 .subnavbar{
+    
     ul{
         list-style-type: none;
         display:flex;
@@ -11,8 +12,10 @@ $gray3 :#D4D4D4;
         background-color: white;
     }
     li{
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1.3rem;
         display:inline-block;
-        width:330px;
+        width:33%;
         padding:0px;
     }
     a{

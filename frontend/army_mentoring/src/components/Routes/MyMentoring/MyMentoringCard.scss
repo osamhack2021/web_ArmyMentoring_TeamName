@@ -30,6 +30,7 @@
 
     & > img {
         height: 50%;
+        max-height: 50%;
         object-fit: cover;
         border-radius: 20px 20px 20px 0px;
         margin-bottom: 20px;
@@ -40,9 +41,20 @@
         height: 100%;
         justify-content: space-between;
         align-items: flex-start;
+        text-decoration: none;
 
         & > .title{
-            font-weight: bold;
+            width: 100%;
+            font-size: 1.5rem;
+            font-family: 'Do Hyeon', sans-serif;
+            display: -webkit-box;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-height: 1.5em;
+            max-height: 3em;
         }
 
         & > .participants {

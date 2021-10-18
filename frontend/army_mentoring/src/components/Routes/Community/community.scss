@@ -77,6 +77,9 @@
             filter: grayscale(40%);
         }
     }
+    .pushed{
+        color:red;
+    }
 }
 @mixin communityLikes{
     border: 1px solid $gray3;
