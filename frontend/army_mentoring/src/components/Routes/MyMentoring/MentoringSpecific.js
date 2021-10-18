@@ -230,7 +230,7 @@ function MentoringSpecificMento({match, history}){
                 </div>
                 <div className='other-content'>
                     <div className='title-content'>
-                        <h2>{'제목 : ' + mentoring.title}</h2>
+                        <h2>{mentoring.title}</h2>
                         <div className="during">기간 : {mentoring.start_date.substring(0,10)} ~ {mentoring.end_date.substring(0,10)}</div>
                     </div>
                     <div className='tags'>
