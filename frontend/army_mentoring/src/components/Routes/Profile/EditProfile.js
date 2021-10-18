@@ -94,7 +94,7 @@ function Editprofile({match, history}) {
                         </div>
                 </FormGroup>
                 <div className='button_set'>
-                        <Button onClick={()=>{history.goBack()}}>취소</Button>
+                        <Button className='cancel' onClick={()=>{history.goBack()}}>취소</Button>
                         <Button onClick={()=>{editProfile();history.goBack()}}>변경</Button>
                 </div>
             </Form>
