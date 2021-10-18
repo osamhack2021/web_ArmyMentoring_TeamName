@@ -14,11 +14,13 @@
 		width: 100%;
 		padding: 30px;
 		border-radius: 0px 30px 30px 30px;
+		height: 500px;
 		.header-mentor {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			font-size: 2rem;
 			.mentor-thumbnail {
 				display: flex;
 				width: 300px;
@@ -69,6 +71,9 @@
 				justify-content: flex-end;
 				.tag {
 					background-color: $gray2;
+					width: auto;
+					font-weight: bold;
+					font-size: 2rem;
 					margin-left: 10px;
 					padding: 5px;
 					border-radius: 5px;
