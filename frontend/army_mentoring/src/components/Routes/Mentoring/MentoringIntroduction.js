@@ -118,7 +118,7 @@ function MentoringIntroduction({match, history}){
             <div className="header">
                 <div className='header-mentor'>
                     <div className='mentor-thumbnail'></div>
-                    <Link to={`/profile/${getId(mentor.url)}`} className='mentor-name'>{mentor.username}</Link>
+                    <Link to={`/profile/${getId(mentor.url)}`} className='mentor-name'>멘토 : {mentor.username}</Link>
                     <Link to={`/profile/${getId(mentor.url)}/portfolio/${getId(mentoring.portfolio)}`} className='mentor-portfolio'>포트폴리오 보러 가기</Link>
                 </div>
                 <div className='header-content'>
