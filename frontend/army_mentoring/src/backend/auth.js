@@ -37,6 +37,8 @@ const updateUserContextBySavedToken = async (setUser) => {
 }
 
 const _requestSignUp = async (username, email, password, nickname, description, profileimage) => {
+    const formData = new FormData();
+    formData.append('profileimage', profileimage);
     try {
         const response = await axios({
             method:'POST',
@@ -47,7 +49,7 @@ const _requestSignUp = async (username, email, password, nickname, description, 
                 password : password,
                 nickname : nickname,
                 description : description,
-                profileimage : profileimage
+                profileimage : formData
             }
         })
         return response;

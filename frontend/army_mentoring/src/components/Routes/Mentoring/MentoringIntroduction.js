@@ -40,7 +40,9 @@ function MentoringIntroduction({match, history}){
     const [mentoring, setMentoring] = useState({
         tags : [],
         assignments : [],
-        mentees : []
+        mentees : [],
+        start_date : '',
+        end_date : ''
     });
     const load = ()=>{
         _loadMentoring(mentoring_id)
@@ -61,6 +63,7 @@ function MentoringIntroduction({match, history}){
                     return false;
                 }
             })
+            console.log(isJoin);
 
             Promise.all(
                 res.data.assignments.map((a)=>{
@@ -141,9 +144,9 @@ function MentoringIntroduction({match, history}){
                 <div className='join-button-edge'>
                     {
                         isJoin ? 
-                        (<div onClick={joinMentoring} className='join-button'>멘토링 참여하기</div>)
-                        :
                         (<Link to={`/mymentoring/${mentoring_id}`} className='join-button'>내 멘토링으로 이동</Link>)
+                        :
+                        (<div onClick={joinMentoring} className='join-button'>멘토링 참여하기</div>)
                     }
                 </div>
             </div>
