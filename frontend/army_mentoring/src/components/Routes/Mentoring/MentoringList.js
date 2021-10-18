@@ -40,12 +40,23 @@ function MentoringList({match}){
     const [searchResult, setSearchResult] = useState([]);
 
     const searchMentoring = (text)=>{
-        console.log(text);
         setSearchText(text);
         const result = mentoringList.filter((m)=>{
-            return m.title.toLowerCase().includes(text.toLowerCase())
+            let isTitleMatch = false;
+            let isTagMatch = false;
+
+            isTitleMatch = m.title.toLowerCase().includes(text.toLowerCase());
+            
+            const {tags} = m;
+            tags.forEach(({name})=>{
+                isTagMatch = name.toLowerCase().includes(text.toLowerCase());
+                if (isTagMatch) {
+                    return false;
+                }
+            })
+
+            return isTitleMatch || isTagMatch;
         })
-        console.log(result);
         setSearchResult(result);
     }
 
