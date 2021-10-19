@@ -369,7 +369,6 @@ $ yarn install && nohup yarn start &
 # 👥 8. 팀 정보 (Team Information)
 
 ### EarlyFried는 군에서의 '경험'이 '경력'이 되는 세상을 꿈꾸는 6명의 강한 친구들입니다. <br>
->>>>>>> origin/feature/doc/#068_documents
 
 <table>
  <tr>
