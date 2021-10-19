@@ -212,7 +212,6 @@
 <br>
 
 # 🖥️ 4. 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
->>>>>>> origin/feature/doc/#068_documents
 
 ## 포폴
 +포트폴리오 작성
@@ -252,7 +251,6 @@ $ yarn start or npm run start
 
 
 <br>
->>>>>>> origin/feature/doc/#068_documents
 
 # 🔧 5. 기술 스택 (Techniques Used)
 
