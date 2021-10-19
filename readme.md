@@ -1,19 +1,28 @@
-
-### 본 페이지는 샘플입니다. 아래의 *[샘플 양식에 포함되어 있는 항목은 필수 기재사항]*   입니다.
-
-해당 내용은 모두 예시이며 설명이 부족하거나 추가하고싶은 부분이 있으면 개발자님이 추가해서 작성하셔도 무관합니다. (동영상, 이미지, 텍스트 적용 전부 자유)
-
 # Army Mentoring (Guntor Guntee)
 
 ![Logo](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5661b9ce-5790-4dea-b557-f7833bea8975/20210911_132325_0002.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210911T060936Z&X-Amz-Expires=86400&X-Amz-Signature=7d0c6cd51a66da61c9db72ac3b7970628795052c1abb65b9518fceefcccdaaf6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%2220210911_132325_0002.png%22)
 
+## 목차
+- 아이콘, 링크 등을 다양하게 활용해서 눈이 즐겁고 심플하게
+- 
+
 ## 프로잭트 소개
 
-- 설명 기입
+- 어떻게 시작 되었는가?(무슨 문제를 해결하려고 하는가?)
+- 무슨 비전을 제시하려고 하는가?(문제에 대해 제시하려는 솔루션은 무엇인가?)
 
 ## 기능 설명
 
-- 설명 기입
+- 해결책에 대한 '구체적인' 설명(gif를 곁들이면 더 좋을 듯)
+* 포트폴리오 작성
+* 멘토링 만들기
+* 멘토링 신청
+* 멘토링 진행
+* ...
+
+## 기대효과
+## 발전방향
+
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 
@@ -42,18 +51,10 @@ $ yarn or npm install
 $ yarn start or npm run start
 ```
 
-## 프로젝트 사용법 (Getting Started)
 
-**마크다운 문법을 이용하여 자유롭게 기재**
 
-잘 모를 경우
-구글 검색 - 마크다운 문법
-[https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017](https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017)
-
- 편한 마크다운 에디터를 찾아서 사용
- 샘플 에디터 [https://stackedit.io/app#](https://stackedit.io/app#)
- 
 ## 팀 정보 (Team Information)
+사진이나 아이콘 등을 이용해서 예쁘게
 
 |  이름  |        역할       |                           GitHub IDs                          |         E-Mails         |
 |:------:|:-----------------:|:-------------------------------------------------------------:|:-----------------------:|
