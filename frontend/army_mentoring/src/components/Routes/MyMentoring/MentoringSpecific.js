@@ -144,7 +144,8 @@ function MentoringSpecificMento({match, history}){
     }
 
     const deleteAssignment = (assignment_id)=>{
-        _deleteAssignment(assignmentTitle, assignmentContent, mentoring_id, endDate, assignment_id)
+        console.log(assignment_id);
+        _deleteAssignment(assignment_id)
         .then(res=>{
             load();
             hideAddAssignment();
@@ -175,6 +176,7 @@ function MentoringSpecificMento({match, history}){
         c.value = assignments[i].content;
         const d = document.getElementById('edit-assignment-deadline'+assignment_id);
         d.value = assignments[i].deadline.substring(0,10).split('-').reverse().join('/');
+        setPassedList(assignments[i].passed_mentees);
     }
 
     const hideEditAssignment = (assignment_id)=>{
@@ -193,7 +195,6 @@ function MentoringSpecificMento({match, history}){
     const editAssignment = (assignment_id)=>{
         const t = document.getElementById('edit-assignment-title'+assignment_id);
         const c = document.getElementById('edit-assignment-content'+assignment_id);
-        
         _updateAssignment(t.value, c.value, mentoring_id, editEndDate, assignment_id, passedList)
         .then(res=>{
             load();
@@ -310,14 +311,11 @@ function MentoringSpecificMento({match, history}){
                                                     let mentee_id = getId(mentee.url);
                                                     let isPassed = false;
                                                     a.passed_mentees.forEach((li)=>{
-                                                        console.log('li : ' + getId(li));
-                                                        console.log('mentee : ' + mentee_id);
                                                         if(getId(li) == mentee_id){
                                                             isPassed=true;
                                                             return false;
                                                         }
                                                     })
-                                                    console.log('isPassed : ' + isPassed);
                                                     return isPassed ? 
                                                     (<div className='passed-mentee-list'>
                                                         <div className='mentee-name passed-mentee'>멘티 : {mentee.username}</div>
