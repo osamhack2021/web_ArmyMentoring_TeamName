@@ -1,9 +1,15 @@
 ![guntor-guntee-logo](image/guntor-guntee-logo.png)
 
-> ### *누구에게나 의미있고 값져야 할 군생활이니까*
-> 
 
-<br>
+> ### *누구에게나 의미있고 값져야 할 군생활이니까*
+
+![version](https://img.shields.io/badge/version-demo-orange)
+[![languages](https://img.shields.io/github/languages/count/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/search?l=JavaScript&type=code)
+[![GitHub contributors](https://img.shields.io/github/contributors/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/graphs/contributors)
+[![GitHub commit](https://img.shields.io/github/last-commit/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/pulse)
+[![GitHub commit per week](https://img.shields.io/github/commit-activity/w/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/pulse)
+[![licence](https://img.shields.io/github/license/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://opensource.org/licenses/MIT)
+
 
 # 🪖 군토&군티 (Guntor & Guntee)
 
