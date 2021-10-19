@@ -1,35 +1,70 @@
-# Army Mentoring (Guntor Guntee)
+<div align='center'>
+            
++로고사진 추가 필요
 
-![Logo](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5661b9ce-5790-4dea-b557-f7833bea8975/20210911_132325_0002.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210911T060936Z&X-Amz-Expires=86400&X-Amz-Signature=7d0c6cd51a66da61c9db72ac3b7970628795052c1abb65b9518fceefcccdaaf6&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%2220210911_132325_0002.png%22)
+![liscense](https://img.shields.io/badge/liscence-MIT-green.svg)
+![GitHub contributors](https://img.shields.io/github/contributors/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)
+![GitHub commit](https://img.shields.io/github/last-commit/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)
+![GitHub commit interval](https://img.shields.io/github/commit-activity/w/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)
 
-## 목차
-- 아이콘, 링크 등을 다양하게 활용해서 눈이 즐겁고 심플하게
-- 
++뱃지에 링크 넣기
 
-## 프로잭트 소개
+[프로젝트 소개](#프로젝트-소개) / 
+[기능 설명](#기능-설명) / 
+[효과](#효과) / 
+[빌드 방법](#빌드-방법) / 
+[기술 스택](#기술-스택) /
+[팀 정보](#팀-정보)
++아이콘 활용해서 눈이 즐겁게
 
-- 어떻게 시작 되었는가?(무슨 문제를 해결하려고 하는가?)
-- 무슨 비전을 제시하려고 하는가?(문제에 대해 제시하려는 솔루션은 무엇인가?)
+</div>
 
-## 기능 설명
+# 프로젝트 소개
 
-- 해결책에 대한 '구체적인' 설명(gif를 곁들이면 더 좋을 듯)
-* 포트폴리오 작성
-* 멘토링 만들기
-* 멘토링 신청
-* 멘토링 진행
-* ...
+## 문제
++어떻게 시작 되었는가?(무슨 문제를 해결하려고 하는가?)
+## 비전
++무슨 비전을 제시하려고 하는가?(문제에 대해 제시하려는 솔루션은 무엇인가?)
+
+# 기능 설명
+
++해결책(기능)에 대한 '구체적인' 설명(gif를 곁들이면 더 좋을 듯)
+
+## 포폴
++포트폴리오 작성
+
+## 멘토링 만들기
++멘토링 만들기
+
+## 멘토링 신청
++멘토링 신청
+ 
+## 멘토링 진행
++멘토링 진행
+
+# 효과
 
 ## 기대효과
++기대효과
+
 ## 발전방향
++발전가능성과 방향
 
+# 빌드 방법
 
-## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
+## 설치
 
+```bash
+$ git clone git주소
+$ yarn or npm install
+$ yarn start or npm run start
+```
+
+## 빌드
 - ECMAScript 6 지원 브라우저 사용
 - 권장: Google Chrome 버젼 77 이상
 
-## 기술 스택 (Technique Used) 
+# 기술 스택
 
 ### Server(back-end)
 
@@ -43,17 +78,10 @@
  -  UI framework
  - 기타 사용한 라이브러리
 
-## 설치 안내 (Installation Process)
-
-```bash
-$ git clone git주소
-$ yarn or npm install
-$ yarn start or npm run start
-```
 
 
 
-## 팀 정보 (Team Information)
+# 팀 정보
 사진이나 아이콘 등을 이용해서 예쁘게
 
 |  이름  |        역할       |                           GitHub IDs                          |         E-Mails         |
