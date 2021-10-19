@@ -136,6 +136,71 @@
 						flex-direction: column;
 						justify-content: center;
 						width: 80%;
+						.passed-list-title{
+							margin-top:10px;
+						}
+						.passed-list-box{
+							display:flex;
+							flex-direction: row;
+							flex-wrap: wrap;
+							.passed-mentee-list{
+								display:flex;
+								width:200px;
+								border:3px solid $white;
+								flex-direction: column;
+								justify-content: space-between;
+								border-radius: 30px;
+								margin:10px;
+								.passed-mentee{
+									border-radius: 30px;
+									background-color: $secondary;
+								}
+								.unpassed-mentee{
+									border-radius: 30px;
+									background-color: $red;
+								}
+
+							}
+							.passed-list{
+								display:flex;
+								width:300px;
+								border:3px solid $white;
+								flex-direction: column;
+								justify-content: space-between;
+								border-radius: 30px;
+								margin:10px;
+								.passbuttons{
+									display:flex;
+									flex-direction: row;
+									justify-content: space-around;
+									margin:10px;
+									.passbutton{
+										display:flex;
+										justify-content: center;
+										align-items: center;
+										width:100px;
+										height:50px;
+										background-color: $gray2;
+										border-radius: 30px;
+										color:$white;
+										&:hover{
+											color:$gray2;
+											background-color: $white;
+											transition: 500ms;
+										}
+									}
+									.passed{
+										background-color: $secondary;
+										transition: 500ms;
+				
+									}
+									.unpassed{
+										background-color: $red;
+										transition: 500ms;
+									}
+								}
+							}
+						}
 					}
 					.sub-col {
 						display: flex;
@@ -143,26 +208,26 @@
 						justify-content: flex-end;
 						align-items: center;
 						width: 20%;
+						.button {
+							padding: 5px 10px;
+							margin-left: 10px;
+							background-color: $secondary;
+							border-radius: 10px;
+							border: 3px solid $secondary;
+							color: $white;
+							border-radius: 20px;
+							&:hover {
+								color: $tertiary;
+								background-color: $white;
+								border: 3px solid $tertiary;
+								transition: 500ms;
+							}
+						}
 						.setting-buttons {
 							display: flex;
 							flex-direction: row;
 							justify-content: center;
 							margin-bottom: 5px;
-							.button {
-								padding: 5px 10px;
-								margin-left: 10px;
-								background-color: $secondary;
-								border-radius: 10px;
-								border: 3px solid $secondary;
-								color: $white;
-								border-radius: 20px;
-								&:hover {
-									color: $tertiary;
-									background-color: $white;
-									border: 3px solid $tertiary;
-									transition: 500ms;
-								}
-							}
 						}
 					}
 				}

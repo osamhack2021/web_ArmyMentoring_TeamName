@@ -144,7 +144,8 @@ function MentoringSpecificMento({match, history}){
     }
 
     const deleteAssignment = (assignment_id)=>{
-        _deleteAssignment(assignmentTitle, assignmentContent, mentoring_id, endDate, assignment_id)
+        console.log(assignment_id);
+        _deleteAssignment(assignment_id)
         .then(res=>{
             load();
             hideAddAssignment();
@@ -175,6 +176,7 @@ function MentoringSpecificMento({match, history}){
         c.value = assignments[i].content;
         const d = document.getElementById('edit-assignment-deadline'+assignment_id);
         d.value = assignments[i].deadline.substring(0,10).split('-').reverse().join('/');
+        setPassedList(assignments[i].passed_mentees);
     }
 
     const hideEditAssignment = (assignment_id)=>{
@@ -193,14 +195,13 @@ function MentoringSpecificMento({match, history}){
     const editAssignment = (assignment_id)=>{
         const t = document.getElementById('edit-assignment-title'+assignment_id);
         const c = document.getElementById('edit-assignment-content'+assignment_id);
-        
         _updateAssignment(t.value, c.value, mentoring_id, editEndDate, assignment_id, passedList)
         .then(res=>{
             load();
             hideEditAssignment(assignment_id);
         })
         .catch(err=>{
-            console.log(err);
+            console.log(err.response);
         })
     }
 
@@ -237,8 +238,11 @@ function MentoringSpecificMento({match, history}){
 
     const addPassedList = (e, mentee_url)=>{
         const l = passedList.slice();
-        l.push(mentee_url);
-        setPassedList(l);
+        let i = l.findIndex(url=>{return url == mentee_url});
+        if(i==-1){
+            l.push(mentee_url);
+            setPassedList(l);
+        }
         console.log(l);
         const el = e.target;
         el.className = 'passbutton passed';
@@ -300,6 +304,29 @@ function MentoringSpecificMento({match, history}){
                                         <div className='main-col'>
                                             <div>제목 : {a.title}</div>
                                             <div>내용 : {a.content}</div>
+                                            <div className='passed-list-title'>멘티별 과제 통과 여부</div>
+                                            <div className='passed-list-box'>
+                                            {
+                                                mentees.map((mentee)=>{
+                                                    let mentee_id = getId(mentee.url);
+                                                    let isPassed = false;
+                                                    a.passed_mentees.forEach((li)=>{
+                                                        if(getId(li) == mentee_id){
+                                                            isPassed=true;
+                                                            return false;
+                                                        }
+                                                    })
+                                                    return isPassed ? 
+                                                    (<div className='passed-mentee-list'>
+                                                        <div className='mentee-name passed-mentee'>멘티 : {mentee.username}</div>
+                                                    </div>) 
+                                                    :
+                                                    (<div className='passed-mentee-list'>
+                                                        <div className='mentee-name unpassed-mentee'>멘티 : {mentee.username}</div>
+                                                    </div>) 
+                                                })
+                                            }
+                                            </div>
                                         </div>
                                         <div className='sub-col'>
                                             기한 : {a.deadline.substring(0,10)}
@@ -322,20 +349,36 @@ function MentoringSpecificMento({match, history}){
                                         <div className='main-col'>
                                             제목 : <Input id={'edit-assignment-title'+aid}></Input>
                                             내용 : <Input id={'edit-assignment-content'+aid}></Input>
-                                            과제 완료 멘토
+                                            <div className='passed-list-title'>과제 통과 멘티 관리</div>
+                                            <div className='passed-list-box'>
                                             {
                                                 mentees.map((mentee)=>{
                                                     let mentee_id = getId(mentee.url);
-                                                    let isPassed = a.passed_mentees.forEach((li)=>{
+                                                    let isPassed = false;
+                                                    a.passed_mentees.forEach((li)=>{
                                                         if(getId(li) == mentee_id)
-                                                            return true;
+                                                            isPassed=true;
+                                                            return false;
                                                     })
                                                     return isPassed ? 
-                                                    (<div><div>{mentee.username}</div><div onClick={(e)=>addPassedList(e, mentee.url)} className='passbutton passed'>통과</div><div className='passbutton' onClick={(e)=>removePassedList(e, mentee.url)}>미통과</div></div>) 
+                                                    (<div className='passed-list'>
+                                                        <div className='mentee-name'>멘티 : {mentee.username}</div>
+                                                        <div className='passbuttons'>
+                                                            <div onClick={(e)=>addPassedList(e, mentee.url)} className='passbutton passed'>통과</div>
+                                                            <div className='passbutton' onClick={(e)=>removePassedList(e, mentee.url)}>미통과</div>
+                                                        </div>
+                                                    </div>) 
                                                     :
-                                                    (<div><div>{mentee.username}</div><div onClick={(e)=>addPassedList(e, mentee.url)} className='passbutton'>통과</div><div className='passbutton unpassed' onClick={(e)=>removePassedList(e, mentee.url)}>미통과</div></div>) 
+                                                    (<div className='passed-list'>
+                                                        <div className='mentee-name'>멘티 : {mentee.username}</div>
+                                                        <div className='passbuttons'>
+                                                            <div onClick={(e)=>addPassedList(e, mentee.url)} className='passbutton'>통과</div>
+                                                            <div className='passbutton unpassed' onClick={(e)=>removePassedList(e, mentee.url)}>미통과</div>
+                                                        </div>
+                                                    </div>) 
                                                 })
                                             }
+                                            </div>
                                         </div>
                                         <div className='sub-col'>
                                             기한 : <DatePicker id={'edit-assignment-deadline'+aid} selected={editEndDate} onChange={(date)=>{setEditEndDate(date)}}/>
