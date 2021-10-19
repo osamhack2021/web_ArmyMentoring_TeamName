@@ -23,6 +23,7 @@
 
 ## 문제
 +어떻게 시작 되었는가?(무슨 문제를 해결하려고 하는가?)
+
 ## 비전
 +무슨 비전을 제시하려고 하는가?(문제에 대해 제시하려는 솔루션은 무엇인가?)
 
@@ -83,6 +84,95 @@ $ yarn start or npm run start
 
 # 팀 정보
 사진이나 아이콘 등을 이용해서 예쁘게
+
+<table width="788">
+<thead>
+<tr>
+<th width="100" align="center">사진</th>
+<th width="100" align="center">성명</th>
+<th width="150" align="center">역할</th>
+<th width="100" align="center">깃허브</th>
+<th width="175" align="center">이메일</th>
+</tr> 
+</thead>
+<tbody>
+<tr>
+<td width="100" align="center">
+</td>
+<td width="100" align="center">이지호</td>
+<td width="150">팀장<br>프로젝트 기획<br>프론트엔드 개발<br></td>
+<td width="100" align="center">
+	<a href="https://github.com/mangming2">
+		<img src="http://img.shields.io/badge/mangming2-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="175" align="center">
+</td>
+</tr>
+<tr>
+<td width="100" align="center"></td>
+<td width="100" align="center">박지인</td>
+<td width="150">디비 설계<br>프론트-백 연동<br>백엔드 개발</td>
+<td width="100" align="center">
+	<a href="https://github.com/nagi0101">
+		<img src="http://img.shields.io/badge/nagi0101-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="175" align="center">
+</td>
+</tr>
+<tr>
+<td width="100" align="center"></td>
+<td width="100" align="center">양현동</td>
+<td width="150">API 설계<br>서버 관리<br>백엔드 개발</td>
+<td width="100" align="center">
+	<a href="https://github.com/Yanghyeondong">
+		<img src="http://img.shields.io/badge/Yanghyeondong-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="175" align="center">
+</td>
+</tr>
+<tr>
+<td width="100" align="center">
+</td>
+<td width="100" align="center">이재용</td>
+<td width="150">페이지 디자인<br>프론트엔드 개발<br></td>
+<td width="100" align="center">
+	<a href="https://github.com/VirtualExplorer7613">
+		<img src="http://img.shields.io/badge/VirtualExplorer7613-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="175" align="center"
+</td>
+</tr>
+<tr>
+<td width="100" align="center"></td>
+<td width="100" align="center">이채준</td>
+<td width="150">발표 자료 준비<br>로고 디자인<br>백엔드 </td>
+<td width="100" align="center">
+	<a href="https://github.com/chaejunlee">
+		<img src="http://img.shields.io/badge/chaejunlee-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="175" align="center">
+            
+<tr>
+<td width="100" align="center"></td>
+<td width="100" align="center">이현희</td>
+<td width="150">페이지 디자인<br>프론트엔드 개발</td>
+<td width="100" align="center">
+	<a href="https://github.com/nonaninona">
+		<img src="http://img.shields.io/badge/nonaninona-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="175" align="center">
+	
+</td>
+</tr>
+</tbody>
+</table>
+
 
 |  이름  |        역할       |                           GitHub IDs                          |         E-Mails         |
 |:------:|:-----------------:|:-------------------------------------------------------------:|:-----------------------:|
