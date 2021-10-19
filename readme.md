@@ -1,15 +1,9 @@
 ![guntor-guntee-logo](image/guntor-guntee-logo.png)
 
-
 > ### *누구에게나 의미있고 값져야 할 군생활이니까*
+> 
 
-![version](https://img.shields.io/badge/version-demo-orange)
-[![languages](https://img.shields.io/github/languages/count/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/search?l=JavaScript&type=code)
-[![GitHub contributors](https://img.shields.io/github/contributors/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/graphs/contributors)
-[![GitHub commit](https://img.shields.io/github/last-commit/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/pulse)
-[![GitHub commit per week](https://img.shields.io/github/commit-activity/w/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/pulse)
-[![licence](https://img.shields.io/github/license/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://opensource.org/licenses/MIT)
-
+<br>
 
 # 🪖 군토&군티 (Guntor & Guntee)
 
@@ -23,7 +17,7 @@
 
 # 📍 목차
 
-- [🫂 1. 프로잭트 소개](#-1-프로잭트-소개)  
+- [🫂 1. 프로젝트 소개](#-1-프로잭트-소개)  
 
 - [⚙️ 2. 기능 설명](#%EF%B8%8F-2-기능-설명)  
 
@@ -43,9 +37,11 @@
 
 <br>
 
-# 🫂 1. 프로잭트 소개
+# 🫂 1. 프로젝트 소개
 
 ## 🗺 1.1. Overview
+
+![홈화면](https://user-images.githubusercontent.com/37038105/137934981-279c1be3-1bd5-4a6f-8f30-6e25de9db50c.gif)
 
 '군토&군티'는 멘토링에 필요한 모든 것을 제공합니다.
 
@@ -152,13 +148,18 @@
 
 # ⚙️ 2. 기능 설명
 
-### 📌 골라 들을 수 있는 멘토링
 
-- 내용
+### 로그인 & 회원가입
 
-### 📂 손 쉬운 포트폴리오 관리
+![ezgif com-resize](https://user-images.githubusercontent.com/37038105/137936942-c310f931-bf5a-4c96-b1c6-3d4d3c9714d6.gif)
 
-- 내용
+### 📌 누구나 만들수 있는 멘토링
+
+![멘토링 제작_1](https://user-images.githubusercontent.com/37038105/137934645-24760ce4-facb-408a-98a9-97fb2deb2a36.gif)
+
+### 📂 손 쉬운 프로필, 포트폴리오 관리
+
+![멘토 포폴 생성_](https://user-images.githubusercontent.com/37038105/137933276-7f280d4c-6ab3-406b-bba9-2ee09edbbd63.gif)
 
 ### 🔴 실시간으로 이루어지는 멘토링
 
@@ -218,26 +219,6 @@
 <br>
 
 # 🖥️ 4. 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
-
-## 포폴
-+포트폴리오 작성
-
-## 멘토링 만들기
-+멘토링 만들기
-
-## 멘토링 신청
-+멘토링 신청
- 
-## 멘토링 진행
-+멘토링 진행
-
-# 효과
-
-## 기대효과
-+기대효과
-
-## 발전방향
-+발전가능성과 방향
 
 # 빌드 방법
 
