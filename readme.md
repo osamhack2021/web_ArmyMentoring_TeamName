@@ -310,6 +310,16 @@
 - gunicorn
 - heroku
 
+**기타 오픈 소스**
+<details>
+<summary>펼치기</summary>
+
+- django-cors-headers
+- Pillow
+- whitenoise
+
+</details>
+
 ### FrontEnd
 
 **Web Dev**
@@ -322,6 +332,21 @@
 
 - sass
 - reactstrap
+
+**기타 오픈 소스**
+<details>
+<summary>펼치기</summary>
+
+- argon2
+- fullcalendar
+- moment
+- Nodemailler
+- react-calendar
+- react-hook-form
+- react-router-dom
+- tippy.js
+
+</details>
 
 ### DevOps
 
@@ -355,21 +380,6 @@
     ![erd](resources/image/erd.png)
 
 <br>
-
-**기타 오픈 소스**
-<details>
-<summary>펼치기</summary>
-
-- argon2
-- fullcalendar
-- moment
-- Nodemailler
-- react-calendar
-- react-hook-form
-- react-router-dom
-- tippy.js
-
-</details>
 
 # 📀 6. 설치 안내 (Installation Process)
 
