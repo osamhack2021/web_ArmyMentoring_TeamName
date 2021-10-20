@@ -5,6 +5,14 @@
 
 <br>
 
+
+![version](https://img.shields.io/badge/version-demo-orange)
+[![GitHub contributors](https://img.shields.io/github/contributors/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/graphs/contributors)
+[![code quality](https://www.codefactor.io/Content/badges/A.svg)](https://www.codefactor.io/repository/github/osamhack2021/web_guntor-guntee_earlyfried)
+[![GitHub commit](https://img.shields.io/github/last-commit/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/pulse)
+[![GitHub commit per week](https://img.shields.io/github/commit-activity/w/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/pulse)
+[![licence](https://img.shields.io/github/license/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://opensource.org/licenses/MIT)
+
 # 🤝 군토&군티 (Guntor & Guntee)
 
 군토&군티는 군복무 중 멘토링 활동을 통해 서로 성장하는 서비스입니다.
