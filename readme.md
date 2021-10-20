@@ -359,6 +359,7 @@
 **기타 오픈 소스**
 <details>
 <summary>펼치기</summary>
+
 - argon2
 - fullcalendar
 - moment
@@ -367,7 +368,8 @@
 - react-hook-form
 - react-router-dom
 - tippy.js
-<details>
+
+</details>
 
 # 📀 6. 설치 안내 (Installation Process)
 
