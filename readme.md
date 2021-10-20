@@ -40,7 +40,7 @@
 
 - [📁 8. 디렉토리](#-8-디렉토리)
 
-- [©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-8-저작권-및-사용권-정보-copyleft--end-user-license)
+- [©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-9-저작권-및-사용권-정보-copyleft--end-user-license)
 
 <br>
 
