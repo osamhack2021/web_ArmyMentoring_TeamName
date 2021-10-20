@@ -17,12 +17,6 @@ function PortfolioDetail({match, history}) {
     return t[4];
   }
 
-  const getUserId = ()=>{
-    if(Object.keys(user).length == 0)
-        return -1;
-    return getId(user.url);
-  }
-
   const load = ()=>{
     _loadPortfolio(p_id)
     .then(res=>{
