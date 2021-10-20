@@ -1,5 +1,5 @@
 @import '../Routes/preset.scss';
-$background-color: white;
+$background-color: $white;
 $main-green: #6ba259;
 
 .home_section {
@@ -19,7 +19,7 @@ $main-green: #6ba259;
 		color: $white;
 		font-size: 2rem;
 		background: $main-green;
-		color: #fff;
+		color: $white;
 		border: none;
 		position: relative;
 		height: auto;

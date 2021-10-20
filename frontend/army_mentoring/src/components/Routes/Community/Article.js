@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext } from 'react';
 import './Article.scss';
 import { Link } from 'react-router-dom';
-import { Form, FormGroup, Input, Button } from 'reactstrap';
+import { Form, Input, Button } from 'reactstrap';
 import { _addComment, _loadArticle, _loadComment, _deleteArticle, _updateArticle, _updateComment, _deleteComment} from '../../../backend/community';
 import { UserContext }  from '../../../context/Context';
 import heartImg from '../img/heart.png'; 
@@ -37,13 +37,12 @@ function Article({match, history}) {
             res.data.question_comments.sort((a,b)=>{
                 if(a < b)
                     return -1;
-                else if(a == b)
-                    return 0;
                 else if(a > b)
                     return 1;
+                return 0;
             })
             setContent(()=>res.data);
-            const result = Promise.all( //map함수로 모든 비동기요청을 처리한 뒤 promise 배열을 새로만든다.
+            Promise.all( //map함수로 모든 비동기요청을 처리한 뒤 promise 배열을 새로만든다.
                 res.data.question_comments.map(url=>{
                     const u = url.split('/');
                     const comment_id = u[4];
