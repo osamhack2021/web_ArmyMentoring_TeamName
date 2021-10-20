@@ -5,7 +5,6 @@
 
 <br>
 
-
 ![version](https://img.shields.io/badge/version-demo-orange)
 [![GitHub contributors](https://img.shields.io/github/contributors/osamhack2021/web_Guntor-Guntee_EarlyFried.svg)](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/graphs/contributors)
 [![code quality](https://www.codefactor.io/Content/badges/A.svg)](https://www.codefactor.io/repository/github/osamhack2021/web_guntor-guntee_earlyfried)
@@ -199,7 +198,21 @@
 ![ezgif com-resize (1)](https://user-images.githubusercontent.com/37038105/138025403-5b10db23-6724-4af4-a51a-426878e52570.gif)
 <br>
 
-- 
+멘티는 멘토링에 적혀 있는 다음 내용들을 확인해 자신에게 딱맞는 멘토링을 찾을 수 있습니다.
+
+- 멘토의 프로필, 포트폴리오
+
+- 멘토링 기간, 소개, 과제
+
+- 멘토에 대한 후기
+
+멘토링 신청 후 다음을 확인할 수 있습니다.
+
+- 과제 현황
+
+- 멘토가 추가로 남긴 메모
+
+- 멘토와의 멘토링을 진행할 수 있는 실시간 1대1 채팅방
 
 <br>
 
@@ -208,6 +221,13 @@
 
 ![ezgif com-resize (2)](https://user-images.githubusercontent.com/37038105/138025775-ec726fa3-c6af-4caf-bb2d-24df82ed7dae.gif)
 <br>
+
+멘토링만으로 부족한 정보를 커뮤니티에서 자유롭게 나눌 수 있습니다.
+
+- 검색 기능 지원
+
+- 댓글 작성, 좋아요 누르기 가능
+
 <br>
 
 <br>
