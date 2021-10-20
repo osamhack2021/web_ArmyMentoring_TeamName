@@ -12,11 +12,6 @@ function PortfolioDetail({match, history}) {
 
   const p_id = match.params.pid;
 
-  const getId = (url)=>{
-    const t = url.split('/');
-    return t[4];
-  }
-
   const load = ()=>{
     _loadPortfolio(p_id)
     .then(res=>{
