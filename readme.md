@@ -356,6 +356,19 @@
 
 <br>
 
+**기타 오픈 소스**
+<details>
+<summary>펼치기</summary>
+- argon2
+- fullcalendar
+- moment
+- Nodemailler
+- react-calendar
+- react-hook-form
+- react-router-dom
+- tippy.js
+<details>
+
 # 📀 6. 설치 안내 (Installation Process)
 
 ## 다운로드
@@ -403,8 +416,7 @@ $ echo "start chatting"
 $ yarn install && nohup yarn start &
 $ echo "start web app"
 
-# 다음으로 웹 앱을 실행해줍니다.
-
+# 다음으로 프론트엔드 서버를 실행해줍니다. (default port: 3000)
 $ cd ../frontend/army_mentoring
 $ yarn install && nohup yarn start &
 
