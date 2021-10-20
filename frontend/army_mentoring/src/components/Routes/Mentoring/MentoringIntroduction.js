@@ -13,6 +13,7 @@ function MentoringIntroduction({match, history}){
     const [mentor, setMentor] = useState({});
     const [assignments, setAssignments] = useState([]);
     const [mentoringReviews, setMentoringReviews] = useState([]);
+    /* subnavbar 흔적
     const menu = 
     [
         {id:'home', desc:'홈'},
@@ -21,7 +22,7 @@ function MentoringIntroduction({match, history}){
         {id:'plan', desc:'세부 일정'},
         {id:'review', desc:'후기'}
     ]
-
+    */
     const getId = (url)=>{
         if(url == undefined)
             return -1;
