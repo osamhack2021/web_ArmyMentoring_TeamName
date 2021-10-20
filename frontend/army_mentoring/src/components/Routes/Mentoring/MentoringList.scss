@@ -108,8 +108,9 @@
 		cursor: pointer;
 		transition: 800ms ease all;
 		outline: none;
-		margin-left: 5px;
 		border-radius: 5px;
+		margin-left: 20px;
+		margin-bottom: 20px;
 	}
 	button:hover {
 		background: #fff;
@@ -138,10 +139,6 @@
 		transition: 800ms ease all;
 	}
 	
-	button {
-		margin-left: 20px;
-		margin-bottom: 20px;
-	}
 
 	& > .button_more{
 		font-family: 'Do Hyeon', sans-serif;
