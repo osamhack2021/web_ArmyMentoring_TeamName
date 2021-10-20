@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Progress } from "reactstrap";
-import soldier from "../img/soldier.png";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import "./EditProfile.scss";
 import { UserContext } from '../../../context/Context';
@@ -89,7 +87,7 @@ function Editprofile({match, history}) {
                 <FormGroup class="form-group">
                     <Label class="label">프로필 사진</Label>
                     <div className='img_select'>
-                        <img src={imgUrl}></img>
+                        <img src={imgUrl} alt='img'></img>
                         <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
                         </div>
                 </FormGroup>
