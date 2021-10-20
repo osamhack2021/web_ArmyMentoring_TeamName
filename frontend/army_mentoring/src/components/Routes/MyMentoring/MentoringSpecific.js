@@ -180,7 +180,6 @@ function MentoringSpecificMento({match, history}){
     }
 
     const hideEditAssignment = (assignment_id)=>{
-        const i = findIndexOfAssignment(assignment_id);
         const a = document.getElementById('edit-assignment'+assignment_id);
         a.className = 'assignment-container h';
         const b = document.getElementById('assignment'+assignment_id);
@@ -413,7 +412,7 @@ function MentoringSpecificMento({match, history}){
 
                 <div className="memo">
                     <div className='memo-title'>메모
-                    <img src={note}/></div>
+                    <img src={note} alt='note'/></div>
                     <div id='memo-box' className='memo-box'>
                         <div className='button-container'>
                             <div className='edit-content-button' onClick={goEditMemo}>메모수정</div>              
