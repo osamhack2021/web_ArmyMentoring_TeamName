@@ -78,7 +78,7 @@ function Login({match, history}){
                     <FormGroup class="form-group">
                         <Label class="label">프로필 사진</Label>
                         <div className='img_select'>
-                        <img src={imgUrl}></img>
+                        <img src={imgUrl} alt='img'></img>
                         <Input type="file" accept="image/*" id="profileimage" name="profileimage" onChange={thumbnail}></Input>
                         </div>
                     </FormGroup>

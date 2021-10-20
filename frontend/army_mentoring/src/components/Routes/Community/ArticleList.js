@@ -13,23 +13,22 @@ function ArticleList({match}) {
   const [searchResult, setSearchResult] = useState([]);
 
   const load = ()=>{
-      _loadArticleList()
-      .then(res=>{
-          res.data.sort((a,b)=>{
-              let front = a.updated_at;
-              let back = b.updated_at;
-              if(front < back)
-                return 1;
-              else if(front == back)
+    _loadArticleList()
+        .then(res=>{
+            res.data.sort((a,b)=>{
+                let front = a.updated_at;
+                let back = b.updated_at;
+                if(front < back)
+                    return 1;
+                else if(front > back)
+                    return -1;
                 return 0;
-              else if(front > back)
-                return -1;
-          })
-          setList(res.data);
-          setSearchResult(res.data);
+            })
+            setList(res.data);
+            setSearchResult(res.data);
         }).catch(err=>{
-          console.log(err.response);
-      });
+            console.log(err.response);
+        });
   }
   useEffect(()=>{ load(); }, []);
 
@@ -63,8 +62,8 @@ function ArticleList({match}) {
                             <div className='community_title'>{li.title}</div>
                             <div className='community_contents'>{li.content}</div>
                             <div className='community_statistics'>
-                                <div className='community_comments'><img src={dialogImg}></img>{li.question_comments.length}</div>
-                                <div className='community_likes'><img src={heartImg}></img>{li.liked_user.length}</div>
+                                <div className='community_comments'><img src={dialogImg} alt='dialogImg'></img>{li.question_comments.length}</div>
+                                <div className='community_likes'><img src={heartImg} alt='heartImg'></img>{li.liked_user.length}</div>
                             </div>
                         </div>
                     </Link>

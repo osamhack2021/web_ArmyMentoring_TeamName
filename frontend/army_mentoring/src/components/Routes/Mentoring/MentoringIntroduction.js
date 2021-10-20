@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './MentoringIntroduction.scss';
 import {UserContext} from '../../../context/Context';
-import Subnavbar from '../Subnavbar';
 import { _loadMentoring, _loadAssignment, _loadMentoringReviewList, _updateMentoring } from '../../../backend/mentoring';
 import { _loadUser } from '../../../backend/profile';
 import { Link } from 'react-router-dom';
