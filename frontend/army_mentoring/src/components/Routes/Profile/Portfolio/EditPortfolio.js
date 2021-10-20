@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Form, FormGroup, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 import "./EditPortfolio.scss";
 import { _addPortfolio, _addPortfolioItem, _loadPortfolio, _loadPortfolioItem } from "../../../../backend/profile";
 import { UserContext } from "../../../../context/Context";
@@ -51,7 +51,7 @@ function EditPortfolio({match, history}) {
       )
       .then(res=>{
         setForms(res);
-        res.map((f)=>{
+        res.forEach((f)=>{
           const t = document.getElementById('title'+f.order);
           const d = document.getElementById('content'+f.order);
           t.value = f.title;
@@ -107,7 +107,7 @@ function EditPortfolio({match, history}) {
         let url = res.data.url;
         let t = url.split('/');
         let pid = t[4]; 
-        forms.map((f)=>{
+        forms.forEach((f)=>{
           _addPortfolioItem(f.title, f.content, pid, f.order)
           .then(res=>{
             console.log(res)
