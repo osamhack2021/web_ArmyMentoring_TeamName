@@ -390,14 +390,16 @@ $ sh start.sh
 
 $ cd backend
 $ pip install -r requirements.txt && python manage.py migrate
+$ echo "start server"
 $ nohup python manage.py runserver &
 $ cd ../chatting
+$ echo "start chatting"
 $ yarn install && nohup yarn start &
-$ cd ..
+$ echo "start web app"
 
 # 다음으로 웹 앱을 실행해줍니다.
 
-$ cd frontend/army_mentoring
+$ cd ../frontend/army_mentoring
 $ yarn install && nohup yarn start &
 
 ```
