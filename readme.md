@@ -38,7 +38,9 @@
 
 - [👥 7. 팀 정보 (Team Information)](#-7-팀-정보-team-information)
 
-- [©️ 8. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-8-저작권-및-사용권-정보-copyleft--end-user-license)
+- [📁 8. 디렉토리](#-8-디렉토리)
+
+- [©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-8-저작권-및-사용권-정보-copyleft--end-user-license)
 
 <br>
 
@@ -198,6 +200,10 @@
 ![ezgif com-resize (1)](https://user-images.githubusercontent.com/37038105/138025403-5b10db23-6724-4af4-a51a-426878e52570.gif)
 <br>
 
+검색창을 이용해 원하는 주제의 멘토링을 신청할 수 있습니다.
+
+멘토링 제목, 태그를 이용해 검색이 가능합니다.
+
 멘티는 멘토링에 적혀 있는 다음 내용들을 확인해 자신에게 딱맞는 멘토링을 찾을 수 있습니다.
 
 - 멘토의 프로필, 포트폴리오
@@ -226,7 +232,7 @@
 
 - 검색 기능 지원
 
-- 댓글 작성, 좋아요 누르기 가능
+- 댓글 작성, 좋아요 누르기 기능
 
 <br>
 
@@ -283,22 +289,11 @@
 
 # 🖥️ 4. 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 
-# 빌드 방법
-
-## 설치
-
-```bash
-$ git clone git주소
-$ yarn or npm install
-$ yarn start or npm run start
-```
-
-## 빌드
+## 환경 조건
 - ECMAScript 6 지원 브라우저 사용
 - 권장: Google Chrome 버젼 77 이상
 - Python 3.9 이상
 - npm 6.14 이상
-
 
 <br>
 
@@ -368,11 +363,33 @@ $ yarn start or npm run start
 
 # 📀 6. 설치 안내 (Installation Process)
 
+## 다운로드
+
 ```shell
 
 # 먼저 리포지터리를 다운 받습니다.
 
 $ git clone https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried.git
+
+```
+
+## 실행
+
+### 방법 1 - start.sh 파일 실행
+
+```shell
+
+# start.sh 파일을 실행해줍니다.
+
+$ sh start.sh
+
+```
+
+### 방법 2 - 직접 command를 입력
+
+```shell
+
+# 직접 command를 입력해줍니다.
 
 # 서버를 먼저 실행해줍니다.
 
@@ -465,7 +482,27 @@ $ yarn install && nohup yarn start &
 
 <br>
 
-# ©️ 8. 저작권 및 사용권 정보 (Copyleft / End User License)
+# 📁 8. 디렉토리
+
+## WEB(BE)에 해당하는 폴더들
+
+`backend/`
+
+- `backend/` 는 데이터 서버 관련 파일 저장 폴더 입니다.
+
+`chatting/`
+
+- `chatting/` 은 채팅 서버 관련 파일 저장 폴더 입니다
+
+<br>
+
+## WEB(FE)에 해당하는 폴더들
+
+`frontend/army_mentoring/`
+
+- `frontend/army_mentoring/` 은 웹 앱 관련 파일 저장 폴더 입니다.
+
+# ©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)
 
 * [MIT](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/blob/master/license.md)
 
