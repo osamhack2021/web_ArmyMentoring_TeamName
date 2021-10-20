@@ -1,4 +1,4 @@
-![guntor-guntee-logo](image/guntor-guntee-logo.png)
+![guntor-guntee-logo](resources/image/guntor-guntee-logo.png)
 
 > ### *누구에게나 의미있고 값져야 할 군생활이니까*
 > 
@@ -9,8 +9,8 @@
 
 군토&군티는 군복무 중 멘토링 활동을 통해 서로 성장하는 서비스입니다.
 
-### 📋 [발표 자료 (PDF)](PPT.pdf)
-### 📺 [시연 영상 (Youtube)](https://youtube.com)
+### 📋 [발표 자료 (PDF)](resources/PPT.pdf)
+### 📺 [시연 영상 (Youtube)](https://www.youtube.com/watch?v=r6Xi8-RJUlI)
 ### 📁 [팀 다큐멘테이션 (Notion)](https://held-mangosteen-e92.notion.site/Notion-853c57f2b4d74113b437fef3278f327b)
 
 <br>
@@ -29,11 +29,9 @@
 
 - [📀 6. 설치 안내 (Installation Process)](#-6-설치-안내-installation-process)
 
-- [📋 7. 프로젝트 사용법 (Getting Started)](#-7-프로젝트-사용법-getting-started)
+- [👥 7. 팀 정보 (Team Information)](#-7-팀-정보-team-information)
 
-- [👥 8. 팀 정보 (Team Information)](#-8-팀-정보-team-information)
-
-- [©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-9-저작권-및-사용권-정보-copyleft--end-user-license)
+- [©️ 8. 저작권 및 사용권 정보 (Copyleft / End User License)](#%EF%B8%8F-8-저작권-및-사용권-정보-copyleft--end-user-license)
 
 <br>
 
@@ -61,7 +59,7 @@
 
 ### 진로, 학업에 대한 고민
 
-![stat](image/stat.png)
+![stat](resources/image/stat.png)
 
 <br>
 
@@ -82,12 +80,10 @@
 
 <br>
 
-## 💭 1.4. 상황 설정
+## 💭 1.4. 상황 설정 (프로젝트 스토리)
     
 ### 입대를 앞둔 사람의 고민과 결정 - 죽느냐 사느냐, 그것이 문제로다
 
-<details>
-<summary>(펼치기)</summary>
 
 여기 입대를 앞둔 굳건이가 있습니다. 굳건이는 막연한 군생활이 걱정됩니다. 너무 답답한 나머지 굳건이는 군대를 갔다온 주변 선배들에게 조언을 구해봅니다.
 
@@ -97,33 +93,21 @@
 
 두 선배의 의견 모두 일리가 있습니다. 하지만 굳건이는 인생의 가장 중요한 시기를 군대에 있다고 낭비하고 싶지는 않습니다. 슬기롭게 군생활을 해쳐나간 선배 A가 존경스럽습니다. 굳건이도 선배 A를 본받아 자기계발을 열심히 하기로 마음을 먹습니다.
 
-</details>
-
 <br>
 
 ### 머지 않아 찾아온 불편한 손님, 슬럼프 - 어디로 가야하오...
-
-<details>
-<summary>(펼치기)</summary>
 
 큰 꿈을 안고 입대한 굳건이는 머지 않아 어려움을 겪습니다. 하고 싶은 것은 많지만 어떻게 해야할지 하나도 모르겠습니다. 운동을 하고 싶지만 팔굽혀펴기 10개 하기도 너무 힘듭니다. 맛있는 냉동 음식과 과자를 매 끼니 챙겨 먹느라 돈도 잘 모이지 않습니다. 책을 읽어도 졸리기만 합니다. 어떤 공부를 해야할지 감이 오지 않습니다. 당장 내일을 어떻게 살아야 할지도 모르겠습니다. 삶의 목표가 더욱 흐릿해지기만 했습니다.
 
 이렇게 살면 안 된다고 자신을 다그치고 또 다그치지만 변하지 않는 자신이 야속합니다. 굳건이는 속으로 멘토 같은 사람이 방향을 설정해주고 이끌어줬으면 좋겠다고 생각합니다. 열심히 하고 싶은 마음은 정말 가득하지만 실천할 의지와 정보가 부족함을 느낍니다. 굳건이를 도와줄 사람은 존재하지 않는 것일까요?
 
-</details>
-
 <br>
 
 ### 뭐가 문제야 Say Something - '군토&군티'가 있잖아!
 
-<details>
-<summary>(펼치기)</summary>
-
 슬럼프에 빠진 굳건이는 '군토&군티'라는 서비스를 접하게 됩니다. 군토&군티에 등록된 유능한 멘토들의 다양한 멘토링 프로그램 중 굳건이가 필요한 멘토링이 찾아봅니다. 굳건이는 평소 관심을 갖고 있던 운동, 공부 관련 멘토링의 소개 글을 상세히 살펴봅니다. 멘토의 포트폴리오까지 꼼꼼히 참고해 찾은 멘토링을 신청합니다. 유능한 멘토를 만나 자신이 원하던 자기 계발을 효과적으로 진행합니다. 채팅 기능을 이용해 과제도 주고 받으며 멘토링을 체계적으로 진행합니다. 이렇게 자기계발에 성공한 굳건이는 이번에 멘토로서 활동해 자신의 지식과 노하우를 또 전달해줍니다. 군토&군티를 통해 굳건이는 자신이 계획하던 꿈을 이루고 전역하게 됩니다. 멘토링을 통해 배우고 느낀 점들은 소중한 경험이 되었습니다.
 
 이 이야기는 비단 굳건이만의 이야기가 아닙니다. 군토&군티를 사용하는 모든 장병의 이야기가 될 수 있습니다. 군토&군티는 장병들의 적극적인 참여로 더욱 더 큰 커뮤니티로 성장할 수 있습니다. 서로 배우고 가르치며 모든 장병들이 자신의 꿈을 이룰 수 있는 성장형 커뮤니티가 될 것 입니다.
-
-</details>
 
 <br>
 
@@ -149,11 +133,32 @@
 # ⚙️ 2. 기능 설명
 
 
-### 로그인 & 회원가입
+### 🔒 회원가입 & 로그인
 <hr>
 
 ![ezgif com-resize](https://user-images.githubusercontent.com/37038105/137936942-c310f931-bf5a-4c96-b1c6-3d4d3c9714d6.gif)
 <br>
+
+ - 가입한 회원 정보로 로그인 가능합니다.
+
+<br>
+
+### 📂 손 쉬운 포트폴리오 관리
+<hr>
+
+![멘토 포폴 생성_](https://user-images.githubusercontent.com/37038105/137933276-7f280d4c-6ab3-406b-bba9-2ee09edbbd63.gif)
+<br>
+
+멘토링을 시작하기 위해서는 포트폴리오를 작성해야 합니다.
+
+누구나 쉽게 프로필 페이지에서 작성을 시작할 수 있습니다.
+
+입력해야 하는 정보는 다음과 같습니다.
+
+- 포트폴리오 제목
+
+- 하위 항목 (스펙 카드) 제목, 내용 입력
+
 <br>
 
 ### 📌 누구나 만들수 있는 멘토링
@@ -161,13 +166,23 @@
 
 ![ezgif com-resize](https://user-images.githubusercontent.com/37038105/138024962-86e23f00-9dd8-4df2-b7df-abad82c9e67b.gif)
 <br>
-<br>
 
-### 📂 손 쉬운 프로필, 포트폴리오 관리
-<hr>
+누구나 쉽게 멘토링을 제작할 수 있습니다.  
 
-![멘토 포폴 생성_](https://user-images.githubusercontent.com/37038105/137933276-7f280d4c-6ab3-406b-bba9-2ee09edbbd63.gif)
-<br>
+입력해야 되는 정보는 다음과 같습니다.
+
+- 멘토링 썸네일
+
+- 검색을 위한 '멘토링 제목'과 '태그'
+
+- 멘토링 소개
+
+- 과제 (제목, 내용, 제출일)
+
+- 멘토링 기간
+
+- 멘토링과 연관된 포트폴리오
+
 <br>
 
 ### 🔴 멘토링 신청과 실시간 채팅
@@ -175,6 +190,9 @@
 
 ![ezgif com-resize (1)](https://user-images.githubusercontent.com/37038105/138025403-5b10db23-6724-4af4-a51a-426878e52570.gif)
 <br>
+
+- 
+
 <br>
 
 ### 🔍뭐든 물어봐 ~ 커뮤니티
@@ -183,9 +201,7 @@
 ![ezgif com-resize (2)](https://user-images.githubusercontent.com/37038105/138025775-ec726fa3-c6af-4caf-bb2d-24df82ed7dae.gif)
 <br>
 <br>
-<hr>
-### 📈 실력만큼 같이 쌓이는 경험치
-<hr>
+
 <br>
 
 # ✨ 3. 기대 효과
@@ -298,45 +314,27 @@ $ yarn start or npm run start
 **Documentation**
 
 - Notion [(링크)](https://held-mangosteen-e92.notion.site/Notion-853c57f2b4d74113b437fef3278f327b)
-    <details>
-    <summary>사진 펼치기</summary>
 
-    ![notion](image/notion.png)
-
-    </details>
+    ![notion](resources/image/notion.png)
 
 **Communication**
 
 - Jandi
 
-    <details>
-    <summary>사진 펼치기</summary>
-
-    ![jandi](image/jandi.png)
-
-    </details>
+    ![jandi](resources/image/jandi.png)
 
 **Web Design**
 
 - Figma [(링크)](https://www.figma.com/file/6Yau8QRRaXSDcZNJixO8jh?embed_host=notion&kind=&node-id=0%3A1&viewer=1)
 
-    <details>
-    <summary>사진 펼치기</summary>
 
-    ![erd](image/figma.png)
-
-    </details>
+    ![figma](resources/image/figma.png)
 
 **Database Design**
 
 - ERD Cloud
 
-    <details>
-    <summary>펼치기</summary>
-
-    ![erd](image/erd.png)
-
-    </details>
+    ![erd](resources/image/erd.png)
 
 <br>
 
@@ -366,11 +364,7 @@ $ yarn install && nohup yarn start &
 
 <br>
 
-# 📋 7. 프로젝트 사용법 (Getting Started)
-
-<br>
-
-# 👥 8. 팀 정보 (Team Information)
+# 👥 7. 팀 정보 (Team Information)
 
 ### EarlyFried는 군에서의 '경험'이 '경력'이 되는 세상을 꿈꾸는 6명의 강한 친구들입니다. <br>
 
@@ -385,7 +379,7 @@ $ yarn install && nohup yarn start &
  </tr>
    
  <tr>
-  <td align='center'><img src="image/1.png" width="50" height="50"></td>
+  <td align='center'><img src="resources/image/1.png" width="50" height="50"></td>
   <td align='center'>육군 병장</td>
   <td align='center'>이지호</td>
   <td align='center'>팀장<br>프로젝트 기획<br>프론트엔드</td>
@@ -394,7 +388,7 @@ $ yarn install && nohup yarn start &
  </tr>
 
  <tr>
-  <td align='center'><img src="image/2.png" width="50" height="50"></td>
+  <td align='center'><img src="resources/image/2.png" width="50" height="50"></td>
   <td align='center'>육군 일병</td>
   <td align='center'>박지인</td>
   <td align='center'>디비 설계<br>프론트-백 연동<br>백엔드</td>
@@ -403,7 +397,7 @@ $ yarn install && nohup yarn start &
  </tr>
  
  <tr>
-  <td align='center'><img src="image/3.png" width="50" height="50"></td>
+  <td align='center'><img src="resources/image/3.png" width="50" height="50"></td>
   <td align='center'>육군 상병</td>
   <td align='center'>양현동</td>
   <td align='center'>API 설계<br>서버 관리<br>백엔드</td>
@@ -412,7 +406,7 @@ $ yarn install && nohup yarn start &
  </tr>
 
  <tr>
-  <td align='center'><img src="image/4.png" width="50" height="50"></td>
+  <td align='center'><img src="resources/image/4.png" width="50" height="50"></td>
   <td align='center'>육군 상병</td>
   <td align='center'>이재용</td>
   <td align='center'>페이지 디자인<br>프론트엔드</td>
@@ -421,7 +415,7 @@ $ yarn install && nohup yarn start &
  </tr>
 
  <tr>
-  <td align='center'><img src="image/5.png" width="50" height="50"></td>
+  <td align='center'><img src="resources/image/5.png" width="50" height="50"></td>
   <td align='center'>육군 병장</td>
   <td align='center'>이채준</td>
   <td align='center'>발표자료 준비<br>로고 디자인<br>백엔드</td>
@@ -430,7 +424,7 @@ $ yarn install && nohup yarn start &
  </tr>
    
  <tr>
-  <td align='center'><img src="image/6.png" width="50" height="50"></td>
+  <td align='center'><img src="resources/image/6.png" width="50" height="50"></td>
   <td align='center'>육군 일병</td>
   <td align='center'>이현희</td>
   <td align='center'>페이지 디자인<br>프론트엔드<br>프론트-백 연동</td>
@@ -439,9 +433,11 @@ $ yarn install && nohup yarn start &
  </tr>
 </table>
 
+*계급은 2021년 11월 기준입니다.*
+
 <br>
 
-# ©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)
+# ©️ 8. 저작권 및 사용권 정보 (Copyleft / End User License)
 
 * [MIT](https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried/blob/master/license.md)
 
