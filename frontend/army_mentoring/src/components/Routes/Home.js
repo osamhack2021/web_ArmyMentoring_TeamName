@@ -1,9 +1,8 @@
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import './Home.scss';
-import Mentoring_review from './Mentoring_review';
+import MentoringReview from './MentoringReview';
 import 'bootstrap/dist/css/bootstrap.css'
-import soldier from './img/soldier.png';
 import soldier2 from './img/soldier2.png';
 import join from './img/join.png';
 import loupe from './img/loupe.png';
@@ -43,7 +42,7 @@ function Home(){
                             <Link to="/login/signup"><button>지금 바로 시작하세요</button></Link>
                             </div>
                         </section>
-                        <img src={soldier2}/>
+                        <img src={soldier2} alt='soldier2' />
                     </div>
 
                     
@@ -81,29 +80,29 @@ function Home(){
                         <div className='howtodo_box1'>
                           <h3>1. 회원가입</h3>
                           <div>군토&군티 회원가입으로<br/>서비스를 시작하세요!</div>
-                          <img src={join}/>
+                          <img src={join} alt='join' />
                         </div>
                     <div className='howtodo_box1'>
                           <h3>2. 멘토링 검색</h3>
                           <div>원하는 분야의 <br/>멘토링을 검색하세요!</div>
-                          <img src={loupe}/>
+                          <img src={loupe} alt='loupe' />
                     </div>
                     <div className='howtodo_box1'>
                           <h3>3. 멘토링 신청</h3>
                           <div>마음에 드는 멘토링 소개를<br/>읽어보고 신청하세요!</div>
-                          <img src={resume}/>
+                          <img src={resume} alt='resume' />
                     </div>
                     <div className='howtodo_box1'>
                           <h3>4. 멘토링 참여</h3>
                           <div>신청 수락을 받은 후<br/>곧바로 시작하세요!</div>
-                          <img src={support}/>
+                          <img src={support} alt='support' />
                     </div>
                     </div>
                 </div> 
                 
                 <div className='review home_section'> 
                     <h2 className="section_title">멘토링 후기</h2>
-                    <Mentoring_review/>
+                    <MentoringReview/>
                 </div> 
 
                 <div className='faqs home_section'> 
