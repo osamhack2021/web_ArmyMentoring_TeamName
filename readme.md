@@ -433,7 +433,7 @@ $ yarn install && nohup yarn start &
   <td align='center'><img src="image/6.png" width="50" height="50"></td>
   <td align='center'>육군 일병</td>
   <td align='center'>이현희</td>
-  <td align='center'>페이지 디자인<br>프론트엔드</td>
+  <td align='center'>페이지 디자인<br>프론트엔드<br>프론트-백 연동</td>
   <td align='center'><a href="https://github.com/nonaninona"><img src="http://img.shields.io/badge/nonaninona-green?style=social&logo=github"/></a></td>
   <td align='center'><a href="mailto:starcraft0529@gmail.com"><img src="https://img.shields.io/badge/starcraft0529@gmail.com-green?logo=gmail&style=social"/></a></td>
  </tr>
