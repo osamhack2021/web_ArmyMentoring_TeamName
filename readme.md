@@ -30,7 +30,7 @@
 
 - [✨ 3. 기대 효과](#-3-기대-효과)
 
-- [🖥️  4.컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](%EF%B8%8F-4-컴퓨터-구성--필수-조건-안내-prerequisites)
+- [🖥️  4. 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)](#%EF%B8%8F-4-컴퓨터-구성--필수-조건-안내-prerequisites)
 
 - [🔧 5. 기술 스택 (Techniques Used)](#-5-기술-스택-techniques-used)
 
@@ -293,7 +293,7 @@
 - ECMAScript 6 지원 브라우저 사용
 - 권장: Google Chrome 버젼 77 이상
 - Python 3.9 이상
-- npm 6.14 이상
+- node.js 14.18.1 이상
 
 <br>
 
@@ -377,6 +377,10 @@ $ git clone https://github.com/osamhack2021/web_Guntor-Guntee_EarlyFried.git
 
 ### 방법 1 - start.sh 파일 실행
 
+[Data Server](http://guntor-guntee-data-server.herokuapp.com/)와 [Chatting Server](http://guntor-guntee-chatting-server.herokuapp.com/)의 경우 heroku를 통해 배포를 해두었습니다.
+
+프론트엔드 앱 사용만을 원하신다면 start.sh 파일을 실행하시면 됩니다.
+
 ```shell
 
 # start.sh 파일을 실행해줍니다.
@@ -391,17 +395,18 @@ $ sh start.sh
 
 # 직접 command를 입력해줍니다.
 
-# 서버를 먼저 실행해줍니다.
-
+# 백엔드 서버를 먼저 실행해줍니다.
+# django data server 실행 (default port: 8000)
 $ cd backend
 $ pip install -r requirements.txt && python manage.py migrate
 $ nohup python manage.py runserver &
+
+# chatting server 실행 (default port: 5000)
 $ cd ../chatting
 $ yarn install && nohup yarn start &
 $ cd ..
 
-# 다음으로 웹 앱을 실행해줍니다.
-
+# 다음으로 프론트엔드 서버 실행해줍니다. (default port: 3000)
 $ cd frontend/army_mentoring
 $ yarn install && nohup yarn start &
 
