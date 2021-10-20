@@ -1,174 +1,381 @@
 @import '../preset.scss';
 @import "~react-datepicker/dist/react-datepicker.css";
 
-.specific-mentor-body{
-    .title-container{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        width:100%;
-        height:500px;
-        background-color: $primary;
-        border-radius: 0px 30px 30px 30px;
-        img {
-            display:block;
-            width:300px;
-            height:300px;
-            border:1px solid $black;
-        }
-        a {
-            text-decoration: none;
-            color:$black;
-        }
-        .tags{
-            display:flex;
-            height:100%;
-            width:10%;
-            flex-direction: column;
-            justify-content: flex-end;
-            .tag-box {
-                display:flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                padding:0px;
-                margin:10px;
-                .tag{
-                    display: flex;
-                    padding: 5px;
-                    background-color: $gray2;
-                    border-radius : 5px;
-                    font-weight: bold;
-                }
-            }
-        }
+.specific-mentor-body {
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 30px;
+	.title-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		width: 100%;
+		height: 500px;
+		background-color: $secondary;
+		border-radius: 0px 30px 30px 30px;
+		padding: 30px;
+		
+		.mentor-content {
+			margin-left: 10%;
+			img {
+				display: block;
+				width: 450px;
+				height: 300px;
+				border-radius: 30px;
+			}
+			a {
+				text-decoration: none;
+				color: $black;
+				&:hover {
+					color: $gray2;
+					transition: 500ms;
+				}
+			}
+		}
+		.other-content {
+			display: flex;
+			flex-direction: column;
+			width: 80%;
+			height: 100%;
+			.title-content {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 90%;
+				h2 {
+					
+					color: $white;
+					font-size: 4rem;
+				}
+				.during {
+					font-size: 30px;
+				}
+			}
 
-        h2 {
-            font-weight: bold;
-            color:$white;
-            font-size:50px;
-        }
-        .during{
-            font-size:30px;
-        }
-    }
-    .content-container{
-        display:flex;
-        width:90%;
-        margin : 10px auto;
-        padding:30px;
-        flex-direction: column;
-        .assignments{
-            display:flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border: 5px solid $secondary;
-            border-radius: 30px;
-            padding:30px;
-            margin-bottom: 30px;
-            .h{
-                display:none;
-            }
-            .assignment-title{
-                display:flex;
-                flex-direction: row;
-                justify-content: flex-start;
-                font-weight: bold;
-                font-size:50px;  
-                margin-bottom: 10px;
-            }
-            .assignment{
-                padding:30px;
-                border:1px solid $black;
-                margin-bottom: 10px;
-                .assignment-container{
-                    display:flex;
-                    flex-direction: row;
-                    .main-col{
-                        display:flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        width:80%;
-                    }
-                    .sub-col{
-                        display:flex;
-                        flex-direction: column;
-                        justify-content: flex-end;
-                        align-items: center;
-                        width:20%;
-                        .buttons{
-                            display:flex;
-                            flex-direction: row;
-                            justify-content: center;
-                            margin-bottom: 5px;
-                            .button{
-                                padding:5px 10px;
-                                margin-left:10px;
-                                background-color: $primary;
-                            }
-                        }
-                    }
-                }
-                .h{
-                    display:none;
-                }
-            }
-            .h{
-                display:none;
-            }
-            .add-button-container{
-                display:flex;
-                flex-direction: row;
-                width:100%;
-                justify-content: center;
-                margin:10px 0px;
-                .add-button{
-                    display:flex;
-                    justify-content: center;
-                    align-items: center;
-                    width:100px;
-                    height:50px;
-                    background-color: $primary;
-                }
-            }
-            .add-assignment{
-                border:1px solid $black;
-                .buttons{
-                    display:flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    margin-bottom: 5px;
-                    .button{
-                        padding:5px 10px;
-                        margin-left:10px;
-                        background-color: $primary;
-                    }
-                }
-            }
-        }
-        .memo {
-            display:flex;
-            flex-direction: column;
-            border: 5px solid $secondary;
-            border-radius: 30px;
-            padding:30px;
-            .memo-header{
-                display:flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-bottom: 10px;
-                .memo-title{
-                    display:flex;
-                    flex-direction: row;
-                    justify-content: flex-start;
-                    font-weight: bold;
-                    font-size:50px;  
-                }
-                .content{
+			.tags {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				.tag {
+					padding: 5px;
+					background-color: $gray2;
+					border-radius: 5px;
+					font-weight: bold;
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+	.buttons {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		margin-top: 20px;
+		.button-border {
+			border-radius: 50px 0px 50px 50px;
+			border: 3px solid $secondary;
+			margin-right: 40px;
 
-                }
-            }
-        }
-    }
+			.chat-button {
+				display: block;
+				text-decoration: none;
+				padding: 20px 40px;
+				margin: 10px;
+				background-color: $secondary;
+				color: $white;
+				border: 3px solid $secondary;
+				border-radius: 50px 0px 50px 50px;
+
+				&:hover {
+					background-color: white;
+					border: 3px solid $tertiary;
+					color: $tertiary;
+					transition: 500ms;
+				}
+			}
+		}
+	}
+	.content-container {
+		display: flex;
+		width: 90%;
+		margin: 10px auto;
+		padding: 30px;
+		flex-direction: column;
+		.assignments {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			margin-bottom: 30px;
+			.assignments-box {
+				border: 5px solid $secondary;
+				border-radius: 30px;
+				padding: 30px;
+			}
+			.h {
+				display: none;
+			}
+			.assignment-title {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				font-weight: bold;
+				font-size: 50px;
+				margin-bottom: 10px;
+			}
+			.assignment {
+				padding: 30px;
+				border: 1px solid $primary;
+				border-radius: 3px;
+				background-color: $primary;
+				margin-bottom: 10px;
+				.assignment-container {
+					display: flex;
+					flex-direction: row;
+					.main-col {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						width: 80%;
+						.passed-list-title{
+							margin-top:10px;
+						}
+						.passed-list-box{
+							display:flex;
+							flex-direction: row;
+							flex-wrap: wrap;
+							.passed-mentee-list{
+								display:flex;
+								width:200px;
+								border:3px solid $white;
+								flex-direction: column;
+								justify-content: space-between;
+								border-radius: 30px;
+								margin:10px;
+								.passed-mentee{
+									border-radius: 30px;
+									background-color: $secondary;
+								}
+								.unpassed-mentee{
+									border-radius: 30px;
+									background-color: $red;
+								}
+
+							}
+							.passed-list{
+								display:flex;
+								width:300px;
+								border:3px solid $white;
+								flex-direction: column;
+								justify-content: space-between;
+								border-radius: 30px;
+								margin:10px;
+								.passbuttons{
+									display:flex;
+									flex-direction: row;
+									justify-content: space-around;
+									margin:10px;
+									.passbutton{
+										display:flex;
+										justify-content: center;
+										align-items: center;
+										width:100px;
+										height:50px;
+										background-color: $gray2;
+										border-radius: 30px;
+										color:$white;
+										&:hover{
+											color:$gray2;
+											background-color: $white;
+											transition: 500ms;
+										}
+									}
+									.passed{
+										background-color: $secondary;
+										transition: 500ms;
+				
+									}
+									.unpassed{
+										background-color: $red;
+										transition: 500ms;
+									}
+								}
+							}
+						}
+					}
+					.sub-col {
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
+						align-items: center;
+						width: 20%;
+						.button {
+							padding: 5px 10px;
+							margin-left: 10px;
+							background-color: $secondary;
+							border-radius: 10px;
+							border: 3px solid $secondary;
+							color: $white;
+							border-radius: 20px;
+							&:hover {
+								color: $tertiary;
+								background-color: $white;
+								border: 3px solid $tertiary;
+								transition: 500ms;
+							}
+						}
+						.setting-buttons {
+							display: flex;
+							flex-direction: row;
+							justify-content: center;
+							margin-bottom: 5px;
+						}
+					}
+				}
+				.h {
+					display: none;
+				}
+			}
+			.h {
+				display: none;
+			}
+			.add-button-container {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+				justify-content: center;
+				margin: 10px 0px;
+				.add-button {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 200px;
+					height: 50px;
+					background-color: $secondary;
+					border-radius: 30px;
+					border: 3px solid $secondary;
+					color: $white;
+					&:hover {
+						color: $tertiary;
+						background-color: $white;
+						border: 3px solid $tertiary;
+						transition: 500ms;
+					}
+				}
+				.h {
+					display: none;
+				}
+			}
+			.add-assignment {
+				border: 1px solid $black;
+				.buttons {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					margin-bottom: 5px;
+					.button {
+						padding: 5px 10px;
+						margin-left: 10px;
+						background-color: $secondary;
+						border: 3px solid $secondary;
+						color: $white;
+						border-radius: 20px;
+						&:hover {
+							color: $tertiary;
+							background-color: $white;
+							border: 3px solid $tertiary;
+							transition: 500ms;
+						}
+					}
+				}
+			}
+		}
+		.memo {
+			display: flex;
+			flex-direction: column;
+			.memo-title {
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+				font-weight: bold;
+				font-size: 50px;
+				img {
+					margin-left: 20px;
+					height: 50px;
+				}
+			}
+			.memo-box {
+				border: 5px solid $secondary;
+				border-radius: 30px;
+				padding: 30px;
+				.button-container {
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-end;
+					.edit-content-button {
+						display: flex;
+						padding: 5px 10px;
+						background-color: $secondary;
+						border-radius: 5px;
+						border: 3px solid $secondary;
+						color: $white;
+						border-radius: 20px;
+						&:hover {
+							color: $tertiary;
+							background-color: $white;
+							border: 3px solid $tertiary;
+							transition: 500ms;
+						}
+					}
+				}
+				.memo-content {
+					text-align: left;
+				}
+				.edit-content {
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-end;
+					margin-bottom: 10px;
+					.confirm {
+						display: flex;
+						padding: 5px 10px;
+						background-color: $secondary;
+						border-radius: 5px;
+						border: 3px solid $secondary;
+						color: $white;
+						border-radius: 20px;
+						&:hover {
+							color: $tertiary;
+							background-color: $white;
+							border: 3px solid $tertiary;
+							transition: 500ms;
+						}
+					}
+					.cancel {
+						display: flex;
+						padding: 5px 10px;
+						background-color: $secondary;
+						margin-left: 10px;
+						border-radius: 5px;
+						border: 3px solid $secondary;
+						color: $white;
+						border-radius: 20px;
+						&:hover {
+							color: $tertiary;
+							background-color: $white;
+							border: 3px solid $tertiary;
+							transition: 500ms;
+						}
+					}
+				}
+				.memo-edit {
+					font-size: 30px;
+					padding: 0px;
+				}
+			}
+			.h {
+				display: none;
+			}
+		}
+	}
 }

@@ -1,24 +1,87 @@
+@import "../preset.scss";
+
 .MakeMentoringAssignment{
-    border: 1px solid black;
+    border: 2px solid $gray3;
     border-radius: 20px;
-    width: 650px;
-    
-    & > div{
-        display: flex;
-        width: 80%;
-        align-items: center;
-    }
+    width: 100%;
+    margin-bottom: 2%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+
 
     & > .title_container {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1rem;
+        
+        & > .assignment_title{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            width: 10%;
+        }
+
         & > input {
-            height: 30px;
-            font-size: 18px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            font-size: 1.3rem;
+            height: 40px;
+            width: 85%;
+            margin: 1% 0%;
+            padding: 0% 1%;
+            border: 1px solid $gray2;
+            border-radius: 10px;
         }
     }
     
     & > .content_container{
-        & > textarea {
-            height: 150px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1rem;
+
+        & > .content_title{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            width: 10%;
         }
+
+        & > textarea {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 300;
+            font-size: 1.2rem;
+            height: 150px;
+            width: 85%;
+            margin: 1% 0%;
+            padding: 0% 1%;
+            border: 1px solid $gray2;
+            border-radius: 10px;
+        }
+    }
+
+    & > .deadline_container{
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 1rem;
+        margin: 1% 0%;
+        
+
+        & > .deadline_title{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            width: 10%;
+            
+        }
+
     }
 }

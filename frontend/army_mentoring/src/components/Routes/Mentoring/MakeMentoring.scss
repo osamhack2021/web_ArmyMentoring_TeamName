@@ -1,46 +1,313 @@
 @import "../preset.scss";
+@import '../Home.scss';
 
 .MakeMentoring {
 	& > .make_mentoring_container {
 
+		font-family: 'Noto Sans KR', sans-serif;
+
+		& > .head_title {
+			margin-top: 30px;
+			padding-left: 15px;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			justify-content: flex-start;
+			font-family: 'Do Hyeon', sans-serif;
+			font-size: 3rem;
+		}
+
 		& > .make_mentoring_header {
 			display: flex;
+			flex-direction: row;
+			align-items: center;
 			justify-content: center;
+			background-color: $gray4;
 			
 			& > .user_profile {
 				& > img {
-					width: 100px;
-					height: 100px;
+					width: 300px;
+					height: 300px;
+					border-radius: 30px;
+					margin: 50px 100px;
 				}
 			}
 
-			& > .tags {
-				& > .tags_container{
+			& > .edit_block{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				object-fit: cover;
+				width: auto;
+				width: 700px;
+
+				& > .thumbnail{
 					display: flex;
-					
-					& > .tag {
-						padding: 5px 10px;
-						height: 30px;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50px 50px 0px 0px;
+					margin-top: 50px;
+					height: auto;
+					width: 600px;
+					background-color: $gray3;
+
+					& > .preview{
+						border-radius: 50px 50px 0px 0px;
+						outline: none;
+						border: none;
+						height: 300px;
+						width: 600px;
+						object-fit: cover;
+						
+					}
+
+					& > .thumbnail_input{
+						font-size: 1rem;
+						padding: 5px;
+						margin: 5px;
+						background-color: $gray3;
+						border: 0px solid white;
+						text-align: left;
+						width: 210px;
+					}
+				}
+
+				& > .title{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: flex-start;
+					width: 600px;
+					border-radius: 0px 0px 50px 0px;
+					border: 4px solid $secondary;
+					background-color: white;
+
+					input::placeholder {
+						color: $gray2;
+					  }
+
+					& > .title_input{
+						background-color: white;
+						color: black;
+						border-radius: 0px 0px 50px 0px;
+						margin-left: 10px;
+						width: 580px;
+						font-size: 2.5rem;
+						text-align: left;
+						outline: none;
+						border: none;
+						text-decoration: none;
+						
+					}
+				}
+
+				& > .tags {
+					padding-top: 10px;
+					padding-bottom: 30px;
+
+					& > .tag_input{
+						width: 600px;
+						background-color: $white;
+						outline: none;
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						border: 2px solid $gray2;
 						border-radius: 5px;
-						margin-right: 10px;
-						background-color: $primary;
-						color: $white;
+						padding: 5px 10px;
+						margin-bottom: 10px;
 					}
+
+					& > .tags_container{
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						justify-content: flex-start;
+						width: 600px;
+
+						& > .tag {
+							padding: 5px 10px;
+							height: 30px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border-radius: 5px;
+							margin-right: 10px;
+							background-color: $secondary;
+							color: $white;
+						}
+
+						
+					}
+
 				}
 			}
 		}
 	
 		& > .make_mentoring_body {
+
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			font-family: 'Noto Sans KR', sans-serif;
+
 			& > .input_assignments{
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				font-family: 'Noto Sans KR', sans-serif;
+				width: 70%;
+				margin: 0% 15%;
+				margin-top: 3%;
+				border: 3px solid $gray3;
+				border-radius: 20px;
+				padding: 1% 2%;
+				
+				& > .sub_title{
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 3rem;
+					text-align: left;
+				}
+
 				& > .make_mentoring_assignments_container{
 					display: flex;
 					flex-direction: column;
 					align-items: center;
+					width: 100%;
+					margin: 1% 0;
+					padding: 0% 2%;
+					border-radius: 20px;
 				}
+
+			}
+
+			& > .input_description{
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				font-family: 'Noto Sans KR', sans-serif;
+				width: 70%;
+				margin: 0% 15%;
+				margin-top: 3%;
+				border: 3px solid $gray3;
+				border-radius: 20px;
+				padding: 1% 2%;
+
+				& > .sub_title{
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 3rem;
+					text-align: left;
+				}
+
+				
+				& > .t_box{
+					font-weight: 500;
+					font-size: 1.2rem;
+					width: 100%;
+					height: 200px;
+					margin: 2% 0;
+					padding: 1% 2%;
+					border: 1px solid $gray3;
+					border-radius: 20px;
+				}
+
+
+			}
+
+			& > .input_date{
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				font-family: 'Noto Sans KR', sans-serif;
+				width: 70%;
+				margin: 0% 15%;
+				margin-top: 3%;
+				border: 3px solid $gray3;
+				border-radius: 20px;
+				padding: 1% 2%;
+
+				& > .sub_title{
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 3rem;
+					text-align: left;
+				}
+
+				& > .start_date_container{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 1.5rem;
+					text-align: left;
+					width: 70%;
+					margin: 0% 15%;
+					
+					& > .date_input{
+						width: 50%;
+						margin: 0% 4%;
+					}
+				}
+
+				& > .end_date_container{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 1.5rem;
+					text-align: left;
+					width: 70%;
+					margin: 0% 15%;
+
+					& > .date_input{
+						width: 50%;
+						margin: 0% 4%;
+					}
+				}
+
+			}
+
+			& > .input_portfolio{
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				font-family: 'Noto Sans KR', sans-serif;
+				width: 70%;
+				margin: 0% 15%;
+				margin-top: 3%;
+				border: 3px solid $gray3;
+				border-radius: 20px;
+				padding: 1% 2%;
+
+				& > .sub_title{
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 3rem;
+					text-align: left;
+				}
+
+				& > .selecter{
+					
+					font-family: 'Do Hyeon', sans-serif;
+					font-size: 2rem;
+					text-align: left;
+					width: max-content;
+					margin: 1% 40%;
+					padding: 0.5% 1%;
+				}
+
+			}
+
+			& > .button_container{
+				
+				width: 20%;
+				margin: 5% 40%;
+
 			}
 		}
+
 	}
 }

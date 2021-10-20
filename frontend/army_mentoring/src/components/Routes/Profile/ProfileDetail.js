@@ -35,31 +35,24 @@ function Profile({match}) {
 
   useEffect(()=>{
     load();
-  }, [])
+  }, [other])
 
 
   const loadMentorings = (mentorings, setMentoring)=>{
-    _loadUser(match.params.id)
+    Promise.all(
+      mentorings.map((url)=>{
+        let m_id = getId(url);
+        return _loadMentoring(m_id)
+              .then(res=>{
+                return res.data;
+              })
+              .catch(err=>{
+                console.log(err);
+              })
+      })
+    )
     .then(res=>{
-      setOther(res.data);
-      Promise.all(
-        mentorings.map((url)=>{
-          let m_id = getId(url);
-          return _loadMentoring(m_id)
-                .then(res=>{
-                  return res.data;
-                })
-                .catch(err=>{
-                  console.log(err);
-                })
-        })
-      )
-      .then(res=>{
-        setMentoring(res);
-      })
-      .catch(err=>{
-        console.log(err);
-      })
+      setMentoring(res);
     })
     .catch(err=>{
       console.log(err);
@@ -67,13 +60,18 @@ function Profile({match}) {
   }
   
   const load = () =>{
-    loadMentorings(user.opened_mentoring, setMentorMentorings);
-    loadMentorings(user.participated_mentoring, setMenteeMentorings);
+    _loadUser(match.params.id)
+    .then(res=>{
+      setOther(res.data);
+      loadMentorings(user.opened_mentoring, setMentorMentorings);
+      loadMentorings(user.participated_mentoring, setMenteeMentorings);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
 
     const m = document.getElementById('message');
     const e = document.getElementById('edit');
-    console.log(m);
-    console.log(e);
     if(isMe){
       m.className = 'button h';
       e.className = 'button';
@@ -86,7 +84,7 @@ function Profile({match}) {
   
   return (
     <div className="profile">
-      <div className="pro_title">내 프로필</div>
+      <div className="pro_title">{isMe ? '내 프로필' : user.username + '의 프로필'}</div>
       <div className="intro">
         <img className="my-img" src={user.profile_image} alt="내 사진"></img>
         <div className="desc-col">
@@ -107,27 +105,33 @@ function Profile({match}) {
       </div>
       <div className="mentorings">
         <div className='mentoring-list-title'>멘토 역할 멘토링</div>
-        <ul className='mentoring-lists'>
         {
           mentorMentorings.map((m)=>{
             let t = m.url.split('/');
             let mid = t[4];
-            return (<Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>)
+            return (
+              <ul className='mentoring-lists'>
+                <Link to={`/mymentoring/mentor/${mid}`}><li>{m.title}</li></Link>
+              </ul>
+            )
             })
         }
-        </ul>
       </div>
       <div className="mentorings">
         <div className='mentoring-list-title'>멘티 역할 멘토링</div>
-        <ul className='mentoring-lists'>
+        
         {
           menteeMentorings.map((m) =>{
             let t = m.url.split('/');
             let mid = t[4];
-            return (<Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>)
-            })
+            return (
+            <ul className='mentoring-lists'>
+            <Link to={`/mymentoring/mentee/${mid}`}><li>{m.title}</li></Link>
+            </ul>
+            )
+          })
         }
-        </ul>
+        
       </div>
     </div>
   );

@@ -37,18 +37,18 @@ const updateUserContextBySavedToken = async (setUser) => {
 }
 
 const _requestSignUp = async (username, email, password, nickname, description, profileimage) => {
+    const formData = new FormData();
+    formData.append('profile_image', profileimage);
+    formData.append('username', username);
+    formData.append('password', password);
+    formData.append('nickname', nickname);
+    formData.append('description', description);
+    formData.append('email', email);
     try {
         const response = await axios({
             method:'POST',
             url : '/auth/register',
-            data : {
-                username : username,
-                email : email,
-                password : password,
-                nickname : nickname,
-                description : description,
-                profileimage : profileimage
-            }
+            data : formData
         })
         return response;
     } catch (error) {

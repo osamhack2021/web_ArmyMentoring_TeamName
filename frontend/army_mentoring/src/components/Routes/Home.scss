@@ -1,5 +1,5 @@
 @import '../Routes/preset.scss';
-$background-color: white;
+$background-color: $white;
 $main-green: #6ba259;
 
 .home_section {
@@ -19,7 +19,7 @@ $main-green: #6ba259;
 		color: $white;
 		font-size: 2rem;
 		background: $main-green;
-		color: #fff;
+		color: $white;
 		border: none;
 		position: relative;
 		height: auto;
@@ -31,7 +31,6 @@ $main-green: #6ba259;
 		cursor: pointer;
 		transition: 800ms ease all;
 		outline: none;
-		margin-left: 5px;
 		border-radius: 5px;
 	}
 	button:hover {
@@ -61,12 +60,10 @@ $main-green: #6ba259;
 		transition: 800ms ease all;
 	}
 
-	.more{
+	.more {
 		font-size: 1.5rem;
 	}
-	
 }
-
 
 .service {
 	background-color: #f0f0f0;
@@ -155,7 +152,7 @@ $main-green: #6ba259;
 			background-repeat: no-repeat;
 			background-position: center;
 		}
-		.text_light{
+		.text_light {
 			background: linear-gradient(to top, $secondary 55%, transparent 50%);
 			padding-right: 7px;
 			padding-left: 7px;
@@ -170,7 +167,7 @@ $main-green: #6ba259;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 500;
 	font-size: 1rem;
-	h2{
+	h2 {
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 5rem;
 		margin-bottom: 40px;
@@ -183,7 +180,7 @@ $main-green: #6ba259;
 			margin: 15px;
 			border: 5px solid $secondary;
 			border-radius: 30px 30px 30px 0px;
-			h3{
+			h3 {
 				font-family: 'Do Hyeon', sans-serif;
 				margin-top: 15px;
 				margin-bottom: 15px;
@@ -203,6 +200,9 @@ $main-green: #6ba259;
 }
 
 .review {
+	span {
+		opacity: 0;
+	}
 	margin-bottom: 250px;
 	margin-top: 50px;
 	.carousel-inner {
@@ -223,14 +223,14 @@ $main-green: #6ba259;
 		left: 0;
 		top: 0;
 	}
-	h2{
+	h2 {
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 5rem;
 		margin-top: 150px;
 		margin-bottom: 50px;
 	}
-	h3{
-		display:inline-block;
+	h3 {
+		display: inline-block;
 		text-align: center;
 		margin: 0 auto;
 		font-family: 'Noto Sans KR', sans-serif;
@@ -250,7 +250,7 @@ $main-green: #6ba259;
 .faqs {
 	background-color: #f0f0f0;
 	margin-top: 200px;
-	h2{
+	h2 {
 		font-family: 'Righteous', cursive;
 		font-size: 5rem;
 		margin-bottom: 40px;

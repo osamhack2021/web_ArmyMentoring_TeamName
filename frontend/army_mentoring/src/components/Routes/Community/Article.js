@@ -1,16 +1,18 @@
 import React, {useState, useEffect, useContext } from 'react';
 import './Article.scss';
 import { Link } from 'react-router-dom';
-import { Form, FormGroup, Input, Button } from 'reactstrap';
+import { Form, Input, Button } from 'reactstrap';
 import { _addComment, _loadArticle, _loadComment, _deleteArticle, _updateArticle, _updateComment, _deleteComment} from '../../../backend/community';
 import { UserContext }  from '../../../context/Context';
 import heartImg from '../img/heart.png'; 
 import dialogImg from '../img/dialog.png';
+import { _loadUser } from '../../../backend/profile';
 
 function Article({match, history}) {
 
     const article_id = match.params.id;
     const [user, setUser] = useContext(UserContext);
+    let Me = user;
     const [content,setContent] = useState({
         title : '',
         content : '',
@@ -22,28 +24,46 @@ function Article({match, history}) {
     const [commentDescription, setCommentDescription] = useState('');
     const [editCommentDescription, setEditCommentDescription] = useState('');
 
+    const getId = (url)=>{
+        if(url == undefined)
+            return -1;
+        const t = url.split('/');
+        return t[4];
+    }
+
     const load = ()=>{
         _loadArticle(article_id)
         .then(res=>{
             res.data.question_comments.sort((a,b)=>{
                 if(a < b)
                     return -1;
-                else if(a == b)
-                    return 0;
                 else if(a > b)
                     return 1;
+                return 0;
             })
             setContent(()=>res.data);
-            const result = Promise.all( //map함수로 모든 비동기요청을 처리한 뒤 promise 배열을 새로만든다.
+            Promise.all( //map함수로 모든 비동기요청을 처리한 뒤 promise 배열을 새로만든다.
                 res.data.question_comments.map(url=>{
                     const u = url.split('/');
                     const comment_id = u[4];
+                    let comment1;
                     return _loadComment(article_id, comment_id)
-                            .then(res=>{return {comment : res.data, id:comment_id}})
+                            .then(res=>{
+                                comment1 = res.data;
+                                console.log(comment1);
+                                return _loadUser(getId(res.data.user))
+                                        .then(res=>{
+                                            console.log(res);
+                                            return {comment : comment1, id:comment_id, user: res.data}
+                                        })
+                            })
                 })
             )
             .then(res=>{
+                console.log(res);
                 setComments(()=>res);
+                setCommentsLikedStyle();
+                setArticleLikedStyle();
             })
             .catch(err=>{
                 console.log(err.response);
@@ -54,8 +74,7 @@ function Article({match, history}) {
         })
     }
     useEffect(()=>{load();}, []);
-    useEffect(()=>{setArticleLikedStyle();}, [content]);
-    useEffect(()=>{setCommentsLikedStyle();}, [comments]);
+
 
     const setArticleLikedStyle = ()=>{
         let a = document.getElementById('article-like');
@@ -160,6 +179,10 @@ function Article({match, history}) {
             alert('댓글 내용을 입력해 주세요');
             return;
         }
+        if(Object.keys(user).length == 0){
+            alert('로그인 후 이용해 주세요!');
+            return;
+        }
         const user_id = getUserId();
         _addComment(article_id, user_id, commentDescription)
         .then(res=>{
@@ -171,6 +194,12 @@ function Article({match, history}) {
     }
 
     const deleteComment = (id) =>{
+        const i = findIndexOfComment(id);
+        console.log(comments[i]);
+        if(getId(comments[i].user.url) != getId(user.url)){
+            alert('본인의 댓글만 삭제가능합니다!');
+            return;
+        }
         _deleteComment(id)
         .then(res=>{
             load();
@@ -182,6 +211,11 @@ function Article({match, history}) {
 
     const goEditComment = (id)=>{
         const i = findIndexOfComment(id);
+        console.log(comments[i]);
+        if(getId(comments[i].user.url) != getId(user.url)){
+            alert('본인의 댓글만 수정가능합니다!');
+            return;
+        }
         const t = document.getElementById('edit-description'+id);
         t.value = comments[i].comment.content;
 
@@ -227,27 +261,35 @@ function Article({match, history}) {
                 <Button className='button' onClick={addComment}>댓글 입력</Button>
             </Form>
             <div className='comments'>
-                {comments.map(({comment, id})=>{
+                {comments.map(({comment, id, user})=>{
+                    console.log(comment);
                     const t = comment.user.split('/');
                     const uid = t[4];
+                    console.log('uid : ' + uid);
+                    console.log(user.url);
                     return (
                         <>
 
                         <div className='comment s' id={'comment'+id}>
                             <div className='head'>
-                                <img className="profile-image" alt="profile"></img>
+                                <img className="profile-image" alt='profile' src={user.profile_image}></img>
                             </div>
                             <div className='content'>
-                                <div className='writer'>작성자 : {uid}</div>
+                                <div className='writer'>작성자 : {user.username}</div>
                                 <div className='description'>{comment.content}</div>
                             </div>
                             <div className='tail'>
-                                <div className="update">
+                                {(uid == getId(Me.url)) ?                                
+                                (<div className="update">
                                     <div className="delete" onClick={()=>{deleteComment(id)}}>삭제</div>
                                     <div className="edit" onClick={()=>{goEditComment(id)}}>수정</div>
-                                </div>
+                                </div>)
+                                :
+                                (<div></div>)
+                                }
+
                                 <div className='like'><img src={heartImg} alt="heart" onClick={(e)=>{clickCommentLikes(e, id)}}></img>{comment.liked_user.length}</div>
-                                <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
+                                <div className='date'>{comment.created_at.substring(0,10)}</div>
                             </div>
                         </div>
 
@@ -256,7 +298,7 @@ function Article({match, history}) {
                                 <img className="profile-image" alt="profile"></img>
                             </div>
                             <div className='content'>
-                                <div className='writer'>작성자 : {uid}</div>
+                                <div className='writer'>작성자 : {user.username}</div>
                                 <Input type="text" className='edit-description' id={'edit-description'+id} onChange={(e)=>{setEditCommentDescription(e.target.value)}}></Input>
                             </div>
                             <div className='tail'>
@@ -264,7 +306,7 @@ function Article({match, history}) {
                                     <div className="delete" onClick={()=>{updateComment(id)}}>수정</div>
                                     <div className="edit" onClick={()=>{backEditComment(id)}}>취소</div>
                                 </div>
-                                    <div className='date'>{comment.updated_at}</div> {/*추후에 created_at으로 수정*/}
+                                    <div className='date'>{comment.created_at}</div>
                             </div>
                         </div>
 

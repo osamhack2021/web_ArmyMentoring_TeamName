@@ -3,19 +3,17 @@ import { updateUserContextBySavedToken } from './auth';
 
 const _editProfile = async (user, password, nickname, description, profileimage, setUser, user_id) =>{
     const formData = new FormData();
-    formData.append('profileimage', profileimage);
+    formData.append('profile_image', profileimage);
+    formData.append('username', user.username);
+    formData.append('password', password);
+    formData.append('nickname', nickname);
+    formData.append('description', description);
+    formData.append('email', user.email);
     try{
         const response = await axios({
             method : 'PUT',
             url : '/user/'+ user_id,
-            data : {
-                email : user.email,
-                username : user.username,
-                password : '123',
-                nickname : nickname,
-                description : description,
-                profile_image : null,
-            }
+            data : formData
         })
         await updateUserContextBySavedToken(setUser);
         return response;
