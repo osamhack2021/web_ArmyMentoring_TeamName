@@ -200,7 +200,7 @@
 ![ezgif com-resize (1)](https://user-images.githubusercontent.com/37038105/138025403-5b10db23-6724-4af4-a51a-426878e52570.gif)
 <br>
 
-검색창을 이용해 원하는 주제의 멘토링을 신청할 수 있습니다.
+검색창을 이용해 원하는 주제의 멘토링을 검색할 수 있습니다.
 
 멘토링 제목, 태그를 이용해 검색이 가능합니다.
 
@@ -494,13 +494,13 @@ $ yarn install && nohup yarn start &
 
 - `chatting/` 은 채팅 서버 관련 파일 저장 폴더 입니다
 
-<br>
-
 ## WEB(FE)에 해당하는 폴더들
 
 `frontend/army_mentoring/`
 
 - `frontend/army_mentoring/` 은 웹 앱 관련 파일 저장 폴더 입니다.
+
+<br>
 
 # ©️ 9. 저작권 및 사용권 정보 (Copyleft / End User License)
 
