@@ -5,7 +5,6 @@ nohup python manage.py runserver &
 cd ../chatting
 echo "start chatting"
 yarn install && nohup yarn start &
-cd ..
 echo "start web app"
-cd frontend/army_mentoring
+cd ../frontend/army_mentoring
 yarn install && nohup yarn start &
