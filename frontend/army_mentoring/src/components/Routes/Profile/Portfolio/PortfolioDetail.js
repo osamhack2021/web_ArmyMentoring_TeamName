@@ -8,32 +8,9 @@ import { UserContext } from "../../../../context/Context";
 function PortfolioDetail({match, history}) {
   const [portfolio, setPortfolio] = useState('');
   const [items, setItems] = useState([]);
-  const [u, setU] = useContext(UserContext);
-  const [other, setOther] = useState({});
+  const [user, setUser] = useContext(UserContext);
 
   const p_id = match.params.pid;
-
-  const getId = (url)=>{
-    const t = url.split('/');
-    return t[4];
-  }
-
-  const getUserId = ()=>{
-    if(Object.keys(u).length == 0)
-        return -1;
-    return getId(u.url);
-  }
-
-  let isMe = false;
-  let user;
-
-  if(p_id == getUserId())
-    isMe = true;
-
-  if(isMe)
-    user = u;
-  else
-    user = other;    
 
   const load = ()=>{
     _loadPortfolio(p_id)
@@ -66,7 +43,7 @@ function PortfolioDetail({match, history}) {
   const deletePortfolio = ()=>{
     _deletePortfolio(p_id)
     .then(res=>{
-      updateUserContextBySavedToken(setU);
+      updateUserContextBySavedToken(setUser);
       history.goBack();
     })
     .catch(err=>{

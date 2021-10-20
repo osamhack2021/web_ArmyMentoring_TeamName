@@ -132,7 +132,7 @@ function MakeMentoring({history}){
                     
                     <div className='edit_block'>
                         <div className="thumbnail">
-                            <img className="preview" alt ref={thumbnailPreviewRef} />
+                            <img className="preview" alt='thumnail preview' ref={thumbnailPreviewRef} />
                             <input type="file" className='thumbnail_input' accept="image/*" 
                             onChange={handleUploadImage}/>
                         </div>

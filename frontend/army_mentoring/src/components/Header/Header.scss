@@ -36,4 +36,11 @@ li{
         color:$gray3;
     }
   }
+  span{
+    color:$tertiary;
+    cursor:pointer;
+    &:hover{
+        color:$gray3;
+    }
+  }
 }

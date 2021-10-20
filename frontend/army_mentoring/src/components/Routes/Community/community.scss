@@ -25,16 +25,13 @@
 }
 
 @mixin communityPost{
-    margin: 30px;
     padding: 30px;
     display: flex;
     flex-direction: column;
-    border: solid;
     width: 800px;
     margin:30px auto;
     background-color: $white;
     border: 2px solid $gray3;
-    color: $black;
     border-radius: 20px 20px 20px 0px;
     text-decoration: none;
     color: $gray1;
